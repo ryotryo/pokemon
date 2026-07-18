@@ -1,0 +1,15 @@
+{
+  "season": "Current",
+  "updatedAt": "2026-07-18T08:22:53.859Z",
+  "source": "https://championsbattledata.com/api",
+  "formats": {
+    "Singles": {
+      "count": 235,
+      "source": "https://championsbattledata.com/api/battle/Singles/:name?season=Current"
+    },
+    "Doubles": {
+      "count": 235,
+      "source": "https://championsbattledata.com/api/battle/Doubles/:name?season=Current"
+    }
+  }
+}

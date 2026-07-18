@@ -1,0 +1,4032 @@
+{
+  "earthquake": {
+    "id": "earthquake",
+    "name": "Earthquake",
+    "displayNameJa": "じしん",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "stealth-rock": {
+    "id": "stealth-rock",
+    "name": "Stealth Rock",
+    "displayNameJa": "ステルスロック",
+    "type": "rock",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "scale-shot": {
+    "id": "scale-shot",
+    "name": "Scale Shot",
+    "displayNameJa": "スケイルショット",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "outrage": {
+    "id": "outrage",
+    "name": "Outrage",
+    "displayNameJa": "げきりん",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "swords-dance": {
+    "id": "swords-dance",
+    "name": "Swords Dance",
+    "displayNameJa": "つるぎのまい",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "rock-tomb": {
+    "id": "rock-tomb",
+    "name": "Rock Tomb",
+    "displayNameJa": "がんせきふうじ",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dragon-tail": {
+    "id": "dragon-tail",
+    "name": "Dragon Tail",
+    "displayNameJa": "ドラゴンテール",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "spikes": {
+    "id": "spikes",
+    "name": "Spikes",
+    "displayNameJa": "まきびし",
+    "type": "ground",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "rock-slide": {
+    "id": "rock-slide",
+    "name": "Rock Slide",
+    "displayNameJa": "いわなだれ",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "poison-jab": {
+    "id": "poison-jab",
+    "name": "Poison Jab",
+    "displayNameJa": "どくづき",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flamethrower": {
+    "id": "flamethrower",
+    "name": "Flamethrower",
+    "displayNameJa": "かえんほうしゃ",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dazzling-gleam": {
+    "id": "dazzling-gleam",
+    "name": "Dazzling Gleam",
+    "displayNameJa": "マジカルシャイン",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "psychic": {
+    "id": "psychic",
+    "name": "Psychic",
+    "displayNameJa": "サイコキネシス",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "nasty-plot": {
+    "id": "nasty-plot",
+    "name": "Nasty Plot",
+    "displayNameJa": "わるだくみ",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "substitute": {
+    "id": "substitute",
+    "name": "Substitute",
+    "displayNameJa": "みがわり",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "psyshock": {
+    "id": "psyshock",
+    "name": "Psyshock",
+    "displayNameJa": "サイコショック",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "encore": {
+    "id": "encore",
+    "name": "Encore",
+    "displayNameJa": "アンコール",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "mystical-fire": {
+    "id": "mystical-fire",
+    "name": "Mystical Fire",
+    "displayNameJa": "マジカルフレイム",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "grass-knot": {
+    "id": "grass-knot",
+    "name": "Grass Knot",
+    "displayNameJa": "くさむすび",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "will-o-wisp": {
+    "id": "will-o-wisp",
+    "name": "Will-O-Wisp",
+    "displayNameJa": "おにび",
+    "type": "fire",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "shadow-ball": {
+    "id": "shadow-ball",
+    "name": "Shadow Ball",
+    "displayNameJa": "シャドーボール",
+    "type": "ghost",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "make-it-rain": {
+    "id": "make-it-rain",
+    "name": "Make It Rain",
+    "displayNameJa": "ゴールドラッシュ",
+    "type": "steel",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "recover": {
+    "id": "recover",
+    "name": "Recover",
+    "displayNameJa": "じこさいせい",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "trick": {
+    "id": "trick",
+    "name": "Trick",
+    "displayNameJa": "トリック",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "thunderbolt": {
+    "id": "thunderbolt",
+    "name": "Thunderbolt",
+    "displayNameJa": "１０まんボルト",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "power-gem": {
+    "id": "power-gem",
+    "name": "Power Gem",
+    "displayNameJa": "パワージェム",
+    "type": "rock",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "focus-blast": {
+    "id": "focus-blast",
+    "name": "Focus Blast",
+    "displayNameJa": "きあいだま",
+    "type": "fighting",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flash-cannon": {
+    "id": "flash-cannon",
+    "name": "Flash Cannon",
+    "displayNameJa": "ラスターカノン",
+    "type": "steel",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dark-pulse": {
+    "id": "dark-pulse",
+    "name": "Dark Pulse",
+    "displayNameJa": "あくのはどう",
+    "type": "dark",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "draco-meteor": {
+    "id": "draco-meteor",
+    "name": "Draco Meteor",
+    "displayNameJa": "りゅうせいぐん",
+    "type": "dragon",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "u-turn": {
+    "id": "u-turn",
+    "name": "U-turn",
+    "displayNameJa": "とんぼがえり",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fire-blast": {
+    "id": "fire-blast",
+    "name": "Fire Blast",
+    "displayNameJa": "だいもんじ",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "earth-power": {
+    "id": "earth-power",
+    "name": "Earth Power",
+    "displayNameJa": "だいちのちから",
+    "type": "ground",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "taunt": {
+    "id": "taunt",
+    "name": "Taunt",
+    "displayNameJa": "ちょうはつ",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "flower-trick": {
+    "id": "flower-trick",
+    "name": "Flower Trick",
+    "displayNameJa": "トリックフラワー",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "triple-axel": {
+    "id": "triple-axel",
+    "name": "Triple Axel",
+    "displayNameJa": "トリプルアクセル",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "knock-off": {
+    "id": "knock-off",
+    "name": "Knock Off",
+    "displayNameJa": "はたきおとす",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sucker-punch": {
+    "id": "sucker-punch",
+    "name": "Sucker Punch",
+    "displayNameJa": "ふいうち",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "thunder-punch": {
+    "id": "thunder-punch",
+    "name": "Thunder Punch",
+    "displayNameJa": "かみなりパンチ",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "play-rough": {
+    "id": "play-rough",
+    "name": "Play Rough",
+    "displayNameJa": "じゃれつく",
+    "type": "fairy",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "toxic-spikes": {
+    "id": "toxic-spikes",
+    "name": "Toxic Spikes",
+    "displayNameJa": "どくびし",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "foul-play": {
+    "id": "foul-play",
+    "name": "Foul Play",
+    "displayNameJa": "イカサマ",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "solar-beam": {
+    "id": "solar-beam",
+    "name": "Solar Beam",
+    "displayNameJa": "ソーラービーム",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "air-slash": {
+    "id": "air-slash",
+    "name": "Air Slash",
+    "displayNameJa": "エアスラッシュ",
+    "type": "flying",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flare-blitz": {
+    "id": "flare-blitz",
+    "name": "Flare Blitz",
+    "displayNameJa": "フレアドライブ",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flame-charge": {
+    "id": "flame-charge",
+    "name": "Flame Charge",
+    "displayNameJa": "ニトロチャージ",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "overheat": {
+    "id": "overheat",
+    "name": "Overheat",
+    "displayNameJa": "オーバーヒート",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dragon-dance": {
+    "id": "dragon-dance",
+    "name": "Dragon Dance",
+    "displayNameJa": "りゅうのまい",
+    "type": "dragon",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "weather-ball": {
+    "id": "weather-ball",
+    "name": "Weather Ball",
+    "displayNameJa": "ウェザーボール",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "roost": {
+    "id": "roost",
+    "name": "Roost",
+    "displayNameJa": "はねやすめ",
+    "type": "flying",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "dragon-claw": {
+    "id": "dragon-claw",
+    "name": "Dragon Claw",
+    "displayNameJa": "ドラゴンクロー",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "waterfall": {
+    "id": "waterfall",
+    "name": "Waterfall",
+    "displayNameJa": "たきのぼり",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "power-whip": {
+    "id": "power-whip",
+    "name": "Power Whip",
+    "displayNameJa": "パワーウィップ",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ice-fang": {
+    "id": "ice-fang",
+    "name": "Ice Fang",
+    "displayNameJa": "こおりのキバ",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "crunch": {
+    "id": "crunch",
+    "name": "Crunch",
+    "displayNameJa": "かみくだく",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "avalanche": {
+    "id": "avalanche",
+    "name": "Avalanche",
+    "displayNameJa": "ゆきなだれ",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "temper-flare": {
+    "id": "temper-flare",
+    "name": "Temper Flare",
+    "displayNameJa": "やけっぱち",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aqua-tail": {
+    "id": "aqua-tail",
+    "name": "Aqua Tail",
+    "displayNameJa": "アクアテール",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sludge-wave": {
+    "id": "sludge-wave",
+    "name": "Sludge Wave",
+    "displayNameJa": "ヘドロウェーブ",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "energy-ball": {
+    "id": "energy-ball",
+    "name": "Energy Ball",
+    "displayNameJa": "エナジーボール",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mud-shot": {
+    "id": "mud-shot",
+    "name": "Mud Shot",
+    "displayNameJa": "マッドショット",
+    "type": "ground",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mortal-spin": {
+    "id": "mortal-spin",
+    "name": "Mortal Spin",
+    "displayNameJa": "キラースピン",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "spiky-shield": {
+    "id": "spiky-shield",
+    "name": "Spiky Shield",
+    "displayNameJa": "ニードルガード",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sludge-bomb": {
+    "id": "sludge-bomb",
+    "name": "Sludge Bomb",
+    "displayNameJa": "ヘドロばくだん",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "yawn": {
+    "id": "yawn",
+    "name": "Yawn",
+    "displayNameJa": "あくび",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "slack-off": {
+    "id": "slack-off",
+    "name": "Slack Off",
+    "displayNameJa": "なまける",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "whirlwind": {
+    "id": "whirlwind",
+    "name": "Whirlwind",
+    "displayNameJa": "ふきとばし",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "force-switch",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "protect": {
+    "id": "protect",
+    "name": "Protect",
+    "displayNameJa": "まもる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "roar": {
+    "id": "roar",
+    "name": "Roar",
+    "displayNameJa": "ほえる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "force-switch",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "fissure": {
+    "id": "fissure",
+    "name": "Fissure",
+    "displayNameJa": "じわれ",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "ohko",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "shadow-sneak": {
+    "id": "shadow-sneak",
+    "name": "Shadow Sneak",
+    "displayNameJa": "かげうち",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "shadow-claw": {
+    "id": "shadow-claw",
+    "name": "Shadow Claw",
+    "displayNameJa": "シャドークロー",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "curse": {
+    "id": "curse",
+    "name": "Curse",
+    "displayNameJa": "のろい",
+    "type": "ghost",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "wood-hammer": {
+    "id": "wood-hammer",
+    "name": "Wood Hammer",
+    "displayNameJa": "ウッドハンマー",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "drain-punch": {
+    "id": "drain-punch",
+    "name": "Drain Punch",
+    "displayNameJa": "ドレインパンチ",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "trick-room": {
+    "id": "trick-room",
+    "name": "Trick Room",
+    "displayNameJa": "トリックルーム",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "destiny-bond": {
+    "id": "destiny-bond",
+    "name": "Destiny Bond",
+    "displayNameJa": "みちづれ",
+    "type": "ghost",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "close-combat": {
+    "id": "close-combat",
+    "name": "Close Combat",
+    "displayNameJa": "インファイト",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "brave-bird": {
+    "id": "brave-bird",
+    "name": "Brave Bird",
+    "displayNameJa": "ブレイブバード",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "blaze-kick": {
+    "id": "blaze-kick",
+    "name": "Blaze Kick",
+    "displayNameJa": "ブレイズキック",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "final-gambit": {
+    "id": "final-gambit",
+    "name": "Final Gambit",
+    "displayNameJa": "いのちがけ",
+    "type": "fighting",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "double-edge": {
+    "id": "double-edge",
+    "name": "Double-Edge",
+    "displayNameJa": "すてみタックル",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dual-wingbeat": {
+    "id": "dual-wingbeat",
+    "name": "Dual Wingbeat",
+    "displayNameJa": "ダブルウイング",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "extreme-speed": {
+    "id": "extreme-speed",
+    "name": "Extreme Speed",
+    "displayNameJa": "しんそく",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ice-beam": {
+    "id": "ice-beam",
+    "name": "Ice Beam",
+    "displayNameJa": "れいとうビーム",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "kings-shield": {
+    "id": "kings-shield",
+    "name": "King's Shield",
+    "displayNameJa": "キングシールド",
+    "type": "steel",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "poltergeist": {
+    "id": "poltergeist",
+    "name": "Poltergeist",
+    "displayNameJa": "ポルターガイスト",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sacred-sword": {
+    "id": "sacred-sword",
+    "name": "Sacred Sword",
+    "displayNameJa": "せいなるつるぎ",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "iron-head": {
+    "id": "iron-head",
+    "name": "Iron Head",
+    "displayNameJa": "アイアンヘッド",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aurora-veil": {
+    "id": "aurora-veil",
+    "name": "Aurora Veil",
+    "displayNameJa": "オーロラベール",
+    "type": "ice",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "freeze-dry": {
+    "id": "freeze-dry",
+    "name": "Freeze-Dry",
+    "displayNameJa": "フリーズドライ",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "blizzard": {
+    "id": "blizzard",
+    "name": "Blizzard",
+    "displayNameJa": "ふぶき",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "moonblast": {
+    "id": "moonblast",
+    "name": "Moonblast",
+    "displayNameJa": "ムーンフォース",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "pain-split": {
+    "id": "pain-split",
+    "name": "Pain Split",
+    "displayNameJa": "いたみわけ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "misty-terrain": {
+    "id": "misty-terrain",
+    "name": "Misty Terrain",
+    "displayNameJa": "ミストフィールド",
+    "type": "fairy",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "ice-shard": {
+    "id": "ice-shard",
+    "name": "Ice Shard",
+    "displayNameJa": "こおりのつぶて",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hydro-pump": {
+    "id": "hydro-pump",
+    "name": "Hydro Pump",
+    "displayNameJa": "ハイドロポンプ",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "volt-switch": {
+    "id": "volt-switch",
+    "name": "Volt Switch",
+    "displayNameJa": "ボルトチェンジ",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "light-screen": {
+    "id": "light-screen",
+    "name": "Light Screen",
+    "displayNameJa": "ひかりのかべ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "discharge": {
+    "id": "discharge",
+    "name": "Discharge",
+    "displayNameJa": "ほうでん",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "thunder-wave": {
+    "id": "thunder-wave",
+    "name": "Thunder Wave",
+    "displayNameJa": "でんじは",
+    "type": "electric",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "ceaseless-edge": {
+    "id": "ceaseless-edge",
+    "name": "Ceaseless Edge",
+    "displayNameJa": "ひけん・ちえなみ",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "razor-shell": {
+    "id": "razor-shell",
+    "name": "Razor Shell",
+    "displayNameJa": "シェルブレード",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aqua-cutter": {
+    "id": "aqua-cutter",
+    "name": "Aqua Cutter",
+    "displayNameJa": "アクアカッター",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flip-turn": {
+    "id": "flip-turn",
+    "name": "Flip Turn",
+    "displayNameJa": "クイックターン",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aqua-jet": {
+    "id": "aqua-jet",
+    "name": "Aqua Jet",
+    "displayNameJa": "アクアジェット",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mirror-coat": {
+    "id": "mirror-coat",
+    "name": "Mirror Coat",
+    "displayNameJa": "ミラーコート",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "aura-sphere": {
+    "id": "aura-sphere",
+    "name": "Aura Sphere",
+    "displayNameJa": "はどうだん",
+    "type": "fighting",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "electro-shot": {
+    "id": "electro-shot",
+    "name": "Electro Shot",
+    "displayNameJa": "エレクトロビーム",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "liquidation": {
+    "id": "liquidation",
+    "name": "Liquidation",
+    "displayNameJa": "アクアブレイク",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ice-spinner": {
+    "id": "ice-spinner",
+    "name": "Ice Spinner",
+    "displayNameJa": "アイススピナー",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "zen-headbutt": {
+    "id": "zen-headbutt",
+    "name": "Zen Headbutt",
+    "displayNameJa": "しねんのずつき",
+    "type": "psychic",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "psycho-cut": {
+    "id": "psycho-cut",
+    "name": "Psycho Cut",
+    "displayNameJa": "サイコカッター",
+    "type": "psychic",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "minimize": {
+    "id": "minimize",
+    "name": "Minimize",
+    "displayNameJa": "ちいさくなる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "rapid-spin": {
+    "id": "rapid-spin",
+    "name": "Rapid Spin",
+    "displayNameJa": "こうそくスピン",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sparkling-aria": {
+    "id": "sparkling-aria",
+    "name": "Sparkling Aria",
+    "displayNameJa": "うたかたのアリア",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "calm-mind": {
+    "id": "calm-mind",
+    "name": "Calm Mind",
+    "displayNameJa": "めいそう",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "surf": {
+    "id": "surf",
+    "name": "Surf",
+    "displayNameJa": "なみのり",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "body-press": {
+    "id": "body-press",
+    "name": "Body Press",
+    "displayNameJa": "ボディプレス",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "iron-defense": {
+    "id": "iron-defense",
+    "name": "Iron Defense",
+    "displayNameJa": "てっぺき",
+    "type": "steel",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "bulk-up": {
+    "id": "bulk-up",
+    "name": "Bulk Up",
+    "displayNameJa": "ビルドアップ",
+    "type": "fighting",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "defog": {
+    "id": "defog",
+    "name": "Defog",
+    "displayNameJa": "きりばらい",
+    "type": "flying",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "power-trip": {
+    "id": "power-trip",
+    "name": "Power Trip",
+    "displayNameJa": "つけあがる",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "psychic-fangs": {
+    "id": "psychic-fangs",
+    "name": "Psychic Fangs",
+    "displayNameJa": "サイコファング",
+    "type": "psychic",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bullet-punch": {
+    "id": "bullet-punch",
+    "name": "Bullet Punch",
+    "displayNameJa": "バレットパンチ",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ice-punch": {
+    "id": "ice-punch",
+    "name": "Ice Punch",
+    "displayNameJa": "れいとうパンチ",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hammer-arm": {
+    "id": "hammer-arm",
+    "name": "Hammer Arm",
+    "displayNameJa": "アームハンマー",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bug-bite": {
+    "id": "bug-bite",
+    "name": "Bug Bite",
+    "displayNameJa": "むしくい",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "brick-break": {
+    "id": "brick-break",
+    "name": "Brick Break",
+    "displayNameJa": "かわらわり",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "detect": {
+    "id": "detect",
+    "name": "Detect",
+    "displayNameJa": "みきり",
+    "type": "fighting",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "high-jump-kick": {
+    "id": "high-jump-kick",
+    "name": "High Jump Kick",
+    "displayNameJa": "とびひざげり",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "baton-pass": {
+    "id": "baton-pass",
+    "name": "Baton Pass",
+    "displayNameJa": "バトンタッチ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "stone-edge": {
+    "id": "stone-edge",
+    "name": "Stone Edge",
+    "displayNameJa": "ストーンエッジ",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "zap-cannon": {
+    "id": "zap-cannon",
+    "name": "Zap Cannon",
+    "displayNameJa": "でんじほう",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fake-out": {
+    "id": "fake-out",
+    "name": "Fake Out",
+    "displayNameJa": "ねこだまし",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "alluring-voice": {
+    "id": "alluring-voice",
+    "name": "Alluring Voice",
+    "displayNameJa": "みわくのボイス",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "trailblaze": {
+    "id": "trailblaze",
+    "name": "Trailblaze",
+    "displayNameJa": "くさわけ",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "soak": {
+    "id": "soak",
+    "name": "Soak",
+    "displayNameJa": "みずびたし",
+    "type": "water",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "toxic": {
+    "id": "toxic",
+    "name": "Toxic",
+    "displayNameJa": "どくどく",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "parabolic-charge": {
+    "id": "parabolic-charge",
+    "name": "Parabolic Charge",
+    "displayNameJa": "パラボラチャージ",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "acid-spray": {
+    "id": "acid-spray",
+    "name": "Acid Spray",
+    "displayNameJa": "アシッドボム",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "reflect": {
+    "id": "reflect",
+    "name": "Reflect",
+    "displayNameJa": "リフレクター",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "kowtow-cleave": {
+    "id": "kowtow-cleave",
+    "name": "Kowtow Cleave",
+    "displayNameJa": "ドゲザン",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "low-kick": {
+    "id": "low-kick",
+    "name": "Low Kick",
+    "displayNameJa": "けたぐり",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "guillotine": {
+    "id": "guillotine",
+    "name": "Guillotine",
+    "displayNameJa": "ハサミギロチン",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "ohko",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "metal-burst": {
+    "id": "metal-burst",
+    "name": "Metal Burst",
+    "displayNameJa": "メタルバースト",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "last-respects": {
+    "id": "last-respects",
+    "name": "Last Respects",
+    "displayNameJa": "おはかまいり",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "wave-crash": {
+    "id": "wave-crash",
+    "name": "Wave Crash",
+    "displayNameJa": "ウェーブタックル",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "agility": {
+    "id": "agility",
+    "name": "Agility",
+    "displayNameJa": "こうそくいどう",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "head-smash": {
+    "id": "head-smash",
+    "name": "Head Smash",
+    "displayNameJa": "もろはのずつき",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "water-shuriken": {
+    "id": "water-shuriken",
+    "name": "Water Shuriken",
+    "displayNameJa": "みずしゅりけん",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "perish-song": {
+    "id": "perish-song",
+    "name": "Perish Song",
+    "displayNameJa": "ほろびのうた",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "icy-wind": {
+    "id": "icy-wind",
+    "name": "Icy Wind",
+    "displayNameJa": "こごえるかぜ",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hex": {
+    "id": "hex",
+    "name": "Hex",
+    "displayNameJa": "たたりめ",
+    "type": "ghost",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "torch-song": {
+    "id": "torch-song",
+    "name": "Torch Song",
+    "displayNameJa": "フレアソング",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "burn-up": {
+    "id": "burn-up",
+    "name": "Burn Up",
+    "displayNameJa": "もえつきる",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dragon-pulse": {
+    "id": "dragon-pulse",
+    "name": "Dragon Pulse",
+    "displayNameJa": "りゅうのはどう",
+    "type": "dragon",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "snarl": {
+    "id": "snarl",
+    "name": "Snarl",
+    "displayNameJa": "バークアウト",
+    "type": "dark",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "steel-beam": {
+    "id": "steel-beam",
+    "name": "Steel Beam",
+    "displayNameJa": "てっていこうせん",
+    "type": "steel",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "parting-shot": {
+    "id": "parting-shot",
+    "name": "Parting Shot",
+    "displayNameJa": "すてゼリフ",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "spirit-break": {
+    "id": "spirit-break",
+    "name": "Spirit Break",
+    "displayNameJa": "ソウルクラッシュ",
+    "type": "fairy",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "scary-face": {
+    "id": "scary-face",
+    "name": "Scary Face",
+    "displayNameJa": "こわいかお",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "fake-tears": {
+    "id": "fake-tears",
+    "name": "Fake Tears",
+    "displayNameJa": "うそなき",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "helping-hand": {
+    "id": "helping-hand",
+    "name": "Helping Hand",
+    "displayNameJa": "てだすけ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "twin-beam": {
+    "id": "twin-beam",
+    "name": "Twin Beam",
+    "displayNameJa": "ツインビーム",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hyper-voice": {
+    "id": "hyper-voice",
+    "name": "Hyper Voice",
+    "displayNameJa": "ハイパーボイス",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "imprison": {
+    "id": "imprison",
+    "name": "Imprison",
+    "displayNameJa": "ふういん",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "low-sweep": {
+    "id": "low-sweep",
+    "name": "Low Sweep",
+    "displayNameJa": "ローキック",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rain-dance": {
+    "id": "rain-dance",
+    "name": "Rain Dance",
+    "displayNameJa": "あまごい",
+    "type": "water",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "disable": {
+    "id": "disable",
+    "name": "Disable",
+    "displayNameJa": "かなしばり",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "quash": {
+    "id": "quash",
+    "name": "Quash",
+    "displayNameJa": "さきおくり",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sunny-day": {
+    "id": "sunny-day",
+    "name": "Sunny Day",
+    "displayNameJa": "にほんばれ",
+    "type": "fire",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "quick-attack": {
+    "id": "quick-attack",
+    "name": "Quick Attack",
+    "displayNameJa": "でんこうせっか",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hyper-beam": {
+    "id": "hyper-beam",
+    "name": "Hyper Beam",
+    "displayNameJa": "はかいこうせん",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "darkest-lariat": {
+    "id": "darkest-lariat",
+    "name": "Darkest Lariat",
+    "displayNameJa": "ＤＤラリアット",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "throat-chop": {
+    "id": "throat-chop",
+    "name": "Throat Chop",
+    "displayNameJa": "じごくづき",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "volt-tackle": {
+    "id": "volt-tackle",
+    "name": "Volt Tackle",
+    "displayNameJa": "ボルテッカー",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rising-voltage": {
+    "id": "rising-voltage",
+    "name": "Rising Voltage",
+    "displayNameJa": "ライジングボルト",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "muddy-water": {
+    "id": "muddy-water",
+    "name": "Muddy Water",
+    "displayNameJa": "だくりゅう",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "scald": {
+    "id": "scald",
+    "name": "Scald",
+    "displayNameJa": "ねっとう",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hypnosis": {
+    "id": "hypnosis",
+    "name": "Hypnosis",
+    "displayNameJa": "さいみんじゅつ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "coil": {
+    "id": "coil",
+    "name": "Coil",
+    "displayNameJa": "とぐろをまく",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "life-dew": {
+    "id": "life-dew",
+    "name": "Life Dew",
+    "displayNameJa": "いのちのしずく",
+    "type": "water",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "haze": {
+    "id": "haze",
+    "name": "Haze",
+    "displayNameJa": "くろいきり",
+    "type": "ice",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "tailwind": {
+    "id": "tailwind",
+    "name": "Tailwind",
+    "displayNameJa": "おいかぜ",
+    "type": "flying",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "wide-guard": {
+    "id": "wide-guard",
+    "name": "Wide Guard",
+    "displayNameJa": "ワイドガード",
+    "type": "rock",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "charm": {
+    "id": "charm",
+    "name": "Charm",
+    "displayNameJa": "あまえる",
+    "type": "fairy",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "facade": {
+    "id": "facade",
+    "name": "Facade",
+    "displayNameJa": "からげんき",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "water-spout": {
+    "id": "water-spout",
+    "name": "Water Spout",
+    "displayNameJa": "しおふき",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "shell-smash": {
+    "id": "shell-smash",
+    "name": "Shell Smash",
+    "displayNameJa": "からをやぶる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "water-pulse": {
+    "id": "water-pulse",
+    "name": "Water Pulse",
+    "displayNameJa": "みずのはどう",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "matcha-gotcha": {
+    "id": "matcha-gotcha",
+    "name": "Matcha Gotcha",
+    "displayNameJa": "シャカシャカほう",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rage-powder": {
+    "id": "rage-powder",
+    "name": "Rage Powder",
+    "displayNameJa": "いかりのこな",
+    "type": "bug",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "strength-sap": {
+    "id": "strength-sap",
+    "name": "Strength Sap",
+    "displayNameJa": "ちからをすいとる",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "psych-up": {
+    "id": "psych-up",
+    "name": "Psych Up",
+    "displayNameJa": "じこあんじ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "heat-wave": {
+    "id": "heat-wave",
+    "name": "Heat Wave",
+    "displayNameJa": "ねっぷう",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ancient-power": {
+    "id": "ancient-power",
+    "name": "Ancient Power",
+    "displayNameJa": "げんしのちから",
+    "type": "rock",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "stomping-tantrum": {
+    "id": "stomping-tantrum",
+    "name": "Stomping Tantrum",
+    "displayNameJa": "じだんだ",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "meteor-mash": {
+    "id": "meteor-mash",
+    "name": "Meteor Mash",
+    "displayNameJa": "コメットパンチ",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "high-horsepower": {
+    "id": "high-horsepower",
+    "name": "High Horsepower",
+    "displayNameJa": "１０まんばりき",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hurricane": {
+    "id": "hurricane",
+    "name": "Hurricane",
+    "displayNameJa": "ぼうふう",
+    "type": "flying",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "follow-me": {
+    "id": "follow-me",
+    "name": "Follow Me",
+    "displayNameJa": "このゆびとまれ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "population-bomb": {
+    "id": "population-bomb",
+    "name": "Population Bomb",
+    "displayNameJa": "ネズミざん",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "super-fang": {
+    "id": "super-fang",
+    "name": "Super Fang",
+    "displayNameJa": "いかりのまえば",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "feint": {
+    "id": "feint",
+    "name": "Feint",
+    "displayNameJa": "フェイント",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "beat-up": {
+    "id": "beat-up",
+    "name": "Beat Up",
+    "displayNameJa": "ふくろだたき",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dire-claw": {
+    "id": "dire-claw",
+    "name": "Dire Claw",
+    "displayNameJa": "フェイタルクロー",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "quick-guard": {
+    "id": "quick-guard",
+    "name": "Quick Guard",
+    "displayNameJa": "ファストガード",
+    "type": "fighting",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "coaching": {
+    "id": "coaching",
+    "name": "Coaching",
+    "displayNameJa": "コーチング",
+    "type": "fighting",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "eruption": {
+    "id": "eruption",
+    "name": "Eruption",
+    "displayNameJa": "ふんか",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "burning-jealousy": {
+    "id": "burning-jealousy",
+    "name": "Burning Jealousy",
+    "displayNameJa": "しっとのほのお",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sleep-powder": {
+    "id": "sleep-powder",
+    "name": "Sleep Powder",
+    "displayNameJa": "ねむりごな",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "giga-drain": {
+    "id": "giga-drain",
+    "name": "Giga Drain",
+    "displayNameJa": "ギガドレイン",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "leaf-storm": {
+    "id": "leaf-storm",
+    "name": "Leaf Storm",
+    "displayNameJa": "リーフストーム",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "leech-seed": {
+    "id": "leech-seed",
+    "name": "Leech Seed",
+    "displayNameJa": "やどりぎのタネ",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "light-of-ruin": {
+    "id": "light-of-ruin",
+    "name": "Light of Ruin",
+    "displayNameJa": "はめつのひかり",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "draining-kiss": {
+    "id": "draining-kiss",
+    "name": "Draining Kiss",
+    "displayNameJa": "ドレインキッス",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "synthesis": {
+    "id": "synthesis",
+    "name": "Synthesis",
+    "displayNameJa": "こうごうせい",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "thunder": {
+    "id": "thunder",
+    "name": "Thunder",
+    "displayNameJa": "かみなり",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "double-team": {
+    "id": "double-team",
+    "name": "Double Team",
+    "displayNameJa": "かげぶんしん",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "vacuum-wave": {
+    "id": "vacuum-wave",
+    "name": "Vacuum Wave",
+    "displayNameJa": "しんくうは",
+    "type": "fighting",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "memento": {
+    "id": "memento",
+    "name": "Memento",
+    "displayNameJa": "おきみやげ",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "electric-terrain": {
+    "id": "electric-terrain",
+    "name": "Electric Terrain",
+    "displayNameJa": "エレキフィールド",
+    "type": "electric",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "nuzzle": {
+    "id": "nuzzle",
+    "name": "Nuzzle",
+    "displayNameJa": "ほっぺすりすり",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "endeavor": {
+    "id": "endeavor",
+    "name": "Endeavor",
+    "displayNameJa": "がむしゃら",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "psychic-terrain": {
+    "id": "psychic-terrain",
+    "name": "Psychic Terrain",
+    "displayNameJa": "サイコフィールド",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "expanding-force": {
+    "id": "expanding-force",
+    "name": "Expanding Force",
+    "displayNameJa": "ワイドフォース",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "speed-swap": {
+    "id": "speed-swap",
+    "name": "Speed Swap",
+    "displayNameJa": "スピードスワップ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "scorching-sands": {
+    "id": "scorching-sands",
+    "name": "Scorching Sands",
+    "displayNameJa": "ねっさのだいち",
+    "type": "ground",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "tidy-up": {
+    "id": "tidy-up",
+    "name": "Tidy Up",
+    "displayNameJa": "おかたづけ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "bite": {
+    "id": "bite",
+    "name": "Bite",
+    "displayNameJa": "かみつく",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bullet-seed": {
+    "id": "bullet-seed",
+    "name": "Bullet Seed",
+    "displayNameJa": "タネマシンガン",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fire-fang": {
+    "id": "fire-fang",
+    "name": "Fire Fang",
+    "displayNameJa": "ほのおのキバ",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "acrobatics": {
+    "id": "acrobatics",
+    "name": "Acrobatics",
+    "displayNameJa": "アクロバット",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "wish": {
+    "id": "wish",
+    "name": "Wish",
+    "displayNameJa": "ねがいごと",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "lava-plume": {
+    "id": "lava-plume",
+    "name": "Lava Plume",
+    "displayNameJa": "ふんえん",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rock-blast": {
+    "id": "rock-blast",
+    "name": "Rock Blast",
+    "displayNameJa": "ロックブラスト",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "cotton-guard": {
+    "id": "cotton-guard",
+    "name": "Cotton Guard",
+    "displayNameJa": "コットンガード",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "venoshock": {
+    "id": "venoshock",
+    "name": "Venoshock",
+    "displayNameJa": "ベノムショック",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "lash-out": {
+    "id": "lash-out",
+    "name": "Lash Out",
+    "displayNameJa": "うっぷんばらし",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "night-slash": {
+    "id": "night-slash",
+    "name": "Night Slash",
+    "displayNameJa": "つじぎり",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "phantom-force": {
+    "id": "phantom-force",
+    "name": "Phantom Force",
+    "displayNameJa": "ゴーストダイブ",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "electroweb": {
+    "id": "electroweb",
+    "name": "Electroweb",
+    "displayNameJa": "エレキネット",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "hydro-cannon": {
+    "id": "hydro-cannon",
+    "name": "Hydro Cannon",
+    "displayNameJa": "ハイドロカノン",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "sheer-cold": {
+    "id": "sheer-cold",
+    "name": "Sheer Cold",
+    "displayNameJa": "ぜったいれいど",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "ohko",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "heavy-slam": {
+    "id": "heavy-slam",
+    "name": "Heavy Slam",
+    "displayNameJa": "ヘビーボンバー",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rest": {
+    "id": "rest",
+    "name": "Rest",
+    "displayNameJa": "ねむる",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "acid-armor": {
+    "id": "acid-armor",
+    "name": "Acid Armor",
+    "displayNameJa": "とける",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "stored-power": {
+    "id": "stored-power",
+    "name": "Stored Power",
+    "displayNameJa": "アシストパワー",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "body-slam": {
+    "id": "body-slam",
+    "name": "Body Slam",
+    "displayNameJa": "のしかかり",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fire-spin": {
+    "id": "fire-spin",
+    "name": "Fire Spin",
+    "displayNameJa": "ほのおのうず",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "charge": {
+    "id": "charge",
+    "name": "Charge",
+    "displayNameJa": "じゅうでん",
+    "type": "electric",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "rage-fist": {
+    "id": "rage-fist",
+    "name": "Rage Fist",
+    "displayNameJa": "ふんどのこぶし",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fling": {
+    "id": "fling",
+    "name": "Fling",
+    "displayNameJa": "なげつける",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "apple-acid": {
+    "id": "apple-acid",
+    "name": "Apple Acid",
+    "displayNameJa": "りんごさん",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "amnesia": {
+    "id": "amnesia",
+    "name": "Amnesia",
+    "displayNameJa": "ドわすれ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "recycle": {
+    "id": "recycle",
+    "name": "Recycle",
+    "displayNameJa": "リサイクル",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sticky-web": {
+    "id": "sticky-web",
+    "name": "Sticky Web",
+    "displayNameJa": "ねばねばネット",
+    "type": "bug",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "leech-life": {
+    "id": "leech-life",
+    "name": "Leech Life",
+    "displayNameJa": "きゅうけつ",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "lunge": {
+    "id": "lunge",
+    "name": "Lunge",
+    "displayNameJa": "とびかかる",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "pounce": {
+    "id": "pounce",
+    "name": "Pounce",
+    "displayNameJa": "とびつく",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "glare": {
+    "id": "glare",
+    "name": "Glare",
+    "displayNameJa": "へびにらみ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "gunk-shot": {
+    "id": "gunk-shot",
+    "name": "Gunk Shot",
+    "displayNameJa": "ダストシュート",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "morning-sun": {
+    "id": "morning-sun",
+    "name": "Morning Sun",
+    "displayNameJa": "あさのひざし",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "wild-charge": {
+    "id": "wild-charge",
+    "name": "Wild Charge",
+    "displayNameJa": "ワイルドボルト",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "toxic-thread": {
+    "id": "toxic-thread",
+    "name": "Toxic Thread",
+    "displayNameJa": "どくのいと",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "swagger",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "first-impression": {
+    "id": "first-impression",
+    "name": "First Impression",
+    "displayNameJa": "であいがしら",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "cross-poison": {
+    "id": "cross-poison",
+    "name": "Cross Poison",
+    "displayNameJa": "クロスポイズン",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "armor-cannon": {
+    "id": "armor-cannon",
+    "name": "Armor Cannon",
+    "displayNameJa": "アーマーキャノン",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "misty-explosion": {
+    "id": "misty-explosion",
+    "name": "Misty Explosion",
+    "displayNameJa": "ミストバースト",
+    "type": "fairy",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "healing-wish": {
+    "id": "healing-wish",
+    "name": "Healing Wish",
+    "displayNameJa": "いやしのねがい",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "icicle-spear": {
+    "id": "icicle-spear",
+    "name": "Icicle Spear",
+    "displayNameJa": "つららばり",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "icicle-crash": {
+    "id": "icicle-crash",
+    "name": "Icicle Crash",
+    "displayNameJa": "つららおとし",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "belly-drum": {
+    "id": "belly-drum",
+    "name": "Belly Drum",
+    "displayNameJa": "はらだいこ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "superpower": {
+    "id": "superpower",
+    "name": "Superpower",
+    "displayNameJa": "ばかぢから",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "counter": {
+    "id": "counter",
+    "name": "Counter",
+    "displayNameJa": "カウンター",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "drill-run": {
+    "id": "drill-run",
+    "name": "Drill Run",
+    "displayNameJa": "ドリルライナー",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fell-stinger": {
+    "id": "fell-stinger",
+    "name": "Fell Stinger",
+    "displayNameJa": "とどめばり",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "pin-missile": {
+    "id": "pin-missile",
+    "name": "Pin Missile",
+    "displayNameJa": "ミサイルばり",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "round": {
+    "id": "round",
+    "name": "Round",
+    "displayNameJa": "りんしょう",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bitter-blade": {
+    "id": "bitter-blade",
+    "name": "Bitter Blade",
+    "displayNameJa": "むねんのつるぎ",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "seed-bomb": {
+    "id": "seed-bomb",
+    "name": "Seed Bomb",
+    "displayNameJa": "タネばくだん",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "cosmic-power": {
+    "id": "cosmic-power",
+    "name": "Cosmic Power",
+    "displayNameJa": "コスモパワー",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "boomburst": {
+    "id": "boomburst",
+    "name": "Boomburst",
+    "displayNameJa": "ばくおんぱ",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "psychic-noise": {
+    "id": "psychic-noise",
+    "name": "Psychic Noise",
+    "displayNameJa": "サイコノイズ",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "moonlight": {
+    "id": "moonlight",
+    "name": "Moonlight",
+    "displayNameJa": "つきのひかり",
+    "type": "fairy",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "charge-beam": {
+    "id": "charge-beam",
+    "name": "Charge Beam",
+    "displayNameJa": "チャージビーム",
+    "type": "electric",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mach-punch": {
+    "id": "mach-punch",
+    "name": "Mach Punch",
+    "displayNameJa": "マッハパンチ",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fire-punch": {
+    "id": "fire-punch",
+    "name": "Fire Punch",
+    "displayNameJa": "ほのおのパンチ",
+    "type": "fire",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "ice-hammer": {
+    "id": "ice-hammer",
+    "name": "Ice Hammer",
+    "displayNameJa": "アイスハンマー",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "crabhammer": {
+    "id": "crabhammer",
+    "name": "Crabhammer",
+    "displayNameJa": "クラブハンマー",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "spirit-shackle": {
+    "id": "spirit-shackle",
+    "name": "Spirit Shackle",
+    "displayNameJa": "かげぬい",
+    "type": "ghost",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "leaf-blade": {
+    "id": "leaf-blade",
+    "name": "Leaf Blade",
+    "displayNameJa": "リーフブレード",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "eerie-impulse": {
+    "id": "eerie-impulse",
+    "name": "Eerie Impulse",
+    "displayNameJa": "かいでんぱ",
+    "type": "electric",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "flail": {
+    "id": "flail",
+    "name": "Flail",
+    "displayNameJa": "じたばた",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dragon-darts": {
+    "id": "dragon-darts",
+    "name": "Dragon Darts",
+    "displayNameJa": "ドラゴンアロー",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "supercell-slam": {
+    "id": "supercell-slam",
+    "name": "Supercell Slam",
+    "displayNameJa": "サンダーダイブ",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "storm-throw": {
+    "id": "storm-throw",
+    "name": "Storm Throw",
+    "displayNameJa": "やまあらし",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "lumina-crash": {
+    "id": "lumina-crash",
+    "name": "Lumina Crash",
+    "displayNameJa": "ルミナコリジョン",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "horn-drill": {
+    "id": "horn-drill",
+    "name": "Horn Drill",
+    "displayNameJa": "つのドリル",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "ohko",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "no-retreat": {
+    "id": "no-retreat",
+    "name": "No Retreat",
+    "displayNameJa": "はいすいのじん",
+    "type": "fighting",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "grav-apple": {
+    "id": "grav-apple",
+    "name": "Grav Apple",
+    "displayNameJa": "Ｇのちから",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dragon-rush": {
+    "id": "dragon-rush",
+    "name": "Dragon Rush",
+    "displayNameJa": "ドラゴンダイブ",
+    "type": "dragon",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aerial-ace": {
+    "id": "aerial-ace",
+    "name": "Aerial Ace",
+    "displayNameJa": "つばめがえし",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "tickle": {
+    "id": "tickle",
+    "name": "Tickle",
+    "displayNameJa": "くすぐる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "explosion": {
+    "id": "explosion",
+    "name": "Explosion",
+    "displayNameJa": "だいばくはつ",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "gyro-ball": {
+    "id": "gyro-ball",
+    "name": "Gyro Ball",
+    "displayNameJa": "ジャイロボール",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "shell-side-arm": {
+    "id": "shell-side-arm",
+    "name": "Shell Side Arm",
+    "displayNameJa": "シェルアームズ",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "chilly-reception": {
+    "id": "chilly-reception",
+    "name": "Chilly Reception",
+    "displayNameJa": "さむいギャグ",
+    "type": "ice",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "snap-trap": {
+    "id": "snap-trap",
+    "name": "Snap Trap",
+    "displayNameJa": "トラバサミ",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "salt-cure": {
+    "id": "salt-cure",
+    "name": "Salt Cure",
+    "displayNameJa": "しおづけ",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "frost-breath": {
+    "id": "frost-breath",
+    "name": "Frost Breath",
+    "displayNameJa": "こおりのいぶき",
+    "type": "ice",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "headlong-rush": {
+    "id": "headlong-rush",
+    "name": "Headlong Rush",
+    "displayNameJa": "ぶちかまし",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "dynamic-punch": {
+    "id": "dynamic-punch",
+    "name": "Dynamic Punch",
+    "displayNameJa": "ばくれつパンチ",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "flying-press": {
+    "id": "flying-press",
+    "name": "Flying Press",
+    "displayNameJa": "フライングプレス",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "shed-tail": {
+    "id": "shed-tail",
+    "name": "Shed Tail",
+    "displayNameJa": "しっぽきり",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "megahorn": {
+    "id": "megahorn",
+    "name": "Megahorn",
+    "displayNameJa": "メガホーン",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mountain-gale": {
+    "id": "mountain-gale",
+    "name": "Mountain Gale",
+    "displayNameJa": "ひょうざんおろし",
+    "type": "ice",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "triple-arrows": {
+    "id": "triple-arrows",
+    "name": "Triple Arrows",
+    "displayNameJa": "３ぼんのや",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "shelter": {
+    "id": "shelter",
+    "name": "Shelter",
+    "displayNameJa": "たてこもる",
+    "type": "steel",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "infernal-parade": {
+    "id": "infernal-parade",
+    "name": "Infernal Parade",
+    "displayNameJa": "ひゃっきやこう",
+    "type": "ghost",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "extrasensory": {
+    "id": "extrasensory",
+    "name": "Extrasensory",
+    "displayNameJa": "じんつうりき",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bitter-malice": {
+    "id": "bitter-malice",
+    "name": "Bitter Malice",
+    "displayNameJa": "うらみつらみ",
+    "type": "ghost",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "howl": {
+    "id": "howl",
+    "name": "Howl",
+    "displayNameJa": "とおぼえ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "fickle-beam": {
+    "id": "fickle-beam",
+    "name": "Fickle Beam",
+    "displayNameJa": "きまぐレーザー",
+    "type": "dragon",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "syrup-bomb": {
+    "id": "syrup-bomb",
+    "name": "Syrup Bomb",
+    "displayNameJa": "みずあめボム",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "unique",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mud-slap": {
+    "id": "mud-slap",
+    "name": "Mud-Slap",
+    "displayNameJa": "どろかけ",
+    "type": "ground",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "copycat": {
+    "id": "copycat",
+    "name": "Copycat",
+    "displayNameJa": "まねっこ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "last-resort": {
+    "id": "last-resort",
+    "name": "Last Resort",
+    "displayNameJa": "とっておき",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "stone-axe": {
+    "id": "stone-axe",
+    "name": "Stone Axe",
+    "displayNameJa": "がんせきアックス",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "x-scissor": {
+    "id": "x-scissor",
+    "name": "X-Scissor",
+    "displayNameJa": "シザークロス",
+    "type": "bug",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "magnet-rise": {
+    "id": "magnet-rise",
+    "name": "Magnet Rise",
+    "displayNameJa": "でんじふゆう",
+    "type": "electric",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "clanging-scales": {
+    "id": "clanging-scales",
+    "name": "Clanging Scales",
+    "displayNameJa": "スケイルノイズ",
+    "type": "dragon",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "clangorous-soul": {
+    "id": "clangorous-soul",
+    "name": "Clangorous Soul",
+    "displayNameJa": "ソウルビート",
+    "type": "dragon",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "solar-blade": {
+    "id": "solar-blade",
+    "name": "Solar Blade",
+    "displayNameJa": "ソーラーブレード",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "mega-kick": {
+    "id": "mega-kick",
+    "name": "Mega Kick",
+    "displayNameJa": "メガトンキック",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "baby-doll-eyes": {
+    "id": "baby-doll-eyes",
+    "name": "Baby-Doll Eyes",
+    "displayNameJa": "つぶらなひとみ",
+    "type": "fairy",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "accelerock": {
+    "id": "accelerock",
+    "name": "Accelerock",
+    "displayNameJa": "アクセルロック",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "iron-tail": {
+    "id": "iron-tail",
+    "name": "Iron Tail",
+    "displayNameJa": "アイアンテール",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "upper-hand": {
+    "id": "upper-hand",
+    "name": "Upper Hand",
+    "displayNameJa": "はやてがえし",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "cross-chop": {
+    "id": "cross-chop",
+    "name": "Cross Chop",
+    "displayNameJa": "クロスチョップ",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "topsy-turvy": {
+    "id": "topsy-turvy",
+    "name": "Topsy-Turvy",
+    "displayNameJa": "ひっくりかえす",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "axe-kick": {
+    "id": "axe-kick",
+    "name": "Axe Kick",
+    "displayNameJa": "かかとおとし",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aura-wheel": {
+    "id": "aura-wheel",
+    "name": "Aura Wheel",
+    "displayNameJa": "オーラぐるま",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "reversal": {
+    "id": "reversal",
+    "name": "Reversal",
+    "displayNameJa": "きしかいせい",
+    "type": "fighting",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "smack-down": {
+    "id": "smack-down",
+    "name": "Smack Down",
+    "displayNameJa": "うちおとす",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "switcheroo": {
+    "id": "switcheroo",
+    "name": "Switcheroo",
+    "displayNameJa": "すりかえ",
+    "type": "dark",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "instruct": {
+    "id": "instruct",
+    "name": "Instruct",
+    "displayNameJa": "さいはい",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "barb-barrage": {
+    "id": "barb-barrage",
+    "name": "Barb Barrage",
+    "displayNameJa": "どくばりセンボン",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "jet-punch": {
+    "id": "jet-punch",
+    "name": "Jet Punch",
+    "displayNameJa": "ジェットパンチ",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "raging-bull": {
+    "id": "raging-bull",
+    "name": "Raging Bull",
+    "displayNameJa": "レイジングブル",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "comeuppance": {
+    "id": "comeuppance",
+    "name": "Comeuppance",
+    "displayNameJa": "ほうふく",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "feather-dance": {
+    "id": "feather-dance",
+    "name": "Feather Dance",
+    "displayNameJa": "フェザーダンス",
+    "type": "flying",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "thrash": {
+    "id": "thrash",
+    "name": "Thrash",
+    "displayNameJa": "あばれる",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "aqua-step": {
+    "id": "aqua-step",
+    "name": "Aqua Step",
+    "displayNameJa": "アクアステップ",
+    "type": "water",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "rock-wrecker": {
+    "id": "rock-wrecker",
+    "name": "Rock Wrecker",
+    "displayNameJa": "がんせきほう",
+    "type": "rock",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "self-destruct": {
+    "id": "self-destruct",
+    "name": "Self-Destruct",
+    "displayNameJa": "じばく",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "gigaton-hammer": {
+    "id": "gigaton-hammer",
+    "name": "Gigaton Hammer",
+    "displayNameJa": "デカハンマー",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "beak-blast": {
+    "id": "beak-blast",
+    "name": "Beak Blast",
+    "displayNameJa": "くちばしキャノン",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "infestation": {
+    "id": "infestation",
+    "name": "Infestation",
+    "displayNameJa": "まとわりつく",
+    "type": "bug",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "baneful-bunker": {
+    "id": "baneful-bunker",
+    "name": "Baneful Bunker",
+    "displayNameJa": "トーチカ",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "payback": {
+    "id": "payback",
+    "name": "Payback",
+    "displayNameJa": "しっぺがえし",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "chilling-water": {
+    "id": "chilling-water",
+    "name": "Chilling Water",
+    "displayNameJa": "ひやみず",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "horn-leech": {
+    "id": "horn-leech",
+    "name": "Horn Leech",
+    "displayNameJa": "ウッドホーン",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage-heal",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "trop-kick": {
+    "id": "trop-kick",
+    "name": "Trop Kick",
+    "displayNameJa": "トロピカルキック",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "thunder-fang": {
+    "id": "thunder-fang",
+    "name": "Thunder Fang",
+    "displayNameJa": "かみなりのキバ",
+    "type": "electric",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "quiver-dance": {
+    "id": "quiver-dance",
+    "name": "Quiver Dance",
+    "displayNameJa": "ちょうのまい",
+    "type": "bug",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "bug-buzz": {
+    "id": "bug-buzz",
+    "name": "Bug Buzz",
+    "displayNameJa": "むしのさざめき",
+    "type": "bug",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "pollen-puff": {
+    "id": "pollen-puff",
+    "name": "Pollen Puff",
+    "displayNameJa": "かふんだんご",
+    "type": "bug",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "fiery-dance": {
+    "id": "fiery-dance",
+    "name": "Fiery Dance",
+    "displayNameJa": "ほのおのまい",
+    "type": "fire",
+    "damageClass": "special",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "giga-impact": {
+    "id": "giga-impact",
+    "name": "Giga Impact",
+    "displayNameJa": "ギガインパクト",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "psyshield-bash": {
+    "id": "psyshield-bash",
+    "name": "Psyshield Bash",
+    "displayNameJa": "バリアーラッシュ",
+    "type": "psychic",
+    "damageClass": "physical",
+    "metaCategory": "",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "night-daze": {
+    "id": "night-daze",
+    "name": "Night Daze",
+    "displayNameJa": "ナイトバースト",
+    "type": "dark",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "decorate": {
+    "id": "decorate",
+    "name": "Decorate",
+    "displayNameJa": "デコレーション",
+    "type": "fairy",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "poison-fang": {
+    "id": "poison-fang",
+    "name": "Poison Fang",
+    "displayNameJa": "どくどくのキバ",
+    "type": "poison",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "string-shot": {
+    "id": "string-shot",
+    "name": "String Shot",
+    "displayNameJa": "いとをはく",
+    "type": "bug",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "heal-pulse": {
+    "id": "heal-pulse",
+    "name": "Heal Pulse",
+    "displayNameJa": "いやしのはどう",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "heal",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "ally-switch": {
+    "id": "ally-switch",
+    "name": "Ally Switch",
+    "displayNameJa": "サイドチェンジ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "simple-beam": {
+    "id": "simple-beam",
+    "name": "Simple Beam",
+    "displayNameJa": "シンプルビーム",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "skill-swap": {
+    "id": "skill-swap",
+    "name": "Skill Swap",
+    "displayNameJa": "スキルスワップ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sand-tomb": {
+    "id": "sand-tomb",
+    "name": "Sand Tomb",
+    "displayNameJa": "すなじごく",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "grassy-glide": {
+    "id": "grassy-glide",
+    "name": "Grassy Glide",
+    "displayNameJa": "グラススライダー",
+    "type": "grass",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "terrain-pulse": {
+    "id": "terrain-pulse",
+    "name": "Terrain Pulse",
+    "displayNameJa": "だいちのはどう",
+    "type": "normal",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "entrainment": {
+    "id": "entrainment",
+    "name": "Entrainment",
+    "displayNameJa": "なかまづくり",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "grassy-terrain": {
+    "id": "grassy-terrain",
+    "name": "Grassy Terrain",
+    "displayNameJa": "グラスフィールド",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "attract": {
+    "id": "attract",
+    "name": "Attract",
+    "displayNameJa": "メロメロ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "snowscape": {
+    "id": "snowscape",
+    "name": "Snowscape",
+    "displayNameJa": "ゆきげしき",
+    "type": "ice",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "trick-or-treat": {
+    "id": "trick-or-treat",
+    "name": "Trick-or-Treat",
+    "displayNameJa": "ハロウィン",
+    "type": "ghost",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "magic-powder": {
+    "id": "magic-powder",
+    "name": "Magic Powder",
+    "displayNameJa": "まほうのこな",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "screech": {
+    "id": "screech",
+    "name": "Screech",
+    "displayNameJa": "いやなおと",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "after-you": {
+    "id": "after-you",
+    "name": "After You",
+    "displayNameJa": "おさきにどうぞ",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "role-play": {
+    "id": "role-play",
+    "name": "Role Play",
+    "displayNameJa": "なりきり",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "stockpile": {
+    "id": "stockpile",
+    "name": "Stockpile",
+    "displayNameJa": "たくわえる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "endure": {
+    "id": "endure",
+    "name": "Endure",
+    "displayNameJa": "こらえる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "acupressure": {
+    "id": "acupressure",
+    "name": "Acupressure",
+    "displayNameJa": "つぼをつく",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "petal-dance": {
+    "id": "petal-dance",
+    "name": "Petal Dance",
+    "displayNameJa": "はなびらのまい",
+    "type": "grass",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "spicy-extract": {
+    "id": "spicy-extract",
+    "name": "Spicy Extract",
+    "displayNameJa": "ハバネロエキス",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "gastro-acid": {
+    "id": "gastro-acid",
+    "name": "Gastro Acid",
+    "displayNameJa": "いえき",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "cotton-spore": {
+    "id": "cotton-spore",
+    "name": "Cotton Spore",
+    "displayNameJa": "わたほうし",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "drill-peck": {
+    "id": "drill-peck",
+    "name": "Drill Peck",
+    "displayNameJa": "ドリルくちばし",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "forests-curse": {
+    "id": "forests-curse",
+    "name": "Forest's Curse",
+    "displayNameJa": "もりののろい",
+    "type": "grass",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "struggle-bug": {
+    "id": "struggle-bug",
+    "name": "Struggle Bug",
+    "displayNameJa": "むしのていこう",
+    "type": "bug",
+    "damageClass": "special",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "gravity": {
+    "id": "gravity",
+    "name": "Gravity",
+    "displayNameJa": "じゅうりょく",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  }
+}
