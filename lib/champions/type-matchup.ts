@@ -24,7 +24,7 @@ export interface PartyMemberCoverage {
   name: string;
   canHitWeakness: boolean;
   effectiveTypes: string[];
-  effectiveMoves: Array<{ moveId: string; displayNameJa: string; type: string; multiplier: number }>;
+  effectiveMoves: Array<{ moveId: string; displayNameJa: string; type: string; multiplier: number; usage?: number }>;
   bestMultiplier: number;
 }
 
@@ -34,6 +34,7 @@ interface MatchupMove {
   type: string;
   damageClass: string;
   isCoverageMove: boolean;
+  usage?: number | null;
 }
 
 export function getTypeMultiplier(attackType: string, defenderTypes: string[]): number {
@@ -44,7 +45,10 @@ export function evaluatePartyMember(member: { id: string; name: string; moves: M
   const attackMoves = member.moves.filter((move) => move.isCoverageMove === true);
   const uniqueMoves = [...new Map(attackMoves.map((move) => [move.id, move])).values()];
   const scored = uniqueMoves.map((move) => ({ move, multiplier: getTypeMultiplier(move.type, defenderTypes) }));
-  const effectiveMoves = scored.filter(({ multiplier }) => multiplier >= 2).map(({ move, multiplier }) => ({ moveId: move.id, displayNameJa: move.displayNameJa, type: move.type.toLowerCase(), multiplier }));
+  const effectiveMoves = scored
+    .filter(({ multiplier }) => multiplier >= 2)
+    .sort((a, b) => (b.move.usage ?? Number.NEGATIVE_INFINITY) - (a.move.usage ?? Number.NEGATIVE_INFINITY))
+    .map(({ move, multiplier }) => ({ moveId: move.id, displayNameJa: move.displayNameJa, type: move.type.toLowerCase(), multiplier, ...(typeof move.usage === "number" ? { usage: move.usage } : {}) }));
   const effectiveTypes = [...new Set(effectiveMoves.map((move) => move.type))];
   return { id: member.id, name: member.name, canHitWeakness: effectiveMoves.length > 0, effectiveTypes, effectiveMoves, bestMultiplier: Math.max(0, ...scored.map(({ multiplier }) => multiplier)) };
 }

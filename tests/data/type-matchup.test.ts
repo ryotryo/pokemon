@@ -9,14 +9,14 @@ describe("type matchup", () => {
   it("treats neutralized dual-type attacks as below weakness", () => expect(getTypeMultiplier("fire", ["Grass", "Water"])).toBe(1));
   it("deduplicates attack types and retains effective types and best multiplier", () => {
     expect(evaluatePartyMember({ id: "a", name: "A", moves: [
-      { id: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", damageClass: "special", isCoverageMove: true },
-      { id: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", damageClass: "special", isCoverageMove: true },
-      { id: "rock-slide", displayNameJa: "いわなだれ", type: "rock", damageClass: "physical", isCoverageMove: true },
+      { id: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", damageClass: "special", isCoverageMove: true, usage: 32.5 },
+      { id: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", damageClass: "special", isCoverageMove: true, usage: 32.5 },
+      { id: "rock-slide", displayNameJa: "いわなだれ", type: "rock", damageClass: "physical", isCoverageMove: true, usage: 18.7 },
     ] }, ["Dragon", "Flying"])).toEqual({
       id: "a", name: "A", canHitWeakness: true, effectiveTypes: ["ice", "rock"], bestMultiplier: 4,
       effectiveMoves: [
-        { moveId: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", multiplier: 4 },
-        { moveId: "rock-slide", displayNameJa: "いわなだれ", type: "rock", multiplier: 2 },
+        { moveId: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", multiplier: 4, usage: 32.5 },
+        { moveId: "rock-slide", displayNameJa: "いわなだれ", type: "rock", multiplier: 2, usage: 18.7 },
       ],
     });
   });
