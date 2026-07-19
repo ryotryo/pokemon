@@ -3,6 +3,7 @@ import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { getRanking, normalizePokemon, slugifyMove } from "../lib/champions/normalize";
 import { isCoverageMove } from "../lib/champions/move-coverage";
+import { getSeasonDisplayMetadata } from "../lib/champions/season-metadata";
 import type { BattleFormat, ChampionsDataset, MoveMasterEntry } from "../lib/champions/types";
 
 const ROOT = process.cwd();
@@ -107,7 +108,8 @@ async function main() {
     const index = await getJson(`${API}/api`);
     const season = index.defaultSeason;
     if (!season || !Array.isArray(index.pokemon) || !index.pokemon.length) throw new Error("invalid index or season");
-    console.log(`[data] season: ${season}`);
+    const seasonDisplay = getSeasonDisplayMetadata(index);
+    console.log(`[data] season: ${season} (${seasonDisplay.seasonLabel || "label unavailable"})`);
     const formats: BattleFormat[] = ["Singles", "Doubles"];
     const rankings = new Map(formats.map((format) => [format, getRanking(index.pokemon, season, format)]));
     const raw = new Map<BattleFormat, Array<{ entry: any; rank: number; battle: any }>>();
@@ -143,7 +145,7 @@ async function main() {
     await mkdir(path.join(STAGE, "champions"), { recursive: true });
     await mkdir(path.join(STAGE, "moves"), { recursive: true });
     await mkdir(path.join(STAGE, "i18n"), { recursive: true });
-    const metadata: any = { season, updatedAt, source: `${API}/api`, formats: {} };
+    const metadata: any = { season, ...seasonDisplay, updatedAt, source: `${API}/api`, formats: {} };
     for (const format of formats) {
       for (const { entry, battle } of raw.get(format)!) {
         const topMoves = battle.rows.filter((row: any) => row.category === "move" && row.rank <= 10);

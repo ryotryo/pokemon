@@ -21,7 +21,7 @@ function Dots({ members, large = false }: { members: PartyMemberCoverage[]; larg
   return <div className="flex shrink-0 gap-1" aria-label={`${count}匹が弱点をつける`}>{getCoverageDots(count).map((filled, index) => <span key={index} className={`${large ? "size-4" : "size-3"} rounded-full border ${filled ? "border-blue-600 bg-blue-600" : "border-slate-300 bg-white"}`} />)}</div>;
 }
 
-export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvailable, season, updatedAt }: { singles: RankedPokemon[]; doubles: RankedPokemon[]; singlesAvailable: RankedPokemon[]; doublesAvailable: RankedPokemon[]; season: string; updatedAt: string }) {
+export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvailable, season, seasonLabel, dailyDataPeriod, updatedAt }: { singles: RankedPokemon[]; doubles: RankedPokemon[]; singlesAvailable: RankedPokemon[]; doublesAvailable: RankedPokemon[]; season: string; seasonLabel?: string; dailyDataPeriod?: { start: string; end: string }; updatedAt: string }) {
   const [format, setFormat] = useState<"Singles" | "Doubles">("Singles");
   const [partyIds, setPartyIds] = useState<string[]>(Array(6).fill(""));
   const [pickerSlot, setPickerSlot] = useState<number | null>(null);
@@ -88,7 +88,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
     <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
       <div className="flex items-center justify-between gap-3 border-b border-slate-100 p-4">
         <div className="flex rounded-xl bg-slate-100 p-1 text-xs font-bold">{(["Singles", "Doubles"] as const).map((item) => <button key={item} className={`h-9 rounded-lg px-3 ${format === item ? "bg-slate-950 text-white" : "text-slate-500"}`} onClick={() => switchFormat(item)}>{FORMAT_LABELS[item]}</button>)}</div>
-        <div className="text-right text-[11px] leading-4 text-slate-500"><strong className="text-slate-800">{season}</strong><br />更新 {new Date(updatedAt).toLocaleDateString("ja-JP")}</div>
+        <div className="text-right text-[11px] leading-4 text-slate-500"><strong className="text-slate-800">シーズン {seasonLabel || season}</strong>{dailyDataPeriod && <><br />日次データ {new Date(`${dailyDataPeriod.start}T00:00:00`).toLocaleDateString("ja-JP", { month: "numeric", day: "numeric" })}〜{new Date(`${dailyDataPeriod.end}T00:00:00`).toLocaleDateString("ja-JP", { month: "numeric", day: "numeric" })}</>}<br />更新 {new Date(updatedAt).toLocaleDateString("ja-JP")}</div>
       </div>
 
       <div className="p-4">
