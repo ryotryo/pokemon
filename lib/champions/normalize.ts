@@ -40,7 +40,7 @@ export function normalizePokemon(entry: any, rank: number, battle: any, moves: R
   }));
   const normalizedMoves = battle.rows.filter((row: any) => row.category === "move" && row.rank <= 10).map((row: any) => {
     const master = moves[slugifyMove(row.name)];
-    return master?.damageClass === "status" || !master ? null : { id: master.id, rank: row.rank, name: row.name, displayNameJa: master.displayNameJa, usage: row.percentage_value, type: master.type, damageClass: master.damageClass, isCoverageMove: master.isCoverageMove };
+    return !master ? null : { id: master.id, rank: row.rank, name: row.name, displayNameJa: master.displayNameJa, usage: row.percentage_value, type: master.type, damageClass: master.damageClass, isCoverageMove: master.isCoverageMove };
   }).filter(Boolean);
   return {
     id: entry.slug, name: entry.battleName || entry.name, displayNameJa: namesJa[entry.slug] ?? entry.battleName ?? entry.name, baseName: entry.name,

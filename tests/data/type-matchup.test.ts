@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getTypeMultiplier } from "../../lib/champions/type-matchup";
+import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getTypeMultiplier, getWeaknesses } from "../../lib/champions/type-matchup";
 
 describe("type matchup", () => {
   it("multiplies dual-type effectiveness", () => {
@@ -7,6 +7,14 @@ describe("type matchup", () => {
     expect(getTypeMultiplier("ground", ["Electric", "Flying"])).toBe(0);
   });
   it("treats neutralized dual-type attacks as below weakness", () => expect(getTypeMultiplier("fire", ["Grass", "Water"])).toBe(1));
+  it("lists dual-type weaknesses by multiplier", () => {
+    expect(getWeaknesses(["Bug", "Steel"])).toEqual([{ type: "fire", multiplier: 4 }]);
+    expect(getWeaknesses(["Dragon", "Ground"])).toEqual([
+      { type: "ice", multiplier: 4 },
+      { type: "dragon", multiplier: 2 },
+      { type: "fairy", multiplier: 2 },
+    ]);
+  });
   it("deduplicates attack types and retains effective types and best multiplier", () => {
     expect(evaluatePartyMember({ id: "a", name: "A", moves: [
       { id: "ice-beam", displayNameJa: "れいとうビーム", type: "ice", damageClass: "special", isCoverageMove: true, usage: 32.5 },

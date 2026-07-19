@@ -1,5 +1,5 @@
 export type BattleFormat = "Singles" | "Doubles";
-export type DamageClass = "physical" | "special";
+export type DamageClass = "physical" | "special" | "status";
 export type FormRelation = "base" | "mega" | "independent";
 
 export interface MoveMasterEntry {

@@ -19,6 +19,8 @@ const TYPE_CHART: Record<string, Record<string, number>> = {
   fairy: { fire: 0.5, fighting: 2, poison: 0.5, dragon: 2, dark: 2, steel: 0.5 },
 };
 
+export const TYPE_ORDER = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"] as const;
+
 export interface PartyMemberCoverage {
   id: string;
   name: string;
@@ -39,6 +41,13 @@ interface MatchupMove {
 
 export function getTypeMultiplier(attackType: string, defenderTypes: string[]): number {
   return defenderTypes.reduce((total, defender) => total * (TYPE_CHART[attackType.toLowerCase()]?.[defender.toLowerCase()] ?? 1), 1);
+}
+
+export function getWeaknesses(defenderTypes: string[]) {
+  return TYPE_ORDER
+    .map((type) => ({ type, multiplier: getTypeMultiplier(type, defenderTypes) }))
+    .filter(({ multiplier }) => multiplier >= 2)
+    .sort((a, b) => b.multiplier - a.multiplier);
 }
 
 export function evaluatePartyMember(member: { id: string; name: string; moves: MatchupMove[] }, defenderTypes: string[]): PartyMemberCoverage {

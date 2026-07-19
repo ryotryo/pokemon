@@ -12,6 +12,7 @@ const OUT = path.join(ROOT, "data");
 const STAGE = path.join(OUT, `.staging-${Date.now()}`);
 const MOVE_FILE = path.join(OUT, "moves/move-master.json");
 const POKEMON_NAMES_FILE = path.join(OUT, "i18n/pokemon-names-ja.json");
+const POKEMON_NAME_OVERRIDES: Record<string, string> = { "fan-rotom": "スピンロトム" };
 
 async function getJson(url: string) {
   const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "champions-party-checker-data-builder/1.0" } });
@@ -44,6 +45,7 @@ function localizeForm(baseNameJa: string, formKind: string): string {
 }
 
 async function hydratePokemonNames(indexPokemon: any[], names: Record<string, string>) {
+  Object.assign(names, POKEMON_NAME_OVERRIDES);
   const baseNames = new Map<string, string>();
   for (const entry of indexPokemon) {
     const primary = entry.summary?.primary;

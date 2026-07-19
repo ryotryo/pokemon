@@ -4028,5 +4028,55 @@
     "metaCategory": "whole-field-effect",
     "isCoverageMove": false,
     "source": "pokeapi"
+  },
+  "bulldoze": {
+    "id": "bulldoze",
+    "name": "Bulldoze",
+    "displayNameJa": "じならし",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage-lower",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "future-sight": {
+    "id": "future-sight",
+    "name": "Future Sight",
+    "displayNameJa": "みらいよち",
+    "type": "psychic",
+    "damageClass": "special",
+    "metaCategory": "unique",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "whirlpool": {
+    "id": "whirlpool",
+    "name": "Whirlpool",
+    "displayNameJa": "うずしお",
+    "type": "water",
+    "damageClass": "special",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "guard-swap": {
+    "id": "guard-swap",
+    "name": "Guard Swap",
+    "displayNameJa": "ガードスワップ",
+    "type": "psychic",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "belch": {
+    "id": "belch",
+    "name": "Belch",
+    "displayNameJa": "ゲップ",
+    "type": "poison",
+    "damageClass": "special",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
   }
 }

@@ -2,12 +2,12 @@
 /* eslint-disable @next/next/no-img-element -- Sprite URLs are supplied by Champions Battle Data. */
 
 import { useEffect, useMemo, useState } from "react";
-import { evaluateMatchup, getCoverageDots, type PartyMemberCoverage } from "@/lib/champions/type-matchup";
+import { evaluateMatchup, getCoverageDots, getWeaknesses, type PartyMemberCoverage } from "@/lib/champions/type-matchup";
 import { getPokemonDisplayNameJa, getTypeDisplayNameJa } from "@/lib/champions/display-names";
 import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
 
 type Form = { id: string; name: string; displayNameJa: string; formKind: string; formRelation: string; types: string[]; sprite: string };
-type Move = { id: string; displayNameJa: string; type: string; damageClass: string; isCoverageMove: boolean; usage?: number | null };
+type Move = { id: string; rank?: number; displayNameJa: string; type: string; damageClass: string; isCoverageMove: boolean; usage?: number | null };
 type RankedPokemon = { id: string; name: string; displayNameJa: string; rank: number; types: string[]; sprite: string; attackTypes: string[]; moves: Move[]; forms: Form[] };
 type Candidate = Form & { attackTypes: string[]; moves: Move[]; rank: number };
 type Target = Form & { rank: number; isFirstForm: boolean; coverage: { count: number; members: PartyMemberCoverage[] } };
@@ -27,6 +27,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
   const [pickerSlot, setPickerSlot] = useState<number | null>(null);
   const [query, setQuery] = useState("");
   const [detail, setDetail] = useState<Target | null>(null);
+  const [partyDetail, setPartyDetail] = useState<Candidate | null>(null);
   const [sort, setSort] = useState<"rank" | "thin">("rank");
   const [resultQuery, setResultQuery] = useState("");
   const [storageReady, setStorageReady] = useState(false);
@@ -55,7 +56,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
     return getPokemonDisplayNameJa(candidate.id, candidate.name).toLowerCase().includes(normalizedQuery) || candidate.name.toLowerCase().includes(normalizedQuery) || candidate.id.includes(normalizedQuery);
   });
   const choose = (id: string) => { if (pickerSlot === null) return; setPartyIds((current) => current.map((value, index) => index === pickerSlot ? id : value)); setPickerSlot(null); setQuery(""); };
-  const switchFormat = (next: "Singles" | "Doubles") => { setFormat(next); setDetail(null); };
+  const switchFormat = (next: "Singles" | "Doubles") => { setFormat(next); setDetail(null); setPartyDetail(null); };
 
   useEffect(() => {
     let restoredParty = Array(6).fill("") as string[];
@@ -82,6 +83,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
     localStorage.removeItem(PARTY_STORAGE_KEY);
     setConfirmClear(false);
     setDetail(null);
+    setPartyDetail(null);
   };
 
   return <>
@@ -94,7 +96,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
       <div className="p-4">
         <div className="mb-3 flex items-end justify-between gap-3"><div><p className="text-xs font-bold text-blue-700">YOUR PARTY</p><h2 className="text-lg font-black">パーティーを選択</h2></div><div className="flex items-center gap-2"><span className="text-xs text-slate-400">{party.length} / 6</span><button disabled={!party.length} className="h-9 rounded-lg px-2 text-xs font-bold text-red-600 disabled:opacity-30" onClick={() => setConfirmClear(true)}>全削除</button></div></div>
         <div className="grid grid-cols-6 gap-2">
-          {partyIds.map((id, index) => { const member = candidates.find((candidate) => candidate.id === id); return <button key={index} aria-label={member ? `${getPokemonDisplayNameJa(member.id, member.name)}を変更` : `${index + 1}匹目を選択`} className="aspect-square min-w-0 rounded-full border border-slate-200 bg-slate-50 p-1 active:scale-95" onClick={() => setPickerSlot(index)}>{member ? <img src={member.sprite} alt="" className="size-full object-contain" /> : <span className="flex size-full items-center justify-center text-xl font-light text-slate-400">＋</span>}</button>; })}
+          {partyIds.map((id, index) => { const member = candidates.find((candidate) => candidate.id === id); return <div key={index} className="min-w-0"><button aria-label={member ? `${getPokemonDisplayNameJa(member.id, member.name)}を変更` : `${index + 1}匹目を選択`} className="aspect-square w-full min-w-0 rounded-full border border-slate-200 bg-slate-50 p-1 active:scale-95" onClick={() => setPickerSlot(index)}>{member ? <img src={member.sprite} alt="" className="size-full object-contain" /> : <span className="flex size-full items-center justify-center text-xl font-light text-slate-400">＋</span>}</button>{member && <button aria-label={`${getPokemonDisplayNameJa(member.id, member.name)}の使用技を見る`} className="mt-1 h-7 w-full rounded-lg bg-blue-50 text-[10px] font-bold text-blue-700 active:bg-blue-100" onClick={() => setPartyDetail(member)}>詳細</button>}</div>; })}
         </div>
         {confirmClear && <div className="mt-4 rounded-2xl border border-red-100 bg-red-50 p-3"><p className="text-sm font-bold text-slate-800">パーティーをすべて削除しますか？</p><div className="mt-3 grid grid-cols-2 gap-2"><button className="h-11 rounded-xl bg-white text-sm font-bold text-slate-600" onClick={() => setConfirmClear(false)}>キャンセル</button><button className="h-11 rounded-xl bg-red-600 text-sm font-bold text-white" onClick={clearParty}>すべて削除</button></div></div>}
       </div>
@@ -112,9 +114,17 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
       <div className="mt-3 max-h-[58dvh] divide-y divide-slate-100 overflow-y-auto">{filtered.map((candidate) => { const disabled = selectedIds.has(candidate.id) && partyIds[pickerSlot ?? -1] !== candidate.id; return <button key={candidate.id} disabled={disabled} style={{ contentVisibility: "auto", containIntrinsicSize: "64px" }} className="flex h-16 w-full items-center gap-3 px-1 text-left disabled:opacity-30" onClick={() => choose(candidate.id)}><img src={candidate.sprite} alt="" className="size-12 object-contain" /><div className="min-w-0 flex-1"><p className="truncate text-sm font-bold">{getPokemonDisplayNameJa(candidate.id, candidate.name)}</p><div className="mt-1 flex gap-1">{candidate.types.map((type) => <TypeBadge key={type} type={type} />)}</div></div></button>; })}</div>
     </SheetContent></Sheet>
 
+    <Sheet open={partyDetail !== null} onOpenChange={(open) => !open && setPartyDetail(null)}><SheetOverlay onClick={() => setPartyDetail(null)} /><SheetContent>{partyDetail && <>
+      <div className="flex items-center gap-4"><img src={partyDetail.sprite} alt="" className="size-20 object-contain" /><div className="min-w-0"><p className="text-xs font-bold text-blue-700">{FORMAT_LABELS[format]} 使用技</p><h2 className="truncate text-xl font-black">{getPokemonDisplayNameJa(partyDetail.id, partyDetail.name)}</h2><div className="mt-2 flex gap-1">{partyDetail.types.map((type) => <TypeBadge key={type} type={type} />)}</div></div></div>
+      <h3 className="mt-5 text-sm font-black">使用技 TOP10</h3>
+      <ol className="mt-2 divide-y divide-slate-100 border-y border-slate-100">{[...partyDetail.moves].sort((a, b) => (b.usage ?? Number.NEGATIVE_INFINITY) - (a.usage ?? Number.NEGATIVE_INFINITY) || (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER)).map((move, index) => <li key={move.id} className="flex min-h-14 items-center gap-3 py-2"><span className="w-5 shrink-0 text-right text-xs font-bold text-slate-400">{index + 1}</span><div className="min-w-0"><p className="text-sm font-bold">{move.displayNameJa}</p>{typeof move.usage === "number" && Number.isFinite(move.usage) && <p className="mt-0.5 text-xs text-slate-500">使用率 {move.usage}%</p>}</div></li>)}</ol>
+    </>}</SheetContent></Sheet>
+
     <Sheet open={detail !== null} onOpenChange={(open) => !open && setDetail(null)}><SheetOverlay onClick={() => setDetail(null)} /><SheetContent>{detail && <>
-      <div className="flex items-center gap-4"><img src={detail.sprite} alt="" className="size-24 object-contain" /><div className="min-w-0"><p className="text-xs font-bold text-slate-400">RANK {detail.rank}</p><h2 className="truncate text-xl font-black">{getPokemonDisplayNameJa(detail.id, detail.name)}</h2><div className="mt-2 flex gap-1">{detail.types.map((type) => <TypeBadge key={type} type={type} />)}</div><div className="mt-3"><Dots members={detail.coverage.members} large /></div></div></div>
-      <div className="mt-5 divide-y divide-slate-100 border-y border-slate-100">{detail.coverage.members.map((member, index) => { const pokemon = party[index]; const groups = [...new Map(member.effectiveMoves.map((move) => [`${move.type}-${move.multiplier}`, { type: move.type, multiplier: move.multiplier, moves: member.effectiveMoves.filter((item) => item.type === move.type && item.multiplier === move.multiplier) }])).values()]; return <div key={member.id} className="flex gap-3 py-3"><img src={pokemon.sprite} alt="" className="size-11 shrink-0 object-contain" /><div className="min-w-0 flex-1"><p className="truncate text-sm font-bold">{getPokemonDisplayNameJa(pokemon.id, pokemon.name)}</p>{member.canHitWeakness ? <div className="mt-2 space-y-2">{groups.map((group) => <div key={`${group.type}-${group.multiplier}`}><div className="flex items-center gap-2"><TypeBadge type={group.type} /><span className="text-xs font-black text-blue-700">{group.multiplier}倍</span></div><ul className="mt-1 space-y-0.5 pl-1 text-xs text-slate-600">{group.moves.map((move) => <li key={move.moveId}>・{move.displayNameJa}{typeof move.usage === "number" && Number.isFinite(move.usage) ? `（${move.usage}%）` : ""}</li>)}</ul></div>)}</div> : <p className="mt-1 text-xs text-slate-400">有効な技なし</p>}</div><div className={`shrink-0 text-sm font-black ${member.canHitWeakness ? "text-blue-700" : "text-slate-300"}`}>{member.bestMultiplier}×</div></div>; })}</div>
+      <div className="flex items-center gap-4"><img src={detail.sprite} alt="" className="size-24 object-contain" /><div className="min-w-0"><p className="text-xs font-bold text-slate-400">RANK {detail.rank}</p><h2 className="truncate text-xl font-black">{getPokemonDisplayNameJa(detail.id, detail.name)}</h2><p className="mt-2 text-[11px] font-bold text-slate-400">タイプ</p><div className="mt-1 flex gap-1">{detail.types.map((type) => <TypeBadge key={type} type={type} />)}</div></div></div>
+      <div className="mt-4 rounded-2xl bg-red-50 p-3"><h3 className="text-xs font-black text-red-800">弱点</h3><div className="mt-2 flex flex-wrap gap-2">{getWeaknesses(detail.types).map((weakness) => <div key={weakness.type} className="flex items-center gap-1.5 rounded-full bg-white py-1 pl-1 pr-2.5"><TypeBadge type={weakness.type} /><span className="text-xs font-black text-red-700">×{weakness.multiplier}</span></div>)}</div></div>
+      <div className="mt-4 flex items-center justify-between"><h3 className="text-sm font-black">現在のパーティーから対応可能</h3><Dots members={detail.coverage.members} large /></div>
+      <div className="mt-3 divide-y divide-slate-100 border-y border-slate-100">{detail.coverage.members.map((member, index) => { const pokemon = party[index]; const groups = [...new Map(member.effectiveMoves.map((move) => [`${move.type}-${move.multiplier}`, { type: move.type, multiplier: move.multiplier, moves: member.effectiveMoves.filter((item) => item.type === move.type && item.multiplier === move.multiplier) }])).values()]; return <div key={member.id} className="flex gap-3 py-3"><img src={pokemon.sprite} alt="" className="size-11 shrink-0 object-contain" /><div className="min-w-0 flex-1"><p className="truncate text-sm font-bold">{getPokemonDisplayNameJa(pokemon.id, pokemon.name)}</p>{member.canHitWeakness ? <div className="mt-2 space-y-2">{groups.map((group) => <div key={`${group.type}-${group.multiplier}`}><div className="flex items-center gap-2"><TypeBadge type={group.type} /><span className="text-xs font-black text-blue-700">{group.multiplier}倍</span></div><ul className="mt-1 space-y-1 pl-1">{group.moves.map((move) => <li key={move.moveId} className="text-xs text-slate-700"><span>・{move.displayNameJa}</span>{typeof move.usage === "number" && Number.isFinite(move.usage) && <span className="ml-1 text-[11px] text-slate-400">使用率 {move.usage}%</span>}</li>)}</ul></div>)}</div> : <p className="mt-1 text-xs text-slate-400">有効な技なし</p>}</div><div className={`shrink-0 text-sm font-black ${member.canHitWeakness ? "text-blue-700" : "text-slate-300"}`}>{member.bestMultiplier}×</div></div>; })}</div>
     </>}</SheetContent></Sheet>
   </>;
 }
