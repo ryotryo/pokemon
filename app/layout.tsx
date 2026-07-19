@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pokémon Champions Party Matchup Checker",
-  description: "Pokémon Champions初心者向けパーティー相性チェッカー",
+  title: {
+    default: "Poké Analytics",
+    template: "%s | Poké Analytics",
+  },
+  description: "ポケモン対戦をデータで分析するツールサイト",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
