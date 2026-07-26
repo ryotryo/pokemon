@@ -206,18 +206,23 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const [activeSection, setActiveSection] = useState("moves");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActiveSection(visible[0].target.id);
-      },
-      { rootMargin: "-64px 0px -65% 0px", threshold: [0, 0.01] },
-    );
-    SECTIONS.forEach(([id]) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-    return () => observer.disconnect();
+    let frame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const current = SECTIONS.reduce<string>((active, [id]) => {
+          const top = document.getElementById(id)?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+          return top <= 64 ? id : active;
+        }, SECTIONS[0][0]);
+        setActiveSection(current);
+      });
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActiveSection);
+    };
   }, []);
 
   return (
