@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
-import { getTypeDisplayNameJa } from "@/lib/champions/display-names";
 import { formatPercentage, formatQuery, parseFormat, sortRankingPokemon, type UsageRankingPokemon } from "@/lib/champions/usage-ranking";
 import { FormatToggle } from "./format-toggle";
 import { PokemonImage } from "./pokemon-image";
+import { TypeBadge } from "@/components/ui/type-badge";
 
 const INITIAL_ROWS = 60;
 
@@ -70,7 +70,7 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
               <span className="min-w-0">
                 <span className="block truncate text-sm font-bold">{entry.displayNameJa}</span>
                 <span className="mt-1 flex min-w-0 flex-wrap gap-1">
-                  {entry.types.map((type) => <span key={type} className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-600">{getTypeDisplayNameJa(type)}</span>)}
+                  {entry.types.map((type) => <TypeBadge key={type} type={type} />)}
                 </span>
               </span>
               <span className="flex items-center gap-2 text-right">

@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
-import { getTypeDisplayNameJa, TYPE_NAMES_JA } from "@/lib/champions/display-names";
+import { useEffect, useMemo, useState } from "react";
+import { TYPE_NAMES_JA } from "@/lib/champions/display-names";
 import type { BattleFormat, DamageClass } from "@/lib/champions/types";
+import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
 import {
   formatPercentage,
   formatQuery,
@@ -19,13 +20,20 @@ import { FormatToggle } from "./format-toggle";
 import { PercentageBar } from "./percentage-bar";
 import { PokemonImage } from "./pokemon-image";
 
-const DAMAGE_CLASS_LABELS: Record<DamageClass, string> = { physical: "物理", special: "特殊", status: "変化" };
+const SECTIONS = [
+  ["moves", "使用技"],
+  ["items", "持ち物"],
+  ["spreads", "努力値"],
+  ["natures", "性格"],
+  ["teammates", "同時採用"],
+  ["learnset", "覚える技"],
+] as const;
 
-function RankingSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function RankingSection({ id, title, note, children }: { id: string; title: string; note?: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="text-lg font-black">{title}</h2>
-      <div className="mt-3">{children}</div>
+    <section id={id} className="scroll-mt-14 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+      <h2 className="flex items-baseline gap-2 text-base font-black">{title}{note && <span className="text-[10px] font-bold text-slate-400">{note}</span>}</h2>
+      <div className="mt-2">{children}</div>
     </section>
   );
 }
@@ -41,19 +49,21 @@ function UsageValue({ value, fallback }: { value: number | null; fallback?: stri
 function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map<string, UsageMoveDetail> }) {
   if (!detail.moves.length) return <EmptyRanking />;
   return (
-    <ol className="divide-y divide-slate-100">
+    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
       {detail.moves.map((row) => {
         const move = moves.get(row.moveId);
         if (!move) return null;
         return (
-          <li key={`${row.rank}-${row.moveId}`} className="grid grid-cols-[1.5rem_minmax(0,1fr)_3.5rem] gap-2 py-3">
-            <span className="text-center text-xs font-black text-slate-400">{row.rank}</span>
+          <li key={`${row.rank}-${row.moveId}`} className="grid min-h-14 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
+            <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
             <div className="min-w-0">
-              <p className="truncate text-sm font-bold">{move.nameJa}</p>
-              <p className="mt-1 text-[11px] text-slate-500">{getTypeDisplayNameJa(move.type)}・{DAMAGE_CLASS_LABELS[move.damageClass]}</p>
+              <div className="flex items-start justify-between gap-1">
+                <p className="min-w-0 truncate text-xs font-bold" title={move.nameJa}>{move.nameJa}</p>
+                <UsageValue value={row.percentageValue} fallback={row.percentage} />
+              </div>
+              <div className="mt-1 flex items-center gap-1"><TypeBadge type={move.type} /><DamageClassBadge damageClass={move.damageClass} /></div>
               <PercentageBar value={row.percentageValue} />
             </div>
-            <UsageValue value={row.percentageValue} fallback={row.percentage} />
           </li>
         );
       })}
@@ -64,12 +74,11 @@ function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map
 function ItemRankings({ detail }: { detail: UsageFormatDetail }) {
   if (!detail.items.length) return <EmptyRanking />;
   return (
-    <ol className="divide-y divide-slate-100">
+    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
       {detail.items.map((row) => (
-        <li key={`${row.rank}-${row.nameJa}`} className="grid grid-cols-[1.5rem_minmax(0,1fr)_3.5rem] gap-2 py-3">
-          <span className="text-center text-xs font-black text-slate-400">{row.rank}</span>
-          <div className="min-w-0"><p className="truncate text-sm font-bold">{row.nameJa}</p><PercentageBar value={row.percentageValue} /></div>
-          <UsageValue value={row.percentageValue} fallback={row.percentage} />
+        <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
+          <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
+          <div className="min-w-0"><div className="flex gap-1"><p className="min-w-0 flex-1 truncate text-xs font-bold" title={row.nameJa}>{row.nameJa}</p><UsageValue value={row.percentageValue} fallback={row.percentage} /></div><PercentageBar value={row.percentageValue} /></div>
         </li>
       ))}
     </ol>
@@ -81,17 +90,13 @@ function SpreadRankings({ detail }: { detail: UsageFormatDetail }) {
   return (
     <ol className="divide-y divide-slate-100">
       {detail.spreads.map((row) => (
-        <li key={`${row.rank}-${row.raw}`} className="py-3">
+        <li key={`${row.rank}-${row.raw}`} className="py-2">
           <div className="flex items-start gap-2">
             <span className="w-6 shrink-0 text-center text-xs font-black text-slate-400">{row.rank}</span>
             <div className="min-w-0 flex-1">
-              <p className="break-words text-sm font-bold">
+              <p className="break-words text-xs font-bold">
                 {row.hp ?? "—"}-{row.attack ?? "—"}-{row.defense ?? "—"}-{row.specialAttack ?? "—"}-{row.specialDefense ?? "—"}-{row.speed ?? "—"}
               </p>
-              <div className="mt-1 grid grid-cols-3 gap-x-2 gap-y-1 text-[10px] text-slate-500">
-                <span>HP {row.hp ?? "—"}</span><span>こうげき {row.attack ?? "—"}</span><span>ぼうぎょ {row.defense ?? "—"}</span>
-                <span>とくこう {row.specialAttack ?? "—"}</span><span>とくぼう {row.specialDefense ?? "—"}</span><span>すばやさ {row.speed ?? "—"}</span>
-              </div>
               <PercentageBar value={row.percentageValue} />
             </div>
             <UsageValue value={row.percentageValue} fallback={row.percentage} />
@@ -105,16 +110,15 @@ function SpreadRankings({ detail }: { detail: UsageFormatDetail }) {
 function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
   if (!detail.natures.length) return <EmptyRanking />;
   return (
-    <ol className="divide-y divide-slate-100">
+    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
       {detail.natures.map((row) => (
-        <li key={`${row.rank}-${row.nameJa}`} className="grid grid-cols-[1.5rem_minmax(0,1fr)_3.5rem] gap-2 py-3">
-          <span className="text-center text-xs font-black text-slate-400">{row.rank}</span>
+        <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
+          <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
           <div className="min-w-0">
-            <p className="text-sm font-bold">{row.nameJa}</p>
-            <p className="mt-1 text-[11px] text-slate-500">{row.statUp && row.statDown ? `${row.statUp}↑ / ${row.statDown}↓` : "能力補正なし"}</p>
+            <div className="flex gap-1"><p className="min-w-0 flex-1 truncate text-xs font-bold">{row.nameJa}</p><UsageValue value={row.percentageValue} fallback={row.percentage} /></div>
+            <p className="text-[10px] text-slate-500">{row.statUp && row.statDown ? `${row.statUp}↑ / ${row.statDown}↓` : "能力補正なし"}</p>
             <PercentageBar value={row.percentageValue} />
           </div>
-          <UsageValue value={row.percentageValue} fallback={row.percentage} />
         </li>
       ))}
     </ol>
@@ -124,15 +128,14 @@ function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
 function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; format: BattleFormat }) {
   if (!detail.teammates.length) return <EmptyRanking />;
   return (
-    <ol className="divide-y divide-slate-100">
+    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
       {detail.teammates.map((row) => (
         <li key={`${row.rank}-${row.pokemonId}`}>
-          <Link href={`/usage-ranking/${row.pokemonId}/?format=${formatQuery(format)}`} className="grid min-h-16 grid-cols-[1.5rem_2.75rem_minmax(0,1fr)_3.5rem] items-center gap-2 py-2 focus-visible:outline-2 focus-visible:outline-blue-600">
-            <span className="text-center text-xs font-black text-slate-400">{row.rank}</span>
+          <Link href={`/usage-ranking/${row.pokemonId}/?format=${formatQuery(format)}`} className="grid min-h-14 grid-cols-[1.25rem_2.25rem_minmax(0,1fr)_auto] items-center gap-1.5 border-b border-slate-100 py-1.5 focus-visible:outline-2 focus-visible:outline-blue-600">
+            <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
             <PokemonImage src={row.sprite} name={row.displayNameJa} size={44} />
             <span className="min-w-0">
-              <span className="block truncate text-sm font-bold">{row.displayNameJa}</span>
-              <span className="mt-1 block truncate text-[10px] text-slate-500">{row.types.map(getTypeDisplayNameJa).join(" / ")}</span>
+              <span className="block truncate text-xs font-bold" title={row.displayNameJa}>{row.displayNameJa}</span>
             </span>
             <UsageValue value={row.percentageValue} fallback={row.percentage} />
           </Link>
@@ -155,7 +158,7 @@ function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMo
 
   return (
     <>
-      <p className="text-xs leading-5 text-slate-500">「使用率上位」は、このポケモンが覚えられる技のうち、現在の対戦データで採用率が高い技です。</p>
+      <p className="text-[11px] leading-4 text-slate-500">TOP10は、現在の対戦データで採用率上位10位以内の技です。</p>
       <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="技名で検索" className="mt-3 h-11 w-full rounded-xl border border-slate-200 px-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
       <div className="mt-2 grid grid-cols-1 gap-2 min-[360px]:grid-cols-3">
         <select aria-label="技タイプで絞り込み" value={type} onChange={(event) => setType(event.target.value)} className="h-11 min-w-0 rounded-xl border border-slate-200 bg-white px-2 text-xs">
@@ -172,18 +175,14 @@ function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMo
       <p className="mt-3 text-xs text-slate-500">{filtered.length}件</p>
       <ul className="mt-1 divide-y divide-slate-100">
         {filtered.map((move) => (
-          <li key={move.id} className="py-3">
-            <div className="flex min-w-0 items-start justify-between gap-2">
-              <div className="min-w-0">
-                <p className="flex flex-wrap items-center gap-2 text-sm font-bold">
-                  <span>{move.nameJa}</span>
-                  {topMoveIds.has(move.id) && <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] text-blue-700">使用率上位</span>}
-                </p>
-                <p className="mt-1 text-[11px] text-slate-500">{getTypeDisplayNameJa(move.type)} / {DAMAGE_CLASS_LABELS[move.damageClass]}</p>
+          <li key={move.id} className="py-2">
+            <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+              <p className="min-w-0 flex-1 basis-32 truncate text-xs font-bold" title={move.nameJa}>{move.nameJa}</p>
+              <p className="shrink-0 text-[10px] text-slate-500">威力 {move.power ?? "—"}　命中 {move.alwaysHits ? "必中" : move.accuracy ?? "—"}　PP {move.pp ?? "—"}</p>
+              <div className="flex w-full items-center gap-1">
+                <TypeBadge type={move.type} /><DamageClassBadge damageClass={move.damageClass} />
+                {topMoveIds.has(move.id) && <span className="ml-auto rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-700">TOP10</span>}
               </div>
-              <p className="shrink-0 text-right text-[10px] leading-5 text-slate-500">
-                威力 {move.power ?? "—"}<br />命中 {move.alwaysHits ? "必中" : move.accuracy ?? "—"}<br />PP {move.pp ?? "—"}
-              </p>
             </div>
           </li>
         ))}
@@ -204,6 +203,22 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const detail = pokemon.formats[format];
   const moves = useMemo(() => new Map(pokemon.learnableMoves.map((move) => [move.id, move])), [pokemon.learnableMoves]);
   const topMoveIds = useMemo(() => new Set(detail.moves.map((move) => move.moveId)), [detail.moves]);
+  const [activeSection, setActiveSection] = useState("moves");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActiveSection(visible[0].target.id);
+      },
+      { rootMargin: "-64px 0px -65% 0px", threshold: [0, 0.01] },
+    );
+    SECTIONS.forEach(([id]) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div>
@@ -212,23 +227,23 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96} />
         <div className="min-w-0">
           <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
-          <p className="mt-2 text-xs font-bold text-slate-500">{pokemon.types.map(getTypeDisplayNameJa).join(" / ")}</p>
+          <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
           <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
           <p className="mt-1 text-xs text-slate-500">使用率 {formatPercentage(detail.usagePercentage)}</p>
         </div>
       </div>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
-      <nav aria-label="詳細セクション" className="mt-4 flex gap-2 overflow-x-auto pb-1 text-xs font-bold text-blue-700">
-        {[["moves", "使用技"], ["items", "持ち物"], ["spreads", "努力値"], ["natures", "性格"], ["teammates", "同時採用"], ["learnset", "覚える技"]].map(([id, label]) => (
-          <a key={id} href={`#${id}`} className="min-h-9 shrink-0 rounded-full bg-blue-50 px-3 py-2">{label}</a>
+      <nav aria-label="詳細セクション" className="sticky top-0 z-30 -mx-3 mt-3 flex gap-1 overflow-x-auto border-y border-slate-200 bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur">
+        {SECTIONS.map(([id, label]) => (
+          <a key={id} href={`#${id}`} aria-current={activeSection === id ? "location" : undefined} className={`min-h-8 shrink-0 rounded-full px-2.5 py-1.5 transition ${activeSection === id ? "bg-blue-700 text-white" : "bg-blue-50 text-blue-700"}`}>{label}</a>
         ))}
       </nav>
-      <div className="mt-4 space-y-4">
-        <RankingSection id="moves" title="使用技"><MoveRankings detail={detail} moves={moves} /></RankingSection>
-        <RankingSection id="items" title="持ち物"><ItemRankings detail={detail} /></RankingSection>
+      <div className="mt-3 space-y-3">
+        <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} /></RankingSection>
+        <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
         <RankingSection id="spreads" title="努力値"><SpreadRankings detail={detail} /></RankingSection>
-        <RankingSection id="natures" title="性格"><NatureRankings detail={detail} /></RankingSection>
-        <RankingSection id="teammates" title="一緒に使われているポケモン"><TeammateRankings detail={detail} format={format} /></RankingSection>
+        <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
+        <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
         <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} /></RankingSection>
       </div>
     </div>

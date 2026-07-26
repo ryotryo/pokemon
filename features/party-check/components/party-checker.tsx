@@ -3,19 +3,18 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { evaluateMatchup, getCoverageDots, getWeaknesses, type PartyMemberCoverage } from "@/lib/champions/type-matchup";
-import { getPokemonDisplayNameJa, getTypeDisplayNameJa } from "@/lib/champions/display-names";
+import { getPokemonDisplayNameJa } from "@/lib/champions/display-names";
 import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
+import { TypeBadge } from "@/components/ui/type-badge";
 
 type Form = { id: string; name: string; displayNameJa: string; formKind: string; formRelation: string; types: string[]; sprite: string };
 type Move = { id: string; rank?: number; displayNameJa: string; type: string; damageClass: string; isCoverageMove: boolean; usage?: number | null };
 type RankedPokemon = { id: string; name: string; displayNameJa: string; rank: number; types: string[]; sprite: string; attackTypes: string[]; moves: Move[]; forms: Form[] };
 type Candidate = Form & { attackTypes: string[]; moves: Move[]; rank: number };
 type Target = Form & { rank: number; isFirstForm: boolean; coverage: { count: number; members: PartyMemberCoverage[] } };
-const TYPE_COLORS: Record<string, string> = { fire: "bg-red-100 text-red-700", water: "bg-blue-100 text-blue-700", grass: "bg-green-100 text-green-700", electric: "bg-yellow-100 text-yellow-800", ice: "bg-cyan-100 text-cyan-800", fighting: "bg-orange-100 text-orange-800", poison: "bg-purple-100 text-purple-700", ground: "bg-amber-100 text-amber-800", flying: "bg-sky-100 text-sky-700", psychic: "bg-pink-100 text-pink-700", bug: "bg-lime-100 text-lime-800", rock: "bg-stone-200 text-stone-700", ghost: "bg-violet-100 text-violet-700", dragon: "bg-indigo-100 text-indigo-700", dark: "bg-slate-200 text-slate-800", steel: "bg-zinc-200 text-zinc-700", fairy: "bg-fuchsia-100 text-fuchsia-700", normal: "bg-neutral-200 text-neutral-700" };
 const FORMAT_LABELS = { Singles: "シングル", Doubles: "ダブル" } as const;
 const PARTY_STORAGE_KEY = "pokemon-champions-party";
 
-function TypeBadge({ type }: { type: string }) { return <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${TYPE_COLORS[type.toLowerCase()] ?? "bg-slate-100"}`}>{getTypeDisplayNameJa(type)}</span>; }
 function Dots({ members, large = false }: { members: PartyMemberCoverage[]; large?: boolean }) {
   const count = members.filter((member) => member.canHitWeakness).length;
   return <div className="flex shrink-0 gap-1" aria-label={`${count}匹が弱点をつける`}>{getCoverageDots(count).map((filled, index) => <span key={index} className={`${large ? "size-4" : "size-3"} rounded-full border ${filled ? "border-blue-600 bg-blue-600" : "border-slate-300 bg-white"}`} />)}</div>;
