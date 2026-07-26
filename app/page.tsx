@@ -17,13 +17,15 @@ const tools = [
     available: true,
   },
   {
-    title: "技分析",
-    description: "ポケモンごとの使用技や技タイプを分析する機能です。",
-    available: false,
+    title: "使用率ランキング",
+    description: "ポケモンチャンピオンズの使用率、技、持ち物、努力値、性格、同時採用ポケモンを確認できます。",
+    href: "/usage-ranking/",
+    icon: "≡",
+    available: true,
   },
   {
-    title: "ポケモンランキング",
-    description: "使用率や対戦環境データを見る機能です。",
+    title: "技分析",
+    description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,
   },
 ] as const;
