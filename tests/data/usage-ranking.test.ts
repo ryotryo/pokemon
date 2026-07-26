@@ -11,6 +11,7 @@ import {
   type UsagePokemonDetail,
   type UsageRankingIndex,
 } from "../../lib/champions/usage-ranking";
+import { getUsagePokemonPageData } from "../../lib/champions/usage-ranking-data";
 
 const root = process.cwd();
 const index = JSON.parse(readFileSync(path.join(root, "data/usage-ranking/index.json"), "utf8")) as UsageRankingIndex;
@@ -34,6 +35,22 @@ describe("usage ranking data", () => {
     expect(index.pokemon.find((pokemon) => pokemon.id === "rotom-wash")?.displayNameJa).toBe("ウォッシュロトム");
     const sorted = sortRankingPokemon(index.pokemon, "Singles");
     expect(sorted[0].ranks.Singles).toBeLessThanOrEqual(sorted[1].ranks.Singles!);
+  });
+
+  it("keeps only non-mega forms in the public usage ranking", () => {
+    const publicPokemon = index.pokemon.filter((pokemon) => pokemon.formRelation !== "mega");
+    expect(publicPokemon.some((pokemon) => pokemon.formRelation === "mega")).toBe(false);
+    expect(publicPokemon.some((pokemon) => pokemon.id === "alolan-raichu")).toBe(true);
+    expect(publicPokemon.some((pokemon) => pokemon.id === "rotom-wash")).toBe(true);
+  });
+
+  it("moves mega base stats to the base-form detail and rejects mega detail pages", async () => {
+    const garchomp = await getUsagePokemonPageData("garchomp");
+    const charizard = await getUsagePokemonPageData("charizard");
+    expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス"]);
+    expect(garchomp?.megaForms[0].baseStats.attack).toBe(170);
+    expect(charizard?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガリザードンX", "メガリザードンY"]);
+    expect(await getUsagePokemonPageData("mega-garchomp")).toBeNull();
   });
 
   it("uses format-specific top tens and complete ranking categories", () => {

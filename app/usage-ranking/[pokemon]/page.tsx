@@ -10,12 +10,12 @@ const index = usageIndex as UsageRankingIndex;
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return index.pokemon.map((pokemon) => ({ pokemon: pokemon.id }));
+  return index.pokemon.filter((pokemon) => pokemon.formRelation !== "mega").map((pokemon) => ({ pokemon: pokemon.id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ pokemon: string }> }): Promise<Metadata> {
   const { pokemon: id } = await params;
-  const pokemon = index.pokemon.find((entry) => entry.id === id);
+  const pokemon = index.pokemon.find((entry) => entry.id === id && entry.formRelation !== "mega");
   if (!pokemon) return {};
   return {
     title: `${pokemon.displayNameJa}の使用率・技・持ち物｜ポケモンチャンピオンズ`,
@@ -30,4 +30,3 @@ export default async function Page({ params }: { params: Promise<{ pokemon: stri
   if (!pokemon) notFound();
   return <UsageDetailPage pokemon={pokemon} />;
 }
-

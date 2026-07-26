@@ -24,7 +24,7 @@ export function UsageRankingPage() {
           <p className="mt-1 text-[11px] text-slate-500">最終更新：{new Date(data.sourceUpdatedAt).toLocaleDateString("ja-JP")}</p>
         </header>
         <Suspense fallback={<div className="h-40 animate-pulse rounded-2xl bg-slate-200" />}>
-          <UsageRanking pokemon={data.pokemon} />
+          <UsageRanking pokemon={data.pokemon.filter((pokemon) => pokemon.formRelation !== "mega")} />
         </Suspense>
         <footer className="mt-8 text-xs leading-5 text-slate-500">順位・対戦データ: Champions Battle Data<br />習得技・技情報: projectpokemon/champout<br />Pokémon、Nintendo等とは関係のない非公式ツールです。</footer>
       </div>

@@ -1,4 +1,5 @@
 import type { BattleFormat, DamageClass, FormRelation } from "./types";
+import type { PokemonBaseStats } from "./speed-ranking";
 
 export type UsageBattleCategory =
   | "move"
@@ -119,6 +120,11 @@ export interface UsagePokemonDetail {
 
 export interface UsagePokemonPageData extends Omit<UsagePokemonDetail, "learnableMoveIds"> {
   learnableMoves: UsageMoveDetail[];
+  megaForms: Array<{
+    id: string;
+    displayNameJa: string;
+    baseStats: PokemonBaseStats;
+  }>;
 }
 
 export type UsageMoveSort = "name" | "type" | "power" | "pp";

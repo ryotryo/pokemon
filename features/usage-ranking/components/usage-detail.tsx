@@ -46,6 +46,26 @@ function UsageValue({ value, fallback }: { value: number | null; fallback?: stri
   return <span className="text-xs font-bold text-slate-600">{formatPercentage(value, fallback)}</span>;
 }
 
+function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
+  if (!pokemon.megaForms.length) return null;
+  return (
+    <section className="mt-3 rounded-xl border border-blue-100 bg-blue-50/60 p-3">
+      <h2 className="text-sm font-black text-blue-950">メガシンカ種族値</h2>
+      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+        {pokemon.megaForms.map((mega) => (
+          <div key={mega.id} className="rounded-lg bg-white px-3 py-2">
+            <p className="text-xs font-bold">{mega.displayNameJa}</p>
+            <div className="mt-1 grid grid-cols-3 gap-x-2 gap-y-0.5 text-[10px] text-slate-600">
+              <span>HP {mega.baseStats.hp}</span><span>こうげき {mega.baseStats.attack}</span><span>ぼうぎょ {mega.baseStats.defense}</span>
+              <span>とくこう {mega.baseStats.specialAttack}</span><span>とくぼう {mega.baseStats.specialDefense}</span><span>すばやさ {mega.baseStats.speed}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map<string, UsageMoveDetail> }) {
   if (!detail.moves.length) return <EmptyRanking />;
   return (
@@ -238,6 +258,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         </div>
       </div>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
+      <MegaBaseStats pokemon={pokemon} />
       <nav aria-label="詳細セクション" className="sticky top-0 z-30 -mx-3 mt-3 flex gap-1 overflow-x-auto border-y border-slate-200 bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur">
         {SECTIONS.map(([id, label]) => (
           <a
