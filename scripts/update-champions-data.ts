@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- External API values are normalized and validated before publication. */
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { getRanking, getUsageRank, normalizePokemon, slugifyMove } from "../lib/champions/normalize";
+import { getRanking, getUsageRank, isCanonicalPokemonRecord, normalizePokemon, slugifyMove } from "../lib/champions/normalize";
 import { isCoverageMove } from "../lib/champions/move-coverage";
 import { getSeasonDisplayMetadata } from "../lib/champions/season-metadata";
 import { normalizeSpeedRanking, type SpeedRankingDataset } from "../lib/champions/speed-ranking";
@@ -132,10 +132,11 @@ async function main() {
     const index = await getJson(`${API}/api`);
     const season = index.defaultSeason;
     if (!season || !Array.isArray(index.pokemon) || !index.pokemon.length) throw new Error("invalid index or season");
+    const canonicalPokemon = index.pokemon.filter((entry: any) => isCanonicalPokemonRecord(entry.slug));
     const seasonDisplay = getSeasonDisplayMetadata(index);
     console.log(`[data] season: ${season} (${seasonDisplay.seasonLabel || "label unavailable"})`);
     const formats: BattleFormat[] = ["Singles", "Doubles"];
-    const rankings = new Map(formats.map((format) => [format, getRanking(index.pokemon, season, format)]));
+    const rankings = new Map(formats.map((format) => [format, getRanking(canonicalPokemon, season, format)]));
     const raw = new Map<BattleFormat, Array<{ entry: any; rank: number; battle: any }>>();
     const availableRaw = new Map<BattleFormat, Array<{ entry: any; rank: number; battle: any }>>();
     const moveNames: string[] = [];
@@ -148,7 +149,7 @@ async function main() {
         return { entry, rank, battle };
       }));
       const topBattleBySlug = new Map(rows.map((row) => [row.entry.slug, row.battle]));
-      const availableRows = await mapWithConcurrency(index.pokemon, 10, async (entry: any) => {
+      const availableRows = await mapWithConcurrency(canonicalPokemon, 10, async (entry: any) => {
         const summary = entry.summary?.battleSummary?.[season]?.[format];
         const usageRank = getUsageRank(summary);
         const summaryRows = Array.isArray(summary?.rows) ? summary.rows : [];
@@ -175,7 +176,7 @@ async function main() {
     await mkdir(path.join(STAGE, "moves"), { recursive: true });
     await mkdir(path.join(STAGE, "i18n"), { recursive: true });
     const metadata: any = { season, ...seasonDisplay, updatedAt, source: `${API}/api`, formats: {} };
-    const speedRanking = normalizeSpeedRanking(index.pokemon, season, pokemonNamesJa, updatedAt, API);
+    const speedRanking = normalizeSpeedRanking(canonicalPokemon, season, pokemonNamesJa, updatedAt, API);
     validateSpeedRanking(speedRanking);
     metadata.tools = { speedRanking: { count: speedRanking.pokemon.length, source: `${API}/api` } };
     await writeFile(path.join(STAGE, "champions/speed-ranking.json"), JSON.stringify(speedRanking, null, 2) + "\n");

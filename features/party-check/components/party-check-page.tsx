@@ -2,13 +2,15 @@ import singles from "@/data/champions/singles.json";
 import doubles from "@/data/champions/doubles.json";
 import metadata from "@/data/metadata.json";
 import { PartyChecker } from "@/features/party-check/components/party-checker";
+import { SiteLogo } from "@/components/site-logo";
 
 export function PartyCheckPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-lg px-4 py-8 sm:py-12">
         <header className="mb-7">
-          <p className="mb-2 text-xs font-bold tracking-[0.18em] text-blue-700">POKÉMON CHAMPIONS</p>
+          <SiteLogo />
+          <p className="mb-2 mt-5 text-xs font-bold tracking-[0.18em] text-blue-700">ポケモンチャンピオンズ</p>
           <h1 className="text-3xl font-black tracking-tight">Party Matchup Checker</h1>
           <p className="mt-3 text-sm leading-6 text-slate-600">初心者向けのパーティー相性チェック。現在は対戦データ基盤と攻撃範囲の確認に対応しています。</p>
         </header>

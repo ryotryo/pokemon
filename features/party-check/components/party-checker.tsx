@@ -106,7 +106,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
         <div className="divide-y divide-slate-100">{filteredResults.map((target) => <button key={`${target.rank}-${target.id}`} style={{ contentVisibility: "auto", containIntrinsicSize: "56px" }} className="grid h-14 w-full grid-cols-[1.75rem_2.25rem_minmax(0,1fr)_auto] items-center gap-2 px-3 text-left hover:bg-slate-50" onClick={() => setDetail(target)}><span className="text-center text-[11px] font-bold text-slate-400">{target.isFirstForm && target.rank < Number.MAX_SAFE_INTEGER ? target.rank : ""}</span><img src={target.sprite} alt="" className="size-9 object-contain" /><span className="min-w-0 truncate text-[13px] font-bold">{getPokemonDisplayNameJa(target.id, target.name)}</span><Dots members={target.coverage.members} /></button>)}</div>
       </>}
     </section>
-    <p className="mt-4 px-1 text-xs leading-5 text-slate-500">この診断はPokémon Championsでよく使用されている技をもとにした潜在的な対応範囲です。実際の技構成によって対応範囲は異なります。</p>
+    <p className="mt-4 px-1 text-xs leading-5 text-slate-500">この診断はポケモンチャンピオンズでよく使用されている技をもとにした潜在的な対応範囲です。実際の技構成によって対応範囲は異なります。</p>
 
     <Sheet open={pickerSlot !== null} onOpenChange={(open) => !open && setPickerSlot(null)}><SheetOverlay onClick={() => setPickerSlot(null)} /><SheetContent>
       <div className="flex items-center justify-between"><h2 className="text-xl font-black">ポケモンを選択</h2>{pickerSlot !== null && partyIds[pickerSlot] && <button className="text-sm font-bold text-red-600" onClick={() => choose("")}>削除</button>}</div>

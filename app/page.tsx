@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteLogo } from "@/components/site-logo";
 
 const tools = [
   {
@@ -32,7 +33,7 @@ export default function Home() {
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
         <header className="mb-10">
-          <p className="text-xs font-black tracking-[0.2em] text-blue-700">POKÉ ANALYTICS</p>
+          <SiteLogo />
           <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Poké Analytics</h1>
           <p className="mt-4 text-base leading-7 text-slate-600">ポケモン対戦をデータで分析するツールサイト</p>
         </header>
@@ -48,7 +49,7 @@ export default function Home() {
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div>
                     <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-2xl bg-blue-50 text-xl font-black text-blue-700">{tool.icon}</span>
-                    <p className="mt-4 text-xs font-bold text-blue-700">POKÉMON CHAMPIONS</p>
+                    <p className="mt-4 text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
                     <h3 className="mt-2 text-xl font-black">{tool.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{tool.description}</p>
                   </div>

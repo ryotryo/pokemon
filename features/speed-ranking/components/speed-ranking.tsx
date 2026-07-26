@@ -16,6 +16,15 @@ const statLabels = [
   ["increasingMax", "最速（性格上昇補正＋努力値252）"],
 ] as const;
 
+const baseStatLabels = [
+  ["hp", "HP"],
+  ["attack", "こうげき"],
+  ["defense", "ぼうぎょ"],
+  ["specialAttack", "とくこう"],
+  ["specialDefense", "とくぼう"],
+  ["speed", "すばやさ"],
+] as const;
+
 export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
   const [format, setFormat] = useState<BattleFormat>("Singles");
   const [sortMode, setSortMode] = useState<SortMode>("speed");
@@ -93,6 +102,14 @@ export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
                 <Image src={selected.sprite} alt="" width={88} height={88} unoptimized className="size-20 object-contain" />
                 <div><p className="text-xs font-bold text-blue-700">すばやさ詳細</p><h2 className="mt-1 text-2xl font-black">{selected.displayNameJa}</h2></div>
               </div>
+              <dl className="mt-3 grid grid-cols-3 gap-x-3 gap-y-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5">
+                {baseStatLabels.map(([key, label]) => (
+                  <div key={key} className="flex min-w-0 items-baseline justify-between gap-1">
+                    <dt className="truncate text-[10px] font-medium text-slate-500">{label}</dt>
+                    <dd className="text-xs font-bold tabular-nums text-slate-700">{selected.baseStats[key]}</dd>
+                  </div>
+                ))}
+              </dl>
               <div className="mt-5 rounded-2xl bg-slate-50 p-4">
                 <div className="flex items-baseline justify-between"><span className="font-bold">すばやさ種族値</span><strong className="text-2xl tabular-nums">{selected.baseSpeed}</strong></div>
                 <div className="mt-4"><SpeedBand stats={selected.stats} scale={dataset.scale} showValues /></div>
@@ -128,7 +145,7 @@ export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
                 ))}
               </div>
               <p className="mt-2 text-[10px] leading-4 text-slate-500">上段は実数値、下段の「約○○族」は実質種族値です。</p>
-              <p className="mt-4 text-xs leading-5 text-slate-500">レベル50・個体値最大で計算。努力値252はPokémon Championsのステータスポイント32に相当します。</p>
+              <p className="mt-4 text-xs leading-5 text-slate-500">レベル50・個体値最大で計算。努力値252はポケモンチャンピオンズのステータスポイント32に相当します。</p>
             </div>
           )}
         </SheetContent>

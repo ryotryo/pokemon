@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   description: "ポケモン対戦をデータで分析するツールサイト",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
   },
 };
 

@@ -5,6 +5,12 @@ import { getChampionsSprite } from "./sprites";
 export const slugifyMove = (name: string) => name.toLowerCase().normalize("NFKD").replace(/[.'’:,]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 export const slugifyPokemon = (name: string) => name.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+const NON_CANONICAL_POKEMON_IDS = new Set(["rotom-fan"]);
+
+export function isCanonicalPokemonRecord(id: string): boolean {
+  return !NON_CANONICAL_POKEMON_IDS.has(id);
+}
+
 export function classifyForm(formKind: string): FormRelation {
   if (/^mega(?:\s|$)/i.test(formKind)) return "mega";
   return formKind === "Base" ? "base" : "independent";
@@ -26,6 +32,7 @@ export function getUsageRank(summary: any): number | null {
 
 export function getRanking(indexPokemon: any[], season: string, format: BattleFormat, limit?: number) {
   return indexPokemon
+    .filter((entry) => isCanonicalPokemonRecord(entry.slug))
     .map((entry) => {
       const summary = entry.summary?.battleSummary?.[season]?.[format];
       return { entry, rank: getUsageRank(summary) };

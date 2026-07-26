@@ -1,6 +1,7 @@
 import speedRanking from "@/data/champions/speed-ranking.json";
 import metadata from "@/data/metadata.json";
 import type { SpeedRankingDataset } from "@/lib/champions/speed-ranking";
+import { SiteLogo } from "@/components/site-logo";
 import { SpeedRanking } from "./speed-ranking";
 
 function formatSeasonLabel(label: string) {
@@ -18,7 +19,8 @@ export function SpeedRankingPage() {
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-2xl px-3 py-7 sm:px-6 sm:py-12">
         <header className="mb-6 px-1">
-          <p className="mb-2 text-xs font-bold tracking-[0.18em] text-blue-700">POKÉMON CHAMPIONS</p>
+          <SiteLogo />
+          <p className="mb-2 mt-5 text-xs font-bold tracking-[0.18em] text-blue-700">ポケモンチャンピオンズ</p>
           <h1 className="text-3xl font-black tracking-tight">すばやさランキング</h1>
           <p className="mt-3 text-sm leading-6 text-slate-600">共通スケールのバーで、実戦のすばやさ帯と周辺ポケモンとの重なりを確認できます。</p>
           <p className="mt-2 text-xs font-bold text-slate-600">

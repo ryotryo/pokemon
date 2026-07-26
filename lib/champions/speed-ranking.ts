@@ -9,6 +9,15 @@ export interface SpeedStats {
   increasingMax: number;
 }
 
+export interface PokemonBaseStats {
+  hp: number;
+  attack: number;
+  defense: number;
+  specialAttack: number;
+  specialDefense: number;
+  speed: number;
+}
+
 export interface SpeedRankingPokemon {
   id: string;
   name: string;
@@ -17,6 +26,7 @@ export interface SpeedRankingPokemon {
   formRelation: "base" | "mega" | "independent";
   sprite: string;
   baseSpeed: number;
+  baseStats: PokemonBaseStats;
   usageRanks: { Singles: number | null; Doubles: number | null };
   stats: SpeedStats;
 }
@@ -52,6 +62,17 @@ export function calculateSpeedStats(neutral: number): SpeedStats {
   };
 }
 
+export function normalizeBaseStats(form: any): PokemonBaseStats {
+  return {
+    hp: Number(form.hp) - 75,
+    attack: Number(form.attack) - 20,
+    defense: Number(form.defense) - 20,
+    specialAttack: Number(form.sp_attack) - 20,
+    specialDefense: Number(form.sp_defense) - 20,
+    speed: Number(form.speed) - 20,
+  };
+}
+
 export function calculateModifiedSpeed(fastest: number, multiplier: number): number {
   return Math.floor(fastest * multiplier);
 }
@@ -70,6 +91,8 @@ export function normalizeSpeedRanking(indexPokemon: any[], season: string, names
       const neutral = Number(form.speed);
       if (!Number.isFinite(neutral) || neutral <= 20) continue;
       const formKind = form.form_kind || "Base";
+      const baseStats = normalizeBaseStats(form);
+      if (Object.values(baseStats).some((value) => !Number.isFinite(value) || value <= 0)) continue;
       records.set(form.slug, {
         id: form.slug,
         name: form.saved_name,
@@ -77,7 +100,8 @@ export function normalizeSpeedRanking(indexPokemon: any[], season: string, names
         formKind,
         formRelation: /^mega(?:\s|$)/i.test(formKind) ? "mega" : formKind === "Base" ? "base" : "independent",
         sprite: getChampionsSprite(form.slug, form.image_path),
-        baseSpeed: neutral - 20,
+        baseSpeed: baseStats.speed,
+        baseStats,
         usageRanks: { Singles: singlesRank, Doubles: doublesRank },
         stats: calculateSpeedStats(neutral),
       });

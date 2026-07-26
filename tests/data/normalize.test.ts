@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classifyForm, getAttachedForms, getRanking, normalizePokemon, slugifyMove } from "../../lib/champions/normalize";
+import { classifyForm, getAttachedForms, getRanking, isCanonicalPokemonRecord, normalizePokemon, slugifyMove } from "../../lib/champions/normalize";
 import type { MoveMasterEntry } from "../../lib/champions/types";
 
 describe("Champions normalization", () => {
@@ -13,6 +13,10 @@ describe("Champions normalization", () => {
     expect(classifyForm("Mega X")).toBe("mega");
     expect(classifyForm("Alolan")).toBe("independent");
     expect(classifyForm("Wash")).toBe("independent");
+  });
+  it("keeps the ranked Rotom Fan record and rejects its unranked duplicate alias", () => {
+    expect(isCanonicalPokemonRecord("fan-rotom")).toBe(true);
+    expect(isCanonicalPokemonRecord("rotom-fan")).toBe(false);
   });
   it("attaches only the primary record and megas to a base ranking", () => {
     const entry = { slug: "raichu", summary: { primary: { form_kind: "Base" }, forms: [
