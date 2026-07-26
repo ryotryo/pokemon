@@ -235,7 +235,20 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
       <nav aria-label="詳細セクション" className="sticky top-0 z-30 -mx-3 mt-3 flex gap-1 overflow-x-auto border-y border-slate-200 bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur">
         {SECTIONS.map(([id, label]) => (
-          <a key={id} href={`#${id}`} aria-current={activeSection === id ? "location" : undefined} className={`min-h-8 shrink-0 rounded-full px-2.5 py-1.5 transition ${activeSection === id ? "bg-blue-700 text-white" : "bg-blue-50 text-blue-700"}`}>{label}</a>
+          <a
+            key={id}
+            href={`#${id}`}
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+              window.history.replaceState(null, "", `#${id}`);
+              setActiveSection(id);
+            }}
+            aria-current={activeSection === id ? "location" : undefined}
+            className={`min-h-8 shrink-0 rounded-full px-2.5 py-1.5 transition ${activeSection === id ? "bg-blue-700 text-white" : "bg-blue-50 text-blue-700"}`}
+          >
+            {label}
+          </a>
         ))}
       </nav>
       <div className="mt-3 space-y-3">
