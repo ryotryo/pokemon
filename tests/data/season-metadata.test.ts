@@ -10,6 +10,7 @@ describe("season display metadata", () => {
       generatedAt: "2026-07-18T20:24:17.168Z",
     })).toEqual({
       seasonLabel: "M4",
+      seasonPeriod: { start: "2026-07-08", end: "2026-08-05" },
       sourceGeneratedAt: "2026-07-18T20:24:17.168Z",
       dailyDataPeriod: { start: "2026-07-16", end: "2026-07-18" },
     });

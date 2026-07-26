@@ -1,8 +1,13 @@
 export interface SeasonDisplayMetadata {
   seasonLabel: string;
+  seasonPeriod?: { start: string; end: string };
   sourceGeneratedAt?: string;
   dailyDataPeriod?: { start: string; end: string };
 }
+
+const SEASON_PERIODS: Record<string, { start: string; end: string }> = {
+  M4: { start: "2026-07-08", end: "2026-08-05" },
+};
 
 function parseDailyFolder(folder: unknown) {
   if (typeof folder !== "string") return null;
@@ -26,6 +31,7 @@ export function getSeasonDisplayMetadata(index: {
 
   return {
     seasonLabel,
+    ...(SEASON_PERIODS[seasonLabel] ? { seasonPeriod: SEASON_PERIODS[seasonLabel] } : {}),
     ...(typeof index.generatedAt === "string" ? { sourceGeneratedAt: index.generatedAt } : {}),
     ...(relevantDates.length ? { dailyDataPeriod: { start: relevantDates[0], end: relevantDates.at(-1)! } } : {}),
   };

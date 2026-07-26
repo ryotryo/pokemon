@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- External API values are normalized and validated before publication. */
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { getRanking, normalizePokemon, slugifyMove } from "../lib/champions/normalize";
+import { getRanking, getUsageRank, normalizePokemon, slugifyMove } from "../lib/champions/normalize";
 import { isCoverageMove } from "../lib/champions/move-coverage";
 import { getSeasonDisplayMetadata } from "../lib/champions/season-metadata";
+import { normalizeSpeedRanking, type SpeedRankingDataset } from "../lib/champions/speed-ranking";
 import type { BattleFormat, ChampionsDataset, MoveMasterEntry } from "../lib/champions/types";
 
 const ROOT = process.cwd();
@@ -18,6 +19,18 @@ async function getJson(url: string) {
   const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "champions-party-checker-data-builder/1.0" } });
   if (!response.ok) throw new Error(`${response.status} ${url}`);
   return response.json();
+}
+
+async function mapWithConcurrency<T, R>(values: T[], concurrency: number, mapper: (value: T) => Promise<R>): Promise<R[]> {
+  const results = new Array<R>(values.length);
+  let nextIndex = 0;
+  await Promise.all(Array.from({ length: Math.min(concurrency, values.length) }, async () => {
+    while (nextIndex < values.length) {
+      const index = nextIndex++;
+      results[index] = await mapper(values[index]);
+    }
+  }));
+  return results;
 }
 
 async function loadMoveMaster(): Promise<Record<string, MoveMasterEntry>> {
@@ -104,6 +117,15 @@ function validate(dataset: ChampionsDataset) {
   });
 }
 
+function validateSpeedRanking(dataset: SpeedRankingDataset) {
+  if (!dataset.season || !dataset.pokemon.length || dataset.scale.max <= 0) throw new Error("speed ranking data is incomplete");
+  dataset.pokemon.forEach((pokemon) => {
+    if (!pokemon.id || !pokemon.displayNameJa || !pokemon.sprite || pokemon.baseSpeed <= 0) {
+      throw new Error(`${pokemon.id || "unknown"}: invalid speed ranking data`);
+    }
+  });
+}
+
 async function main() {
   await mkdir(STAGE, { recursive: true });
   try {
@@ -125,12 +147,17 @@ async function main() {
         battle.rows.filter((row: any) => row.category === "move" && row.rank <= 10).forEach((row: any) => moveNames.push(row.name));
         return { entry, rank, battle };
       }));
-      const availableRows = index.pokemon.map((entry: any) => {
+      const topBattleBySlug = new Map(rows.map((row) => [row.entry.slug, row.battle]));
+      const availableRows = await mapWithConcurrency(index.pokemon, 10, async (entry: any) => {
         const summary = entry.summary?.battleSummary?.[season]?.[format];
-        const rank = Number(summary?.rows?.find((row: any) => row.column_position)?.column_position);
-        const rows = Array.isArray(summary?.rows) ? summary.rows : [];
-        rows.filter((row: any) => row.category === "move" && row.rank <= 10).forEach((row: any) => moveNames.push(row.name));
-        return { entry, rank: Number.isInteger(rank) ? rank : Number.MAX_SAFE_INTEGER, battle: { rows } };
+        const usageRank = getUsageRank(summary);
+        const summaryRows = Array.isArray(summary?.rows) ? summary.rows : [];
+        const battle = topBattleBySlug.get(entry.slug)
+          ?? (usageRank !== null && summaryRows.length === 0
+            ? await getJson(`${API}/api/battle/${format}/${encodeURIComponent(entry.slug)}?season=${encodeURIComponent(season)}`)
+            : { rows: summaryRows });
+        battle.rows.filter((row: any) => row.category === "move" && row.rank <= 10).forEach((row: any) => moveNames.push(row.name));
+        return { entry, rank: usageRank ?? Number.MAX_SAFE_INTEGER, battle };
       });
       availableRaw.set(format, availableRows);
       raw.set(format, rows);
@@ -148,6 +175,10 @@ async function main() {
     await mkdir(path.join(STAGE, "moves"), { recursive: true });
     await mkdir(path.join(STAGE, "i18n"), { recursive: true });
     const metadata: any = { season, ...seasonDisplay, updatedAt, source: `${API}/api`, formats: {} };
+    const speedRanking = normalizeSpeedRanking(index.pokemon, season, pokemonNamesJa, updatedAt, API);
+    validateSpeedRanking(speedRanking);
+    metadata.tools = { speedRanking: { count: speedRanking.pokemon.length, source: `${API}/api` } };
+    await writeFile(path.join(STAGE, "champions/speed-ranking.json"), JSON.stringify(speedRanking, null, 2) + "\n");
     for (const format of formats) {
       for (const { entry, battle } of raw.get(format)!) {
         const topMoves = battle.rows.filter((row: any) => row.category === "move" && row.rank <= 10);
@@ -165,7 +196,7 @@ async function main() {
     await writeFile(path.join(STAGE, "moves/move-master.json"), JSON.stringify(master, null, 2) + "\n");
     await writeFile(path.join(STAGE, "i18n/pokemon-names-ja.json"), JSON.stringify(pokemonNamesJa, null, 2) + "\n");
     await writeFile(path.join(STAGE, "metadata.json"), JSON.stringify(metadata, null, 2) + "\n");
-    for (const relative of ["champions/singles.json", "champions/doubles.json", "moves/move-master.json", "i18n/pokemon-names-ja.json", "metadata.json"]) {
+    for (const relative of ["champions/singles.json", "champions/doubles.json", "champions/speed-ranking.json", "moves/move-master.json", "i18n/pokemon-names-ja.json", "metadata.json"]) {
       await mkdir(path.dirname(path.join(OUT, relative)), { recursive: true });
       await rename(path.join(STAGE, relative), path.join(OUT, relative));
     }

@@ -1,0 +1,5901 @@
+{
+  "season": "Current",
+  "updatedAt": "2026-07-26T02:56:46.012Z",
+  "source": "https://championsbattledata.com",
+  "scale": {
+    "min": 0,
+    "max": 222
+  },
+  "pokemon": [
+    {
+      "id": "abomasnow",
+      "name": "Abomasnow",
+      "displayNameJa": "ユキノオー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Abomasnow.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 112,
+        "Doubles": 106
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "mega-abomasnow",
+      "name": "Mega Abomasnow",
+      "displayNameJa": "メガユキノオー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Abomasnow.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 112,
+        "Doubles": 106
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "absol",
+      "name": "Absol",
+      "displayNameJa": "アブソル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Absol.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 173,
+        "Doubles": 193
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "mega-absol",
+      "name": "Mega Absol",
+      "displayNameJa": "メガアブソル",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Absol.png",
+      "baseSpeed": 115,
+      "usageRanks": {
+        "Singles": 173,
+        "Doubles": 193
+      },
+      "stats": {
+        "decreasingMin": 121,
+        "neutral": 135,
+        "neutralMax": 167,
+        "increasingMax": 183
+      }
+    },
+    {
+      "id": "aegislash-shield-forme",
+      "name": "Aegislash Shield Forme",
+      "displayNameJa": "ギルガルド（シールドフォルム）",
+      "formKind": "Shield Forme",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aegislash%20Shield%20Forme.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 21,
+        "Doubles": 92
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "aerodactyl",
+      "name": "Aerodactyl",
+      "displayNameJa": "プテラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aerodactyl.png",
+      "baseSpeed": 130,
+      "usageRanks": {
+        "Singles": 109,
+        "Doubles": 14
+      },
+      "stats": {
+        "decreasingMin": 135,
+        "neutral": 150,
+        "neutralMax": 182,
+        "increasingMax": 200
+      }
+    },
+    {
+      "id": "mega-aerodactyl",
+      "name": "Mega Aerodactyl",
+      "displayNameJa": "メガプテラ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Aerodactyl.png",
+      "baseSpeed": 150,
+      "usageRanks": {
+        "Singles": 109,
+        "Doubles": 14
+      },
+      "stats": {
+        "decreasingMin": 153,
+        "neutral": 170,
+        "neutralMax": 202,
+        "increasingMax": 222
+      }
+    },
+    {
+      "id": "aggron",
+      "name": "Aggron",
+      "displayNameJa": "ボスゴドラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aggron.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 110,
+        "Doubles": 107
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "mega-aggron",
+      "name": "Mega Aggron",
+      "displayNameJa": "メガボスゴドラ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Aggron.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 110,
+        "Doubles": 107
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "alakazam",
+      "name": "Alakazam",
+      "displayNameJa": "フーディン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alakazam.png",
+      "baseSpeed": 120,
+      "usageRanks": {
+        "Singles": 123,
+        "Doubles": 121
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 140,
+        "neutralMax": 172,
+        "increasingMax": 189
+      }
+    },
+    {
+      "id": "mega-alakazam",
+      "name": "Mega Alakazam",
+      "displayNameJa": "メガフーディン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Alakazam.png",
+      "baseSpeed": 150,
+      "usageRanks": {
+        "Singles": 123,
+        "Doubles": 121
+      },
+      "stats": {
+        "decreasingMin": 153,
+        "neutral": 170,
+        "neutralMax": 202,
+        "increasingMax": 222
+      }
+    },
+    {
+      "id": "alcremie",
+      "name": "Alcremie",
+      "displayNameJa": "マホイップ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alcremie.png",
+      "baseSpeed": 64,
+      "usageRanks": {
+        "Singles": 181,
+        "Doubles": 139
+      },
+      "stats": {
+        "decreasingMin": 75,
+        "neutral": 84,
+        "neutralMax": 116,
+        "increasingMax": 127
+      }
+    },
+    {
+      "id": "alolan-ninetales",
+      "name": "Alolan Ninetales",
+      "displayNameJa": "アローラキュウコン",
+      "formKind": "Alolan",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Ninetales.png",
+      "baseSpeed": 109,
+      "usageRanks": {
+        "Singles": 18,
+        "Doubles": 29
+      },
+      "stats": {
+        "decreasingMin": 116,
+        "neutral": 129,
+        "neutralMax": 161,
+        "increasingMax": 177
+      }
+    },
+    {
+      "id": "alolan-raichu",
+      "name": "Alolan Raichu",
+      "displayNameJa": "アローラライチュウ",
+      "formKind": "Alolan",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Raichu.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 221,
+        "Doubles": 147
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "altaria",
+      "name": "Altaria",
+      "displayNameJa": "チルタリス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Altaria.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 125,
+        "Doubles": 100
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-altaria",
+      "name": "Mega Altaria",
+      "displayNameJa": "メガチルタリス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Altaria.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 125,
+        "Doubles": 100
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "ampharos",
+      "name": "Ampharos",
+      "displayNameJa": "デンリュウ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ampharos.png",
+      "baseSpeed": 55,
+      "usageRanks": {
+        "Singles": 162,
+        "Doubles": 127
+      },
+      "stats": {
+        "decreasingMin": 67,
+        "neutral": 75,
+        "neutralMax": 107,
+        "increasingMax": 117
+      }
+    },
+    {
+      "id": "mega-ampharos",
+      "name": "Mega Ampharos",
+      "displayNameJa": "メガデンリュウ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Ampharos.png",
+      "baseSpeed": 45,
+      "usageRanks": {
+        "Singles": 162,
+        "Doubles": 127
+      },
+      "stats": {
+        "decreasingMin": 58,
+        "neutral": 65,
+        "neutralMax": 97,
+        "increasingMax": 106
+      }
+    },
+    {
+      "id": "annihilape",
+      "name": "Annihilape",
+      "displayNameJa": "コノヨザル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Annihilape.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 61,
+        "Doubles": 37
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "appletun",
+      "name": "Appletun",
+      "displayNameJa": "タルップル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Appletun.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 212,
+        "Doubles": 212
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "araquanid",
+      "name": "Araquanid",
+      "displayNameJa": "オニシズクモ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Araquanid.png",
+      "baseSpeed": 42,
+      "usageRanks": {
+        "Singles": 65,
+        "Doubles": 94
+      },
+      "stats": {
+        "decreasingMin": 55,
+        "neutral": 62,
+        "neutralMax": 94,
+        "increasingMax": 103
+      }
+    },
+    {
+      "id": "arbok",
+      "name": "Arbok",
+      "displayNameJa": "アーボック",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Arbok.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 178,
+        "Doubles": 215
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "arcanine",
+      "name": "Arcanine",
+      "displayNameJa": "ウインディ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Arcanine.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 133,
+        "Doubles": 129
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "archaludon",
+      "name": "Archaludon",
+      "displayNameJa": "ブリジュラス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Archaludon.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 6,
+        "Doubles": 11
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "ariados",
+      "name": "Ariados",
+      "displayNameJa": "アリアドス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ariados.png",
+      "baseSpeed": 40,
+      "usageRanks": {
+        "Singles": 151,
+        "Doubles": 204
+      },
+      "stats": {
+        "decreasingMin": 54,
+        "neutral": 60,
+        "neutralMax": 92,
+        "increasingMax": 101
+      }
+    },
+    {
+      "id": "armarouge",
+      "name": "Armarouge",
+      "displayNameJa": "グレンアルマ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Armarouge.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 85,
+        "Doubles": 87
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "aromatisse",
+      "name": "Aromatisse",
+      "displayNameJa": "フレフワン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aromatisse.png",
+      "baseSpeed": 29,
+      "usageRanks": {
+        "Singles": 233,
+        "Doubles": 150
+      },
+      "stats": {
+        "decreasingMin": 44,
+        "neutral": 49,
+        "neutralMax": 81,
+        "increasingMax": 89
+      }
+    },
+    {
+      "id": "audino",
+      "name": "Audino",
+      "displayNameJa": "タブンネ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Audino.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 184,
+        "Doubles": 95
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "mega-audino",
+      "name": "Mega Audino",
+      "displayNameJa": "メガタブンネ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Audino.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 184,
+        "Doubles": 95
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "aurorus",
+      "name": "Aurorus",
+      "displayNameJa": "アマルルガ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aurorus.png",
+      "baseSpeed": 58,
+      "usageRanks": {
+        "Singles": 185,
+        "Doubles": 148
+      },
+      "stats": {
+        "decreasingMin": 70,
+        "neutral": 78,
+        "neutralMax": 110,
+        "increasingMax": 121
+      }
+    },
+    {
+      "id": "avalugg",
+      "name": "Avalugg",
+      "displayNameJa": "クレベース",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Avalugg.png",
+      "baseSpeed": 28,
+      "usageRanks": {
+        "Singles": 187,
+        "Doubles": 213
+      },
+      "stats": {
+        "decreasingMin": 43,
+        "neutral": 48,
+        "neutralMax": 80,
+        "increasingMax": 88
+      }
+    },
+    {
+      "id": "azumarill",
+      "name": "Azumarill",
+      "displayNameJa": "マリルリ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Azumarill.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 67,
+        "Doubles": 97
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "banette",
+      "name": "Banette",
+      "displayNameJa": "ジュペッタ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Banette.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 76,
+        "Doubles": 169
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "mega-banette",
+      "name": "Mega Banette",
+      "displayNameJa": "メガジュペッタ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Banette.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 76,
+        "Doubles": 169
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "barbaracle",
+      "name": "Barbaracle",
+      "displayNameJa": "ガメノデス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Barbaracle.png",
+      "baseSpeed": 68,
+      "usageRanks": {
+        "Singles": 142,
+        "Doubles": 190
+      },
+      "stats": {
+        "decreasingMin": 79,
+        "neutral": 88,
+        "neutralMax": 120,
+        "increasingMax": 132
+      }
+    },
+    {
+      "id": "mega-barbaracle",
+      "name": "Mega Barbaracle",
+      "displayNameJa": "メガガメノデス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Barbaracle.png",
+      "baseSpeed": 88,
+      "usageRanks": {
+        "Singles": 142,
+        "Doubles": 190
+      },
+      "stats": {
+        "decreasingMin": 97,
+        "neutral": 108,
+        "neutralMax": 140,
+        "increasingMax": 154
+      }
+    },
+    {
+      "id": "basculegion-female",
+      "name": "Basculegion Female",
+      "displayNameJa": "イダイトウ（メスのすがた）",
+      "formKind": "Female",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Basculegion%20Female.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 121,
+        "Doubles": 93
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "basculegion-male",
+      "name": "Basculegion Male",
+      "displayNameJa": "イダイトウ（オスのすがた）",
+      "formKind": "Male",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Basculegion%20Male.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 19,
+        "Doubles": 7
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "bastiodon",
+      "name": "Bastiodon",
+      "displayNameJa": "トリデプス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Bastiodon.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 199,
+        "Doubles": 207
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "beartic",
+      "name": "Beartic",
+      "displayNameJa": "ツンベアー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Beartic.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 205,
+        "Doubles": 192
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "beedrill",
+      "name": "Beedrill",
+      "displayNameJa": "スピアー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Beedrill.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 131,
+        "Doubles": 180
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "mega-beedrill",
+      "name": "Mega Beedrill",
+      "displayNameJa": "メガスピアー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Beedrill.png",
+      "baseSpeed": 145,
+      "usageRanks": {
+        "Singles": 131,
+        "Doubles": 180
+      },
+      "stats": {
+        "decreasingMin": 148,
+        "neutral": 165,
+        "neutralMax": 197,
+        "increasingMax": 216
+      }
+    },
+    {
+      "id": "bellibolt",
+      "name": "Bellibolt",
+      "displayNameJa": "ハラバリー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Bellibolt.png",
+      "baseSpeed": 45,
+      "usageRanks": {
+        "Singles": 27,
+        "Doubles": 89
+      },
+      "stats": {
+        "decreasingMin": 58,
+        "neutral": 65,
+        "neutralMax": 97,
+        "increasingMax": 106
+      }
+    },
+    {
+      "id": "blastoise",
+      "name": "Blastoise",
+      "displayNameJa": "カメックス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Blastoise.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 49,
+        "Doubles": 22
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "mega-blastoise",
+      "name": "Mega Blastoise",
+      "displayNameJa": "メガカメックス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Blastoise.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 49,
+        "Doubles": 22
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "blaziken",
+      "name": "Blaziken",
+      "displayNameJa": "バシャーモ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Blaziken.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 12,
+        "Doubles": 43
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-blaziken",
+      "name": "Mega Blaziken",
+      "displayNameJa": "メガバシャーモ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Blaziken.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 12,
+        "Doubles": 43
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "camerupt",
+      "name": "Camerupt",
+      "displayNameJa": "バクーダ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Camerupt.png",
+      "baseSpeed": 40,
+      "usageRanks": {
+        "Singles": 186,
+        "Doubles": 59
+      },
+      "stats": {
+        "decreasingMin": 54,
+        "neutral": 60,
+        "neutralMax": 92,
+        "increasingMax": 101
+      }
+    },
+    {
+      "id": "mega-camerupt",
+      "name": "Mega Camerupt",
+      "displayNameJa": "メガバクーダ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Camerupt.png",
+      "baseSpeed": 20,
+      "usageRanks": {
+        "Singles": 186,
+        "Doubles": 59
+      },
+      "stats": {
+        "decreasingMin": 36,
+        "neutral": 40,
+        "neutralMax": 72,
+        "increasingMax": 79
+      }
+    },
+    {
+      "id": "castform",
+      "name": "Castform",
+      "displayNameJa": "ポワルン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Castform.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 231,
+        "Doubles": 216
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "ceruledge",
+      "name": "Ceruledge",
+      "displayNameJa": "ソウブレイズ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ceruledge.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 44,
+        "Doubles": 33
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "chandelure",
+      "name": "Chandelure",
+      "displayNameJa": "シャンデラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Chandelure.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 90,
+        "Doubles": 62
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-chandelure",
+      "name": "Mega Chandelure",
+      "displayNameJa": "メガシャンデラ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Chandelure.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 90,
+        "Doubles": 62
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "charizard",
+      "name": "Charizard",
+      "displayNameJa": "リザードン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 11,
+        "Doubles": 4
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "mega-charizard-x",
+      "name": "Mega Charizard X",
+      "displayNameJa": "メガリザードンX",
+      "formKind": "Mega X",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Charizard%20X.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 11,
+        "Doubles": 4
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "mega-charizard-y",
+      "name": "Mega Charizard Y",
+      "displayNameJa": "メガリザードンY",
+      "formKind": "Mega Y",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Charizard%20Y.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 11,
+        "Doubles": 4
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "chesnaught",
+      "name": "Chesnaught",
+      "displayNameJa": "ブリガロン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Chesnaught.png",
+      "baseSpeed": 64,
+      "usageRanks": {
+        "Singles": 108,
+        "Doubles": 128
+      },
+      "stats": {
+        "decreasingMin": 75,
+        "neutral": 84,
+        "neutralMax": 116,
+        "increasingMax": 127
+      }
+    },
+    {
+      "id": "mega-chesnaught",
+      "name": "Mega Chesnaught",
+      "displayNameJa": "メガブリガロン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Chesnaught.png",
+      "baseSpeed": 44,
+      "usageRanks": {
+        "Singles": 108,
+        "Doubles": 128
+      },
+      "stats": {
+        "decreasingMin": 57,
+        "neutral": 64,
+        "neutralMax": 96,
+        "increasingMax": 105
+      }
+    },
+    {
+      "id": "chimecho",
+      "name": "Chimecho",
+      "displayNameJa": "チリーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Chimecho.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 136,
+        "Doubles": 163
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "mega-chimecho",
+      "name": "Mega Chimecho",
+      "displayNameJa": "メガチリーン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Chimecho.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 136,
+        "Doubles": 163
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "clawitzer",
+      "name": "Clawitzer",
+      "displayNameJa": "ブロスター",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Clawitzer.png",
+      "baseSpeed": 59,
+      "usageRanks": {
+        "Singles": 146,
+        "Doubles": 137
+      },
+      "stats": {
+        "decreasingMin": 71,
+        "neutral": 79,
+        "neutralMax": 111,
+        "increasingMax": 122
+      }
+    },
+    {
+      "id": "clefable",
+      "name": "Clefable",
+      "displayNameJa": "ピクシー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Clefable.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 48,
+        "Doubles": 77
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "mega-clefable",
+      "name": "Mega Clefable",
+      "displayNameJa": "メガピクシー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Clefable.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 48,
+        "Doubles": 77
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "cofagrigus",
+      "name": "Cofagrigus",
+      "displayNameJa": "デスカーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Cofagrigus.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 138,
+        "Doubles": 140
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "conkeldurr",
+      "name": "Conkeldurr",
+      "displayNameJa": "ローブシン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Conkeldurr.png",
+      "baseSpeed": 45,
+      "usageRanks": {
+        "Singles": 93,
+        "Doubles": 133
+      },
+      "stats": {
+        "decreasingMin": 58,
+        "neutral": 65,
+        "neutralMax": 97,
+        "increasingMax": 106
+      }
+    },
+    {
+      "id": "corviknight",
+      "name": "Corviknight",
+      "displayNameJa": "アーマーガア",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Corviknight.png",
+      "baseSpeed": 67,
+      "usageRanks": {
+        "Singles": 15,
+        "Doubles": 58
+      },
+      "stats": {
+        "decreasingMin": 78,
+        "neutral": 87,
+        "neutralMax": 119,
+        "increasingMax": 130
+      }
+    },
+    {
+      "id": "crabominable",
+      "name": "Crabominable",
+      "displayNameJa": "ケケンカニ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Crabominable.png",
+      "baseSpeed": 43,
+      "usageRanks": {
+        "Singles": 147,
+        "Doubles": 108
+      },
+      "stats": {
+        "decreasingMin": 56,
+        "neutral": 63,
+        "neutralMax": 95,
+        "increasingMax": 104
+      }
+    },
+    {
+      "id": "mega-crabominable",
+      "name": "Mega Crabominable",
+      "displayNameJa": "メガケケンカニ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Crabominable.png",
+      "baseSpeed": 33,
+      "usageRanks": {
+        "Singles": 147,
+        "Doubles": 108
+      },
+      "stats": {
+        "decreasingMin": 47,
+        "neutral": 53,
+        "neutralMax": 85,
+        "increasingMax": 93
+      }
+    },
+    {
+      "id": "decidueye",
+      "name": "Decidueye",
+      "displayNameJa": "ジュナイパー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Decidueye.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 206,
+        "Doubles": 209
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "dedenne",
+      "name": "Dedenne",
+      "displayNameJa": "デデンネ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dedenne.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 208,
+        "Doubles": 218
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "delphox",
+      "name": "Delphox",
+      "displayNameJa": "マフォクシー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Delphox.png",
+      "baseSpeed": 104,
+      "usageRanks": {
+        "Singles": 10,
+        "Doubles": 25
+      },
+      "stats": {
+        "decreasingMin": 111,
+        "neutral": 124,
+        "neutralMax": 156,
+        "increasingMax": 171
+      }
+    },
+    {
+      "id": "mega-delphox",
+      "name": "Mega Delphox",
+      "displayNameJa": "メガマフォクシー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Delphox.png",
+      "baseSpeed": 134,
+      "usageRanks": {
+        "Singles": 10,
+        "Doubles": 25
+      },
+      "stats": {
+        "decreasingMin": 138,
+        "neutral": 154,
+        "neutralMax": 186,
+        "increasingMax": 204
+      }
+    },
+    {
+      "id": "diggersby",
+      "name": "Diggersby",
+      "displayNameJa": "ホルード",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Diggersby.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 96,
+        "Doubles": 203
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "ditto",
+      "name": "Ditto",
+      "displayNameJa": "メタモン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ditto.png",
+      "baseSpeed": 48,
+      "usageRanks": {
+        "Singles": 70,
+        "Doubles": 131
+      },
+      "stats": {
+        "decreasingMin": 61,
+        "neutral": 68,
+        "neutralMax": 100,
+        "increasingMax": 110
+      }
+    },
+    {
+      "id": "dragalge",
+      "name": "Dragalge",
+      "displayNameJa": "ドラミドロ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragalge.png",
+      "baseSpeed": 44,
+      "usageRanks": {
+        "Singles": 54,
+        "Doubles": 104
+      },
+      "stats": {
+        "decreasingMin": 57,
+        "neutral": 64,
+        "neutralMax": 96,
+        "increasingMax": 105
+      }
+    },
+    {
+      "id": "mega-dragalge",
+      "name": "Mega Dragalge",
+      "displayNameJa": "メガドラミドロ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Dragalge.png",
+      "baseSpeed": 44,
+      "usageRanks": {
+        "Singles": 54,
+        "Doubles": 104
+      },
+      "stats": {
+        "decreasingMin": 57,
+        "neutral": 64,
+        "neutralMax": 96,
+        "increasingMax": 105
+      }
+    },
+    {
+      "id": "dragapult",
+      "name": "Dragapult",
+      "displayNameJa": "ドラパルト",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragapult.png",
+      "baseSpeed": 142,
+      "usageRanks": {
+        "Singles": 31,
+        "Doubles": 67
+      },
+      "stats": {
+        "decreasingMin": 145,
+        "neutral": 162,
+        "neutralMax": 194,
+        "increasingMax": 213
+      }
+    },
+    {
+      "id": "dragonite",
+      "name": "Dragonite",
+      "displayNameJa": "カイリュー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragonite.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 9,
+        "Doubles": 34
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-dragonite",
+      "name": "Mega Dragonite",
+      "displayNameJa": "メガカイリュー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Dragonite.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 9,
+        "Doubles": 34
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "drampa",
+      "name": "Drampa",
+      "displayNameJa": "ジジーロン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Drampa.png",
+      "baseSpeed": 36,
+      "usageRanks": {
+        "Singles": 176,
+        "Doubles": 83
+      },
+      "stats": {
+        "decreasingMin": 50,
+        "neutral": 56,
+        "neutralMax": 88,
+        "increasingMax": 96
+      }
+    },
+    {
+      "id": "mega-drampa",
+      "name": "Mega Drampa",
+      "displayNameJa": "メガジジーロン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Drampa.png",
+      "baseSpeed": 36,
+      "usageRanks": {
+        "Singles": 176,
+        "Doubles": 83
+      },
+      "stats": {
+        "decreasingMin": 50,
+        "neutral": 56,
+        "neutralMax": 88,
+        "increasingMax": 96
+      }
+    },
+    {
+      "id": "eelektross",
+      "name": "Eelektross",
+      "displayNameJa": "シビルドン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Eelektross.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 101,
+        "Doubles": 78
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "mega-eelektross",
+      "name": "Mega Eelektross",
+      "displayNameJa": "メガシビルドン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Eelektross.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 101,
+        "Doubles": 78
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "emboar",
+      "name": "Emboar",
+      "displayNameJa": "エンブオー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Emboar.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 171,
+        "Doubles": 191
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "mega-emboar",
+      "name": "Mega Emboar",
+      "displayNameJa": "メガエンブオー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Emboar.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 171,
+        "Doubles": 191
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "emolga",
+      "name": "Emolga",
+      "displayNameJa": "エモンガ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Emolga.png",
+      "baseSpeed": 103,
+      "usageRanks": {
+        "Singles": 194,
+        "Doubles": 198
+      },
+      "stats": {
+        "decreasingMin": 110,
+        "neutral": 123,
+        "neutralMax": 155,
+        "increasingMax": 170
+      }
+    },
+    {
+      "id": "empoleon",
+      "name": "Empoleon",
+      "displayNameJa": "エンペルト",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Empoleon.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 82,
+        "Doubles": 109
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "espathra",
+      "name": "Espathra",
+      "displayNameJa": "クエスパトラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Espathra.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 51,
+        "Doubles": 110
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    },
+    {
+      "id": "espeon",
+      "name": "Espeon",
+      "displayNameJa": "エーフィ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Espeon.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 91,
+        "Doubles": 152
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "excadrill",
+      "name": "Excadrill",
+      "displayNameJa": "ドリュウズ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Excadrill.png",
+      "baseSpeed": 88,
+      "usageRanks": {
+        "Singles": 42,
+        "Doubles": 30
+      },
+      "stats": {
+        "decreasingMin": 97,
+        "neutral": 108,
+        "neutralMax": 140,
+        "increasingMax": 154
+      }
+    },
+    {
+      "id": "mega-excadrill",
+      "name": "Mega Excadrill",
+      "displayNameJa": "メガドリュウズ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Excadrill.png",
+      "baseSpeed": 103,
+      "usageRanks": {
+        "Singles": 42,
+        "Doubles": 30
+      },
+      "stats": {
+        "decreasingMin": 110,
+        "neutral": 123,
+        "neutralMax": 155,
+        "increasingMax": 170
+      }
+    },
+    {
+      "id": "falinks",
+      "name": "Falinks",
+      "displayNameJa": "タイレーツ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Falinks.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 183,
+        "Doubles": 184
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "mega-falinks",
+      "name": "Mega Falinks",
+      "displayNameJa": "メガタイレーツ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Falinks.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 183,
+        "Doubles": 184
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "fan-rotom",
+      "name": "Fan Rotom",
+      "displayNameJa": "スピンロトム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Fan.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 217,
+        "Doubles": 217
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "farigiraf",
+      "name": "Farigiraf",
+      "displayNameJa": "リキキリン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Farigiraf.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 177,
+        "Doubles": 8
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "feraligatr",
+      "name": "Feraligatr",
+      "displayNameJa": "オーダイル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Feraligatr.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 120,
+        "Doubles": 102
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "mega-feraligatr",
+      "name": "Mega Feraligatr",
+      "displayNameJa": "メガオーダイル",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Feraligatr.png",
+      "baseSpeed": 78,
+      "usageRanks": {
+        "Singles": 120,
+        "Doubles": 102
+      },
+      "stats": {
+        "decreasingMin": 88,
+        "neutral": 98,
+        "neutralMax": 130,
+        "increasingMax": 143
+      }
+    },
+    {
+      "id": "flapple",
+      "name": "Flapple",
+      "displayNameJa": "アップリュー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Flapple.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 219,
+        "Doubles": 205
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "flareon",
+      "name": "Flareon",
+      "displayNameJa": "ブースター",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Flareon.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 198,
+        "Doubles": 210
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "floette",
+      "name": "Floette",
+      "displayNameJa": "フラエッテ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Floette.png",
+      "baseSpeed": 92,
+      "usageRanks": {
+        "Singles": 50,
+        "Doubles": 31
+      },
+      "stats": {
+        "decreasingMin": 100,
+        "neutral": 112,
+        "neutralMax": 144,
+        "increasingMax": 158
+      }
+    },
+    {
+      "id": "mega-floette",
+      "name": "Mega Floette",
+      "displayNameJa": "メガフラエッテ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Floette.png",
+      "baseSpeed": 102,
+      "usageRanks": {
+        "Singles": 50,
+        "Doubles": 31
+      },
+      "stats": {
+        "decreasingMin": 109,
+        "neutral": 122,
+        "neutralMax": 154,
+        "increasingMax": 169
+      }
+    },
+    {
+      "id": "florges-red-flower",
+      "name": "Florges Red Flower",
+      "displayNameJa": "フラージェス（あかいはな）",
+      "formKind": "Red Flower",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Florges%20Red%20Flower.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 196,
+        "Doubles": 194
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "forretress",
+      "name": "Forretress",
+      "displayNameJa": "フォレトス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Forretress.png",
+      "baseSpeed": 40,
+      "usageRanks": {
+        "Singles": 164,
+        "Doubles": 221
+      },
+      "stats": {
+        "decreasingMin": 54,
+        "neutral": 60,
+        "neutralMax": 92,
+        "increasingMax": 101
+      }
+    },
+    {
+      "id": "froslass",
+      "name": "Froslass",
+      "displayNameJa": "ユキメノコ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Froslass.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 81,
+        "Doubles": 32
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "mega-froslass",
+      "name": "Mega Froslass",
+      "displayNameJa": "メガユキメノコ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Froslass.png",
+      "baseSpeed": 120,
+      "usageRanks": {
+        "Singles": 81,
+        "Doubles": 32
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 140,
+        "neutralMax": 172,
+        "increasingMax": 189
+      }
+    },
+    {
+      "id": "furfrou-natural-form",
+      "name": "Furfrou Natural Form",
+      "displayNameJa": "トリミアン（あるがまま）",
+      "formKind": "Natural Form",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Furfrou%20Natural%20Form.png",
+      "baseSpeed": 102,
+      "usageRanks": {
+        "Singles": 214,
+        "Doubles": 224
+      },
+      "stats": {
+        "decreasingMin": 109,
+        "neutral": 122,
+        "neutralMax": 154,
+        "increasingMax": 169
+      }
+    },
+    {
+      "id": "galarian-slowbro",
+      "name": "Galarian Slowbro",
+      "displayNameJa": "ガラルヤドラン",
+      "formKind": "Galarian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Slowbro.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 116,
+        "Doubles": 145
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "galarian-slowking",
+      "name": "Galarian Slowking",
+      "displayNameJa": "ガラルヤドキング",
+      "formKind": "Galarian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Slowking.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 99,
+        "Doubles": 117
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "galarian-stunfisk",
+      "name": "Galarian Stunfisk",
+      "displayNameJa": "ガラルマッギョ",
+      "formKind": "Galarian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Stunfisk.png",
+      "baseSpeed": 32,
+      "usageRanks": {
+        "Singles": 216,
+        "Doubles": 234
+      },
+      "stats": {
+        "decreasingMin": 46,
+        "neutral": 52,
+        "neutralMax": 84,
+        "increasingMax": 92
+      }
+    },
+    {
+      "id": "gallade",
+      "name": "Gallade",
+      "displayNameJa": "エルレイド",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gallade.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 80,
+        "Doubles": 51
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-gallade",
+      "name": "Mega Gallade",
+      "displayNameJa": "メガエルレイド",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gallade.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 80,
+        "Doubles": 51
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "garbodor",
+      "name": "Garbodor",
+      "displayNameJa": "ダストダス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garbodor.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 210,
+        "Doubles": 223
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "garchomp",
+      "name": "Garchomp",
+      "displayNameJa": "ガブリアス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garchomp.png",
+      "baseSpeed": 102,
+      "usageRanks": {
+        "Singles": 1,
+        "Doubles": 1
+      },
+      "stats": {
+        "decreasingMin": 109,
+        "neutral": 122,
+        "neutralMax": 154,
+        "increasingMax": 169
+      }
+    },
+    {
+      "id": "mega-garchomp",
+      "name": "Mega Garchomp",
+      "displayNameJa": "メガガブリアス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Garchomp.png",
+      "baseSpeed": 92,
+      "usageRanks": {
+        "Singles": 1,
+        "Doubles": 1
+      },
+      "stats": {
+        "decreasingMin": 100,
+        "neutral": 112,
+        "neutralMax": 144,
+        "increasingMax": 158
+      }
+    },
+    {
+      "id": "gardevoir",
+      "name": "Gardevoir",
+      "displayNameJa": "サーナイト",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gardevoir.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 79,
+        "Doubles": 46
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-gardevoir",
+      "name": "Mega Gardevoir",
+      "displayNameJa": "メガサーナイト",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gardevoir.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 79,
+        "Doubles": 46
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "garganacl",
+      "name": "Garganacl",
+      "displayNameJa": "キョジオーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garganacl.png",
+      "baseSpeed": 35,
+      "usageRanks": {
+        "Singles": 152,
+        "Doubles": 171
+      },
+      "stats": {
+        "decreasingMin": 49,
+        "neutral": 55,
+        "neutralMax": 87,
+        "increasingMax": 95
+      }
+    },
+    {
+      "id": "gengar",
+      "name": "Gengar",
+      "displayNameJa": "ゲンガー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gengar.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 20,
+        "Doubles": 38
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "mega-gengar",
+      "name": "Mega Gengar",
+      "displayNameJa": "メガゲンガー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gengar.png",
+      "baseSpeed": 130,
+      "usageRanks": {
+        "Singles": 20,
+        "Doubles": 38
+      },
+      "stats": {
+        "decreasingMin": 135,
+        "neutral": 150,
+        "neutralMax": 182,
+        "increasingMax": 200
+      }
+    },
+    {
+      "id": "gholdengo",
+      "name": "Gholdengo",
+      "displayNameJa": "サーフゴー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gholdengo.png",
+      "baseSpeed": 84,
+      "usageRanks": {
+        "Singles": 29,
+        "Doubles": 24
+      },
+      "stats": {
+        "decreasingMin": 93,
+        "neutral": 104,
+        "neutralMax": 136,
+        "increasingMax": 149
+      }
+    },
+    {
+      "id": "glaceon",
+      "name": "Glaceon",
+      "displayNameJa": "グレイシア",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glaceon.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 137,
+        "Doubles": 130
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "glalie",
+      "name": "Glalie",
+      "displayNameJa": "オニゴーリ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glalie.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 141,
+        "Doubles": 172
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-glalie",
+      "name": "Mega Glalie",
+      "displayNameJa": "メガオニゴーリ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Glalie.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 141,
+        "Doubles": 172
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "glimmora",
+      "name": "Glimmora",
+      "displayNameJa": "キラフロル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glimmora.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 16,
+        "Doubles": 41
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "mega-glimmora",
+      "name": "Mega Glimmora",
+      "displayNameJa": "メガキラフロル",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Glimmora.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 16,
+        "Doubles": 41
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "gliscor",
+      "name": "Gliscor",
+      "displayNameJa": "グライオン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gliscor.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 94,
+        "Doubles": 115
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "golurk",
+      "name": "Golurk",
+      "displayNameJa": "ゴルーグ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Golurk.png",
+      "baseSpeed": 55,
+      "usageRanks": {
+        "Singles": 165,
+        "Doubles": 96
+      },
+      "stats": {
+        "decreasingMin": 67,
+        "neutral": 75,
+        "neutralMax": 107,
+        "increasingMax": 117
+      }
+    },
+    {
+      "id": "mega-golurk",
+      "name": "Mega Golurk",
+      "displayNameJa": "メガゴルーグ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Golurk.png",
+      "baseSpeed": 55,
+      "usageRanks": {
+        "Singles": 165,
+        "Doubles": 96
+      },
+      "stats": {
+        "decreasingMin": 67,
+        "neutral": 75,
+        "neutralMax": 107,
+        "increasingMax": 117
+      }
+    },
+    {
+      "id": "goodra",
+      "name": "Goodra",
+      "displayNameJa": "ヌメルゴン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Goodra.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 167,
+        "Doubles": 188
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "gourgeist",
+      "name": "Gourgeist",
+      "displayNameJa": "パンプジン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist.png",
+      "baseSpeed": 84,
+      "usageRanks": {
+        "Singles": 228,
+        "Doubles": 235
+      },
+      "stats": {
+        "decreasingMin": 93,
+        "neutral": 104,
+        "neutralMax": 136,
+        "increasingMax": 149
+      }
+    },
+    {
+      "id": "gourgeist-jumbo-variety",
+      "name": "Gourgeist Jumbo Variety",
+      "displayNameJa": "パンプジン（とくだいサイズ）",
+      "formKind": "Jumbo Variety",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Jumbo%20Variety.png",
+      "baseSpeed": 54,
+      "usageRanks": {
+        "Singles": 202,
+        "Doubles": 201
+      },
+      "stats": {
+        "decreasingMin": 66,
+        "neutral": 74,
+        "neutralMax": 106,
+        "increasingMax": 116
+      }
+    },
+    {
+      "id": "gourgeist-large-variety",
+      "name": "Gourgeist Large Variety",
+      "displayNameJa": "パンプジン（おおきいサイズ）",
+      "formKind": "Large Variety",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Large%20Variety.png",
+      "baseSpeed": 69,
+      "usageRanks": {
+        "Singles": 224,
+        "Doubles": 229
+      },
+      "stats": {
+        "decreasingMin": 80,
+        "neutral": 89,
+        "neutralMax": 121,
+        "increasingMax": 133
+      }
+    },
+    {
+      "id": "gourgeist-small-variety",
+      "name": "Gourgeist Small Variety",
+      "displayNameJa": "パンプジン（ちいさいサイズ）",
+      "formKind": "Small Variety",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Small%20Variety.png",
+      "baseSpeed": 99,
+      "usageRanks": {
+        "Singles": 225,
+        "Doubles": 230
+      },
+      "stats": {
+        "decreasingMin": 107,
+        "neutral": 119,
+        "neutralMax": 151,
+        "increasingMax": 166
+      }
+    },
+    {
+      "id": "greninja",
+      "name": "Greninja",
+      "displayNameJa": "ゲッコウガ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Greninja.png",
+      "baseSpeed": 122,
+      "usageRanks": {
+        "Singles": 14,
+        "Doubles": 71
+      },
+      "stats": {
+        "decreasingMin": 127,
+        "neutral": 142,
+        "neutralMax": 174,
+        "increasingMax": 191
+      }
+    },
+    {
+      "id": "mega-greninja",
+      "name": "Mega Greninja",
+      "displayNameJa": "メガゲッコウガ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Greninja.png",
+      "baseSpeed": 142,
+      "usageRanks": {
+        "Singles": 14,
+        "Doubles": 71
+      },
+      "stats": {
+        "decreasingMin": 145,
+        "neutral": 162,
+        "neutralMax": 194,
+        "increasingMax": 213
+      }
+    },
+    {
+      "id": "grimmsnarl",
+      "name": "Grimmsnarl",
+      "displayNameJa": "オーロンゲ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Grimmsnarl.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 36,
+        "Doubles": 16
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "gyarados",
+      "name": "Gyarados",
+      "displayNameJa": "ギャラドス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gyarados.png",
+      "baseSpeed": 81,
+      "usageRanks": {
+        "Singles": 8,
+        "Doubles": 69
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 101,
+        "neutralMax": 133,
+        "increasingMax": 146
+      }
+    },
+    {
+      "id": "mega-gyarados",
+      "name": "Mega Gyarados",
+      "displayNameJa": "メガギャラドス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gyarados.png",
+      "baseSpeed": 81,
+      "usageRanks": {
+        "Singles": 8,
+        "Doubles": 69
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 101,
+        "neutralMax": 133,
+        "increasingMax": 146
+      }
+    },
+    {
+      "id": "hatterene",
+      "name": "Hatterene",
+      "displayNameJa": "ブリムオン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hatterene.png",
+      "baseSpeed": 29,
+      "usageRanks": {
+        "Singles": 78,
+        "Doubles": 79
+      },
+      "stats": {
+        "decreasingMin": 44,
+        "neutral": 49,
+        "neutralMax": 81,
+        "increasingMax": 89
+      }
+    },
+    {
+      "id": "hawlucha",
+      "name": "Hawlucha",
+      "displayNameJa": "ルチャブル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hawlucha.png",
+      "baseSpeed": 118,
+      "usageRanks": {
+        "Singles": 134,
+        "Doubles": 105
+      },
+      "stats": {
+        "decreasingMin": 124,
+        "neutral": 138,
+        "neutralMax": 170,
+        "increasingMax": 187
+      }
+    },
+    {
+      "id": "mega-hawlucha",
+      "name": "Mega Hawlucha",
+      "displayNameJa": "メガルチャブル",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Hawlucha.png",
+      "baseSpeed": 118,
+      "usageRanks": {
+        "Singles": 134,
+        "Doubles": 105
+      },
+      "stats": {
+        "decreasingMin": 124,
+        "neutral": 138,
+        "neutralMax": 170,
+        "increasingMax": 187
+      }
+    },
+    {
+      "id": "heliolisk",
+      "name": "Heliolisk",
+      "displayNameJa": "エレザード",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Heliolisk.png",
+      "baseSpeed": 109,
+      "usageRanks": {
+        "Singles": 113,
+        "Doubles": 101
+      },
+      "stats": {
+        "decreasingMin": 116,
+        "neutral": 129,
+        "neutralMax": 161,
+        "increasingMax": 177
+      }
+    },
+    {
+      "id": "heracross",
+      "name": "Heracross",
+      "displayNameJa": "ヘラクロス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Heracross.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 102,
+        "Doubles": 143
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "mega-heracross",
+      "name": "Mega Heracross",
+      "displayNameJa": "メガヘラクロス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Heracross.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 102,
+        "Doubles": 143
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "hippowdon",
+      "name": "Hippowdon",
+      "displayNameJa": "カバルドン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hippowdon.png",
+      "baseSpeed": 47,
+      "usageRanks": {
+        "Singles": 3,
+        "Doubles": 138
+      },
+      "stats": {
+        "decreasingMin": 60,
+        "neutral": 67,
+        "neutralMax": 99,
+        "increasingMax": 108
+      }
+    },
+    {
+      "id": "hisuian-arcanine",
+      "name": "Hisuian Arcanine",
+      "displayNameJa": "ヒスイウインディ",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Arcanine.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 100,
+        "Doubles": 88
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "hisuian-avalugg",
+      "name": "Hisuian Avalugg",
+      "displayNameJa": "ヒスイクレベース",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Avalugg.png",
+      "baseSpeed": 38,
+      "usageRanks": {
+        "Singles": 207,
+        "Doubles": 155
+      },
+      "stats": {
+        "decreasingMin": 52,
+        "neutral": 58,
+        "neutralMax": 90,
+        "increasingMax": 99
+      }
+    },
+    {
+      "id": "hisuian-decidueye",
+      "name": "Hisuian Decidueye",
+      "displayNameJa": "ヒスイジュナイパー",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Decidueye.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 119,
+        "Doubles": 112
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "hisuian-goodra",
+      "name": "Hisuian Goodra",
+      "displayNameJa": "ヒスイヌメルゴン",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Goodra.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 66,
+        "Doubles": 114
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "hisuian-samurott",
+      "name": "Hisuian Samurott",
+      "displayNameJa": "ヒスイダイケンキ",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Samurott.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 25,
+        "Doubles": 84
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "hisuian-typhlosion",
+      "name": "Hisuian Typhlosion",
+      "displayNameJa": "ヒスイバクフーン",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Typhlosion.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 126,
+        "Doubles": 63
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "hisuian-zoroark",
+      "name": "Hisuian Zoroark",
+      "displayNameJa": "ヒスイゾロアーク",
+      "formKind": "Hisuian",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Zoroark.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 63,
+        "Doubles": 53
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "houndoom",
+      "name": "Houndoom",
+      "displayNameJa": "ヘルガー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Houndoom.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 160,
+        "Doubles": 124
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "mega-houndoom",
+      "name": "Mega Houndoom",
+      "displayNameJa": "メガヘルガー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Houndoom.png",
+      "baseSpeed": 115,
+      "usageRanks": {
+        "Singles": 160,
+        "Doubles": 124
+      },
+      "stats": {
+        "decreasingMin": 121,
+        "neutral": 135,
+        "neutralMax": 167,
+        "increasingMax": 183
+      }
+    },
+    {
+      "id": "houndstone",
+      "name": "Houndstone",
+      "displayNameJa": "ハカドッグ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Houndstone.png",
+      "baseSpeed": 68,
+      "usageRanks": {
+        "Singles": 87,
+        "Doubles": 68
+      },
+      "stats": {
+        "decreasingMin": 79,
+        "neutral": 88,
+        "neutralMax": 120,
+        "increasingMax": 132
+      }
+    },
+    {
+      "id": "hydrapple",
+      "name": "Hydrapple",
+      "displayNameJa": "カミツオロチ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hydrapple.png",
+      "baseSpeed": 44,
+      "usageRanks": {
+        "Singles": 169,
+        "Doubles": 146
+      },
+      "stats": {
+        "decreasingMin": 57,
+        "neutral": 64,
+        "neutralMax": 96,
+        "increasingMax": 105
+      }
+    },
+    {
+      "id": "hydreigon",
+      "name": "Hydreigon",
+      "displayNameJa": "サザンドラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hydreigon.png",
+      "baseSpeed": 98,
+      "usageRanks": {
+        "Singles": 13,
+        "Doubles": 44
+      },
+      "stats": {
+        "decreasingMin": 106,
+        "neutral": 118,
+        "neutralMax": 150,
+        "increasingMax": 165
+      }
+    },
+    {
+      "id": "incineroar",
+      "name": "Incineroar",
+      "displayNameJa": "ガオガエン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Incineroar.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 83,
+        "Doubles": 3
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "infernape",
+      "name": "Infernape",
+      "displayNameJa": "ゴウカザル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Infernape.png",
+      "baseSpeed": 108,
+      "usageRanks": {
+        "Singles": 129,
+        "Doubles": 153
+      },
+      "stats": {
+        "decreasingMin": 115,
+        "neutral": 128,
+        "neutralMax": 160,
+        "increasingMax": 176
+      }
+    },
+    {
+      "id": "jolteon",
+      "name": "Jolteon",
+      "displayNameJa": "サンダース",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Jolteon.png",
+      "baseSpeed": 130,
+      "usageRanks": {
+        "Singles": 132,
+        "Doubles": 98
+      },
+      "stats": {
+        "decreasingMin": 135,
+        "neutral": 150,
+        "neutralMax": 182,
+        "increasingMax": 200
+      }
+    },
+    {
+      "id": "kangaskhan",
+      "name": "Kangaskhan",
+      "displayNameJa": "ガルーラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kangaskhan.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 73,
+        "Doubles": 39
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "mega-kangaskhan",
+      "name": "Mega Kangaskhan",
+      "displayNameJa": "メガガルーラ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Kangaskhan.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 73,
+        "Doubles": 39
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "kingambit",
+      "name": "Kingambit",
+      "displayNameJa": "ドドゲザン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kingambit.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 28,
+        "Doubles": 2
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "kleavor",
+      "name": "Kleavor",
+      "displayNameJa": "バサギリ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kleavor.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 74,
+        "Doubles": 82
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "klefki",
+      "name": "Klefki",
+      "displayNameJa": "クレッフィ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Klefki.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 150,
+        "Doubles": 103
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "kommo-o",
+      "name": "Kommo-o",
+      "displayNameJa": "ジャラランガ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kommo-o.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 148,
+        "Doubles": 61
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "krookodile",
+      "name": "Krookodile",
+      "displayNameJa": "ワルビアル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Krookodile.png",
+      "baseSpeed": 92,
+      "usageRanks": {
+        "Singles": 145,
+        "Doubles": 159
+      },
+      "stats": {
+        "decreasingMin": 100,
+        "neutral": 112,
+        "neutralMax": 144,
+        "increasingMax": 158
+      }
+    },
+    {
+      "id": "leafeon",
+      "name": "Leafeon",
+      "displayNameJa": "リーフィア",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Leafeon.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 180,
+        "Doubles": 186
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "liepard",
+      "name": "Liepard",
+      "displayNameJa": "レパルダス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Liepard.png",
+      "baseSpeed": 106,
+      "usageRanks": {
+        "Singles": 197,
+        "Doubles": 135
+      },
+      "stats": {
+        "decreasingMin": 113,
+        "neutral": 126,
+        "neutralMax": 158,
+        "increasingMax": 173
+      }
+    },
+    {
+      "id": "lopunny",
+      "name": "Lopunny",
+      "displayNameJa": "ミミロップ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lopunny.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 38,
+        "Doubles": 99
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    },
+    {
+      "id": "mega-lopunny",
+      "name": "Mega Lopunny",
+      "displayNameJa": "メガミミロップ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Lopunny.png",
+      "baseSpeed": 135,
+      "usageRanks": {
+        "Singles": 38,
+        "Doubles": 99
+      },
+      "stats": {
+        "decreasingMin": 139,
+        "neutral": 155,
+        "neutralMax": 187,
+        "increasingMax": 205
+      }
+    },
+    {
+      "id": "lucario",
+      "name": "Lucario",
+      "displayNameJa": "ルカリオ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lucario.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 32,
+        "Doubles": 86
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "mega-lucario",
+      "name": "Mega Lucario",
+      "displayNameJa": "メガルカリオ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Lucario.png",
+      "baseSpeed": 112,
+      "usageRanks": {
+        "Singles": 32,
+        "Doubles": 86
+      },
+      "stats": {
+        "decreasingMin": 118,
+        "neutral": 132,
+        "neutralMax": 164,
+        "increasingMax": 180
+      }
+    },
+    {
+      "id": "luxray",
+      "name": "Luxray",
+      "displayNameJa": "レントラー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Luxray.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 204,
+        "Doubles": 202
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "lycanroc",
+      "name": "Lycanroc",
+      "displayNameJa": "ルガルガン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lycanroc.png",
+      "baseSpeed": 112,
+      "usageRanks": {
+        "Singles": 220,
+        "Doubles": 168
+      },
+      "stats": {
+        "decreasingMin": 118,
+        "neutral": 132,
+        "neutralMax": 164,
+        "increasingMax": 180
+      }
+    },
+    {
+      "id": "lycanroc-dusk-form",
+      "name": "Lycanroc Dusk Form",
+      "displayNameJa": "ルガルガン（たそがれのすがた）",
+      "formKind": "Dusk Form",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lycanroc%20Dusk%20Form.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 130,
+        "Doubles": 64
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "lycanroc-midnight-form",
+      "name": "Lycanroc Midnight Form",
+      "displayNameJa": "ルガルガン（まよなかのすがた）",
+      "formKind": "Midnight Form",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lycanroc%20Midnight%20Form.png",
+      "baseSpeed": 82,
+      "usageRanks": {
+        "Singles": 222,
+        "Doubles": 214
+      },
+      "stats": {
+        "decreasingMin": 91,
+        "neutral": 102,
+        "neutralMax": 134,
+        "increasingMax": 147
+      }
+    },
+    {
+      "id": "machamp",
+      "name": "Machamp",
+      "displayNameJa": "カイリキー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Machamp.png",
+      "baseSpeed": 55,
+      "usageRanks": {
+        "Singles": 158,
+        "Doubles": 149
+      },
+      "stats": {
+        "decreasingMin": 67,
+        "neutral": 75,
+        "neutralMax": 107,
+        "increasingMax": 117
+      }
+    },
+    {
+      "id": "malamar",
+      "name": "Malamar",
+      "displayNameJa": "カラマネロ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Malamar.png",
+      "baseSpeed": 73,
+      "usageRanks": {
+        "Singles": 124,
+        "Doubles": 52
+      },
+      "stats": {
+        "decreasingMin": 83,
+        "neutral": 93,
+        "neutralMax": 125,
+        "increasingMax": 137
+      }
+    },
+    {
+      "id": "mega-malamar",
+      "name": "Mega Malamar",
+      "displayNameJa": "メガカラマネロ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Malamar.png",
+      "baseSpeed": 88,
+      "usageRanks": {
+        "Singles": 124,
+        "Doubles": 52
+      },
+      "stats": {
+        "decreasingMin": 97,
+        "neutral": 108,
+        "neutralMax": 140,
+        "increasingMax": 154
+      }
+    },
+    {
+      "id": "mamoswine",
+      "name": "Mamoswine",
+      "displayNameJa": "マンムー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mamoswine.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 60,
+        "Doubles": 57
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "manectric",
+      "name": "Manectric",
+      "displayNameJa": "ライボルト",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Manectric.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 192,
+        "Doubles": 166
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    },
+    {
+      "id": "mega-manectric",
+      "name": "Mega Manectric",
+      "displayNameJa": "メガライボルト",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Manectric.png",
+      "baseSpeed": 135,
+      "usageRanks": {
+        "Singles": 192,
+        "Doubles": 166
+      },
+      "stats": {
+        "decreasingMin": 139,
+        "neutral": 155,
+        "neutralMax": 187,
+        "increasingMax": 205
+      }
+    },
+    {
+      "id": "maushold-family-of-four",
+      "name": "Maushold Family of Four",
+      "displayNameJa": "イッカネズミ（4ひきかぞく）",
+      "formKind": "Family of Four",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Maushold%20Family%20of%20Four.png",
+      "baseSpeed": 111,
+      "usageRanks": {
+        "Singles": 58,
+        "Doubles": 26
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 131,
+        "neutralMax": 163,
+        "increasingMax": 179
+      }
+    },
+    {
+      "id": "mawile",
+      "name": "Mawile",
+      "displayNameJa": "クチート",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mawile.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 39,
+        "Doubles": 28
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "mega-mawile",
+      "name": "Mega Mawile",
+      "displayNameJa": "メガクチート",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Mawile.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 39,
+        "Doubles": 28
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "medicham",
+      "name": "Medicham",
+      "displayNameJa": "チャーレム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Medicham.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 155,
+        "Doubles": 156
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-medicham",
+      "name": "Mega Medicham",
+      "displayNameJa": "メガチャーレム",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Medicham.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 155,
+        "Doubles": 156
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "meganium",
+      "name": "Meganium",
+      "displayNameJa": "メガニウム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meganium.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 37,
+        "Doubles": 73
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-meganium",
+      "name": "Mega Meganium",
+      "displayNameJa": "メガメガニウム",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Meganium.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 37,
+        "Doubles": 73
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "meowscarada",
+      "name": "Meowscarada",
+      "displayNameJa": "マスカーニャ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meowscarada.png",
+      "baseSpeed": 123,
+      "usageRanks": {
+        "Singles": 4,
+        "Doubles": 48
+      },
+      "stats": {
+        "decreasingMin": 128,
+        "neutral": 143,
+        "neutralMax": 175,
+        "increasingMax": 192
+      }
+    },
+    {
+      "id": "meowstic",
+      "name": "Meowstic",
+      "displayNameJa": "ニャオニクス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meowstic.png",
+      "baseSpeed": 104,
+      "usageRanks": {
+        "Singles": 188,
+        "Doubles": 81
+      },
+      "stats": {
+        "decreasingMin": 111,
+        "neutral": 124,
+        "neutralMax": 156,
+        "increasingMax": 171
+      }
+    },
+    {
+      "id": "mega-meowstic",
+      "name": "Mega Meowstic",
+      "displayNameJa": "メガニャオニクス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Meowstic.png",
+      "baseSpeed": 124,
+      "usageRanks": {
+        "Singles": 188,
+        "Doubles": 81
+      },
+      "stats": {
+        "decreasingMin": 129,
+        "neutral": 144,
+        "neutralMax": 176,
+        "increasingMax": 193
+      }
+    },
+    {
+      "id": "meowstic-female",
+      "name": "Meowstic Female",
+      "displayNameJa": "ニャオニクス（メスのすがた）",
+      "formKind": "Female",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meowstic%20Female.png",
+      "baseSpeed": 104,
+      "usageRanks": {
+        "Singles": 211,
+        "Doubles": 182
+      },
+      "stats": {
+        "decreasingMin": 111,
+        "neutral": 124,
+        "neutralMax": 156,
+        "increasingMax": 171
+      }
+    },
+    {
+      "id": "metagross",
+      "name": "Metagross",
+      "displayNameJa": "メタグロス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Metagross.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 5,
+        "Doubles": 23
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "mega-metagross",
+      "name": "Mega Metagross",
+      "displayNameJa": "メガメタグロス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Metagross.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 5,
+        "Doubles": 23
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "milotic",
+      "name": "Milotic",
+      "displayNameJa": "ミロカロス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Milotic.png",
+      "baseSpeed": 81,
+      "usageRanks": {
+        "Singles": 62,
+        "Doubles": 19
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 101,
+        "neutralMax": 133,
+        "increasingMax": 146
+      }
+    },
+    {
+      "id": "mimikyu",
+      "name": "Mimikyu",
+      "displayNameJa": "ミミッキュ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png",
+      "baseSpeed": 96,
+      "usageRanks": {
+        "Singles": 2,
+        "Doubles": 66
+      },
+      "stats": {
+        "decreasingMin": 104,
+        "neutral": 116,
+        "neutralMax": 148,
+        "increasingMax": 162
+      }
+    },
+    {
+      "id": "morpeko",
+      "name": "Morpeko",
+      "displayNameJa": "モルペコ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Morpeko.png",
+      "baseSpeed": 97,
+      "usageRanks": {
+        "Singles": 161,
+        "Doubles": 177
+      },
+      "stats": {
+        "decreasingMin": 105,
+        "neutral": 117,
+        "neutralMax": 149,
+        "increasingMax": 163
+      }
+    },
+    {
+      "id": "mr-rime",
+      "name": "Mr. Rime",
+      "displayNameJa": "バリコオル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mr.%20Rime.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 127,
+        "Doubles": 116
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "mudsdale",
+      "name": "Mudsdale",
+      "displayNameJa": "バンバドロ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mudsdale.png",
+      "baseSpeed": 35,
+      "usageRanks": {
+        "Singles": 135,
+        "Doubles": 111
+      },
+      "stats": {
+        "decreasingMin": 49,
+        "neutral": 55,
+        "neutralMax": 87,
+        "increasingMax": 95
+      }
+    },
+    {
+      "id": "musharna",
+      "name": "Musharna",
+      "displayNameJa": "ムシャーナ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Musharna.png",
+      "baseSpeed": 29,
+      "usageRanks": {
+        "Singles": 156,
+        "Doubles": 185
+      },
+      "stats": {
+        "decreasingMin": 44,
+        "neutral": 49,
+        "neutralMax": 81,
+        "increasingMax": 89
+      }
+    },
+    {
+      "id": "ninetales",
+      "name": "Ninetales",
+      "displayNameJa": "キュウコン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ninetales.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 157,
+        "Doubles": 119
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "noivern",
+      "name": "Noivern",
+      "displayNameJa": "オンバーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Noivern.png",
+      "baseSpeed": 123,
+      "usageRanks": {
+        "Singles": 154,
+        "Doubles": 151
+      },
+      "stats": {
+        "decreasingMin": 128,
+        "neutral": 143,
+        "neutralMax": 175,
+        "increasingMax": 192
+      }
+    },
+    {
+      "id": "oranguru",
+      "name": "Oranguru",
+      "displayNameJa": "ヤレユータン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Oranguru.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 227,
+        "Doubles": 60
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "orthworm",
+      "name": "Orthworm",
+      "displayNameJa": "ミミズズ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Orthworm.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 84,
+        "Doubles": 154
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "overqwil",
+      "name": "Overqwil",
+      "displayNameJa": "ハリーマン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Overqwil.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 86,
+        "Doubles": 70
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "palafin-zero-form",
+      "name": "Palafin Zero Form",
+      "displayNameJa": "イルカマン（ナイーブフォルム）",
+      "formKind": "Zero Form",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Palafin%20Zero%20Form.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 105,
+        "Doubles": 123
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "paldean-tauros-aqua-breed",
+      "name": "Paldean Tauros Aqua Breed",
+      "displayNameJa": "ケンタロス（パルデアのすがた・ウォーター種）",
+      "formKind": "Paldean Aqua Breed",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Aqua%20Breed.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 182,
+        "Doubles": 136
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "paldean-tauros-blaze-breed",
+      "name": "Paldean Tauros Blaze Breed",
+      "displayNameJa": "ケンタロス（パルデアのすがた・ブレイズ種）",
+      "formKind": "Paldean Blaze Breed",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Blaze%20Breed.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 128,
+        "Doubles": 173
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "paldean-tauros-combat-breed",
+      "name": "Paldean Tauros Combat Breed",
+      "displayNameJa": "ケンタロス（パルデアのすがた・コンバット種）",
+      "formKind": "Paldean Combat Breed",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Combat%20Breed.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 230,
+        "Doubles": 227
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "pangoro",
+      "name": "Pangoro",
+      "displayNameJa": "ゴロンダ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pangoro.png",
+      "baseSpeed": 58,
+      "usageRanks": {
+        "Singles": 189,
+        "Doubles": 195
+      },
+      "stats": {
+        "decreasingMin": 70,
+        "neutral": 78,
+        "neutralMax": 110,
+        "increasingMax": 121
+      }
+    },
+    {
+      "id": "passimian",
+      "name": "Passimian",
+      "displayNameJa": "ナゲツケサル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Passimian.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 229,
+        "Doubles": 206
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "pelipper",
+      "name": "Pelipper",
+      "displayNameJa": "ペリッパー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pelipper.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 43,
+        "Doubles": 13
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "pidgeot",
+      "name": "Pidgeot",
+      "displayNameJa": "ピジョット",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pidgeot.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 149,
+        "Doubles": 181
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "mega-pidgeot",
+      "name": "Mega Pidgeot",
+      "displayNameJa": "メガピジョット",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Pidgeot.png",
+      "baseSpeed": 121,
+      "usageRanks": {
+        "Singles": 149,
+        "Doubles": 181
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 141,
+        "neutralMax": 173,
+        "increasingMax": 190
+      }
+    },
+    {
+      "id": "pikachu",
+      "name": "Pikachu",
+      "displayNameJa": "ピカチュウ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pikachu.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 172,
+        "Doubles": 174
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "mega-pinsir",
+      "name": "Mega Pinsir",
+      "displayNameJa": "メガカイロス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Pinsir.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 114,
+        "Doubles": 178
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    },
+    {
+      "id": "pinsir",
+      "name": "Pinsir",
+      "displayNameJa": "カイロス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pinsir.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 114,
+        "Doubles": 178
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "politoed",
+      "name": "Politoed",
+      "displayNameJa": "ニョロトノ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Politoed.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 140,
+        "Doubles": 45
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "polteageist",
+      "name": "Polteageist",
+      "displayNameJa": "ポットデス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Polteageist.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 98,
+        "Doubles": 208
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "primarina",
+      "name": "Primarina",
+      "displayNameJa": "アシレーヌ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Primarina.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 7,
+        "Doubles": 49
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "pyroar",
+      "name": "Pyroar",
+      "displayNameJa": "カエンジシ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pyroar.png",
+      "baseSpeed": 106,
+      "usageRanks": {
+        "Singles": 97,
+        "Doubles": 65
+      },
+      "stats": {
+        "decreasingMin": 113,
+        "neutral": 126,
+        "neutralMax": 158,
+        "increasingMax": 173
+      }
+    },
+    {
+      "id": "mega-pyroar",
+      "name": "Mega Pyroar",
+      "displayNameJa": "メガカエンジシ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Pyroar.png",
+      "baseSpeed": 126,
+      "usageRanks": {
+        "Singles": 97,
+        "Doubles": 65
+      },
+      "stats": {
+        "decreasingMin": 131,
+        "neutral": 146,
+        "neutralMax": 178,
+        "increasingMax": 195
+      }
+    },
+    {
+      "id": "quaquaval",
+      "name": "Quaquaval",
+      "displayNameJa": "ウェーニバル",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Quaquaval.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 111,
+        "Doubles": 165
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "qwilfish",
+      "name": "Qwilfish",
+      "displayNameJa": "ハリーセン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Qwilfish.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 213,
+        "Doubles": 222
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "raichu",
+      "name": "Raichu",
+      "displayNameJa": "ライチュウ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Raichu.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 22,
+        "Doubles": 17
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "mega-raichu-x",
+      "name": "Mega Raichu X",
+      "displayNameJa": "メガライチュウX",
+      "formKind": "Mega X",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Raichu%20X.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 22,
+        "Doubles": 17
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "mega-raichu-y",
+      "name": "Mega Raichu Y",
+      "displayNameJa": "メガライチュウY",
+      "formKind": "Mega Y",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Raichu%20Y.png",
+      "baseSpeed": 130,
+      "usageRanks": {
+        "Singles": 22,
+        "Doubles": 17
+      },
+      "stats": {
+        "decreasingMin": 135,
+        "neutral": 150,
+        "neutralMax": 182,
+        "increasingMax": 200
+      }
+    },
+    {
+      "id": "rampardos",
+      "name": "Rampardos",
+      "displayNameJa": "ラムパルド",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rampardos.png",
+      "baseSpeed": 58,
+      "usageRanks": {
+        "Singles": 203,
+        "Doubles": 175
+      },
+      "stats": {
+        "decreasingMin": 70,
+        "neutral": 78,
+        "neutralMax": 110,
+        "increasingMax": 121
+      }
+    },
+    {
+      "id": "reuniclus",
+      "name": "Reuniclus",
+      "displayNameJa": "ランクルス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Reuniclus.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 106,
+        "Doubles": 141
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "rhyperior",
+      "name": "Rhyperior",
+      "displayNameJa": "ドサイドン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rhyperior.png",
+      "baseSpeed": 40,
+      "usageRanks": {
+        "Singles": 179,
+        "Doubles": 142
+      },
+      "stats": {
+        "decreasingMin": 54,
+        "neutral": 60,
+        "neutralMax": 92,
+        "increasingMax": 101
+      }
+    },
+    {
+      "id": "roserade",
+      "name": "Roserade",
+      "displayNameJa": "ロズレイド",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Roserade.png",
+      "baseSpeed": 90,
+      "usageRanks": {
+        "Singles": 174,
+        "Doubles": 197
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 110,
+        "neutralMax": 142,
+        "increasingMax": 156
+      }
+    },
+    {
+      "id": "rotom",
+      "name": "Rotom",
+      "displayNameJa": "ロトム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom.png",
+      "baseSpeed": 91,
+      "usageRanks": {
+        "Singles": 223,
+        "Doubles": 219
+      },
+      "stats": {
+        "decreasingMin": 99,
+        "neutral": 111,
+        "neutralMax": 143,
+        "increasingMax": 157
+      }
+    },
+    {
+      "id": "rotom-frost",
+      "name": "Rotom Frost",
+      "displayNameJa": "フロストロトム",
+      "formKind": "Frost",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Frost.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 201,
+        "Doubles": 160
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "rotom-heat",
+      "name": "Rotom Heat",
+      "displayNameJa": "ヒートロトム",
+      "formKind": "Heat",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Heat.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 57,
+        "Doubles": 76
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "rotom-mow",
+      "name": "Rotom Mow",
+      "displayNameJa": "カットロトム",
+      "formKind": "Mow",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Mow.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 143,
+        "Doubles": 164
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "rotom-wash",
+      "name": "Rotom Wash",
+      "displayNameJa": "ウォッシュロトム",
+      "formKind": "Wash",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Wash.png",
+      "baseSpeed": 86,
+      "usageRanks": {
+        "Singles": 17,
+        "Doubles": 36
+      },
+      "stats": {
+        "decreasingMin": 95,
+        "neutral": 106,
+        "neutralMax": 138,
+        "increasingMax": 151
+      }
+    },
+    {
+      "id": "runerigus",
+      "name": "Runerigus",
+      "displayNameJa": "デスバーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Runerigus.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 190,
+        "Doubles": 200
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "sableye",
+      "name": "Sableye",
+      "displayNameJa": "ヤミラミ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sableye.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 68,
+        "Doubles": 27
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "mega-sableye",
+      "name": "Mega Sableye",
+      "displayNameJa": "メガヤミラミ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Sableye.png",
+      "baseSpeed": 20,
+      "usageRanks": {
+        "Singles": 68,
+        "Doubles": 27
+      },
+      "stats": {
+        "decreasingMin": 36,
+        "neutral": 40,
+        "neutralMax": 72,
+        "increasingMax": 79
+      }
+    },
+    {
+      "id": "salazzle",
+      "name": "Salazzle",
+      "displayNameJa": "エンニュート",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Salazzle.png",
+      "baseSpeed": 117,
+      "usageRanks": {
+        "Singles": 117,
+        "Doubles": 161
+      },
+      "stats": {
+        "decreasingMin": 123,
+        "neutral": 137,
+        "neutralMax": 169,
+        "increasingMax": 185
+      }
+    },
+    {
+      "id": "samurott",
+      "name": "Samurott",
+      "displayNameJa": "ダイケンキ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Samurott.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 218,
+        "Doubles": 233
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "sandaconda",
+      "name": "Sandaconda",
+      "displayNameJa": "サダイジャ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sandaconda.png",
+      "baseSpeed": 71,
+      "usageRanks": {
+        "Singles": 175,
+        "Doubles": 199
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 91,
+        "neutralMax": 123,
+        "increasingMax": 135
+      }
+    },
+    {
+      "id": "sceptile",
+      "name": "Sceptile",
+      "displayNameJa": "ジュカイン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sceptile.png",
+      "baseSpeed": 120,
+      "usageRanks": {
+        "Singles": 59,
+        "Doubles": 50
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 140,
+        "neutralMax": 172,
+        "increasingMax": 189
+      }
+    },
+    {
+      "id": "mega-sceptile",
+      "name": "Mega Sceptile",
+      "displayNameJa": "メガジュカイン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Sceptile.png",
+      "baseSpeed": 145,
+      "usageRanks": {
+        "Singles": 59,
+        "Doubles": 50
+      },
+      "stats": {
+        "decreasingMin": 148,
+        "neutral": 165,
+        "neutralMax": 197,
+        "increasingMax": 216
+      }
+    },
+    {
+      "id": "scizor",
+      "name": "Scizor",
+      "displayNameJa": "ハッサム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scizor.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 23,
+        "Doubles": 56
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "mega-scizor",
+      "name": "Mega Scizor",
+      "displayNameJa": "メガハッサム",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Scizor.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 23,
+        "Doubles": 56
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "scolipede",
+      "name": "Scolipede",
+      "displayNameJa": "ペンドラー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scolipede.png",
+      "baseSpeed": 112,
+      "usageRanks": {
+        "Singles": 64,
+        "Doubles": 122
+      },
+      "stats": {
+        "decreasingMin": 118,
+        "neutral": 132,
+        "neutralMax": 164,
+        "increasingMax": 180
+      }
+    },
+    {
+      "id": "mega-scolipede",
+      "name": "Mega Scolipede",
+      "displayNameJa": "メガペンドラー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Scolipede.png",
+      "baseSpeed": 62,
+      "usageRanks": {
+        "Singles": 64,
+        "Doubles": 122
+      },
+      "stats": {
+        "decreasingMin": 73,
+        "neutral": 82,
+        "neutralMax": 114,
+        "increasingMax": 125
+      }
+    },
+    {
+      "id": "scovillain",
+      "name": "Scovillain",
+      "displayNameJa": "スコヴィラン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scovillain.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 53,
+        "Doubles": 54
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "mega-scovillain",
+      "name": "Mega Scovillain",
+      "displayNameJa": "メガスコヴィラン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Scovillain.png",
+      "baseSpeed": 75,
+      "usageRanks": {
+        "Singles": 53,
+        "Doubles": 54
+      },
+      "stats": {
+        "decreasingMin": 85,
+        "neutral": 95,
+        "neutralMax": 127,
+        "increasingMax": 139
+      }
+    },
+    {
+      "id": "scrafty",
+      "name": "Scrafty",
+      "displayNameJa": "ズルズキン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scrafty.png",
+      "baseSpeed": 58,
+      "usageRanks": {
+        "Singles": 92,
+        "Doubles": 55
+      },
+      "stats": {
+        "decreasingMin": 70,
+        "neutral": 78,
+        "neutralMax": 110,
+        "increasingMax": 121
+      }
+    },
+    {
+      "id": "mega-scrafty",
+      "name": "Mega Scrafty",
+      "displayNameJa": "メガズルズキン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Scrafty.png",
+      "baseSpeed": 68,
+      "usageRanks": {
+        "Singles": 92,
+        "Doubles": 55
+      },
+      "stats": {
+        "decreasingMin": 79,
+        "neutral": 88,
+        "neutralMax": 120,
+        "increasingMax": 132
+      }
+    },
+    {
+      "id": "serperior",
+      "name": "Serperior",
+      "displayNameJa": "ジャローダ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Serperior.png",
+      "baseSpeed": 113,
+      "usageRanks": {
+        "Singles": 75,
+        "Doubles": 120
+      },
+      "stats": {
+        "decreasingMin": 119,
+        "neutral": 133,
+        "neutralMax": 165,
+        "increasingMax": 181
+      }
+    },
+    {
+      "id": "sharpedo",
+      "name": "Sharpedo",
+      "displayNameJa": "サメハダー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sharpedo.png",
+      "baseSpeed": 95,
+      "usageRanks": {
+        "Singles": 107,
+        "Doubles": 187
+      },
+      "stats": {
+        "decreasingMin": 103,
+        "neutral": 115,
+        "neutralMax": 147,
+        "increasingMax": 161
+      }
+    },
+    {
+      "id": "mega-sharpedo",
+      "name": "Mega Sharpedo",
+      "displayNameJa": "メガサメハダー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Sharpedo.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 107,
+        "Doubles": 187
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    },
+    {
+      "id": "simipour",
+      "name": "Simipour",
+      "displayNameJa": "ヒヤッキー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Simipour.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 226,
+        "Doubles": 225
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "simisage",
+      "name": "Simisage",
+      "displayNameJa": "ヤナッキー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Simisage.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 234,
+        "Doubles": 232
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "simisear",
+      "name": "Simisear",
+      "displayNameJa": "バオッキー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Simisear.png",
+      "baseSpeed": 101,
+      "usageRanks": {
+        "Singles": 232,
+        "Doubles": 226
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 121,
+        "neutralMax": 153,
+        "increasingMax": 168
+      }
+    },
+    {
+      "id": "sinistcha",
+      "name": "Sinistcha",
+      "displayNameJa": "ヤバソチャ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sinistcha.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 69,
+        "Doubles": 5
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "skarmory",
+      "name": "Skarmory",
+      "displayNameJa": "エアームド",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Skarmory.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 77,
+        "Doubles": 125
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "mega-skarmory",
+      "name": "Mega Skarmory",
+      "displayNameJa": "メガエアームド",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Skarmory.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 77,
+        "Doubles": 125
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "skeledirge",
+      "name": "Skeledirge",
+      "displayNameJa": "ラウドボーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Skeledirge.png",
+      "baseSpeed": 66,
+      "usageRanks": {
+        "Singles": 30,
+        "Doubles": 126
+      },
+      "stats": {
+        "decreasingMin": 77,
+        "neutral": 86,
+        "neutralMax": 118,
+        "increasingMax": 129
+      }
+    },
+    {
+      "id": "slowbro",
+      "name": "Slowbro",
+      "displayNameJa": "ヤドラン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slowbro.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 71,
+        "Doubles": 144
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "mega-slowbro",
+      "name": "Mega Slowbro",
+      "displayNameJa": "メガヤドラン",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Slowbro.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 71,
+        "Doubles": 144
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "slowking",
+      "name": "Slowking",
+      "displayNameJa": "ヤドキング",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slowking.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 166,
+        "Doubles": 170
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "slurpuff",
+      "name": "Slurpuff",
+      "displayNameJa": "ペロリーム",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slurpuff.png",
+      "baseSpeed": 72,
+      "usageRanks": {
+        "Singles": 163,
+        "Doubles": 228
+      },
+      "stats": {
+        "decreasingMin": 82,
+        "neutral": 92,
+        "neutralMax": 124,
+        "increasingMax": 136
+      }
+    },
+    {
+      "id": "sneasler",
+      "name": "Sneasler",
+      "displayNameJa": "オオニューラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sneasler.png",
+      "baseSpeed": 120,
+      "usageRanks": {
+        "Singles": 52,
+        "Doubles": 9
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 140,
+        "neutralMax": 172,
+        "increasingMax": 189
+      }
+    },
+    {
+      "id": "snorlax",
+      "name": "Snorlax",
+      "displayNameJa": "カビゴン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Snorlax.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 56,
+        "Doubles": 80
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "spiritomb",
+      "name": "Spiritomb",
+      "displayNameJa": "ミカルゲ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Spiritomb.png",
+      "baseSpeed": 35,
+      "usageRanks": {
+        "Singles": 139,
+        "Doubles": 134
+      },
+      "stats": {
+        "decreasingMin": 49,
+        "neutral": 55,
+        "neutralMax": 87,
+        "increasingMax": 95
+      }
+    },
+    {
+      "id": "staraptor",
+      "name": "Staraptor",
+      "displayNameJa": "ムクホーク",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Staraptor.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 26,
+        "Doubles": 12
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "mega-staraptor",
+      "name": "Mega Staraptor",
+      "displayNameJa": "メガムクホーク",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Staraptor.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 26,
+        "Doubles": 12
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "starmie",
+      "name": "Starmie",
+      "displayNameJa": "スターミー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Starmie.png",
+      "baseSpeed": 115,
+      "usageRanks": {
+        "Singles": 24,
+        "Doubles": 91
+      },
+      "stats": {
+        "decreasingMin": 121,
+        "neutral": 135,
+        "neutralMax": 167,
+        "increasingMax": 183
+      }
+    },
+    {
+      "id": "mega-starmie",
+      "name": "Mega Starmie",
+      "displayNameJa": "メガスターミー",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Starmie.png",
+      "baseSpeed": 120,
+      "usageRanks": {
+        "Singles": 24,
+        "Doubles": 91
+      },
+      "stats": {
+        "decreasingMin": 126,
+        "neutral": 140,
+        "neutralMax": 172,
+        "increasingMax": 189
+      }
+    },
+    {
+      "id": "steelix",
+      "name": "Steelix",
+      "displayNameJa": "ハガネール",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Steelix.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 159,
+        "Doubles": 118
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "mega-steelix",
+      "name": "Mega Steelix",
+      "displayNameJa": "メガハガネール",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Steelix.png",
+      "baseSpeed": 30,
+      "usageRanks": {
+        "Singles": 159,
+        "Doubles": 118
+      },
+      "stats": {
+        "decreasingMin": 45,
+        "neutral": 50,
+        "neutralMax": 82,
+        "increasingMax": 90
+      }
+    },
+    {
+      "id": "stunfisk",
+      "name": "Stunfisk",
+      "displayNameJa": "マッギョ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Stunfisk.png",
+      "baseSpeed": 32,
+      "usageRanks": {
+        "Singles": 195,
+        "Doubles": 211
+      },
+      "stats": {
+        "decreasingMin": 46,
+        "neutral": 52,
+        "neutralMax": 84,
+        "increasingMax": 92
+      }
+    },
+    {
+      "id": "swampert",
+      "name": "Swampert",
+      "displayNameJa": "ラグラージ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Swampert.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 33,
+        "Doubles": 20
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "mega-swampert",
+      "name": "Mega Swampert",
+      "displayNameJa": "メガラグラージ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Swampert.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 33,
+        "Doubles": 20
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "sylveon",
+      "name": "Sylveon",
+      "displayNameJa": "ニンフィア",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sylveon.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 41,
+        "Doubles": 10
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "talonflame",
+      "name": "Talonflame",
+      "displayNameJa": "ファイアロー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Talonflame.png",
+      "baseSpeed": 126,
+      "usageRanks": {
+        "Singles": 118,
+        "Doubles": 35
+      },
+      "stats": {
+        "decreasingMin": 131,
+        "neutral": 146,
+        "neutralMax": 178,
+        "increasingMax": 195
+      }
+    },
+    {
+      "id": "tauros",
+      "name": "Tauros",
+      "displayNameJa": "ケンタロス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tauros.png",
+      "baseSpeed": 110,
+      "usageRanks": {
+        "Singles": 209,
+        "Doubles": 220
+      },
+      "stats": {
+        "decreasingMin": 117,
+        "neutral": 130,
+        "neutralMax": 162,
+        "increasingMax": 178
+      }
+    },
+    {
+      "id": "tinkaton",
+      "name": "Tinkaton",
+      "displayNameJa": "デカヌチャン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tinkaton.png",
+      "baseSpeed": 94,
+      "usageRanks": {
+        "Singles": 103,
+        "Doubles": 72
+      },
+      "stats": {
+        "decreasingMin": 102,
+        "neutral": 114,
+        "neutralMax": 146,
+        "increasingMax": 160
+      }
+    },
+    {
+      "id": "torkoal",
+      "name": "Torkoal",
+      "displayNameJa": "コータス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Torkoal.png",
+      "baseSpeed": 20,
+      "usageRanks": {
+        "Singles": 122,
+        "Doubles": 21
+      },
+      "stats": {
+        "decreasingMin": 36,
+        "neutral": 40,
+        "neutralMax": 72,
+        "increasingMax": 79
+      }
+    },
+    {
+      "id": "torterra",
+      "name": "Torterra",
+      "displayNameJa": "ドダイトス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Torterra.png",
+      "baseSpeed": 56,
+      "usageRanks": {
+        "Singles": 144,
+        "Doubles": 162
+      },
+      "stats": {
+        "decreasingMin": 68,
+        "neutral": 76,
+        "neutralMax": 108,
+        "increasingMax": 118
+      }
+    },
+    {
+      "id": "toucannon",
+      "name": "Toucannon",
+      "displayNameJa": "ドデカバシ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toucannon.png",
+      "baseSpeed": 60,
+      "usageRanks": {
+        "Singles": 95,
+        "Doubles": 189
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 80,
+        "neutralMax": 112,
+        "increasingMax": 123
+      }
+    },
+    {
+      "id": "toxapex",
+      "name": "Toxapex",
+      "displayNameJa": "ドヒドイデ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxapex.png",
+      "baseSpeed": 35,
+      "usageRanks": {
+        "Singles": 46,
+        "Doubles": 40
+      },
+      "stats": {
+        "decreasingMin": 49,
+        "neutral": 55,
+        "neutralMax": 87,
+        "increasingMax": 95
+      }
+    },
+    {
+      "id": "toxicroak",
+      "name": "Toxicroak",
+      "displayNameJa": "ドクロッグ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxicroak.png",
+      "baseSpeed": 85,
+      "usageRanks": {
+        "Singles": 200,
+        "Doubles": 167
+      },
+      "stats": {
+        "decreasingMin": 94,
+        "neutral": 105,
+        "neutralMax": 137,
+        "increasingMax": 150
+      }
+    },
+    {
+      "id": "trevenant",
+      "name": "Trevenant",
+      "displayNameJa": "オーロット",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Trevenant.png",
+      "baseSpeed": 56,
+      "usageRanks": {
+        "Singles": 170,
+        "Doubles": 176
+      },
+      "stats": {
+        "decreasingMin": 68,
+        "neutral": 76,
+        "neutralMax": 108,
+        "increasingMax": 118
+      }
+    },
+    {
+      "id": "tsareena",
+      "name": "Tsareena",
+      "displayNameJa": "アマージョ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tsareena.png",
+      "baseSpeed": 72,
+      "usageRanks": {
+        "Singles": 153,
+        "Doubles": 42
+      },
+      "stats": {
+        "decreasingMin": 82,
+        "neutral": 92,
+        "neutralMax": 124,
+        "increasingMax": 136
+      }
+    },
+    {
+      "id": "typhlosion",
+      "name": "Typhlosion",
+      "displayNameJa": "バクフーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Typhlosion.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 193,
+        "Doubles": 158
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "tyranitar",
+      "name": "Tyranitar",
+      "displayNameJa": "バンギラス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tyranitar.png",
+      "baseSpeed": 61,
+      "usageRanks": {
+        "Singles": 47,
+        "Doubles": 18
+      },
+      "stats": {
+        "decreasingMin": 72,
+        "neutral": 81,
+        "neutralMax": 113,
+        "increasingMax": 124
+      }
+    },
+    {
+      "id": "mega-tyranitar",
+      "name": "Mega Tyranitar",
+      "displayNameJa": "メガバンギラス",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Tyranitar.png",
+      "baseSpeed": 71,
+      "usageRanks": {
+        "Singles": 47,
+        "Doubles": 18
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 91,
+        "neutralMax": 123,
+        "increasingMax": 135
+      }
+    },
+    {
+      "id": "tyrantrum",
+      "name": "Tyrantrum",
+      "displayNameJa": "ガチゴラス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tyrantrum.png",
+      "baseSpeed": 71,
+      "usageRanks": {
+        "Singles": 191,
+        "Doubles": 179
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 91,
+        "neutralMax": 123,
+        "increasingMax": 135
+      }
+    },
+    {
+      "id": "umbreon",
+      "name": "Umbreon",
+      "displayNameJa": "ブラッキー",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Umbreon.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 34,
+        "Doubles": 113
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "vanilluxe",
+      "name": "Vanilluxe",
+      "displayNameJa": "バイバニラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Vanilluxe.png",
+      "baseSpeed": 79,
+      "usageRanks": {
+        "Singles": 55,
+        "Doubles": 90
+      },
+      "stats": {
+        "decreasingMin": 89,
+        "neutral": 99,
+        "neutralMax": 131,
+        "increasingMax": 144
+      }
+    },
+    {
+      "id": "vaporeon",
+      "name": "Vaporeon",
+      "displayNameJa": "シャワーズ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Vaporeon.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 104,
+        "Doubles": 157
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "venusaur",
+      "name": "Venusaur",
+      "displayNameJa": "フシギバナ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Venusaur.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 40,
+        "Doubles": 15
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "mega-venusaur",
+      "name": "Mega Venusaur",
+      "displayNameJa": "メガフシギバナ",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Venusaur.png",
+      "baseSpeed": 80,
+      "usageRanks": {
+        "Singles": 40,
+        "Doubles": 15
+      },
+      "stats": {
+        "decreasingMin": 90,
+        "neutral": 100,
+        "neutralMax": 132,
+        "increasingMax": 145
+      }
+    },
+    {
+      "id": "victreebel",
+      "name": "Victreebel",
+      "displayNameJa": "ウツボット",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Victreebel.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 89,
+        "Doubles": 183
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "mega-victreebel",
+      "name": "Mega Victreebel",
+      "displayNameJa": "メガウツボット",
+      "formKind": "Mega",
+      "formRelation": "mega",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Victreebel.png",
+      "baseSpeed": 70,
+      "usageRanks": {
+        "Singles": 89,
+        "Doubles": 183
+      },
+      "stats": {
+        "decreasingMin": 81,
+        "neutral": 90,
+        "neutralMax": 122,
+        "increasingMax": 134
+      }
+    },
+    {
+      "id": "vileplume",
+      "name": "Vileplume",
+      "displayNameJa": "ラフレシア",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Vileplume.png",
+      "baseSpeed": 50,
+      "usageRanks": {
+        "Singles": 88,
+        "Doubles": 75
+      },
+      "stats": {
+        "decreasingMin": 63,
+        "neutral": 70,
+        "neutralMax": 102,
+        "increasingMax": 112
+      }
+    },
+    {
+      "id": "vivillon-fancy-pattern",
+      "name": "Vivillon Fancy Pattern",
+      "displayNameJa": "ビビヨン（ファンシーなもよう）",
+      "formKind": "Fancy Pattern",
+      "formRelation": "independent",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Vivillon%20Fancy%20Pattern.png",
+      "baseSpeed": 89,
+      "usageRanks": {
+        "Singles": 72,
+        "Doubles": 47
+      },
+      "stats": {
+        "decreasingMin": 98,
+        "neutral": 109,
+        "neutralMax": 141,
+        "increasingMax": 155
+      }
+    },
+    {
+      "id": "volcarona",
+      "name": "Volcarona",
+      "displayNameJa": "ウルガモス",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Volcarona.png",
+      "baseSpeed": 100,
+      "usageRanks": {
+        "Singles": 35,
+        "Doubles": 85
+      },
+      "stats": {
+        "decreasingMin": 108,
+        "neutral": 120,
+        "neutralMax": 152,
+        "increasingMax": 167
+      }
+    },
+    {
+      "id": "watchog",
+      "name": "Watchog",
+      "displayNameJa": "ミルホッグ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Watchog.png",
+      "baseSpeed": 77,
+      "usageRanks": {
+        "Singles": 235,
+        "Doubles": 231
+      },
+      "stats": {
+        "decreasingMin": 87,
+        "neutral": 97,
+        "neutralMax": 129,
+        "increasingMax": 141
+      }
+    },
+    {
+      "id": "weavile",
+      "name": "Weavile",
+      "displayNameJa": "マニューラ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Weavile.png",
+      "baseSpeed": 125,
+      "usageRanks": {
+        "Singles": 115,
+        "Doubles": 74
+      },
+      "stats": {
+        "decreasingMin": 130,
+        "neutral": 145,
+        "neutralMax": 177,
+        "increasingMax": 194
+      }
+    },
+    {
+      "id": "whimsicott",
+      "name": "Whimsicott",
+      "displayNameJa": "エルフーン",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Whimsicott.png",
+      "baseSpeed": 116,
+      "usageRanks": {
+        "Singles": 45,
+        "Doubles": 6
+      },
+      "stats": {
+        "decreasingMin": 122,
+        "neutral": 136,
+        "neutralMax": 168,
+        "increasingMax": 184
+      }
+    },
+    {
+      "id": "wyrdeer",
+      "name": "Wyrdeer",
+      "displayNameJa": "アヤシシ",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Wyrdeer.png",
+      "baseSpeed": 65,
+      "usageRanks": {
+        "Singles": 215,
+        "Doubles": 132
+      },
+      "stats": {
+        "decreasingMin": 76,
+        "neutral": 85,
+        "neutralMax": 117,
+        "increasingMax": 128
+      }
+    },
+    {
+      "id": "zoroark",
+      "name": "Zoroark",
+      "displayNameJa": "ゾロアーク",
+      "formKind": "Base",
+      "formRelation": "base",
+      "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Zoroark.png",
+      "baseSpeed": 105,
+      "usageRanks": {
+        "Singles": 168,
+        "Doubles": 196
+      },
+      "stats": {
+        "decreasingMin": 112,
+        "neutral": 125,
+        "neutralMax": 157,
+        "increasingMax": 172
+      }
+    }
+  ]
+}

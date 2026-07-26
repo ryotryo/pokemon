@@ -5,6 +5,14 @@ const tools = [
     title: "パーティ相性チェッカー",
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
     href: "/party-check/",
+    icon: "◉",
+    available: true,
+  },
+  {
+    title: "すばやさランキング",
+    description: "ポケモンごとの実数値や抜きラインを、一覧で比較できるツールです。",
+    href: "https://poke-analytics.com/speed-ranking/",
+    icon: "↗",
     available: true,
   },
   {
@@ -34,19 +42,22 @@ export default function Home() {
             <h2 id="available-tools" className="text-lg font-black">現在利用可能</h2>
             <span className="h-px flex-1 bg-slate-200" />
           </div>
-          {tools.filter((tool) => tool.available).map((tool) => (
-            <Link key={tool.title} href={tool.href} className="group block rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs font-bold text-blue-700">POKÉMON CHAMPIONS</p>
-                  <h3 className="mt-2 text-xl font-black">{tool.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{tool.description}</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {tools.filter((tool) => tool.available).map((tool) => (
+              <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+                <div className="flex flex-1 items-start justify-between gap-4">
+                  <div>
+                    <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-2xl bg-blue-50 text-xl font-black text-blue-700">{tool.icon}</span>
+                    <p className="mt-4 text-xs font-bold text-blue-700">POKÉMON CHAMPIONS</p>
+                    <h3 className="mt-2 text-xl font-black">{tool.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{tool.description}</p>
+                  </div>
+                  <span aria-hidden="true" className="mt-1 text-2xl text-blue-700 transition group-hover:translate-x-1">→</span>
                 </div>
-                <span aria-hidden="true" className="mt-1 text-2xl text-blue-700 transition group-hover:translate-x-1">→</span>
-              </div>
-              <p className="mt-5 text-sm font-bold text-blue-700">ツールを開く</p>
-            </Link>
-          ))}
+                <p className="mt-5 text-sm font-bold text-blue-700">ツールを開く</p>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="mt-10" aria-labelledby="planned-tools">
