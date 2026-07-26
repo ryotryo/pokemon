@@ -9,10 +9,12 @@ export function PartyCheckPage() {
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-lg px-4 py-8 sm:py-12">
         <header className="mb-7">
-          <SiteLogo />
-          <p className="mb-2 mt-5 text-xs font-bold tracking-[0.18em] text-blue-700">ポケモンチャンピオンズ</p>
-          <h1 className="text-3xl font-black tracking-tight">Party Matchup Checker</h1>
-          <p className="mt-3 text-sm leading-6 text-slate-600">初心者向けのパーティー相性チェック。現在は対戦データ基盤と攻撃範囲の確認に対応しています。</p>
+          <div className="flex items-center justify-between gap-3">
+            <SiteLogo compact />
+            <p className="text-[10px] font-bold tracking-[0.12em] text-blue-700">ポケモンチャンピオンズ</p>
+          </div>
+          <h1 className="mt-3 text-3xl font-black tracking-tight">パーティー相性チェッカー</h1>
+          <p className="mt-2 text-sm leading-6 text-slate-600">初心者向けのパーティー相性チェック。現在は対戦データ基盤と攻撃範囲の確認に対応しています。</p>
         </header>
         <PartyChecker
           singles={singles.pokemon}

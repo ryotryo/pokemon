@@ -3,7 +3,7 @@ import { SiteLogo } from "@/components/site-logo";
 
 const tools = [
   {
-    title: "パーティ相性チェッカー",
+    title: "パーティー相性チェッカー",
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
     href: "/party-check/",
     icon: "◉",

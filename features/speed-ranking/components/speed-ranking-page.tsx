@@ -19,10 +19,12 @@ export function SpeedRankingPage() {
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-2xl px-3 py-7 sm:px-6 sm:py-12">
         <header className="mb-6 px-1">
-          <SiteLogo />
-          <p className="mb-2 mt-5 text-xs font-bold tracking-[0.18em] text-blue-700">ポケモンチャンピオンズ</p>
-          <h1 className="text-3xl font-black tracking-tight">すばやさランキング</h1>
-          <p className="mt-3 text-sm leading-6 text-slate-600">共通スケールのバーで、実戦のすばやさ帯と周辺ポケモンとの重なりを確認できます。</p>
+          <div className="flex items-center justify-between gap-3">
+            <SiteLogo compact />
+            <p className="text-[10px] font-bold tracking-[0.12em] text-blue-700">ポケモンチャンピオンズ</p>
+          </div>
+          <h1 className="mt-3 text-3xl font-black tracking-tight">すばやさランキング</h1>
+          <p className="mt-2 text-sm leading-6 text-slate-600">共通スケールのバーで、実戦のすばやさ帯と周辺ポケモンとの重なりを確認できます。</p>
           <p className="mt-2 text-xs font-bold text-slate-600">
             最新シーズン：{formatSeasonLabel(metadata.seasonLabel)}
             {seasonPeriod && `（${formatDate(seasonPeriod.start)}〜${formatDate(seasonPeriod.end)}）`}
