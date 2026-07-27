@@ -28,6 +28,7 @@ const SECTIONS = [
   ["teammates", "同時採用"],
   ["learnset", "覚える技"],
 ] as const;
+const RANKING_GRID_CLASS = "grid grid-cols-1 gap-x-3 min-[360px]:grid-flow-col min-[360px]:grid-cols-2 min-[360px]:grid-rows-5";
 
 function RankingSection({ id, title, note, children }: { id: string; title: string; note?: string; children: React.ReactNode }) {
   return (
@@ -69,7 +70,7 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
 function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map<string, UsageMoveDetail> }) {
   if (!detail.moves.length) return <EmptyRanking />;
   return (
-    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
+    <ol className={RANKING_GRID_CLASS}>
       {detail.moves.map((row) => {
         const move = moves.get(row.moveId);
         if (!move) return null;
@@ -94,7 +95,7 @@ function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map
 function ItemRankings({ detail }: { detail: UsageFormatDetail }) {
   if (!detail.items.length) return <EmptyRanking />;
   return (
-    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
+    <ol className={RANKING_GRID_CLASS}>
       {detail.items.map((row) => (
         <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
           <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
@@ -130,7 +131,7 @@ function SpreadRankings({ detail }: { detail: UsageFormatDetail }) {
 function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
   if (!detail.natures.length) return <EmptyRanking />;
   return (
-    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
+    <ol className={RANKING_GRID_CLASS}>
       {detail.natures.map((row) => (
         <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
           <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
@@ -148,7 +149,7 @@ function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
 function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; format: BattleFormat }) {
   if (!detail.teammates.length) return <EmptyRanking />;
   return (
-    <ol className="grid grid-cols-1 gap-x-3 min-[360px]:grid-cols-2">
+    <ol className={RANKING_GRID_CLASS}>
       {detail.teammates.map((row) => (
         <li key={`${row.rank}-${row.pokemonId}`}>
           <Link href={`/usage-ranking/${row.pokemonId}/?format=${formatQuery(format)}`} className="grid min-h-14 grid-cols-[1.25rem_2.25rem_minmax(0,1fr)_auto] items-center gap-1.5 border-b border-slate-100 py-1.5 focus-visible:outline-2 focus-visible:outline-blue-600">
@@ -169,7 +170,7 @@ function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMo
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
   const [damageClass, setDamageClass] = useState<DamageClass | "all">("all");
-  const [sort, setSort] = useState<UsageMoveSort>("name");
+  const [sort, setSort] = useState<UsageMoveSort>("type");
 
   const filtered = useMemo(
     () => filterAndSortUsageMoves(moves, { query, type, damageClass, sort }),
@@ -189,7 +190,7 @@ function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMo
           <option value="all">全分類</option><option value="physical">物理</option><option value="special">特殊</option><option value="status">変化</option>
         </select>
         <select aria-label="技の並び順" value={sort} onChange={(event) => setSort(event.target.value as UsageMoveSort)} className="h-11 min-w-0 rounded-xl border border-slate-200 bg-white px-2 text-xs">
-          <option value="name">技名順</option><option value="type">タイプ順</option><option value="power">威力が高い順</option><option value="pp">PPが多い順</option>
+          <option value="type">タイプ順</option><option value="name">技名順</option><option value="power">威力が高い順</option><option value="pp">PPが多い順</option>
         </select>
       </div>
       <p className="mt-3 text-xs text-slate-500">{filtered.length}件</p>
@@ -280,7 +281,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
       <div className="mt-3 space-y-3">
         <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} /></RankingSection>
         <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
-        <RankingSection id="spreads" title="努力値"><SpreadRankings detail={detail} /></RankingSection>
+        <RankingSection id="spreads" title="努力値" note="HP-こうげき-ぼうぎょ-とくこう-とくぼう-すばやさ"><SpreadRankings detail={detail} /></RankingSection>
         <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
         <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
         <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} /></RankingSection>

@@ -81,6 +81,7 @@ describe("usage ranking data", () => {
     expect(filterAndSortUsageMoves(sample, { query: "", type: "ground", damageClass: "physical", sort: "name" }).map((move) => move.nameJa)).toEqual(["じしん"]);
     expect(filterAndSortUsageMoves(sample, { query: "", type: "all", damageClass: "status", sort: "pp" }).map((move) => move.nameJa)).toEqual(["まもる"]);
     expect(filterAndSortUsageMoves(sample, { query: "", type: "all", damageClass: "all", sort: "power" })[0].power).toBe(100);
+    expect(filterAndSortUsageMoves(sample, { query: "", type: "all", damageClass: "all", sort: "type" }).map((move) => move.nameJa)).toEqual(["まもる", "れいとうビーム", "じしん"]);
   });
 
   it("keeps teammate links resolvable and images present", () => {

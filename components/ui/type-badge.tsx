@@ -23,15 +23,15 @@ const TYPE_COLORS: Record<string, string> = {
 };
 
 const DAMAGE_CLASS_STYLES: Record<DamageClass, string> = {
-  physical: "bg-red-100 text-red-700",
-  special: "bg-blue-100 text-blue-700",
-  status: "bg-emerald-100 text-emerald-700",
+  physical: "border-red-300 text-red-700",
+  special: "border-blue-300 text-blue-700",
+  status: "border-emerald-300 text-emerald-700",
 };
 
 const DAMAGE_CLASS_LABELS: Record<DamageClass, string> = {
-  physical: "物理",
-  special: "特殊",
-  status: "変化",
+  physical: "◆ 物理",
+  special: "◎ 特殊",
+  status: "◇ 変化",
 };
 
 const badgeBase = "inline-flex shrink-0 items-center rounded-full px-2 py-0.5 text-[10px] font-bold leading-4";
@@ -41,5 +41,5 @@ export function TypeBadge({ type }: { type: string }) {
 }
 
 export function DamageClassBadge({ damageClass }: { damageClass: DamageClass }) {
-  return <span className={`${badgeBase} ${DAMAGE_CLASS_STYLES[damageClass]}`}>{DAMAGE_CLASS_LABELS[damageClass]}</span>;
+  return <span className={`inline-flex shrink-0 items-center rounded border bg-white px-1.5 py-0.5 text-[10px] font-bold leading-4 ${DAMAGE_CLASS_STYLES[damageClass]}`}>{DAMAGE_CLASS_LABELS[damageClass]}</span>;
 }

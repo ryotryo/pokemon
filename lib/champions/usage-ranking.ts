@@ -1,5 +1,6 @@
 import type { BattleFormat, DamageClass, FormRelation } from "./types";
 import type { PokemonBaseStats } from "./speed-ranking";
+import { TYPE_ORDER } from "./display-names";
 
 export type UsageBattleCategory =
   | "move"
@@ -175,7 +176,12 @@ export function filterAndSortUsageMoves(
   ).sort((a, b) => {
     if (options.sort === "power") return (b.power ?? -1) - (a.power ?? -1) || a.nameJa.localeCompare(b.nameJa, "ja");
     if (options.sort === "pp") return (b.pp ?? -1) - (a.pp ?? -1) || a.nameJa.localeCompare(b.nameJa, "ja");
-    if (options.sort === "type") return a.type.localeCompare(b.type) || a.nameJa.localeCompare(b.nameJa, "ja");
+    if (options.sort === "type") {
+      const aTypeOrder = TYPE_ORDER.indexOf(a.type);
+      const bTypeOrder = TYPE_ORDER.indexOf(b.type);
+      return (aTypeOrder < 0 ? Number.MAX_SAFE_INTEGER : aTypeOrder) - (bTypeOrder < 0 ? Number.MAX_SAFE_INTEGER : bTypeOrder)
+        || a.nameJa.localeCompare(b.nameJa, "ja");
+    }
     return a.nameJa.localeCompare(b.nameJa, "ja");
   });
 }

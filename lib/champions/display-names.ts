@@ -8,6 +8,8 @@ export const TYPE_NAMES_JA: Record<string, string> = {
   rock: "いわ", ghost: "ゴースト", dragon: "ドラゴン", dark: "あく", steel: "はがね", fairy: "フェアリー",
 };
 
+export const TYPE_ORDER = Object.keys(TYPE_NAMES_JA);
+
 export function getPokemonDisplayNameJa(id: string, fallback: string): string {
   return names[id] ?? fallback;
 }
