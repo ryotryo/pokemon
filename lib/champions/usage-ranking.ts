@@ -83,6 +83,11 @@ export interface UsageNatureRow extends PercentageRankingRow {
   statDown: string | null;
 }
 
+export interface UsageAbilityRow {
+  rank: number;
+  nameJa: string;
+}
+
 export interface UsageSpreadRow extends PercentageRankingRow {
   hp: number | null;
   attack: number | null;
@@ -107,6 +112,7 @@ export interface UsageFormatDetail {
   items: UsageItemRow[];
   spreads: UsageSpreadRow[];
   natures: UsageNatureRow[];
+  abilities: UsageAbilityRow[];
   teammates: UsageTeammateRow[];
 }
 

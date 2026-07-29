@@ -29,6 +29,11 @@ const FORM_LEARNSET_OVERRIDES: Record<string, string> = {
   "maushold-family-of-four": "Maushold-Family of Four",
   "mega-meowstic": "Meowstic-M-Mega",
 };
+const ABILITY_NAME_CORRECTIONS: Record<string, string> = {
+  boost: "speedboost",
+  lronfist: "ironfist",
+  leatguard: "leafguard",
+};
 
 interface ChampionsIndex {
   generatedAt: string;
@@ -182,6 +187,7 @@ function toFormatDetail(
   movesByEnglish: Map<string, UsageMoveDetail>,
   itemsJa: Map<string, string>,
   naturesJa: Map<string, string>,
+  abilitiesJa: Map<string, string>,
   teammateLookup: Map<string, UsageRankingPokemon>,
 ): UsageFormatDetail {
   const moves = rowsByCategory(rows, "move").flatMap((row) => {
@@ -208,6 +214,15 @@ function toFormatDetail(
     }
     return [{ ...basePercentage(row), nameJa, statUp: localizeStat(row.stat_up), statDown: localizeStat(row.stat_down) }];
   });
+  const abilities = rowsByCategory(rows, "ability").flatMap((row) => {
+    const normalized = normalizedName(row.name);
+    const nameJa = abilitiesJa.get(ABILITY_NAME_CORRECTIONS[normalized] ?? normalized);
+    if (!nameJa) {
+      console.warn(`[usage] unknown ability skipped: ${row.name} (${context})`);
+      return [];
+    }
+    return [{ rank: Number(row.rank), nameJa }];
+  });
   const spreads = rowsByCategory(rows, "stat_points").map((row) => {
     const points = {
       hp: parsePoint(row.hp_points), attack: parsePoint(row.attack_points), defense: parsePoint(row.defense_points),
@@ -227,7 +242,7 @@ function toFormatDetail(
       types: teammate.types, sprite: teammate.sprite,
     }];
   });
-  return { rank, usagePercentage: null, moves, items, spreads, natures, teammates };
+  return { rank, usagePercentage: null, moves, items, spreads, natures, abilities, teammates };
 }
 
 async function main() {
@@ -240,7 +255,7 @@ async function main() {
     ]);
     if (!index.generatedAt || !index.defaultSeason || !index.pokemon.length || !commit.sha) throw new Error("Usage ranking source metadata is incomplete");
     const rawRoot = `https://raw.githubusercontent.com/projectpokemon/champout/${commit.sha}`;
-    const [personalDump, waza, moveEn, moveJa, moveInfoJa, itemEn, itemJa, natureEn, natureJa, typeEn, previousMoves] = await Promise.all([
+    const [personalDump, waza, moveEn, moveJa, moveInfoJa, itemEn, itemJa, natureEn, natureJa, abilityEn, abilityJa, typeEn, previousMoves] = await Promise.all([
       getText(`${rawRoot}/parse/personal_dump.txt`),
       getJson<ChampoutMove[]>(`${rawRoot}/masterdata/waza.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/wazaname.json`),
@@ -250,6 +265,8 @@ async function main() {
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/itemname.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/seikaku.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/seikaku.json`),
+      getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/tokusei.json`),
+      getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/tokusei.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/typename.json`),
       readFile(path.join(OUT, "moves.json"), "utf8")
         .then((value) => JSON.parse(value) as Record<string, UsageMoveDetail>)
@@ -316,6 +333,7 @@ async function main() {
     }
     const itemsJa = localizedByEnglish(itemEn, itemJa);
     const naturesJa = localizedByEnglish(natureEn, natureJa);
+    const abilitiesJa = localizedByEnglish(abilityEn, abilityJa);
     const canonicalPokemon = index.pokemon.filter((entry) => isCanonicalPokemonRecord(entry.slug));
     const battleRows = new Map<string, UsageBattleRow[]>();
     for (const format of battleFormats) {
@@ -371,7 +389,7 @@ async function main() {
       });
       const formats = Object.fromEntries(battleFormats.map((format) => {
         const rows = battleRows.get(`${format}:${pokemon.battleId}`) ?? [];
-        return [format, toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, teammateLookup)];
+        return [format, toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, abilitiesJa, teammateLookup)];
       })) as Record<BattleFormat, UsageFormatDetail>;
       details.push({ ...pokemon, learnableMoveIds: [...new Set(learnableMoveIds)], formats });
     }
@@ -381,7 +399,8 @@ async function main() {
     }
     const garchomp = details.find((detail) => detail.id === "garchomp");
     if (!garchomp || garchomp.formats.Singles.moves.length < 5 || garchomp.formats.Singles.items.length < 5
-      || garchomp.formats.Singles.spreads.length < 1 || garchomp.formats.Singles.natures.length < 5) {
+      || garchomp.formats.Singles.spreads.length < 1 || garchomp.formats.Singles.natures.length < 5
+      || garchomp.formats.Singles.abilities.length < 1 || garchomp.formats.Doubles.abilities.length < 1) {
       throw new Error("Usage ranking battle category validation failed");
     }
     const seasonDisplay = getSeasonDisplayMetadata(index);

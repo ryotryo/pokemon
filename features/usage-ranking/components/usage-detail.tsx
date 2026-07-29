@@ -26,6 +26,7 @@ const SECTIONS = [
   ["items", "持ち物"],
   ["spreads", "努力値"],
   ["natures", "性格"],
+  ["abilities", "特性"],
   ["teammates", "同時採用"],
   ["learnset", "覚える技"],
 ] as const;
@@ -170,6 +171,20 @@ function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
   );
 }
 
+function AbilityRankings({ detail }: { detail: UsageFormatDetail }) {
+  if (!detail.abilities.length) return <EmptyRanking />;
+  return (
+    <ol className={RANKING_GRID_CLASS}>
+      {detail.abilities.map((row) => (
+        <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-1.5 border-b border-slate-100 py-2">
+          <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
+          <p className="min-w-0 truncate text-xs font-bold" title={row.nameJa}>{row.nameJa}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; format: BattleFormat }) {
   if (!detail.teammates.length) return <EmptyRanking />;
   return (
@@ -308,6 +323,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
         <RankingSection id="spreads" title="努力値" note="HP-こうげき-ぼうぎょ-とくこう-とくぼう-すばやさ"><SpreadRankings detail={detail} /></RankingSection>
         <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
+        <RankingSection id="abilities" title="特性" note="TOP10"><AbilityRankings detail={detail} /></RankingSection>
         <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
         <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} onSelectMove={setSelectedMove} /></RankingSection>
       </div>
