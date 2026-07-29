@@ -278,7 +278,6 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
           <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
           <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
           <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
-          <p className="mt-1 text-xs text-slate-500">使用率 {formatPercentage(detail.usagePercentage)}</p>
           <BaseStats stats={pokemon.baseStats} />
         </div>
       </div>

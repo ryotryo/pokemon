@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
-import { formatPercentage, formatQuery, parseFormat, sortRankingPokemon, type UsageRankingPokemon } from "@/lib/champions/usage-ranking";
+import { formatQuery, parseFormat, sortRankingPokemon, type UsageRankingPokemon } from "@/lib/champions/usage-ranking";
 import { FormatToggle } from "./format-toggle";
 import { PokemonImage } from "./pokemon-image";
 import { TypeBadge } from "@/components/ui/type-badge";
@@ -56,7 +56,7 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
 
       <div className="mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="grid grid-cols-[2rem_2.75rem_minmax(0,1fr)_auto] items-center gap-2 border-b border-slate-100 px-3 py-2 text-[10px] font-bold text-slate-400">
-          <span className="text-center">順位</span><span /><span>ポケモン</span><span>使用率</span>
+          <span className="text-center">順位</span><span /><span>ポケモン</span><span />
         </div>
         <div className="divide-y divide-slate-100">
           {filtered.slice(0, visibleCount).map((entry) => (
@@ -74,7 +74,6 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
                 </span>
               </span>
               <span className="flex items-center gap-2 text-right">
-                <span className="text-xs font-bold text-slate-600">{formatPercentage(entry.usagePercentages[format])}</span>
                 <span aria-hidden="true" className="text-lg text-blue-700">›</span>
               </span>
             </Link>
