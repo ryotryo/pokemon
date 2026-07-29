@@ -56,10 +56,18 @@ interface ChampoutMove {
   accuracy: string;
   pp: string;
   ms_lbl: string;
+  ms_lbl_info: string;
 }
 
 interface ChampoutCommit {
   sha: string;
+}
+
+interface PokeApiMove {
+  flavor_text_entries?: Array<{
+    flavor_text?: string;
+    language?: { name?: string };
+  }>;
 }
 
 async function getJson<T>(url: string): Promise<T> {
@@ -102,6 +110,15 @@ async function mapWithConcurrency<T, R>(values: T[], concurrency: number, mapper
 
 function normalizedName(value: string): string {
   return value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "");
+}
+
+function normalizedDescription(value: string | undefined): string | null {
+  const normalized = value?.replace(/[\s\u3000]+/g, " ").trim();
+  return normalized || null;
+}
+
+function pokeApiMoveSlug(value: string): string {
+  return value.toLowerCase().replace(/['’:.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 function textMap(file: ChampoutTextFile): Map<string, string> {
@@ -223,19 +240,24 @@ async function main() {
     ]);
     if (!index.generatedAt || !index.defaultSeason || !index.pokemon.length || !commit.sha) throw new Error("Usage ranking source metadata is incomplete");
     const rawRoot = `https://raw.githubusercontent.com/projectpokemon/champout/${commit.sha}`;
-    const [personalDump, waza, moveEn, moveJa, itemEn, itemJa, natureEn, natureJa, typeEn] = await Promise.all([
+    const [personalDump, waza, moveEn, moveJa, moveInfoJa, itemEn, itemJa, natureEn, natureJa, typeEn, previousMoves] = await Promise.all([
       getText(`${rawRoot}/parse/personal_dump.txt`),
       getJson<ChampoutMove[]>(`${rawRoot}/masterdata/waza.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/wazaname.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/wazaname.json`),
+      getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/wazainfo_syn.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/itemname.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/itemname.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/seikaku.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/seikaku.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/typename.json`),
+      readFile(path.join(OUT, "moves.json"), "utf8")
+        .then((value) => JSON.parse(value) as Record<string, UsageMoveDetail>)
+        .catch(() => ({} as Record<string, UsageMoveDetail>)),
     ]);
     const moveNamesEn = textMap(moveEn);
     const moveNamesJa = textMap(moveJa);
+    const moveDescriptionsJa = textMap(moveInfoJa);
     const typeNames = new Map(typeEn.mSDataSet.map((entry) => [String(entry.Index), entry.OriginalText.toLowerCase()]));
     const movesByEnglish = new Map<string, UsageMoveDetail>();
     const movesById: Record<string, UsageMoveDetail> = {};
@@ -247,17 +269,51 @@ async function main() {
       const damageClass = damageClasses[row.category];
       if (!nameEn || !nameJa || !type || !damageClass) continue;
       const accuracyValue = Number(row.accuracy);
+      const champoutDescription = normalizedDescription(moveDescriptionsJa.get(row.ms_lbl_info));
+      const cachedDescription = previousMoves[row.id]?.descriptionSource === "pokeapi"
+        ? normalizedDescription(previousMoves[row.id].descriptionJa ?? undefined)
+        : null;
       const detail: UsageMoveDetail = {
         id: row.id, nameJa, nameEn, type, damageClass,
         power: Number(row.power) > 0 ? Number(row.power) : null,
         accuracy: accuracyValue > 0 && accuracyValue !== 101 ? accuracyValue : null,
         alwaysHits: accuracyValue === 101,
         pp: Number(row.pp) > 0 ? Number(row.pp) : null,
+        descriptionJa: champoutDescription ?? cachedDescription,
+        descriptionSource: champoutDescription ? "champout" : cachedDescription ? "pokeapi" : null,
       };
       movesByEnglish.set(normalizedName(nameEn), detail);
       movesById[detail.id] = detail;
     }
     const learnsets = parseLearnsets(personalDump);
+    const learnableMoveIds = new Set(
+      [...learnsets.values()].flatMap((moveNames) => moveNames.flatMap((name) => {
+        const move = movesByEnglish.get(normalizedName(name));
+        return move ? [move.id] : [];
+      })),
+    );
+    const fallbackMoves = [...learnableMoveIds]
+      .flatMap((id) => {
+        const move = movesById[id];
+        return move && !move.descriptionJa ? [move] : [];
+      });
+    const pokeApiDescriptions = await mapWithConcurrency(fallbackMoves, 6, async (move) => {
+      const response = await fetch(`https://pokeapi.co/api/v2/move/${pokeApiMoveSlug(move.nameEn)}`, {
+        headers: { accept: "application/json", "user-agent": "poke-analytics-data-builder/1.0" },
+      });
+      if (!response.ok) return { id: move.id, description: null };
+      const payload = await response.json() as PokeApiMove;
+      const entries = payload.flavor_text_entries ?? [];
+      const japanese = entries.filter((entry) => entry.language?.name === "ja-Hrkt");
+      const fallbackJapanese = entries.filter((entry) => entry.language?.name === "ja");
+      const description = normalizedDescription((japanese.at(-1) ?? fallbackJapanese.at(-1))?.flavor_text);
+      return { id: move.id, description };
+    });
+    for (const { id, description } of pokeApiDescriptions) {
+      if (!description) continue;
+      movesById[id].descriptionJa = description;
+      movesById[id].descriptionSource = "pokeapi";
+    }
     const itemsJa = localizedByEnglish(itemEn, itemJa);
     const naturesJa = localizedByEnglish(natureEn, natureJa);
     const canonicalPokemon = index.pokemon.filter((entry) => isCanonicalPokemonRecord(entry.slug));
@@ -342,6 +398,8 @@ async function main() {
     await writeFile(path.join(STAGE, "metadata.json"), JSON.stringify({
       championsBattleData: `${API}/api`, champoutCommit: commit.sha,
       champoutLearnsets: `${rawRoot}/parse/personal_dump.txt`, champoutMoves: `${rawRoot}/masterdata/waza.json`,
+      champoutMoveDescriptions: `${rawRoot}/rom-txt/jpn/wazainfo_syn.json`,
+      pokeApiMoveDescriptions: "https://pokeapi.co/api/v2/move/{move}",
       sourceUpdatedAt: index.generatedAt, publishedAt: usageIndex.publishedAt,
     }, null, 2) + "\n");
     for (const detail of details) {

@@ -77,6 +77,15 @@ describe("usage ranking data", () => {
     expect(detail("rotom-wash").learnableMoveIds.length).toBeGreaterThan(30);
   });
 
+  it("stores Japanese move descriptions with Champions data taking priority", () => {
+    const airSlash = Object.values(moves).find((move) => move.nameJa === "エアスラッシュ")!;
+    const magicalLeaf = Object.values(moves).find((move) => move.nameJa === "マジカルリーフ")!;
+    expect(airSlash.descriptionJa).toContain("ひるませる");
+    expect(airSlash.descriptionSource).toBe("champout");
+    expect(magicalLeaf.descriptionJa).toBeTruthy();
+    expect(magicalLeaf.descriptionSource).toBe("pokeapi");
+  });
+
   it("filters and sorts learnable moves by Japanese name, type, class, power, and PP", () => {
     const sample = Object.values(moves).filter((move) => ["じしん", "まもる", "れいとうビーム"].includes(move.nameJa));
     expect(filterAndSortUsageMoves(sample, { query: "れいとう", type: "all", damageClass: "all", sort: "name" }).map((move) => move.nameJa)).toEqual(["れいとうビーム"]);

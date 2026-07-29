@@ -17,6 +17,7 @@ import {
   type UsageMoveSort,
 } from "@/lib/champions/usage-ranking";
 import { FormatToggle } from "./format-toggle";
+import { MoveDetailSheet } from "./move-detail-sheet";
 import { PercentageBar } from "./percentage-bar";
 import { PokemonImage } from "./pokemon-image";
 
@@ -90,7 +91,7 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
   );
 }
 
-function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map<string, UsageMoveDetail> }) {
+function MoveRankings({ detail, moves, onSelectMove }: { detail: UsageFormatDetail; moves: Map<string, UsageMoveDetail>; onSelectMove: (move: UsageMoveDetail) => void }) {
   if (!detail.moves.length) return <EmptyRanking />;
   return (
     <ol className={RANKING_GRID_CLASS}>
@@ -102,7 +103,7 @@ function MoveRankings({ detail, moves }: { detail: UsageFormatDetail; moves: Map
             <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
             <div className="min-w-0">
               <div className="flex items-start justify-between gap-1">
-                <p className="min-w-0 truncate text-xs font-bold" title={move.nameJa}>{move.nameJa}</p>
+                <button type="button" onClick={() => onSelectMove(move)} className="min-w-0 truncate text-left text-xs font-bold text-blue-800 underline decoration-blue-200 underline-offset-2" title={`${move.nameJa}の詳細を表示`}>{move.nameJa}</button>
                 <UsageValue value={row.percentageValue} fallback={row.percentage} />
               </div>
               <div className="mt-1 flex items-center gap-1"><TypeBadge type={move.type} /><DamageClassBadge damageClass={move.damageClass} /></div>
@@ -189,7 +190,7 @@ function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; forma
   );
 }
 
-function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMoveIds: Set<string> }) {
+function LearnableMoves({ moves, topMoveIds, onSelectMove }: { moves: UsageMoveDetail[]; topMoveIds: Set<string>; onSelectMove: (move: UsageMoveDetail) => void }) {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
   const [damageClass, setDamageClass] = useState<DamageClass | "all">("all");
@@ -221,7 +222,7 @@ function LearnableMoves({ moves, topMoveIds }: { moves: UsageMoveDetail[]; topMo
         {filtered.map((move) => (
           <li key={move.id} className="py-2">
             <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
-              <p className="min-w-0 flex-1 basis-32 truncate text-xs font-bold" title={move.nameJa}>{move.nameJa}</p>
+              <button type="button" onClick={() => onSelectMove(move)} className="min-w-0 flex-1 basis-32 truncate text-left text-xs font-bold text-blue-800 underline decoration-blue-200 underline-offset-2" title={`${move.nameJa}の詳細を表示`}>{move.nameJa}</button>
               <p className="shrink-0 text-[10px] text-slate-500">威力 {move.power ?? "—"}　命中 {move.alwaysHits ? "必中" : move.accuracy ?? "—"}　PP {move.pp ?? "—"}</p>
               <div className="flex w-full items-center gap-1">
                 <TypeBadge type={move.type} /><DamageClassBadge damageClass={move.damageClass} />
@@ -248,6 +249,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const moves = useMemo(() => new Map(pokemon.learnableMoves.map((move) => [move.id, move])), [pokemon.learnableMoves]);
   const topMoveIds = useMemo(() => new Set(detail.moves.map((move) => move.moveId)), [detail.moves]);
   const [activeSection, setActiveSection] = useState("moves");
+  const [selectedMove, setSelectedMove] = useState<UsageMoveDetail | null>(null);
 
   useEffect(() => {
     let frame = 0;
@@ -302,13 +304,14 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         ))}
       </nav>
       <div className="mt-3 space-y-3">
-        <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} /></RankingSection>
+        <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} onSelectMove={setSelectedMove} /></RankingSection>
         <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
         <RankingSection id="spreads" title="努力値" note="HP-こうげき-ぼうぎょ-とくこう-とくぼう-すばやさ"><SpreadRankings detail={detail} /></RankingSection>
         <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
         <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
-        <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} /></RankingSection>
+        <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} onSelectMove={setSelectedMove} /></RankingSection>
       </div>
+      <MoveDetailSheet move={selectedMove} onClose={() => setSelectedMove(null)} />
     </div>
   );
 }

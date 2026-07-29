@@ -59,6 +59,8 @@ export interface UsageMoveDetail {
   accuracy: number | null;
   alwaysHits: boolean;
   pp: number | null;
+  descriptionJa: string | null;
+  descriptionSource: "champout" | "pokeapi" | null;
 }
 
 export interface PercentageRankingRow {
