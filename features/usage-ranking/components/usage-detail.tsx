@@ -274,7 +274,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
       <Link href={`/usage-ranking/?format=${formatQuery(format)}`} className="inline-flex min-h-11 items-center text-sm font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600">← 使用率ランキング</Link>
       <div className="mt-2 flex items-center gap-4">
         <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96} />
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
           <BaseStats stats={pokemon.baseStats} />
           <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
