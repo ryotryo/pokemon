@@ -4,11 +4,8 @@ import type { MetaHistoryDataset } from "@/lib/champions/meta-history";
 import { MetaHistory } from "./meta-history";
 
 function formatDate(value: string) {
-  return new Date(`${value}T00:00:00+09:00`).toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const [year, month, day] = value.split("-").map(Number);
+  return `${year}年${month}月${day}日`;
 }
 
 export function MetaHistoryPage() {

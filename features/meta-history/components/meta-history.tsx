@@ -27,7 +27,8 @@ function shortDate(value: string) {
 }
 
 function longDate(value: string) {
-  return new Date(`${value}T00:00:00+09:00`).toLocaleDateString("ja-JP");
+  const [year, month, day] = value.split("-").map(Number);
+  return `${year}/${month}/${day}`;
 }
 
 function yForRank(rank: number) {
