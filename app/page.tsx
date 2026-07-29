@@ -24,6 +24,13 @@ const tools = [
     available: true,
   },
   {
+    title: "環境推移",
+    description: "ポケモンチャンピオンズM4で記録されている日次順位の変化を、グラフで確認できます。",
+    href: "/meta-history/m4/",
+    icon: "⌁",
+    available: true,
+  },
+  {
     title: "技分析",
     description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,
