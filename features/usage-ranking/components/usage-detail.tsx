@@ -48,18 +48,24 @@ function UsageValue({ value, fallback }: { value: number | null; fallback?: stri
 }
 
 function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
-  const total = stats.hp + stats.attack + stats.defense + stats.specialAttack + stats.specialDefense + stats.speed;
+  const values = [
+    ["HP", stats.hp],
+    ["こうげき", stats.attack],
+    ["ぼうぎょ", stats.defense],
+    ["とくこう", stats.specialAttack],
+    ["とくぼう", stats.specialDefense],
+    ["すばやさ", stats.speed],
+  ] as const;
   return (
     <div className="mt-2 max-w-72">
-      <div className="grid grid-cols-3 gap-x-2 gap-y-0.5 text-[9px] tabular-nums text-slate-500">
-        <span>HP <b className="text-slate-700">{stats.hp}</b></span>
-        <span>こうげき <b className="text-slate-700">{stats.attack}</b></span>
-        <span>ぼうぎょ <b className="text-slate-700">{stats.defense}</b></span>
-        <span>とくこう <b className="text-slate-700">{stats.specialAttack}</b></span>
-        <span>とくぼう <b className="text-slate-700">{stats.specialDefense}</b></span>
-        <span>すばやさ <b className="text-slate-700">{stats.speed}</b></span>
+      <div className="grid grid-cols-3 gap-x-3 gap-y-1.5 tabular-nums">
+        {values.map(([label, value]) => (
+          <span key={label} className="min-w-0">
+            <span className="block truncate text-[9px] leading-3 text-slate-400">{label}</span>
+            <b className="block text-xs leading-4 text-slate-700">{value}</b>
+          </span>
+        ))}
       </div>
-      <p className="mt-0.5 text-right text-[9px] font-bold tabular-nums text-slate-400">合計 {total}</p>
     </div>
   );
 }
