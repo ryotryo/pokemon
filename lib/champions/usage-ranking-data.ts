@@ -21,15 +21,18 @@ export async function getUsagePokemonPageData(id: string): Promise<UsagePokemonP
     const indexEntry = index.pokemon.find((pokemon) => pokemon.id === id);
     if (!indexEntry || indexEntry.formRelation === "mega") return null;
     const speedById = new Map(speed.pokemon.map((pokemon) => [pokemon.id, pokemon]));
+    const baseStats = speedById.get(id)?.baseStats;
+    if (!baseStats) return null;
     const megaForms = index.pokemon
       .filter((pokemon) => pokemon.formRelation === "mega" && pokemon.battleId === detail.battleId)
       .flatMap((pokemon) => {
         const stats = speedById.get(pokemon.id)?.baseStats;
-        return stats ? [{ id: pokemon.id, displayNameJa: pokemon.displayNameJa, baseStats: stats }] : [];
+        return stats ? [{ id: pokemon.id, displayNameJa: pokemon.displayNameJa, sprite: pokemon.sprite, baseStats: stats }] : [];
       });
     return {
       ...detail,
       learnableMoves: detail.learnableMoveIds.flatMap((moveId) => moves[moveId] ? [moves[moveId]] : []),
+      baseStats,
       megaForms,
     };
   } catch {

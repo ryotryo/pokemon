@@ -48,7 +48,9 @@ describe("usage ranking data", () => {
     const garchomp = await getUsagePokemonPageData("garchomp");
     const charizard = await getUsagePokemonPageData("charizard");
     expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス"]);
+    expect(garchomp?.baseStats.speed).toBe(102);
     expect(garchomp?.megaForms[0].baseStats.attack).toBe(170);
+    expect(garchomp?.megaForms[0].sprite).toContain("Mega%20Garchomp.png");
     expect(charizard?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガリザードンX", "メガリザードンY"]);
     expect(await getUsagePokemonPageData("mega-garchomp")).toBeNull();
   });

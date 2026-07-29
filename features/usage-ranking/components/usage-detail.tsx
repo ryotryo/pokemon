@@ -47,6 +47,23 @@ function UsageValue({ value, fallback }: { value: number | null; fallback?: stri
   return <span className="text-xs font-bold text-slate-600">{formatPercentage(value, fallback)}</span>;
 }
 
+function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
+  const total = stats.hp + stats.attack + stats.defense + stats.specialAttack + stats.specialDefense + stats.speed;
+  return (
+    <div className="mt-2 max-w-72">
+      <div className="grid grid-cols-3 gap-x-2 gap-y-0.5 text-[9px] tabular-nums text-slate-500">
+        <span>HP <b className="text-slate-700">{stats.hp}</b></span>
+        <span>こうげき <b className="text-slate-700">{stats.attack}</b></span>
+        <span>ぼうぎょ <b className="text-slate-700">{stats.defense}</b></span>
+        <span>とくこう <b className="text-slate-700">{stats.specialAttack}</b></span>
+        <span>とくぼう <b className="text-slate-700">{stats.specialDefense}</b></span>
+        <span>すばやさ <b className="text-slate-700">{stats.speed}</b></span>
+      </div>
+      <p className="mt-0.5 text-right text-[9px] font-bold tabular-nums text-slate-400">合計 {total}</p>
+    </div>
+  );
+}
+
 function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
   if (!pokemon.megaForms.length) return null;
   return (
@@ -54,11 +71,11 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
       <h2 className="text-sm font-black text-blue-950">メガシンカ種族値</h2>
       <div className="mt-2 grid gap-2 sm:grid-cols-2">
         {pokemon.megaForms.map((mega) => (
-          <div key={mega.id} className="rounded-lg bg-white px-3 py-2">
-            <p className="text-xs font-bold">{mega.displayNameJa}</p>
-            <div className="mt-1 grid grid-cols-3 gap-x-2 gap-y-0.5 text-[10px] text-slate-600">
-              <span>HP {mega.baseStats.hp}</span><span>こうげき {mega.baseStats.attack}</span><span>ぼうぎょ {mega.baseStats.defense}</span>
-              <span>とくこう {mega.baseStats.specialAttack}</span><span>とくぼう {mega.baseStats.specialDefense}</span><span>すばやさ {mega.baseStats.speed}</span>
+          <div key={mega.id} className="flex items-center gap-2 rounded-lg bg-white px-2 py-2">
+            <PokemonImage src={mega.sprite} name={mega.displayNameJa} size={44} />
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-xs font-bold">{mega.displayNameJa}</p>
+              <BaseStats stats={mega.baseStats} />
             </div>
           </div>
         ))}
@@ -253,6 +270,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96} />
         <div className="min-w-0">
           <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
+          <BaseStats stats={pokemon.baseStats} />
           <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
           <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
           <p className="mt-1 text-xs text-slate-500">使用率 {formatPercentage(detail.usagePercentage)}</p>

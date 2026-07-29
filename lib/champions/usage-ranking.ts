@@ -121,9 +121,11 @@ export interface UsagePokemonDetail {
 
 export interface UsagePokemonPageData extends Omit<UsagePokemonDetail, "learnableMoveIds"> {
   learnableMoves: UsageMoveDetail[];
+  baseStats: PokemonBaseStats;
   megaForms: Array<{
     id: string;
     displayNameJa: string;
+    sprite: string;
     baseStats: PokemonBaseStats;
   }>;
 }
