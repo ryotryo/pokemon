@@ -119,23 +119,6 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
           )}
         </div>
 
-        <div className="flex max-h-24 flex-wrap gap-x-3 gap-y-1.5 overflow-y-auto px-4 py-2.5" aria-label="表示中のポケモン">
-          {selected.map((pokemon) => {
-            const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
-            return (
-              <button
-                key={pokemon.showdownId}
-                type="button"
-                onClick={() => setFocusedId(pokemon.showdownId)}
-                className={`inline-flex min-h-7 items-center gap-1.5 rounded-full px-2 text-[11px] font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${focusedId === pokemon.showdownId ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}`}
-              >
-                <span className="size-2 rounded-full" style={{ backgroundColor: color }} />
-                {pokemon.displayNameJa}
-              </button>
-            );
-          })}
-        </div>
-
         <div className="flex border-t border-slate-100">
           <svg width={START_WIDTH} height={chartHeight} className="relative z-10 shrink-0 bg-white" aria-label={`${longDate(dataset.dates[0])}の始点`}>
             {selected.map((pokemon) => {
@@ -151,12 +134,11 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                   <circle
                     cx={START_WIDTH / 2}
                     cy={yForRank(rank)}
-                    r={focused ? 5 : 3.5}
-                    fill={color}
-                    stroke="white"
-                    strokeWidth="1.5"
+                    r="10"
+                    fill="transparent"
                     tabIndex={0}
                     role="button"
+                    className="cursor-pointer"
                     aria-label={`${pokemon.displayNameJa}、${longDate(dataset.dates[0])}、第${rank}位`}
                     onClick={() => {
                       setFocusedId(pokemon.showdownId);
@@ -169,6 +151,15 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                         setActivePoint({ pokemon, date: dataset.dates[0], rank });
                       }
                     }}
+                  />
+                  <circle
+                    cx={START_WIDTH / 2}
+                    cy={yForRank(rank)}
+                    r={focused ? 5 : 3.5}
+                    fill={color}
+                    stroke="white"
+                    strokeWidth="1.5"
+                    pointerEvents="none"
                   />
                 </g>
               );
@@ -210,31 +201,40 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                     />
                   ))}
                   {pokemon.ranks[format].map((rank, index) => rank === null || index === 0 ? null : (
-                    <circle
-                      key={dataset.dates[index]}
-                      cx={xForIndex(index)}
-                      cy={yForRank(rank)}
-                      r={focused ? 5 : 3.5}
-                      fill={color}
-                      stroke="white"
-                      strokeWidth="1.5"
-                      tabIndex={0}
-                      role="button"
-                      aria-label={`${pokemon.displayNameJa}、${longDate(dataset.dates[index])}、第${rank}位`}
-                      onClick={() => {
-                        setFocusedId(pokemon.showdownId);
-                        setActivePoint({ pokemon, date: dataset.dates[index], rank });
-                      }}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
+                    <g key={dataset.dates[index]}>
+                      <circle
+                        cx={xForIndex(index)}
+                        cy={yForRank(rank)}
+                        r="10"
+                        fill="transparent"
+                        tabIndex={0}
+                        role="button"
+                        className="cursor-pointer"
+                        aria-label={`${pokemon.displayNameJa}、${longDate(dataset.dates[index])}、第${rank}位`}
+                        onClick={() => {
                           setFocusedId(pokemon.showdownId);
                           setActivePoint({ pokemon, date: dataset.dates[index], rank });
-                        }
-                      }}
-                    >
-                      <title>{`${pokemon.displayNameJa} ${longDate(dataset.dates[index])} 第${rank}位`}</title>
-                    </circle>
+                        }}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            setFocusedId(pokemon.showdownId);
+                            setActivePoint({ pokemon, date: dataset.dates[index], rank });
+                          }
+                        }}
+                      >
+                        <title>{`${pokemon.displayNameJa} ${longDate(dataset.dates[index])} 第${rank}位`}</title>
+                      </circle>
+                      <circle
+                        cx={xForIndex(index)}
+                        cy={yForRank(rank)}
+                        r={focused ? 5 : 3.5}
+                        fill={color}
+                        stroke="white"
+                        strokeWidth="1.5"
+                        pointerEvents="none"
+                      />
+                    </g>
                   ))}
                 </g>
               );

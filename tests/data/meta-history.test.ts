@@ -63,9 +63,8 @@ describe("M4 meta history", () => {
       const risers = topRankRisers(data, format);
       expect(risers).toHaveLength(3);
       expect(risers.every((entry) => entry.startRank - entry.latestRank === entry.rise && entry.rise > 0)).toBe(true);
+      expect(risers.every((entry) => entry.latestRank <= 30)).toBe(true);
       expect(risers).toEqual([...risers].sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank));
     }
-    expect(topRankRisers(data, "Singles")[0].pokemon.displayNameJa).toBe("ブースター");
-    expect(topRankRisers(data, "Doubles")[0].pokemon.displayNameJa).toBe("チルタリス");
   });
 });

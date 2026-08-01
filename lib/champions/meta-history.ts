@@ -57,7 +57,7 @@ export function topRankRisers(dataset: MetaHistoryDataset, format: BattleFormat,
     .flatMap((pokemon) => {
       const startRank = pokemon.ranks[format][0];
       const latestRank = pokemon.ranks[format][latestIndex];
-      if (startRank === null || latestRank === null || startRank <= latestRank) return [];
+      if (startRank === null || latestRank === null || latestRank > 30 || startRank <= latestRank) return [];
       return [{ pokemon, startRank, latestRank, rise: startRank - latestRank }];
     })
     .sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank || a.pokemon.displayNameJa.localeCompare(b.pokemon.displayNameJa, "ja"))
