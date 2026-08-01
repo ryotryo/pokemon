@@ -16,8 +16,8 @@ import { FormatToggle } from "@/features/usage-ranking/components/format-toggle"
 import { PokemonImage } from "@/features/usage-ranking/components/pokemon-image";
 
 const COLORS = ["#2563eb", "#dc2626", "#059669", "#7c3aed", "#ea580c", "#0891b2", "#be185d", "#4f46e5", "#65a30d", "#9333ea", "#0f766e", "#b45309"];
-const LEFT = 42;
 const RIGHT = 22;
+const START_WIDTH = 24;
 const TOP = 24;
 const PLOT_HEIGHT = 360;
 const BOTTOM = 42;
@@ -43,7 +43,7 @@ function yForRank(rank: number) {
 }
 
 function xForIndex(index: number) {
-  return LEFT + index * DAY_WIDTH;
+  return index * DAY_WIDTH;
 }
 
 function pathForSegment(segment: Array<{ index: number; rank: number }>) {
@@ -67,7 +67,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const selected = useMemo(() => candidates.filter((pokemon) => selectedIds.includes(pokemon.showdownId)), [candidates, selectedIds]);
   const candidateIndex = useMemo(() => new Map(candidates.map((pokemon, index) => [pokemon.showdownId, index])), [candidates]);
   const risers = useMemo(() => topRankRisers(dataset, format), [dataset, format]);
-  const chartWidth = LEFT + Math.max(dataset.dates.length - 1, 1) * DAY_WIDTH + RIGHT;
+  const chartWidth = Math.max(dataset.dates.length - 1, 1) * DAY_WIDTH + RIGHT;
   const chartHeight = TOP + PLOT_HEIGHT + BOTTOM;
 
   function changeFormat(next: BattleFormat) {
@@ -137,39 +137,51 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
         </div>
 
         <div className="flex border-t border-slate-100">
-          <aside className="w-28 shrink-0 border-r border-slate-200 bg-slate-50/95" aria-label="最初の記録日の順位">
-            <div className="border-b border-slate-200 px-2 py-2">
-              <p className="text-[10px] font-bold text-slate-500">始点</p>
-              <p className="text-xs font-black text-slate-800">{shortDate(dataset.dates[0])}</p>
-            </div>
-            <div className="max-h-[378px] overflow-y-auto px-1.5 py-1">
-              {selected.map((pokemon) => {
-                const rank = pokemon.ranks[format][0];
-                const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
-                return (
-                  <button
-                    key={pokemon.showdownId}
-                    type="button"
-                    onClick={() => setFocusedId(pokemon.showdownId)}
-                    className={`grid min-h-8 w-full grid-cols-[0.5rem_minmax(0,1fr)_auto] items-center gap-1 rounded-md px-1 text-left focus-visible:outline-2 focus-visible:outline-blue-600 ${focusedId === pokemon.showdownId ? "bg-white shadow-sm" : ""}`}
-                    aria-label={`${pokemon.displayNameJa}の開始順位、${rank === null ? "データなし" : `第${rank}位`}`}
-                  >
-                    <span className="size-2 rounded-full" style={{ backgroundColor: color }} />
-                    <span className="truncate text-[10px] font-bold text-slate-700">{pokemon.displayNameJa}</span>
-                    <span className="text-[10px] font-black text-slate-600">{rank === null ? "—" : `${rank}位`}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </aside>
+          <svg width={START_WIDTH} height={chartHeight} className="relative z-10 shrink-0 bg-white" aria-label={`${longDate(dataset.dates[0])}の始点`}>
+            {selected.map((pokemon) => {
+              const rank = pokemon.ranks[format][0];
+              if (rank === null) return null;
+              const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
+              const focused = focusedId === pokemon.showdownId;
+              return (
+                <g key={pokemon.showdownId} opacity={focused || !focusedId ? 1 : 0.48}>
+                  {pokemon.ranks[format][1] !== null && (
+                    <line x1={START_WIDTH / 2} x2={START_WIDTH} y1={yForRank(rank)} y2={yForRank(rank)} stroke={color} strokeWidth={focused ? 4 : 2.25} />
+                  )}
+                  <circle
+                    cx={START_WIDTH / 2}
+                    cy={yForRank(rank)}
+                    r={focused ? 5 : 3.5}
+                    fill={color}
+                    stroke="white"
+                    strokeWidth="1.5"
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`${pokemon.displayNameJa}、${longDate(dataset.dates[0])}、第${rank}位`}
+                    onClick={() => {
+                      setFocusedId(pokemon.showdownId);
+                      setActivePoint({ pokemon, date: dataset.dates[0], rank });
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setFocusedId(pokemon.showdownId);
+                        setActivePoint({ pokemon, date: dataset.dates[0], rank });
+                      }
+                    }}
+                  />
+                </g>
+              );
+            })}
+          </svg>
           <div className="min-w-0 flex-1 overflow-x-auto overscroll-x-contain" aria-label="順位推移グラフ。横方向にスクロールできます">
             <svg width={chartWidth} height={chartHeight} role="img" aria-labelledby="history-chart-title">
             {[1, 5, 10, 15, 20, 25, 30, 31].map((rank) => {
               const y = yForRank(rank);
               return (
                 <g key={rank}>
-                  <line x1={LEFT} x2={chartWidth - RIGHT} y1={y} y2={y} stroke={rank === 31 ? "#94a3b8" : "#e2e8f0"} strokeDasharray={rank === 31 ? "4 4" : undefined} />
-                  <text x={LEFT - 8} y={y + 4} textAnchor="end" fontSize="10" fill="#64748b">{rank === 31 ? "圏外" : rank}</text>
+                  <line x1={0} x2={chartWidth - RIGHT} y1={y} y2={y} stroke={rank === 31 ? "#94a3b8" : "#e2e8f0"} strokeDasharray={rank === 31 ? "4 4" : undefined} />
+                  <text x={4} y={y + 4} textAnchor="start" fontSize="10" fill="#64748b">{rank === 31 ? "圏外" : rank}</text>
                 </g>
               );
             })}
@@ -197,7 +209,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                       strokeDasharray={segment.some(({ rank }) => rank > 30) ? "5 3" : undefined}
                     />
                   ))}
-                  {pokemon.ranks[format].map((rank, index) => rank === null ? null : (
+                  {pokemon.ranks[format].map((rank, index) => rank === null || index === 0 ? null : (
                     <circle
                       key={dataset.dates[index]}
                       cx={xForIndex(index)}
