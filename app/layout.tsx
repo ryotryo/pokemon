@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,6 +30,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
   return (
     <html lang="ja">
       <body
@@ -36,6 +39,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
     </html>
   );
 }
