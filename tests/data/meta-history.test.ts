@@ -3,7 +3,9 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   initialMetaHistorySelection,
+  latestTopPokemon,
   rankSegments,
+  topRankRisers,
   topThirtyCandidates,
   type MetaHistoryDataset,
 } from "../../lib/champions/meta-history";
@@ -49,5 +51,21 @@ describe("M4 meta history", () => {
       [{ index: 0, rank: 1 }, { index: 1, rank: 2 }],
       [{ index: 3, rank: 32 }, { index: 4, rank: 28 }],
     ]);
+  });
+
+  it("builds latest-day groups and start-to-latest risers per format", () => {
+    for (const format of ["Singles", "Doubles"] as const) {
+      for (const limit of [10, 20, 30] as const) {
+        const latest = latestTopPokemon(data, format, limit);
+        expect(latest).toHaveLength(limit);
+        expect(latest.map((pokemon) => pokemon.ranks[format].at(-1))).toEqual(Array.from({ length: limit }, (_, index) => index + 1));
+      }
+      const risers = topRankRisers(data, format);
+      expect(risers).toHaveLength(3);
+      expect(risers.every((entry) => entry.startRank - entry.latestRank === entry.rise && entry.rise > 0)).toBe(true);
+      expect(risers).toEqual([...risers].sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank));
+    }
+    expect(topRankRisers(data, "Singles")[0].pokemon.displayNameJa).toBe("ブースター");
+    expect(topRankRisers(data, "Doubles")[0].pokemon.displayNameJa).toBe("チルタリス");
   });
 });

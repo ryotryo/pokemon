@@ -30,8 +30,38 @@ export function topThirtyCandidates(dataset: MetaHistoryDataset, format: BattleF
     });
 }
 
-export function initialMetaHistorySelection(dataset: MetaHistoryDataset, format: BattleFormat, limit = 10) {
-  return topThirtyCandidates(dataset, format).slice(0, limit).map((pokemon) => pokemon.showdownId);
+export function initialMetaHistorySelection(dataset: MetaHistoryDataset, format: BattleFormat, limit: 10 | 20 | 30 = 10) {
+  return latestTopPokemon(dataset, format, limit).map((pokemon) => pokemon.showdownId);
+}
+
+export function latestTopPokemon(dataset: MetaHistoryDataset, format: BattleFormat, limit: 10 | 20 | 30) {
+  const latestIndex = dataset.dates.length - 1;
+  return dataset.pokemon
+    .filter((pokemon) => {
+      const rank = pokemon.ranks[format][latestIndex];
+      return rank !== null && rank <= limit;
+    })
+    .sort((a, b) => a.ranks[format][latestIndex]! - b.ranks[format][latestIndex]!);
+}
+
+export interface MetaHistoryRiser {
+  pokemon: MetaHistoryPokemon;
+  startRank: number;
+  latestRank: number;
+  rise: number;
+}
+
+export function topRankRisers(dataset: MetaHistoryDataset, format: BattleFormat, limit = 3): MetaHistoryRiser[] {
+  const latestIndex = dataset.dates.length - 1;
+  return dataset.pokemon
+    .flatMap((pokemon) => {
+      const startRank = pokemon.ranks[format][0];
+      const latestRank = pokemon.ranks[format][latestIndex];
+      if (startRank === null || latestRank === null || startRank <= latestRank) return [];
+      return [{ pokemon, startRank, latestRank, rise: startRank - latestRank }];
+    })
+    .sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank || a.pokemon.displayNameJa.localeCompare(b.pokemon.displayNameJa, "ja"))
+    .slice(0, limit);
 }
 
 export function rankSegments(ranks: Array<number | null>) {

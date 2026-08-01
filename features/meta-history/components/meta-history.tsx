@@ -4,7 +4,9 @@ import { useMemo, useState } from "react";
 import type { BattleFormat } from "@/lib/champions/types";
 import {
   initialMetaHistorySelection,
+  latestTopPokemon,
   rankSegments,
+  topRankRisers,
   topThirtyCandidates,
   type MetaHistoryDataset,
   type MetaHistoryPokemon,
@@ -20,6 +22,10 @@ const PLOT_HEIGHT = 360;
 const BOTTOM = 42;
 const DAY_WIDTH = 66;
 const OUT_OF_RANGE = 31;
+
+function colorForIndex(index: number) {
+  return COLORS[index] ?? `hsl(${Math.round((index * 137.5) % 360)} 68% 43%)`;
+}
 
 function shortDate(value: string) {
   const [, month, day] = value.split("-").map(Number);
@@ -53,11 +59,12 @@ interface ActivePoint {
 export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const [format, setFormat] = useState<BattleFormat>("Singles");
   const [selectedIds, setSelectedIds] = useState(() => initialMetaHistorySelection(dataset, "Singles"));
-  const [focusedId, setFocusedId] = useState(() => initialMetaHistorySelection(dataset, "Singles", 1)[0] ?? "");
+  const [focusedId, setFocusedId] = useState(() => initialMetaHistorySelection(dataset, "Singles")[0] ?? "");
   const [activePoint, setActivePoint] = useState<ActivePoint | null>(null);
   const candidates = useMemo(() => topThirtyCandidates(dataset, format), [dataset, format]);
   const selected = useMemo(() => candidates.filter((pokemon) => selectedIds.includes(pokemon.showdownId)), [candidates, selectedIds]);
   const candidateIndex = useMemo(() => new Map(candidates.map((pokemon, index) => [pokemon.showdownId, index])), [candidates]);
+  const risers = useMemo(() => topRankRisers(dataset, format), [dataset, format]);
   const chartWidth = LEFT + Math.max(dataset.dates.length - 1, 1) * DAY_WIDTH + RIGHT;
   const chartHeight = TOP + PLOT_HEIGHT + BOTTOM;
 
@@ -75,6 +82,16 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
       : current.filter((id) => id !== pokemon.showdownId));
     if (checked) setFocusedId(pokemon.showdownId);
     if (!checked && focusedId === pokemon.showdownId) setFocusedId("");
+  }
+
+  function toggleLatestTop(limit: 10 | 20 | 30) {
+    const ids = latestTopPokemon(dataset, format, limit).map((pokemon) => pokemon.showdownId);
+    const allSelected = ids.every((id) => selectedIds.includes(id));
+    setSelectedIds((current) => allSelected
+      ? current.filter((id) => !ids.includes(id))
+      : [...new Set([...current, ...ids])]);
+    if (!allSelected && ids[0]) setFocusedId(ids[0]);
+    if (allSelected && ids.includes(focusedId)) setFocusedId("");
   }
 
   return (
@@ -98,9 +115,9 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
           )}
         </div>
 
-        <div className="flex flex-wrap gap-x-3 gap-y-1.5 px-4 py-2.5" aria-label="表示中のポケモン">
+        <div className="flex max-h-24 flex-wrap gap-x-3 gap-y-1.5 overflow-y-auto px-4 py-2.5" aria-label="表示中のポケモン">
           {selected.map((pokemon) => {
-            const color = COLORS[(candidateIndex.get(pokemon.showdownId) ?? 0) % COLORS.length];
+            const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
             return (
               <button
                 key={pokemon.showdownId}
@@ -115,8 +132,34 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
           })}
         </div>
 
-        <div className="overflow-x-auto overscroll-x-contain border-t border-slate-100" aria-label="順位推移グラフ。横方向にスクロールできます">
-          <svg width={chartWidth} height={chartHeight} role="img" aria-labelledby="history-chart-title">
+        <div className="flex border-t border-slate-100">
+          <aside className="w-28 shrink-0 border-r border-slate-200 bg-slate-50/95" aria-label="最初の記録日の順位">
+            <div className="border-b border-slate-200 px-2 py-2">
+              <p className="text-[10px] font-bold text-slate-500">始点</p>
+              <p className="text-xs font-black text-slate-800">{shortDate(dataset.dates[0])}</p>
+            </div>
+            <div className="max-h-[378px] overflow-y-auto px-1.5 py-1">
+              {selected.map((pokemon) => {
+                const rank = pokemon.ranks[format][0];
+                const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
+                return (
+                  <button
+                    key={pokemon.showdownId}
+                    type="button"
+                    onClick={() => setFocusedId(pokemon.showdownId)}
+                    className={`grid min-h-8 w-full grid-cols-[0.5rem_minmax(0,1fr)_auto] items-center gap-1 rounded-md px-1 text-left focus-visible:outline-2 focus-visible:outline-blue-600 ${focusedId === pokemon.showdownId ? "bg-white shadow-sm" : ""}`}
+                    aria-label={`${pokemon.displayNameJa}の開始順位、${rank === null ? "データなし" : `第${rank}位`}`}
+                  >
+                    <span className="size-2 rounded-full" style={{ backgroundColor: color }} />
+                    <span className="truncate text-[10px] font-bold text-slate-700">{pokemon.displayNameJa}</span>
+                    <span className="text-[10px] font-black text-slate-600">{rank === null ? "—" : `${rank}位`}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
+          <div className="min-w-0 flex-1 overflow-x-auto overscroll-x-contain" aria-label="順位推移グラフ。横方向にスクロールできます">
+            <svg width={chartWidth} height={chartHeight} role="img" aria-labelledby="history-chart-title">
             {[1, 5, 10, 15, 20, 25, 30, 31].map((rank) => {
               const y = yForRank(rank);
               return (
@@ -133,7 +176,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
               </g>
             ))}
             {selected.map((pokemon) => {
-              const color = COLORS[(candidateIndex.get(pokemon.showdownId) ?? 0) % COLORS.length];
+              const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
               const focused = focusedId === pokemon.showdownId;
               const segments = rankSegments(pokemon.ranks[format]);
               return (
@@ -180,9 +223,33 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                 </g>
               );
             })}
-          </svg>
+            </svg>
+          </div>
         </div>
         <p className="border-t border-slate-100 px-4 py-2 text-[11px] text-slate-500">左右にスクロールして日付を確認できます。</p>
+      </section>
+
+      <section aria-labelledby="rank-risers-title" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h2 id="rank-risers-title" className="font-black">ランク上昇 TOP3</h2>
+            <p className="mt-1 text-[11px] text-slate-500">{shortDate(dataset.dates[0])}から{shortDate(dataset.dates.at(-1)!)}までの順位差</p>
+          </div>
+          <span className="shrink-0 text-[11px] font-bold text-slate-500">{format === "Singles" ? "シングル" : "ダブル"}</span>
+        </div>
+        <ol className="mt-3 divide-y divide-slate-100">
+          {risers.map((entry, index) => (
+            <li key={entry.pokemon.showdownId} className="grid min-h-14 grid-cols-[1.5rem_2.75rem_minmax(0,1fr)_auto] items-center gap-2 py-1.5">
+              <span className="text-center text-xs font-black text-slate-400">{index + 1}</span>
+              <PokemonImage src={entry.pokemon.sprite} name={entry.pokemon.displayNameJa} size={44} />
+              <div className="min-w-0">
+                <p className="truncate text-xs font-bold">{entry.pokemon.displayNameJa}</p>
+                <p className="mt-0.5 text-[11px] text-slate-500">{entry.startRank}位 → {entry.latestRank}位</p>
+              </div>
+              <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-black text-emerald-700">↑{entry.rise}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section aria-labelledby="pokemon-selector-title" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -193,11 +260,28 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
           </div>
           <span className="shrink-0 text-xs font-bold text-blue-700">{selected.length}匹表示中</span>
         </div>
+        <div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label="最新日の順位で一括選択">
+          {([10, 20, 30] as const).map((limit) => {
+            const ids = latestTopPokemon(dataset, format, limit).map((pokemon) => pokemon.showdownId);
+            const pressed = ids.every((id) => selectedIds.includes(id));
+            return (
+              <button
+                key={limit}
+                type="button"
+                aria-pressed={pressed}
+                onClick={() => toggleLatestTop(limit)}
+                className={`min-h-10 rounded-xl border px-2 text-xs font-black transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${pressed ? "border-blue-700 bg-blue-700 text-white" : "border-slate-200 bg-white text-slate-600"}`}
+              >
+                TOP{limit}
+              </button>
+            );
+          })}
+        </div>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {candidates.map((pokemon) => {
             const checked = selectedIds.includes(pokemon.showdownId);
             const latestRank = pokemon.ranks[format].at(-1) ?? null;
-            const color = COLORS[(candidateIndex.get(pokemon.showdownId) ?? 0) % COLORS.length];
+            const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
             return (
               <div key={pokemon.showdownId} className={`flex min-h-14 items-center gap-2 rounded-xl border px-2.5 py-1.5 ${checked ? "border-blue-200 bg-blue-50/60" : "border-slate-200"}`}>
                 <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-2">
