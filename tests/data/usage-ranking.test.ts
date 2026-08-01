@@ -50,6 +50,7 @@ describe("usage ranking data", () => {
     expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス"]);
     expect(garchomp?.baseStats.speed).toBe(102);
     expect(garchomp?.megaForms[0].baseStats.attack).toBe(170);
+    expect(garchomp?.megaForms[0].types).toEqual(["dragon", "ground"]);
     expect(garchomp?.megaForms[0].sprite).toContain("Mega%20Garchomp.png");
     expect(charizard?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガリザードンX", "メガリザードンY"]);
     expect(await getUsagePokemonPageData("mega-garchomp")).toBeNull();
@@ -61,10 +62,11 @@ describe("usage ranking data", () => {
     expect(garchomp.formats.Singles.items).toHaveLength(10);
     expect(garchomp.formats.Singles.spreads.length).toBeGreaterThan(0);
     expect(garchomp.formats.Singles.natures).toHaveLength(10);
-    expect(garchomp.formats.Singles.abilities).toEqual([
-      { rank: 1, nameJa: "さめはだ" },
-      { rank: 2, nameJa: "すながくれ" },
+    expect(garchomp.formats.Singles.abilities.map((ability) => ({ rank: ability.rank, nameJa: ability.nameJa, percentageValue: ability.percentageValue }))).toEqual([
+      { rank: 1, nameJa: "さめはだ", percentageValue: 99 },
+      { rank: 2, nameJa: "すながくれ", percentageValue: 1 },
     ]);
+    expect(garchomp.formats.Singles.abilities[0].descriptionJa).toContain("接触技");
     expect(detail("alakazam").formats.Singles.abilities[0].nameJa).toBe("マジックガード");
     expect(detail("alakazam").formats.Doubles.abilities[0].nameJa).toBe("せいしんりょく");
     expect(garchomp.formats.Singles.teammates).toHaveLength(10);

@@ -176,8 +176,9 @@ function localizeStat(value: string | undefined): string | null {
   return value ? names[value] ?? null : null;
 }
 
-function rowsByCategory(rows: UsageBattleRow[], category: string): UsageBattleRow[] {
-  return rows.filter((row) => row.category === category).sort((a, b) => a.rank - b.rank).slice(0, 10);
+function rowsByCategory(rows: UsageBattleRow[], category: string, limit = 10): UsageBattleRow[] {
+  const matching = rows.filter((row) => row.category === category).sort((a, b) => a.rank - b.rank);
+  return limit > 0 ? matching.slice(0, limit) : matching;
 }
 
 function toFormatDetail(
@@ -188,6 +189,7 @@ function toFormatDetail(
   itemsJa: Map<string, string>,
   naturesJa: Map<string, string>,
   abilitiesJa: Map<string, string>,
+  abilityDescriptionsJa: Map<string, string>,
   teammateLookup: Map<string, UsageRankingPokemon>,
 ): UsageFormatDetail {
   const moves = rowsByCategory(rows, "move").flatMap((row) => {
@@ -214,14 +216,14 @@ function toFormatDetail(
     }
     return [{ ...basePercentage(row), nameJa, statUp: localizeStat(row.stat_up), statDown: localizeStat(row.stat_down) }];
   });
-  const abilities = rowsByCategory(rows, "ability").flatMap((row) => {
+  const abilities = rowsByCategory(rows, "ability", 0).flatMap((row) => {
     const normalized = normalizedName(row.name);
     const nameJa = abilitiesJa.get(ABILITY_NAME_CORRECTIONS[normalized] ?? normalized);
     if (!nameJa) {
       console.warn(`[usage] unknown ability skipped: ${row.name} (${context})`);
       return [];
     }
-    return [{ rank: Number(row.rank), nameJa }];
+    return [{ ...basePercentage(row), nameJa, descriptionJa: abilityDescriptionsJa.get(ABILITY_NAME_CORRECTIONS[normalized] ?? normalized) ?? null }];
   });
   const spreads = rowsByCategory(rows, "stat_points").map((row) => {
     const points = {
@@ -255,7 +257,7 @@ async function main() {
     ]);
     if (!index.generatedAt || !index.defaultSeason || !index.pokemon.length || !commit.sha) throw new Error("Usage ranking source metadata is incomplete");
     const rawRoot = `https://raw.githubusercontent.com/projectpokemon/champout/${commit.sha}`;
-    const [personalDump, waza, moveEn, moveJa, moveInfoJa, itemEn, itemJa, natureEn, natureJa, abilityEn, abilityJa, typeEn, previousMoves] = await Promise.all([
+    const [personalDump, waza, moveEn, moveJa, moveInfoJa, itemEn, itemJa, natureEn, natureJa, abilityEn, abilityJa, abilityInfoJa, typeEn, previousMoves] = await Promise.all([
       getText(`${rawRoot}/parse/personal_dump.txt`),
       getJson<ChampoutMove[]>(`${rawRoot}/masterdata/waza.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/wazaname.json`),
@@ -267,6 +269,7 @@ async function main() {
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/seikaku.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/tokusei.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/tokusei.json`),
+      getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/jpn/tokuseiinfo_syn.json`),
       getJson<ChampoutTextFile>(`${rawRoot}/rom-txt/usa/typename.json`),
       readFile(path.join(OUT, "moves.json"), "utf8")
         .then((value) => JSON.parse(value) as Record<string, UsageMoveDetail>)
@@ -334,6 +337,16 @@ async function main() {
     const itemsJa = localizedByEnglish(itemEn, itemJa);
     const naturesJa = localizedByEnglish(natureEn, natureJa);
     const abilitiesJa = localizedByEnglish(abilityEn, abilityJa);
+    const abilityInfoByNumber = new Map(abilityInfoJa.mSDataSet.flatMap((entry) => {
+      const number = entry.LabelName.match(/(\d+)$/)?.[1];
+      const description = normalizedDescription(entry.OriginalText);
+      return number && description ? [[number, description] as const] : [];
+    }));
+    const abilityDescriptionsJa = new Map(abilityEn.mSDataSet.flatMap((entry) => {
+      const number = entry.LabelName.match(/(\d+)$/)?.[1];
+      const description = number ? abilityInfoByNumber.get(number) : undefined;
+      return description ? [[normalizedName(entry.OriginalText), description] as const] : [];
+    }));
     const canonicalPokemon = index.pokemon.filter((entry) => isCanonicalPokemonRecord(entry.slug));
     const battleRows = new Map<string, UsageBattleRow[]>();
     for (const format of battleFormats) {
@@ -389,7 +402,7 @@ async function main() {
       });
       const formats = Object.fromEntries(battleFormats.map((format) => {
         const rows = battleRows.get(`${format}:${pokemon.battleId}`) ?? [];
-        return [format, toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, abilitiesJa, teammateLookup)];
+        return [format, toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, abilitiesJa, abilityDescriptionsJa, teammateLookup)];
       })) as Record<BattleFormat, UsageFormatDetail>;
       details.push({ ...pokemon, learnableMoveIds: [...new Set(learnableMoveIds)], formats });
     }
@@ -418,6 +431,7 @@ async function main() {
       championsBattleData: `${API}/api`, champoutCommit: commit.sha,
       champoutLearnsets: `${rawRoot}/parse/personal_dump.txt`, champoutMoves: `${rawRoot}/masterdata/waza.json`,
       champoutMoveDescriptions: `${rawRoot}/rom-txt/jpn/wazainfo_syn.json`,
+      champoutAbilityDescriptions: `${rawRoot}/rom-txt/jpn/tokuseiinfo_syn.json`,
       pokeApiMoveDescriptions: "https://pokeapi.co/api/v2/move/{move}",
       sourceUpdatedAt: index.generatedAt, publishedAt: usageIndex.publishedAt,
     }, null, 2) + "\n");

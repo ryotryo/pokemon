@@ -83,9 +83,9 @@ export interface UsageNatureRow extends PercentageRankingRow {
   statDown: string | null;
 }
 
-export interface UsageAbilityRow {
-  rank: number;
+export interface UsageAbilityRow extends PercentageRankingRow {
   nameJa: string;
+  descriptionJa: string | null;
 }
 
 export interface UsageSpreadRow extends PercentageRankingRow {
@@ -134,6 +134,7 @@ export interface UsagePokemonPageData extends Omit<UsagePokemonDetail, "learnabl
     id: string;
     displayNameJa: string;
     sprite: string;
+    types: string[];
     baseStats: PokemonBaseStats;
   }>;
 }

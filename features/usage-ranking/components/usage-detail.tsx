@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { TYPE_NAMES_JA } from "@/lib/champions/display-names";
+import { getWeaknesses } from "@/lib/champions/type-matchup";
 import type { BattleFormat, DamageClass } from "@/lib/champions/types";
 import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
 import {
@@ -13,11 +14,13 @@ import {
   filterAndSortUsageMoves,
   parseFormat,
   type UsageFormatDetail,
+  type UsageAbilityRow,
   type UsageMoveDetail,
   type UsagePokemonPageData,
   type UsageMoveSort,
 } from "@/lib/champions/usage-ranking";
 import { FormatToggle } from "./format-toggle";
+import { AbilityDetailSheet } from "./ability-detail-sheet";
 import { MoveDetailSheet } from "./move-detail-sheet";
 import { PercentageBar } from "./percentage-bar";
 import { PokemonImage } from "./pokemon-image";
@@ -73,6 +76,23 @@ function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
   );
 }
 
+function Weaknesses({ types }: { types: string[] }) {
+  const weaknesses = getWeaknesses(types);
+  return (
+    <div className="mt-3">
+      <p className="text-[10px] font-bold text-slate-400">弱点</p>
+      <div className="mt-1 flex flex-wrap gap-1.5">
+        {weaknesses.map(({ type, multiplier }) => (
+          <span key={type} className="inline-flex items-center gap-1">
+            <TypeBadge type={type} />
+            <b className="text-[11px] text-slate-600">{multiplier}倍</b>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
   if (!pokemon.megaForms.length) return null;
   return (
@@ -85,6 +105,7 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs font-bold">{mega.displayNameJa}</p>
               <BaseStats stats={mega.baseStats} />
+              <Weaknesses types={mega.types} />
             </div>
           </div>
         ))}
@@ -172,14 +193,17 @@ function NatureRankings({ detail }: { detail: UsageFormatDetail }) {
   );
 }
 
-function AbilityRankings({ detail }: { detail: UsageFormatDetail }) {
+function AbilityRankings({ detail, onSelectAbility }: { detail: UsageFormatDetail; onSelectAbility: (ability: UsageAbilityRow) => void }) {
   if (!detail.abilities.length) return <EmptyRanking />;
   return (
     <ol className={RANKING_GRID_CLASS}>
       {detail.abilities.map((row) => (
         <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-1.5 border-b border-slate-100 py-2">
           <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
-          <p className="min-w-0 truncate text-xs font-bold" title={row.nameJa}>{row.nameJa}</p>
+          <div className="flex min-w-0 items-center justify-between gap-2">
+            <button type="button" onClick={() => onSelectAbility(row)} className="min-w-0 truncate text-left text-xs font-bold text-blue-800 underline decoration-blue-200 underline-offset-2" title={`${row.nameJa}の詳細を表示`}>{row.nameJa}</button>
+            <UsageValue value={row.percentageValue} fallback={row.percentage} />
+          </div>
         </li>
       ))}
     </ol>
@@ -198,7 +222,6 @@ function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; forma
             <span className="min-w-0">
               <span className="block truncate text-xs font-bold" title={row.displayNameJa}>{row.displayNameJa}</span>
             </span>
-            <UsageValue value={row.percentageValue} fallback={row.percentage} />
           </Link>
         </li>
       ))}
@@ -269,6 +292,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const topMoveIds = useMemo(() => new Set(detail.moves.map((move) => move.moveId)), [detail.moves]);
   const [activeSection, setActiveSection] = useState("moves");
   const [selectedMove, setSelectedMove] = useState<UsageMoveDetail | null>(null);
+  const [selectedAbility, setSelectedAbility] = useState<UsageAbilityRow | null>(null);
   const detailOpenSent = useRef(false);
   const openMoveDetail = (move: UsageMoveDetail) => {
     pushDataLayer({ event: "move_detail_open", move_name: move.nameJa, pokemon_name: pokemon.displayNameJa, tool_name: "usage-ranking", battle_format: format });
@@ -311,6 +335,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
           <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
           <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
           <BaseStats stats={pokemon.baseStats} />
+          <Weaknesses types={pokemon.types} />
         </div>
       </div>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
@@ -338,11 +363,12 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
         <RankingSection id="spreads" title="努力値" note="HP-こうげき-ぼうぎょ-とくこう-とくぼう-すばやさ"><SpreadRankings detail={detail} /></RankingSection>
         <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
-        <RankingSection id="abilities" title="特性" note="TOP10"><AbilityRankings detail={detail} /></RankingSection>
+        <RankingSection id="abilities" title="特性"><AbilityRankings detail={detail} onSelectAbility={setSelectedAbility} /></RankingSection>
         <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
         <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} onSelectMove={openMoveDetail} /></RankingSection>
       </div>
       <MoveDetailSheet move={selectedMove} onClose={() => setSelectedMove(null)} />
+      <AbilityDetailSheet ability={selectedAbility} onClose={() => setSelectedAbility(null)} />
     </div>
   );
 }

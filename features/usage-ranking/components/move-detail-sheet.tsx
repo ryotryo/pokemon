@@ -1,8 +1,8 @@
 "use client";
 
-import { Sheet, SheetOverlay } from "@/components/ui/sheet";
 import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
 import type { UsageMoveDetail } from "@/lib/champions/usage-ranking";
+import { DetailDialog } from "./detail-dialog";
 
 export function MoveDetailSheet({
   move,
@@ -12,12 +12,8 @@ export function MoveDetailSheet({
   onClose: () => void;
 }) {
   return (
-    <Sheet open={move !== null} onOpenChange={(open) => { if (!open) onClose(); }}>
-      <SheetOverlay onClick={onClose} />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-4">
-        <div className="pointer-events-auto relative max-h-[calc(100dvh-2rem)] w-full max-w-sm overflow-y-auto overscroll-contain rounded-2xl bg-white p-5 shadow-2xl">
-          <button type="button" aria-label="閉じる" onClick={onClose} className="absolute right-3 top-3 flex size-9 items-center justify-center rounded-full bg-slate-100 text-xl leading-none text-slate-600 active:bg-slate-200">×</button>
-          {move && (
+    <DetailDialog open={move !== null} onClose={onClose}>
+      {move && (
             <div>
               <h2 className="pr-10 text-xl font-black">{move.nameJa}</h2>
               <div className="mt-2 flex items-center gap-1">
@@ -40,9 +36,7 @@ export function MoveDetailSheet({
               </dl>
               {move.descriptionJa && <p className="mt-4 whitespace-pre-line text-sm leading-6 text-slate-700">{move.descriptionJa}</p>}
             </div>
-          )}
-        </div>
-      </div>
-    </Sheet>
+      )}
+    </DetailDialog>
   );
 }

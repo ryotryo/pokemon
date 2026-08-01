@@ -27,7 +27,7 @@ export async function getUsagePokemonPageData(id: string): Promise<UsagePokemonP
       .filter((pokemon) => pokemon.formRelation === "mega" && pokemon.battleId === detail.battleId)
       .flatMap((pokemon) => {
         const stats = speedById.get(pokemon.id)?.baseStats;
-        return stats ? [{ id: pokemon.id, displayNameJa: pokemon.displayNameJa, sprite: pokemon.sprite, baseStats: stats }] : [];
+        return stats ? [{ id: pokemon.id, displayNameJa: pokemon.displayNameJa, sprite: pokemon.sprite, types: pokemon.types, baseStats: stats }] : [];
       });
     return {
       ...detail,
