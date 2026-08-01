@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { TYPE_NAMES_JA } from "@/lib/champions/display-names";
 import type { BattleFormat, DamageClass } from "@/lib/champions/types";
 import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
@@ -257,7 +258,10 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const format = parseFormat(searchParams.get("format") ?? undefined);
+  useToolView("usage-ranking", format);
   const changeFormat = (next: BattleFormat) => {
+    if (next === format) return;
+    pushDataLayer({ event: "battle_format_change", tool_name: "usage-ranking", battle_format: next });
     router.replace(`${pathname}?format=${formatQuery(next)}`, { scroll: false });
   };
   const detail = pokemon.formats[format];
@@ -265,6 +269,17 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   const topMoveIds = useMemo(() => new Set(detail.moves.map((move) => move.moveId)), [detail.moves]);
   const [activeSection, setActiveSection] = useState("moves");
   const [selectedMove, setSelectedMove] = useState<UsageMoveDetail | null>(null);
+  const detailOpenSent = useRef(false);
+  const openMoveDetail = (move: UsageMoveDetail) => {
+    pushDataLayer({ event: "move_detail_open", move_name: move.nameJa, pokemon_name: pokemon.displayNameJa, tool_name: "usage-ranking", battle_format: format });
+    setSelectedMove(move);
+  };
+
+  useEffect(() => {
+    if (detailOpenSent.current) return;
+    detailOpenSent.current = true;
+    pushDataLayer({ event: "pokemon_detail_open", pokemon_name: pokemon.displayNameJa, tool_name: "usage-ranking", battle_format: format });
+  }, [format, pokemon.displayNameJa]);
 
   useEffect(() => {
     let frame = 0;
@@ -319,13 +334,13 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         ))}
       </nav>
       <div className="mt-3 space-y-3">
-        <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} onSelectMove={setSelectedMove} /></RankingSection>
+        <RankingSection id="moves" title="使用技" note="TOP10"><MoveRankings detail={detail} moves={moves} onSelectMove={openMoveDetail} /></RankingSection>
         <RankingSection id="items" title="持ち物" note="TOP10"><ItemRankings detail={detail} /></RankingSection>
         <RankingSection id="spreads" title="努力値" note="HP-こうげき-ぼうぎょ-とくこう-とくぼう-すばやさ"><SpreadRankings detail={detail} /></RankingSection>
         <RankingSection id="natures" title="性格" note="TOP10"><NatureRankings detail={detail} /></RankingSection>
         <RankingSection id="abilities" title="特性" note="TOP10"><AbilityRankings detail={detail} /></RankingSection>
         <RankingSection id="teammates" title="一緒に使われているポケモン" note="TOP10"><TeammateRankings detail={detail} format={format} /></RankingSection>
-        <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} onSelectMove={setSelectedMove} /></RankingSection>
+        <RankingSection id="learnset" title="覚える技一覧"><LearnableMoves moves={pokemon.learnableMoves} topMoveIds={topMoveIds} onSelectMove={openMoveDetail} /></RankingSection>
       </div>
       <MoveDetailSheet move={selectedMove} onClose={() => setSelectedMove(null)} />
     </div>

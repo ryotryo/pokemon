@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { pushDataLayer, useToolView } from "@/lib/analytics";
 import type { BattleFormat } from "@/lib/champions/types";
 import {
   initialMetaHistorySelection,
@@ -61,6 +62,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const [selectedIds, setSelectedIds] = useState(() => initialMetaHistorySelection(dataset, "Singles"));
   const [focusedId, setFocusedId] = useState(() => initialMetaHistorySelection(dataset, "Singles")[0] ?? "");
   const [activePoint, setActivePoint] = useState<ActivePoint | null>(null);
+  useToolView("meta-history", format);
   const candidates = useMemo(() => topThirtyCandidates(dataset, format), [dataset, format]);
   const selected = useMemo(() => candidates.filter((pokemon) => selectedIds.includes(pokemon.showdownId)), [candidates, selectedIds]);
   const candidateIndex = useMemo(() => new Map(candidates.map((pokemon, index) => [pokemon.showdownId, index])), [candidates]);
@@ -69,6 +71,8 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const chartHeight = TOP + PLOT_HEIGHT + BOTTOM;
 
   function changeFormat(next: BattleFormat) {
+    if (next === format) return;
+    pushDataLayer({ event: "battle_format_change", tool_name: "meta-history", battle_format: next });
     const initial = initialMetaHistorySelection(dataset, next);
     setFormat(next);
     setSelectedIds(initial);

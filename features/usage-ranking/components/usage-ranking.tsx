@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
+import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { formatQuery, parseFormat, sortRankingPokemon, type UsageRankingPokemon } from "@/lib/champions/usage-ranking";
 import { FormatToggle } from "./format-toggle";
 import { PokemonImage } from "./pokemon-image";
@@ -17,8 +18,11 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
   const format = parseFormat(searchParams.get("format") ?? undefined);
   const [query, setQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(INITIAL_ROWS);
+  useToolView("usage-ranking", format);
 
   const changeFormat = (next: ReturnType<typeof parseFormat>) => {
+    if (next === format) return;
+    pushDataLayer({ event: "battle_format_change", tool_name: "usage-ranking", battle_format: next });
     setVisibleCount(INITIAL_ROWS);
     router.replace(`${pathname}?format=${formatQuery(next)}`, { scroll: false });
   };

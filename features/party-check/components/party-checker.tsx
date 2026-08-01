@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- Sprite URLs are supplied by Champions Battle Data. */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { evaluateMatchup, getCoverageDots, getWeaknesses, type PartyMemberCoverage } from "@/lib/champions/type-matchup";
 import { getPokemonDisplayNameJa } from "@/lib/champions/display-names";
 import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
@@ -31,6 +32,8 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
   const [resultQuery, setResultQuery] = useState("");
   const [storageReady, setStorageReady] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
+  const previousPartyCount = useRef(0);
+  useToolView("party-check", format);
   const ranked = format === "Singles" ? singles : doubles;
   const available = format === "Singles" ? singlesAvailable : doublesAvailable;
   const candidates = useMemo(() => {
@@ -55,7 +58,21 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
     return getPokemonDisplayNameJa(candidate.id, candidate.name).toLowerCase().includes(normalizedQuery) || candidate.name.toLowerCase().includes(normalizedQuery) || candidate.id.includes(normalizedQuery);
   });
   const choose = (id: string) => { if (pickerSlot === null) return; setPartyIds((current) => current.map((value, index) => index === pickerSlot ? id : value)); setPickerSlot(null); setQuery(""); };
-  const switchFormat = (next: "Singles" | "Doubles") => { setFormat(next); setDetail(null); setPartyDetail(null); };
+  const switchFormat = (next: "Singles" | "Doubles") => {
+    if (next === format) return;
+    pushDataLayer({ event: "battle_format_change", tool_name: "party-check", battle_format: next });
+    setFormat(next);
+    setDetail(null);
+    setPartyDetail(null);
+  };
+  const openPartyDetail = (pokemon: Candidate) => {
+    pushDataLayer({ event: "pokemon_detail_open", pokemon_name: getPokemonDisplayNameJa(pokemon.id, pokemon.name), tool_name: "party-check", battle_format: format });
+    setPartyDetail(pokemon);
+  };
+  const openTargetDetail = (pokemon: Target) => {
+    pushDataLayer({ event: "pokemon_detail_open", pokemon_name: getPokemonDisplayNameJa(pokemon.id, pokemon.name), tool_name: "party-check", battle_format: format });
+    setDetail(pokemon);
+  };
 
   useEffect(() => {
     let restoredParty = Array(6).fill("") as string[];
@@ -66,6 +83,7 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
       localStorage.removeItem(PARTY_STORAGE_KEY);
     }
     queueMicrotask(() => {
+      previousPartyCount.current = restoredParty.filter(Boolean).length;
       setPartyIds(restoredParty);
       setStorageReady(true);
     });
@@ -73,9 +91,14 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
 
   useEffect(() => {
     if (!storageReady) return;
+    const partyCount = partyIds.filter(Boolean).length;
+    if (previousPartyCount.current < 6 && partyCount === 6) {
+      pushDataLayer({ event: "party_complete", battle_format: format });
+    }
+    previousPartyCount.current = partyCount;
     if (partyIds.some(Boolean)) localStorage.setItem(PARTY_STORAGE_KEY, JSON.stringify(partyIds));
     else localStorage.removeItem(PARTY_STORAGE_KEY);
-  }, [partyIds, storageReady]);
+  }, [format, partyIds, storageReady]);
 
   const clearParty = () => {
     setPartyIds(Array(6).fill(""));
@@ -95,14 +118,14 @@ export function PartyChecker({ singles, doubles, singlesAvailable, doublesAvaila
       <div className="p-4">
         <div className="mb-3 flex items-end justify-between gap-3"><div><p className="text-xs font-bold text-blue-700">YOUR PARTY</p><h2 className="text-lg font-black">パーティーを選択</h2></div><div className="flex items-center gap-2"><span className="text-xs text-slate-400">{party.length} / 6</span><button disabled={!party.length} className="h-9 rounded-lg px-2 text-xs font-bold text-red-600 disabled:opacity-30" onClick={() => setConfirmClear(true)}>全削除</button></div></div>
         <div className="grid grid-cols-6 gap-2">
-          {partyIds.map((id, index) => { const member = candidates.find((candidate) => candidate.id === id); return <div key={index} className="min-w-0"><button aria-label={member ? `${getPokemonDisplayNameJa(member.id, member.name)}を変更` : `${index + 1}匹目を選択`} className="aspect-square w-full min-w-0 rounded-full border border-slate-200 bg-slate-50 p-1 active:scale-95" onClick={() => setPickerSlot(index)}>{member ? <img src={member.sprite} alt="" className="size-full object-contain" /> : <span className="flex size-full items-center justify-center text-xl font-light text-slate-400">＋</span>}</button>{member && <button aria-label={`${getPokemonDisplayNameJa(member.id, member.name)}の使用技を見る`} className="mt-1 h-7 w-full rounded-lg bg-blue-50 text-[10px] font-bold text-blue-700 active:bg-blue-100" onClick={() => setPartyDetail(member)}>詳細</button>}</div>; })}
+          {partyIds.map((id, index) => { const member = candidates.find((candidate) => candidate.id === id); return <div key={index} className="min-w-0"><button aria-label={member ? `${getPokemonDisplayNameJa(member.id, member.name)}を変更` : `${index + 1}匹目を選択`} className="aspect-square w-full min-w-0 rounded-full border border-slate-200 bg-slate-50 p-1 active:scale-95" onClick={() => setPickerSlot(index)}>{member ? <img src={member.sprite} alt="" className="size-full object-contain" /> : <span className="flex size-full items-center justify-center text-xl font-light text-slate-400">＋</span>}</button>{member && <button aria-label={`${getPokemonDisplayNameJa(member.id, member.name)}の使用技を見る`} className="mt-1 h-7 w-full rounded-lg bg-blue-50 text-[10px] font-bold text-blue-700 active:bg-blue-100" onClick={() => openPartyDetail(member)}>詳細</button>}</div>; })}
         </div>
         {confirmClear && <div className="mt-4 rounded-2xl border border-red-100 bg-red-50 p-3"><p className="text-sm font-bold text-slate-800">パーティーをすべて削除しますか？</p><div className="mt-3 grid grid-cols-2 gap-2"><button className="h-11 rounded-xl bg-white text-sm font-bold text-slate-600" onClick={() => setConfirmClear(false)}>キャンセル</button><button className="h-11 rounded-xl bg-red-600 text-sm font-bold text-white" onClick={clearParty}>すべて削除</button></div></div>}
       </div>
 
       {!hasParty ? <div className="border-t border-slate-100 bg-slate-50 px-4 py-5 text-center text-sm text-slate-500">ポケモンを1匹選ぶと、環境への対応状況が表示されます</div> : <>
         <div className="border-y border-slate-100 bg-slate-50 px-4 py-3"><div className="flex items-center justify-between"><h2 className="text-sm font-black">全ポケモンへの対応</h2><div className="flex rounded-lg bg-slate-200/70 p-0.5 text-[11px] font-bold"><button className={`rounded-md px-2 py-1.5 ${sort === "rank" ? "bg-white shadow-sm" : "text-slate-500"}`} onClick={() => setSort("rank")}>ランキング順</button><button className={`rounded-md px-2 py-1.5 ${sort === "thin" ? "bg-white shadow-sm" : "text-slate-500"}`} onClick={() => setSort("thin")}>対応が薄い順</button></div></div><input value={resultQuery} onChange={(event) => setResultQuery(event.target.value)} placeholder="診断対象を日本語で検索" className="mt-3 h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm outline-none focus:border-blue-500" /><p className="mt-1.5 text-right text-[10px] text-slate-400">{filteredResults.length}件</p></div>
-        <div className="divide-y divide-slate-100">{filteredResults.map((target) => <button key={`${target.rank}-${target.id}`} style={{ contentVisibility: "auto", containIntrinsicSize: "56px" }} className="grid h-14 w-full grid-cols-[1.75rem_2.25rem_minmax(0,1fr)_auto] items-center gap-2 px-3 text-left hover:bg-slate-50" onClick={() => setDetail(target)}><span className="text-center text-[11px] font-bold text-slate-400">{target.isFirstForm && target.rank < Number.MAX_SAFE_INTEGER ? target.rank : ""}</span><img src={target.sprite} alt="" className="size-9 object-contain" /><span className="min-w-0 truncate text-[13px] font-bold">{getPokemonDisplayNameJa(target.id, target.name)}</span><Dots members={target.coverage.members} /></button>)}</div>
+        <div className="divide-y divide-slate-100">{filteredResults.map((target) => <button key={`${target.rank}-${target.id}`} style={{ contentVisibility: "auto", containIntrinsicSize: "56px" }} className="grid h-14 w-full grid-cols-[1.75rem_2.25rem_minmax(0,1fr)_auto] items-center gap-2 px-3 text-left hover:bg-slate-50" onClick={() => openTargetDetail(target)}><span className="text-center text-[11px] font-bold text-slate-400">{target.isFirstForm && target.rank < Number.MAX_SAFE_INTEGER ? target.rank : ""}</span><img src={target.sprite} alt="" className="size-9 object-contain" /><span className="min-w-0 truncate text-[13px] font-bold">{getPokemonDisplayNameJa(target.id, target.name)}</span><Dots members={target.coverage.members} /></button>)}</div>
       </>}
     </section>
     <p className="mt-4 px-1 text-xs leading-5 text-slate-500">この診断はポケモンチャンピオンズでよく使用されている技をもとにした潜在的な対応範囲です。実際の技構成によって対応範囲は異なります。</p>

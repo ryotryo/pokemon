@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
 import { calculateEffectiveBaseSpeed, calculateModifiedSpeed, SPEED_MULTIPLIERS, type SpeedRankingDataset, type SpeedRankingPokemon } from "@/lib/champions/speed-ranking";
 import { SPEED_POINTS, SpeedBand } from "./speed-band";
@@ -30,6 +31,17 @@ export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
   const [sortMode, setSortMode] = useState<SortMode>("speed");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<SpeedRankingPokemon | null>(null);
+  useToolView("speed-ranking", format);
+
+  const changeFormat = (next: BattleFormat) => {
+    if (next === format) return;
+    pushDataLayer({ event: "battle_format_change", tool_name: "speed-ranking", battle_format: next });
+    setFormat(next);
+  };
+  const openDetail = (pokemon: SpeedRankingPokemon) => {
+    pushDataLayer({ event: "pokemon_detail_open", pokemon_name: pokemon.displayNameJa, tool_name: "speed-ranking", battle_format: format });
+    setSelected(pokemon);
+  };
 
   const pokemon = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase("ja");
@@ -57,7 +69,7 @@ export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
         {sortMode === "usage" && (
           <div className="grid grid-cols-2 rounded-xl bg-slate-200 p-1" aria-label="バトル形式">
             {(["Singles", "Doubles"] as const).map((value) => (
-              <button key={value} type="button" onClick={() => setFormat(value)} className={`min-h-10 rounded-lg text-sm font-bold ${format === value ? "bg-white text-blue-700 shadow-sm" : "text-slate-600"}`}>
+              <button key={value} type="button" onClick={() => changeFormat(value)} className={`min-h-10 rounded-lg text-sm font-bold ${format === value ? "bg-white text-blue-700 shadow-sm" : "text-slate-600"}`}>
                 {value === "Singles" ? "シングル" : "ダブル"}
               </button>
             ))}
@@ -78,7 +90,7 @@ export function SpeedRanking({ dataset }: { dataset: SpeedRankingDataset }) {
           <span>ポケモン</span><span className="text-center">種族値</span><span>実数値帯</span>
         </div>
         {pokemon.map((entry) => (
-          <button key={entry.id} type="button" onClick={() => setSelected(entry)} className="grid min-h-[68px] w-full grid-cols-[minmax(0,9rem)_3.5rem_minmax(6rem,1fr)] items-center gap-2 border-b border-slate-100 px-3 text-left last:border-b-0 active:bg-blue-50" style={{ contentVisibility: "auto", containIntrinsicSize: "68px" }}>
+          <button key={entry.id} type="button" onClick={() => openDetail(entry)} className="grid min-h-[68px] w-full grid-cols-[minmax(0,9rem)_3.5rem_minmax(6rem,1fr)] items-center gap-2 border-b border-slate-100 px-3 text-left last:border-b-0 active:bg-blue-50" style={{ contentVisibility: "auto", containIntrinsicSize: "68px" }}>
             <span className="flex min-w-0 items-center gap-2">
               <Image src={entry.sprite} alt="" width={42} height={42} unoptimized className="size-10 shrink-0 object-contain" />
               <span className="min-w-0">
