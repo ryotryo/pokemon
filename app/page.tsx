@@ -58,10 +58,14 @@ export default function Home() {
             {tools.filter((tool) => tool.available).map((tool) => (
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                 <div className="flex flex-1 items-start justify-between gap-4">
-                  <div>
-                    <ToolIcon tool={tool.id} />
-                    <p className="mt-4 text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
-                    <h3 className="mt-2 text-xl font-black">{tool.title}</h3>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2.5">
+                      <ToolIcon tool={tool.id} />
+                      <div className="min-w-0">
+                        <p className="text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
+                        <h3 className="mt-1 text-xl font-black">{tool.title}</h3>
+                      </div>
+                    </div>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{tool.description}</p>
                   </div>
                   <span aria-hidden="true" className="mt-1 text-2xl text-blue-700 transition group-hover:translate-x-1">→</span>
