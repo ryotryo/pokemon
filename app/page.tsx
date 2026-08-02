@@ -1,33 +1,35 @@
 import Link from "next/link";
 import { SiteLogo } from "@/components/site-logo";
+import { ToolIcon } from "@/components/tool-icon";
+import type { ToolId } from "@/lib/tool-icons";
 
 const tools = [
   {
     title: "パーティー相性チェッカー",
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
     href: "/party-check/",
-    icon: "◉",
+    id: "party-check" satisfies ToolId,
     available: true,
   },
   {
     title: "すばやさランキング",
     description: "ポケモンごとの実数値や抜きラインを、一覧で比較できるツールです。",
     href: "https://poke-analytics.com/speed-ranking/",
-    icon: "↗",
+    id: "speed-ranking" satisfies ToolId,
     available: true,
   },
   {
     title: "使用率ランキング",
     description: "ポケモンチャンピオンズの使用率、技、持ち物、努力値、性格、同時採用ポケモンを確認できます。",
     href: "/usage-ranking/",
-    icon: "≡",
+    id: "usage-ranking" satisfies ToolId,
     available: true,
   },
   {
     title: "環境推移",
     description: "ポケモンチャンピオンズM4で記録されている日次順位の変化を、グラフで確認できます。",
     href: "/meta-history/m4/",
-    icon: "⌁",
+    id: "meta-history" satisfies ToolId,
     available: true,
   },
   {
@@ -57,7 +59,7 @@ export default function Home() {
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div>
-                    <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-2xl bg-blue-50 text-xl font-black text-blue-700">{tool.icon}</span>
+                    <ToolIcon tool={tool.id} />
                     <p className="mt-4 text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
                     <h3 className="mt-2 text-xl font-black">{tool.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{tool.description}</p>
