@@ -44,6 +44,17 @@ export function latestTopPokemon(dataset: MetaHistoryDataset, format: BattleForm
     .sort((a, b) => a.ranks[format][latestIndex]! - b.ranks[format][latestIndex]!);
 }
 
+export function latestRankBand(dataset: MetaHistoryDataset, format: BattleFormat, startRank: 1 | 11 | 21) {
+  const latestIndex = dataset.dates.length - 1;
+  const endRank = startRank + 9;
+  return dataset.pokemon
+    .filter((pokemon) => {
+      const rank = pokemon.ranks[format][latestIndex];
+      return rank !== null && rank >= startRank && rank <= endRank;
+    })
+    .sort((a, b) => a.ranks[format][latestIndex]! - b.ranks[format][latestIndex]!);
+}
+
 export interface MetaHistoryRiser {
   pokemon: MetaHistoryPokemon;
   startRank: number;

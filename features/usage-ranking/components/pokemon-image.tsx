@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export function PokemonImage({ src, name, size }: { src: string; name: string; size: 44 | 96 }) {
+export function PokemonImage({ src, name, size }: { src: string; name: string; size: 24 | 44 | 96 }) {
   const [failed, setFailed] = useState(false);
-  const sizeClass = size === 96 ? "size-24" : "size-11";
+  const sizeClass = size === 96 ? "size-24" : size === 44 ? "size-11" : "size-6";
   if (failed) {
     return (
       <span
@@ -19,4 +19,3 @@ export function PokemonImage({ src, name, size }: { src: string; name: string; s
   }
   return <Image src={src} alt={`${name}の画像`} width={size} height={size} unoptimized onError={() => setFailed(true)} className={`${sizeClass} shrink-0 object-contain`} />;
 }
-

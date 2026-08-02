@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   initialMetaHistorySelection,
+  latestRankBand,
   latestTopPokemon,
   rankSegments,
   topRankRisers,
@@ -55,6 +56,11 @@ describe("M4 meta history", () => {
 
   it("builds latest-day groups and start-to-latest risers per format", () => {
     for (const format of ["Singles", "Doubles"] as const) {
+      for (const startRank of [1, 11, 21] as const) {
+        const band = latestRankBand(data, format, startRank);
+        expect(band).toHaveLength(10);
+        expect(band.map((pokemon) => pokemon.ranks[format].at(-1))).toEqual(Array.from({ length: 10 }, (_, index) => startRank + index));
+      }
       for (const limit of [10, 20, 30] as const) {
         const latest = latestTopPokemon(data, format, limit);
         expect(latest).toHaveLength(limit);

@@ -4,11 +4,9 @@ import { useMemo, useState } from "react";
 import { pushDataLayer, useToolView } from "@/lib/analytics";
 import type { BattleFormat } from "@/lib/champions/types";
 import {
-  initialMetaHistorySelection,
-  latestTopPokemon,
+  latestRankBand,
   rankSegments,
   topRankRisers,
-  topThirtyCandidates,
   type MetaHistoryDataset,
   type MetaHistoryPokemon,
 } from "@/lib/champions/meta-history";
@@ -59,13 +57,12 @@ interface ActivePoint {
 
 export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const [format, setFormat] = useState<BattleFormat>("Singles");
-  const [selectedIds, setSelectedIds] = useState(() => initialMetaHistorySelection(dataset, "Singles"));
-  const [focusedId, setFocusedId] = useState(() => initialMetaHistorySelection(dataset, "Singles")[0] ?? "");
+  const [rankBand, setRankBand] = useState<1 | 11 | 21>(1);
+  const [focusedId, setFocusedId] = useState("");
   const [activePoint, setActivePoint] = useState<ActivePoint | null>(null);
   useToolView("meta-history", format);
-  const candidates = useMemo(() => topThirtyCandidates(dataset, format), [dataset, format]);
-  const selected = useMemo(() => candidates.filter((pokemon) => selectedIds.includes(pokemon.showdownId)), [candidates, selectedIds]);
-  const candidateIndex = useMemo(() => new Map(candidates.map((pokemon, index) => [pokemon.showdownId, index])), [candidates]);
+  const selected = useMemo(() => latestRankBand(dataset, format, rankBand), [dataset, format, rankBand]);
+  const candidateIndex = useMemo(() => new Map(selected.map((pokemon, index) => [pokemon.showdownId, index])), [selected]);
   const risers = useMemo(() => topRankRisers(dataset, format), [dataset, format]);
   const chartWidth = Math.max(dataset.dates.length - 1, 1) * DAY_WIDTH + RIGHT;
   const chartHeight = TOP + PLOT_HEIGHT + BOTTOM;
@@ -73,29 +70,15 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   function changeFormat(next: BattleFormat) {
     if (next === format) return;
     pushDataLayer({ event: "battle_format_change", tool_name: "meta-history", battle_format: next });
-    const initial = initialMetaHistorySelection(dataset, next);
     setFormat(next);
-    setSelectedIds(initial);
-    setFocusedId(initial[0] ?? "");
+    setFocusedId("");
     setActivePoint(null);
   }
 
-  function togglePokemon(pokemon: MetaHistoryPokemon, checked: boolean) {
-    setSelectedIds((current) => checked
-      ? [...current, pokemon.showdownId]
-      : current.filter((id) => id !== pokemon.showdownId));
-    if (checked) setFocusedId(pokemon.showdownId);
-    if (!checked && focusedId === pokemon.showdownId) setFocusedId("");
-  }
-
-  function toggleLatestTop(limit: 10 | 20 | 30) {
-    const ids = latestTopPokemon(dataset, format, limit).map((pokemon) => pokemon.showdownId);
-    const allSelected = ids.every((id) => selectedIds.includes(id));
-    setSelectedIds((current) => allSelected
-      ? current.filter((id) => !ids.includes(id))
-      : [...new Set([...current, ...ids])]);
-    if (!allSelected && ids[0]) setFocusedId(ids[0]);
-    if (allSelected && ids.includes(focusedId)) setFocusedId("");
+  function changeRankBand(next: 1 | 11 | 21) {
+    setRankBand(next);
+    setFocusedId("");
+    setActivePoint(null);
   }
 
   return (
@@ -117,6 +100,41 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
               <span className="ml-2">{longDate(activePoint.date)}・第{activePoint.rank}位{activePoint.rank > 30 ? "（圏外）" : ""}</span>
             </div>
           )}
+          <div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label="最新日の順位帯">
+            {([1, 11, 21] as const).map((startRank) => {
+              const selectedBand = rankBand === startRank;
+              return (
+                <button
+                  key={startRank}
+                  type="button"
+                  aria-pressed={selectedBand}
+                  onClick={() => changeRankBand(startRank)}
+                  className={`min-h-10 rounded-xl border px-2 text-xs font-black transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${selectedBand ? "border-blue-700 bg-blue-700 text-white" : "border-blue-200 bg-white text-blue-700"}`}
+                >
+                  {startRank}〜{startRank + 9}位
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-2 grid grid-cols-10 gap-1" aria-label="グラフに表示中のポケモン">
+            {selected.map((pokemon, index) => {
+              const color = colorForIndex(index);
+              const focused = focusedId === pokemon.showdownId;
+              return (
+                <button
+                  key={pokemon.showdownId}
+                  type="button"
+                  aria-label={`${pokemon.displayNameJa}の線を${focused ? "通常表示に戻す" : "強調する"}`}
+                  aria-pressed={focused}
+                  onClick={() => setFocusedId(focused ? "" : pokemon.showdownId)}
+                  className={`flex aspect-square min-w-0 items-center justify-center overflow-hidden rounded-md border-2 bg-white p-0.5 transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-blue-600 ${focused ? "shadow-md ring-1 ring-slate-900/20" : ""}`}
+                  style={{ borderColor: color }}
+                >
+                  <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={24} />
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div className="flex border-t border-slate-100">
@@ -268,66 +286,6 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
         </ol>
       </section>
 
-      <section aria-labelledby="pokemon-selector-title" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <h2 id="pokemon-selector-title" className="font-black">表示ポケモン</h2>
-            <p className="mt-1 text-[11px] text-slate-500">M4の記録期間中に一度でもTOP30に入ったポケモン</p>
-          </div>
-          <span className="shrink-0 text-xs font-bold text-blue-700">{selected.length}匹表示中</span>
-        </div>
-        <div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label="最新日の順位で一括選択">
-          {([10, 20, 30] as const).map((limit) => {
-            const ids = latestTopPokemon(dataset, format, limit).map((pokemon) => pokemon.showdownId);
-            const pressed = ids.every((id) => selectedIds.includes(id));
-            return (
-              <button
-                key={limit}
-                type="button"
-                aria-pressed={pressed}
-                onClick={() => toggleLatestTop(limit)}
-                className={`min-h-10 rounded-xl border px-2 text-xs font-black transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${pressed ? "border-blue-700 bg-blue-700 text-white" : "border-slate-200 bg-white text-slate-600"}`}
-              >
-                TOP{limit}
-              </button>
-            );
-          })}
-        </div>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {candidates.map((pokemon) => {
-            const checked = selectedIds.includes(pokemon.showdownId);
-            const latestRank = pokemon.ranks[format].at(-1) ?? null;
-            const color = colorForIndex(candidateIndex.get(pokemon.showdownId) ?? 0);
-            return (
-              <div key={pokemon.showdownId} className={`flex min-h-14 items-center gap-2 rounded-xl border px-2.5 py-1.5 ${checked ? "border-blue-200 bg-blue-50/60" : "border-slate-200"}`}>
-                <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={(event) => togglePokemon(pokemon, event.target.checked)}
-                    className="size-4 shrink-0 accent-blue-700"
-                  />
-                  <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={44} />
-                  <span className="min-w-0">
-                    <span className="block truncate text-xs font-bold">{pokemon.displayNameJa}</span>
-                    <span className="block text-[10px] text-slate-500">{latestRank === null ? "最新日データなし" : latestRank > 30 ? `最新 第${latestRank}位（圏外）` : `最新 第${latestRank}位`}</span>
-                  </span>
-                </label>
-                {checked && (
-                  <button
-                    type="button"
-                    aria-label={`${pokemon.displayNameJa}の線を強調`}
-                    onClick={() => setFocusedId(pokemon.showdownId)}
-                    className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm focus-visible:outline-2 focus-visible:outline-blue-600"
-                  >
-                    <span className="size-2.5 rounded-full" style={{ backgroundColor: color }} />
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
     </div>
   );
 }
