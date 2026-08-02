@@ -6,6 +6,7 @@ import type { BattleFormat } from "@/lib/champions/types";
 import {
   latestRankBand,
   rankSegments,
+  topRankFallers,
   topRankRisers,
   type MetaHistoryDataset,
   type MetaHistoryPokemon,
@@ -64,6 +65,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
   const selected = useMemo(() => latestRankBand(dataset, format, rankBand), [dataset, format, rankBand]);
   const candidateIndex = useMemo(() => new Map(selected.map((pokemon, index) => [pokemon.showdownId, index])), [selected]);
   const risers = useMemo(() => topRankRisers(dataset, format), [dataset, format]);
+  const fallers = useMemo(() => topRankFallers(dataset, format), [dataset, format]);
   const chartWidth = Math.max(dataset.dates.length - 1, 1) * DAY_WIDTH + RIGHT;
   const chartHeight = TOP + PLOT_HEIGHT + BOTTOM;
 
@@ -89,7 +91,7 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
         <div className="border-b border-slate-100 px-4 py-3">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 id="history-chart-title" className="font-black">順位推移グラフ</h2>
+              <h2 id="history-chart-title" className="font-black">順位推移グラフ（{dataset.season}）</h2>
               <p className="mt-1 text-[11px] leading-4 text-slate-500">1位が上です。31位以下は「圏外」にまとめ、タップ時に実順位を表示します。</p>
             </div>
             <span className="shrink-0 text-[11px] font-bold text-slate-500">{format === "Singles" ? "シングル" : "ダブル"}</span>
@@ -263,16 +265,59 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
         <p className="border-t border-slate-100 px-4 py-2 text-[11px] text-slate-500">左右にスクロールして日付を確認できます。</p>
       </section>
 
-      <section aria-labelledby="rank-risers-title" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <RankChangeSection
+        id="rank-risers-title"
+        title="ランク上昇 TOP5"
+        entries={risers}
+        direction="up"
+        format={format}
+        startDate={dataset.dates[0]}
+        latestDate={dataset.dates.at(-1)!}
+      />
+
+      <RankChangeSection
+        id="rank-fallers-title"
+        title="ランク下降 TOP5"
+        entries={fallers}
+        direction="down"
+        format={format}
+        startDate={dataset.dates[0]}
+        latestDate={dataset.dates.at(-1)!}
+      />
+
+    </div>
+  );
+}
+
+function RankChangeSection({
+  id,
+  title,
+  entries,
+  direction,
+  format,
+  startDate,
+  latestDate,
+}: {
+  id: string;
+  title: string;
+  entries: ReturnType<typeof topRankRisers>;
+  direction: "up" | "down";
+  format: BattleFormat;
+  startDate: string;
+  latestDate: string;
+}) {
+  const rising = direction === "up";
+  return (
+    <section aria-labelledby={id} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h2 id="rank-risers-title" className="font-black">ランク上昇 TOP3</h2>
-            <p className="mt-1 text-[11px] text-slate-500">{shortDate(dataset.dates[0])}から{shortDate(dataset.dates.at(-1)!)}までの順位差</p>
+            <h2 id={id} className="font-black">{title}</h2>
+            <p className="mt-1 text-[11px] text-slate-500">{shortDate(startDate)}から{shortDate(latestDate)}までの順位差</p>
           </div>
           <span className="shrink-0 text-[11px] font-bold text-slate-500">{format === "Singles" ? "シングル" : "ダブル"}</span>
         </div>
         <ol className="mt-3 divide-y divide-slate-100">
-          {risers.map((entry, index) => (
+          {entries.map((entry, index) => (
             <li key={entry.pokemon.showdownId} className="grid min-h-14 grid-cols-[1.5rem_2.75rem_minmax(0,1fr)_auto] items-center gap-2 py-1.5">
               <span className="text-center text-xs font-black text-slate-400">{index + 1}</span>
               <PokemonImage src={entry.pokemon.sprite} name={entry.pokemon.displayNameJa} size={44} />
@@ -280,12 +325,12 @@ export function MetaHistory({ dataset }: { dataset: MetaHistoryDataset }) {
                 <p className="truncate text-xs font-bold">{entry.pokemon.displayNameJa}</p>
                 <p className="mt-0.5 text-[11px] text-slate-500">{entry.startRank}位 → {entry.latestRank}位</p>
               </div>
-              <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-black text-emerald-700">↑{entry.rise}</span>
+              <span className={`rounded-full px-2 py-1 text-xs font-black ${rising ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"}`}>
+                {rising ? "↑" : "↓"}{entry.change}
+              </span>
             </li>
           ))}
         </ol>
-      </section>
-
-    </div>
+    </section>
   );
 }

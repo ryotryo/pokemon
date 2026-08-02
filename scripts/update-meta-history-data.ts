@@ -5,8 +5,6 @@ import type { MetaHistoryDataset, MetaHistoryPokemon } from "../lib/champions/me
 import type { UsageRankingIndex } from "../lib/champions/usage-ranking";
 
 const API = "https://championsbattledata.com";
-const SEASON = "M4";
-const OUT = path.join(process.cwd(), "data", "meta-history", "m4.json");
 const FORMATS: BattleFormat[] = ["Singles", "Doubles"];
 const CONCURRENCY = 24;
 
@@ -31,8 +29,8 @@ interface ChampionsIndex {
   pokemon: IndexPokemon[];
 }
 
-function isoDate(folder: string) {
-  const match = folder.match(/^M4\/(\d{2})_(\d{2})_(\d{4})$/);
+function folderDate(folder: string, season: string) {
+  const match = folder.match(new RegExp(`^${season}/(\\d{2})_(\\d{2})_(\\d{4})$`, "i"));
   return match ? `${match[3]}-${match[2]}-${match[1]}` : null;
 }
 
@@ -100,19 +98,12 @@ function savedNameFromPath(sourcePath: string) {
   return decodeURIComponent(sourcePath.split("/").at(-1)!.replace(/\.csv$/i, ""));
 }
 
-async function main() {
-  const [index, usageIndex, previous] = await Promise.all([
-    getJson<ChampionsIndex>(`${API}/api/index`),
-    readFile(path.join(process.cwd(), "data", "usage-ranking", "index.json"), "utf8").then((value) => JSON.parse(value) as UsageRankingIndex),
-    readFile(OUT, "utf8").then((value) => JSON.parse(value) as MetaHistoryDataset).catch(() => null),
-  ]);
-  if (!index.generatedAt || !Array.isArray(index.dailyDataFolders) || !index.pokemon.length) {
-    throw new Error("Champions index is incomplete");
-  }
-
-  const dates = index.dailyDataFolders.map(isoDate).filter((date): date is string => date !== null).sort();
-  if (!dates.length) throw new Error("M4 dailyDataFolders are empty");
-  const previousIsValid = previous?.season === SEASON
+async function updateSeason(index: ChampionsIndex, usageIndex: UsageRankingIndex, season: string) {
+  const outputPath = path.join(process.cwd(), "data", "meta-history", `${season.toLowerCase()}.json`);
+  const previous = await readFile(outputPath, "utf8").then((value) => JSON.parse(value) as MetaHistoryDataset).catch(() => null);
+  const dates = index.dailyDataFolders.map((folder) => folderDate(folder, season)).filter((date): date is string => date !== null).sort();
+  if (!dates.length) throw new Error(`${season} dailyDataFolders are empty`);
+  const previousIsValid = previous?.season === season
     && new Set(previous.pokemon.map((pokemon) => pokemon.showdownId)).size === previous.pokemon.length;
   const previousDates = new Set(previousIsValid ? previous.dates : []);
   const newDates = dates.filter((date) => !previousDates.has(date));
@@ -135,7 +126,7 @@ async function main() {
     });
   });
   const entries = [...pokemonByShowdownId.values()].flatMap((pokemon) => {
-    const daily = pokemon.battleDataCsvs.filter((csv) => csv.season === SEASON && csv.daily);
+    const daily = pokemon.battleDataCsvs.filter((csv) => csv.season === season && csv.daily);
     if (!daily.length) return [];
     const localized = japaneseByBattleId.get(pokemon.showdownId);
     if (!localized) throw new Error(`Missing Japanese display data: ${pokemon.showdownId}`);
@@ -146,7 +137,7 @@ async function main() {
       sprite: localized.sprite,
     }];
   });
-  if (entries.length < 200) throw new Error(`M4 Pokemon count is too small: ${entries.length}`);
+  if (entries.length < 200) throw new Error(`${season} Pokemon count is too small: ${entries.length}`);
 
   const previousById = new Map(previousIsValid ? previous.pokemon.map((pokemon) => [pokemon.showdownId, pokemon]) : []);
   const pokemon: MetaHistoryPokemon[] = entries.map((entry) => ({
@@ -172,7 +163,7 @@ async function main() {
       const dateForCsv = csvDate(date);
       const targets = entries.flatMap((entry) => {
         const csv = entry.pokemon.battleDataCsvs.find((candidate) =>
-          candidate.season === SEASON && candidate.daily && candidate.date === dateForCsv && candidate.format === format);
+          candidate.season === season && candidate.daily && candidate.date === dateForCsv && candidate.format === format);
         return csv ? [{ showdownId: entry.pokemon.showdownId, path: csv.path }] : [];
       });
       const ranks = await mapLimit(targets, async (target) => ({ ...target, rank: await getRank(target.path) }));
@@ -184,9 +175,9 @@ async function main() {
       const unique = new Set(values);
       const topThirty = Array.from({ length: 30 }, (_, index) => index + 1);
       if (ranks.length < 200 || unique.size !== ranks.length || topThirty.some((rank) => !unique.has(rank))) {
-        throw new Error(`${SEASON} ${date} ${format}: ranking validation failed`);
+        throw new Error(`${season} ${date} ${format}: ranking validation failed`);
       }
-      console.log(`[meta-history] ${date} ${format}: ${ranks.length} ranks`);
+      console.log(`[meta-history] ${season} ${date} ${format}: ${ranks.length} ranks`);
     }
   }
 
@@ -195,24 +186,38 @@ async function main() {
       const ranks = pokemon.map((entry) => entry.ranks[format][dateIndex]).filter((rank): rank is number => rank !== null);
       const unique = new Set(ranks);
       if (ranks.length < 200 || unique.size !== ranks.length || Array.from({ length: 30 }, (_, index) => index + 1).some((rank) => !unique.has(rank))) {
-        throw new Error(`${SEASON} ${date} ${format}: final validation failed`);
+        throw new Error(`${season} ${date} ${format}: final validation failed`);
       }
     });
   }
 
   const output: MetaHistoryDataset = {
-    season: SEASON,
+    season,
     source: `${API}/api/index`,
     sourceGeneratedAt: newDates.length ? index.generatedAt : previous?.sourceGeneratedAt ?? index.generatedAt,
     updatedAt: newDates.length ? new Date().toISOString() : previous?.updatedAt ?? new Date().toISOString(),
     dates,
     pokemon: pokemon.sort((a, b) => a.showdownId.localeCompare(b.showdownId)),
   };
-  await mkdir(path.dirname(OUT), { recursive: true });
-  const temporary = `${OUT}.tmp`;
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  const temporary = `${outputPath}.tmp`;
   await writeFile(temporary, `${JSON.stringify(output, null, 2)}\n`);
-  await rename(temporary, OUT);
-  console.log(`[meta-history] validation: ok; dates=${dates.length}; pokemon=${pokemon.length}`);
+  await rename(temporary, outputPath);
+  console.log(`[meta-history] ${season} validation: ok; dates=${dates.length}; pokemon=${pokemon.length}`);
+}
+
+async function main() {
+  const [index, usageIndex] = await Promise.all([
+    getJson<ChampionsIndex>(`${API}/api/index`),
+    readFile(path.join(process.cwd(), "data", "usage-ranking", "index.json"), "utf8").then((value) => JSON.parse(value) as UsageRankingIndex),
+  ]);
+  if (!index.generatedAt || !Array.isArray(index.dailyDataFolders) || !index.pokemon.length) {
+    throw new Error("Champions index is incomplete");
+  }
+
+  const seasons = [...new Set(index.dailyDataFolders.map((folder) => folder.split("/")[0]).filter((season) => /^M\d+$/i.test(season)))];
+  if (!seasons.length) throw new Error("No season has dailyDataFolders");
+  for (const season of seasons) await updateSeason(index, usageIndex, season.toUpperCase());
 }
 
 main().catch((error) => {

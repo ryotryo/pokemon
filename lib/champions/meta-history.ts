@@ -55,23 +55,36 @@ export function latestRankBand(dataset: MetaHistoryDataset, format: BattleFormat
     .sort((a, b) => a.ranks[format][latestIndex]! - b.ranks[format][latestIndex]!);
 }
 
-export interface MetaHistoryRiser {
+export interface MetaHistoryRankChange {
   pokemon: MetaHistoryPokemon;
   startRank: number;
   latestRank: number;
-  rise: number;
+  change: number;
 }
 
-export function topRankRisers(dataset: MetaHistoryDataset, format: BattleFormat, limit = 3): MetaHistoryRiser[] {
+export function topRankRisers(dataset: MetaHistoryDataset, format: BattleFormat, limit = 5): MetaHistoryRankChange[] {
   const latestIndex = dataset.dates.length - 1;
   return dataset.pokemon
     .flatMap((pokemon) => {
       const startRank = pokemon.ranks[format][0];
       const latestRank = pokemon.ranks[format][latestIndex];
       if (startRank === null || latestRank === null || latestRank > 30 || startRank <= latestRank) return [];
-      return [{ pokemon, startRank, latestRank, rise: startRank - latestRank }];
+      return [{ pokemon, startRank, latestRank, change: startRank - latestRank }];
     })
-    .sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank || a.pokemon.displayNameJa.localeCompare(b.pokemon.displayNameJa, "ja"))
+    .sort((a, b) => b.change - a.change || a.latestRank - b.latestRank || a.pokemon.displayNameJa.localeCompare(b.pokemon.displayNameJa, "ja"))
+    .slice(0, limit);
+}
+
+export function topRankFallers(dataset: MetaHistoryDataset, format: BattleFormat, limit = 5): MetaHistoryRankChange[] {
+  const latestIndex = dataset.dates.length - 1;
+  return dataset.pokemon
+    .flatMap((pokemon) => {
+      const startRank = pokemon.ranks[format][0];
+      const latestRank = pokemon.ranks[format][latestIndex];
+      if (startRank === null || latestRank === null || latestRank > 30 || latestRank <= startRank) return [];
+      return [{ pokemon, startRank, latestRank, change: latestRank - startRank }];
+    })
+    .sort((a, b) => b.change - a.change || a.latestRank - b.latestRank || a.pokemon.displayNameJa.localeCompare(b.pokemon.displayNameJa, "ja"))
     .slice(0, limit);
 }
 

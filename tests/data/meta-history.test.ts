@@ -6,6 +6,7 @@ import {
   latestRankBand,
   latestTopPokemon,
   rankSegments,
+  topRankFallers,
   topRankRisers,
   topThirtyCandidates,
   type MetaHistoryDataset,
@@ -67,10 +68,16 @@ describe("M4 meta history", () => {
         expect(latest.map((pokemon) => pokemon.ranks[format].at(-1))).toEqual(Array.from({ length: limit }, (_, index) => index + 1));
       }
       const risers = topRankRisers(data, format);
-      expect(risers).toHaveLength(3);
-      expect(risers.every((entry) => entry.startRank - entry.latestRank === entry.rise && entry.rise > 0)).toBe(true);
+      expect(risers).toHaveLength(5);
+      expect(risers.every((entry) => entry.startRank - entry.latestRank === entry.change && entry.change > 0)).toBe(true);
       expect(risers.every((entry) => entry.latestRank <= 30)).toBe(true);
-      expect(risers).toEqual([...risers].sort((a, b) => b.rise - a.rise || a.latestRank - b.latestRank));
+      expect(risers).toEqual([...risers].sort((a, b) => b.change - a.change || a.latestRank - b.latestRank));
+
+      const fallers = topRankFallers(data, format);
+      expect(fallers).toHaveLength(5);
+      expect(fallers.every((entry) => entry.latestRank - entry.startRank === entry.change && entry.change > 0)).toBe(true);
+      expect(fallers.every((entry) => entry.latestRank <= 30)).toBe(true);
+      expect(fallers).toEqual([...fallers].sort((a, b) => b.change - a.change || a.latestRank - b.latestRank));
     }
   });
 });
