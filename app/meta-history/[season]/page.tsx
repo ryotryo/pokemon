@@ -3,24 +3,32 @@ import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MetaHistoryPage } from "@/features/meta-history/components/meta-history-page";
-import type { MetaHistoryDataset } from "@/lib/champions/meta-history";
+import {
+  assembleMetaHistoryDataset,
+  type MetaHistoryFormatDataset,
+  type MetaHistorySeasonMetadata,
+} from "@/lib/champions/meta-history";
 
 const DATA_DIRECTORY = path.join(process.cwd(), "data", "meta-history");
 
 async function availableSeasons() {
-  const files = await readdir(DATA_DIRECTORY);
-  return files
-    .filter((file) => /^m\d+\.json$/i.test(file))
-    .map((file) => file.replace(/\.json$/i, "").toUpperCase())
+  const entries = await readdir(DATA_DIRECTORY, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isDirectory() && /^m\d+$/i.test(entry.name))
+    .map((entry) => entry.name.toUpperCase())
     .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)));
 }
 
 async function loadDataset(season: string) {
   if (!/^m\d+$/i.test(season)) return null;
   try {
-    const value = await readFile(path.join(DATA_DIRECTORY, `${season.toLowerCase()}.json`), "utf8");
-    const dataset = JSON.parse(value) as MetaHistoryDataset;
-    return dataset.season.toLowerCase() === season.toLowerCase() ? dataset : null;
+    const directory = path.join(DATA_DIRECTORY, season.toUpperCase());
+    const [metadata, singles, doubles] = await Promise.all([
+      readFile(path.join(directory, "metadata.json"), "utf8").then((value) => JSON.parse(value) as MetaHistorySeasonMetadata),
+      readFile(path.join(directory, "singles.json"), "utf8").then((value) => JSON.parse(value) as MetaHistoryFormatDataset),
+      readFile(path.join(directory, "doubles.json"), "utf8").then((value) => JSON.parse(value) as MetaHistoryFormatDataset),
+    ]);
+    return assembleMetaHistoryDataset(metadata, singles, doubles);
   } catch {
     return null;
   }

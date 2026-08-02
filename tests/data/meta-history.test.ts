@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   initialMetaHistorySelection,
+  assembleMetaHistoryDataset,
   latestRankBand,
   latestTopPokemon,
   rankSegments,
@@ -10,11 +11,15 @@ import {
   topRankRisers,
   topThirtyCandidates,
   type MetaHistoryDataset,
+  type MetaHistoryFormatDataset,
+  type MetaHistorySeasonMetadata,
 } from "../../lib/champions/meta-history";
 
-const data = JSON.parse(
-  readFileSync(path.join(process.cwd(), "data/meta-history/m4.json"), "utf8"),
-) as MetaHistoryDataset;
+const dataDirectory = path.join(process.cwd(), "data/meta-history/M4");
+const metadata = JSON.parse(readFileSync(path.join(dataDirectory, "metadata.json"), "utf8")) as MetaHistorySeasonMetadata;
+const singles = JSON.parse(readFileSync(path.join(dataDirectory, "singles.json"), "utf8")) as MetaHistoryFormatDataset;
+const doubles = JSON.parse(readFileSync(path.join(dataDirectory, "doubles.json"), "utf8")) as MetaHistoryFormatDataset;
+const data = assembleMetaHistoryDataset(metadata, singles, doubles) as MetaHistoryDataset;
 
 describe("M4 meta history", () => {
   it("stores the complete observed daily period and unique Champions IDs", () => {
@@ -27,6 +32,12 @@ describe("M4 meta history", () => {
     expect(new Set(data.pokemon.map((pokemon) => pokemon.showdownId)).size).toBe(data.pokemon.length);
     expect(data.pokemon.find((pokemon) => pokemon.showdownId === "garchomp")?.displayNameJa).toBe("ガブリアス");
     expect(data.pokemon.find((pokemon) => pokemon.showdownId === "rotomfan")?.displayNameJa).toBe("スピンロトム");
+    expect(metadata).toMatchObject({
+      season: "M4",
+      startDate: "2026-07-16",
+      endDate: "2026-07-28",
+      days: 13,
+    });
   });
 
   it("keeps complete unique rankings for Singles and Doubles", () => {

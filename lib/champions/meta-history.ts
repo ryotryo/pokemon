@@ -17,6 +17,53 @@ export interface MetaHistoryDataset {
   pokemon: MetaHistoryPokemon[];
 }
 
+export interface MetaHistorySeasonMetadata {
+  season: string;
+  startDate: string;
+  endDate: string;
+  days: number;
+  generatedAt: string;
+  source: string;
+  sourceGeneratedAt: string;
+  pokemon: Array<Omit<MetaHistoryPokemon, "ranks">>;
+}
+
+export interface MetaHistoryFormatDataset {
+  season: string;
+  format: BattleFormat;
+  dates: string[];
+  ranks: Record<string, Array<number | null>>;
+}
+
+export function assembleMetaHistoryDataset(
+  metadata: MetaHistorySeasonMetadata,
+  singles: MetaHistoryFormatDataset,
+  doubles: MetaHistoryFormatDataset,
+): MetaHistoryDataset {
+  if (singles.season !== metadata.season || doubles.season !== metadata.season
+    || singles.format !== "Singles" || doubles.format !== "Doubles"
+    || singles.dates.join() !== doubles.dates.join()
+    || singles.dates.length !== metadata.days
+    || singles.dates[0] !== metadata.startDate
+    || singles.dates.at(-1) !== metadata.endDate) {
+    throw new Error(`${metadata.season}: stored meta history files are inconsistent`);
+  }
+  return {
+    season: metadata.season,
+    source: metadata.source,
+    sourceGeneratedAt: metadata.sourceGeneratedAt,
+    updatedAt: metadata.generatedAt,
+    dates: singles.dates,
+    pokemon: metadata.pokemon.map((pokemon) => ({
+      ...pokemon,
+      ranks: {
+        Singles: singles.ranks[pokemon.showdownId] ?? singles.dates.map(() => null),
+        Doubles: doubles.ranks[pokemon.showdownId] ?? doubles.dates.map(() => null),
+      },
+    })),
+  };
+}
+
 export function topThirtyCandidates(dataset: MetaHistoryDataset, format: BattleFormat) {
   const latestIndex = dataset.dates.length - 1;
   return dataset.pokemon
