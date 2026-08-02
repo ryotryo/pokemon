@@ -8,9 +8,9 @@ export function ToolIcon({ tool }: { tool: ToolId }) {
       <Image
         src={icon.src}
         alt=""
-        width={30}
-        height={30}
-        style={{ width: icon.displaySize, height: icon.displaySize, imageRendering: "pixelated" }}
+        width={32}
+        height={32}
+        className="size-8"
       />
     </span>
   );

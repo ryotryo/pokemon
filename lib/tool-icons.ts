@@ -1,40 +1,24 @@
 export type ToolId = "party-check" | "speed-ranking" | "usage-ranking" | "meta-history";
 
-// Item names and sprite URLs were verified with PokéAPI Item API.
-// Sprites are stored locally under public/tool-icons; pages never request PokéAPI.
+// Original Poké Analytics SVGs inspired by each item's role; no game sprites are used.
 export const TOOL_ICONS = {
   "party-check": {
-    itemId: "weakness-policy",
-    itemNameJa: "じゃくてんほけん",
-    src: "/tool-icons/weakness-policy.png",
-    sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/weakness-policy.png",
-    displaySize: 31,
+    motif: "じゃくてんほけん",
+    src: "/tool-icons/party-check.svg",
   },
   "speed-ranking": {
-    itemId: "carbos",
-    itemNameJa: "インドメタシン",
-    src: "/tool-icons/carbos.png",
-    sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/carbos.png",
-    displaySize: 29,
+    motif: "インドメタシン",
+    src: "/tool-icons/speed-ranking.svg",
   },
   "usage-ranking": {
-    itemId: "wise-glasses",
-    itemNameJa: "ものしりメガネ",
-    src: "/tool-icons/wise-glasses.png",
-    sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wise-glasses.png",
-    displaySize: 34,
+    motif: "ものしりメガネ",
+    src: "/tool-icons/usage-ranking.svg",
   },
   "meta-history": {
-    itemId: "poke-radar",
-    itemNameJa: "ポケトレ",
-    src: "/tool-icons/poke-radar.png",
-    sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-radar.png",
-    displaySize: 31,
+    motif: "ポケトレ",
+    src: "/tool-icons/meta-history.svg",
   },
 } as const satisfies Record<ToolId, {
-  itemId: string;
-  itemNameJa: string;
+  motif: string;
   src: string;
-  sourceUrl: string;
-  displaySize: number;
 }>;
