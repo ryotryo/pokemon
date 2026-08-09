@@ -27,7 +27,8 @@ describe("M4 meta history", () => {
     expect(data.dates).toEqual([
       "2026-07-16", "2026-07-17", "2026-07-18", "2026-07-19", "2026-07-20",
       "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-25",
-      "2026-07-26", "2026-07-27", "2026-07-28",
+      "2026-07-26", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30",
+      "2026-08-04",
     ]);
     expect(new Set(data.pokemon.map((pokemon) => pokemon.showdownId)).size).toBe(data.pokemon.length);
     expect(data.pokemon.find((pokemon) => pokemon.showdownId === "garchomp")?.displayNameJa).toBe("ガブリアス");
@@ -35,8 +36,8 @@ describe("M4 meta history", () => {
     expect(metadata).toMatchObject({
       season: "M4",
       startDate: "2026-07-16",
-      endDate: "2026-07-28",
-      days: 13,
+      endDate: "2026-08-04",
+      days: 16,
     });
   });
 

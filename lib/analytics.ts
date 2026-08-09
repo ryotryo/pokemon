@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export type AnalyticsToolName = "party-check" | "speed-ranking" | "usage-ranking" | "meta-history";
+export type AnalyticsToolName = "party-check" | "speed-ranking" | "usage-ranking" | "meta-history" | "damage-chart";
 export type AnalyticsBattleFormat = "Singles" | "Doubles";
 
 export type AnalyticsEvent =

@@ -63,8 +63,8 @@ describe("usage ranking data", () => {
     expect(garchomp.formats.Singles.spreads.length).toBeGreaterThan(0);
     expect(garchomp.formats.Singles.natures).toHaveLength(10);
     expect(garchomp.formats.Singles.abilities.map((ability) => ({ rank: ability.rank, nameJa: ability.nameJa, percentageValue: ability.percentageValue }))).toEqual([
-      { rank: 1, nameJa: "さめはだ", percentageValue: 99 },
-      { rank: 2, nameJa: "すながくれ", percentageValue: 1 },
+      { rank: 1, nameJa: "さめはだ", percentageValue: 98.9 },
+      { rank: 2, nameJa: "すながくれ", percentageValue: 1.1 },
     ]);
     expect(garchomp.formats.Singles.abilities[0].descriptionJa).toContain("接触技");
     expect(detail("alakazam").formats.Singles.abilities[0].nameJa).toBe("マジックガード");

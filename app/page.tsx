@@ -33,6 +33,13 @@ const tools = [
     available: true,
   },
   {
+    title: "ダメージ早見表",
+    description: "2匹を選ぶだけで、よく使われる技のおおよそのダメージを双方向に比較できます。",
+    href: "/damage-chart/",
+    iconText: "％",
+    available: true,
+  },
+  {
     title: "技分析",
     description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,
@@ -60,7 +67,9 @@ export default function Home() {
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2.5">
-                      <ToolIcon tool={tool.id} />
+                      {"id" in tool
+                        ? <ToolIcon tool={tool.id} />
+                        : <span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-md bg-blue-100 text-xs font-black text-blue-700">{tool.iconText}</span>}
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
                         <h3 className="mt-1 text-xl font-black">{tool.title}</h3>
