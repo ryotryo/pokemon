@@ -54,6 +54,10 @@ export async function getDamageChartDataset(): Promise<DamageChartDataset> {
           rank: row.rank,
         }];
       });
+    const formatAbilities = (format: "Singles" | "Doubles") => detail.formats[format].abilities.map((ability) => ({
+      nameJa: ability.nameJa,
+      descriptionJa: ability.descriptionJa,
+    }));
     return {
       id: entry.id,
       displayNameJa: entry.displayNameJa,
@@ -62,6 +66,7 @@ export async function getDamageChartDataset(): Promise<DamageChartDataset> {
       baseStats,
       ranks: entry.ranks,
       moves: { Singles: formatMoves("Singles"), Doubles: formatMoves("Doubles") },
+      abilities: { Singles: formatAbilities("Singles"), Doubles: formatAbilities("Doubles") },
     };
   }))).filter((entry): entry is NonNullable<typeof entry> => entry !== null);
 
@@ -72,4 +77,3 @@ export async function getDamageChartDataset(): Promise<DamageChartDataset> {
     pokemon,
   };
 }
-

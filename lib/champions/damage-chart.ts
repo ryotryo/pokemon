@@ -12,6 +12,11 @@ export interface DamageChartMove {
   rank: number;
 }
 
+export interface DamageChartAbility {
+  nameJa: string;
+  descriptionJa: string | null;
+}
+
 export interface DamageChartPokemon {
   id: string;
   displayNameJa: string;
@@ -20,6 +25,7 @@ export interface DamageChartPokemon {
   baseStats: PokemonBaseStats;
   ranks: { Singles: number | null; Doubles: number | null };
   moves: { Singles: DamageChartMove[]; Doubles: DamageChartMove[] };
+  abilities: { Singles: DamageChartAbility[]; Doubles: DamageChartAbility[] };
 }
 
 export interface DamageChartDataset {
@@ -35,6 +41,25 @@ export interface DamageResult {
   minPercent: number;
   maxPercent: number;
   hitLabel: string;
+}
+
+export const ITEM_DAMAGE_MODIFIERS = [1, 1.1, 1.2, 1.3, 1.5] as const;
+export type ItemDamageModifier = typeof ITEM_DAMAGE_MODIFIERS[number];
+
+const SUPPORTED_OFFENSIVE_ABILITIES = new Set(["テクニシャン", "ちからもち", "ヨガパワー", "てきおうりょく"]);
+const ITEM_FINAL_MODS: Record<ItemDamageModifier, number> = { 1: 4096, 1.1: 4505, 1.2: 4915, 1.3: 5324, 1.5: 6144 };
+
+export function isSupportedOffensiveAbility(nameJa: string): boolean {
+  return SUPPORTED_OFFENSIVE_ABILITIES.has(nameJa);
+}
+
+function pokeRound(value: number): number {
+  return value % 1 > 0.5 ? Math.ceil(value) : Math.floor(value);
+}
+
+function applyFixedModifier(value: number, modifier: number): number {
+  if (value <= 0) return 0;
+  return Math.max(1, pokeRound(value * modifier / 4096));
 }
 
 export const ATTACK_PATTERNS = [
@@ -94,19 +119,27 @@ export function calculateDamage(options: {
   hpEv: number;
   defenseEv: number;
   defenseNature: number;
+  attackerAbility?: string | null;
+  defenderAbility?: string | null;
+  itemDamageModifier?: ItemDamageModifier;
 }): DamageResult {
   const { attacker, defender, move } = options;
   const physical = move.damageClass === "physical";
   const attackBase = physical ? attacker.baseStats.attack : attacker.baseStats.specialAttack;
   const defenseBase = physical ? defender.baseStats.defense : defender.baseStats.specialDefense;
-  const attack = calculateBattleStat(attackBase, options.attackEv, options.attackNature);
+  let attack = calculateBattleStat(attackBase, options.attackEv, options.attackNature);
   const defense = calculateBattleStat(defenseBase, options.defenseEv, options.defenseNature);
   const hp = calculateHpStat(defender.baseStats.hp, options.hpEv);
-  const baseDamage = Math.floor(Math.floor(Math.floor((2 * 50 / 5 + 2) * move.power * attack / defense) / 50) + 2);
-  const stab = attacker.types.includes(move.type) ? 1.5 : 1;
+  let power = move.power;
+  if (options.attackerAbility === "テクニシャン" && power <= 60) power = applyFixedModifier(power, 6144);
+  if (physical && (options.attackerAbility === "ちからもち" || options.attackerAbility === "ヨガパワー")) attack = applyFixedModifier(attack, 8192);
+  const baseDamage = Math.floor(Math.floor(Math.floor((2 * 50 / 5 + 2) * power * attack / defense) / 50) + 2);
+  const isStab = attacker.types.includes(move.type);
+  const stab = isStab ? options.attackerAbility === "てきおうりょく" ? 2 : 1.5 : 1;
   const typeMultiplier = getTypeMultiplier(move.type, defender.types);
-  const maxDamage = Math.floor(baseDamage * stab * typeMultiplier);
-  const minDamage = Math.floor(baseDamage * stab * typeMultiplier * 0.85);
+  const itemFinalMod = ITEM_FINAL_MODS[options.itemDamageModifier ?? 1];
+  const maxDamage = applyFixedModifier(Math.floor(baseDamage * stab * typeMultiplier), itemFinalMod);
+  const minDamage = applyFixedModifier(Math.floor(baseDamage * stab * typeMultiplier * 0.85), itemFinalMod);
   return {
     minDamage,
     maxDamage,
@@ -123,4 +156,3 @@ export function damageBarColor(maxPercent: number): string {
   if (maxPercent >= 25) return "bg-sky-500";
   return "bg-blue-300";
 }
-

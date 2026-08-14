@@ -3,6 +3,7 @@ import {
   calculateBattleStat,
   calculateDamage,
   calculateHpStat,
+  isSupportedOffensiveAbility,
   isSupportedDamageMove,
   type DamageChartMove,
   type DamageChartPokemon,
@@ -17,6 +18,7 @@ function pokemon(overrides: Partial<DamageChartPokemon> = {}): DamageChartPokemo
     baseStats: { hp: 100, attack: 100, defense: 100, specialAttack: 100, specialDefense: 100, speed: 100 },
     ranks: { Singles: 1, Doubles: 1 },
     moves: { Singles: [], Doubles: [] },
+    abilities: { Singles: [], Doubles: [] },
     ...overrides,
   };
 }
@@ -89,6 +91,51 @@ describe("calculateDamage", () => {
     });
     expect(result.maxDamage).toBe(0);
     expect(result.hitLabel).toBe("無効");
+  });
+
+  it("applies the selected item multiplier as a final damage modifier", () => {
+    const result = calculateDamage({
+      attacker: pokemon(), defender: pokemon(), move,
+      attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+      itemDamageModifier: 1.3,
+    });
+    expect(result.minDamage).toBe(75);
+    expect(result.maxDamage).toBe(90);
+  });
+
+  it("applies Huge Power and Pure Power only to physical attacks", () => {
+    const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
+    const boosted = calculateDamage({ ...options, move, attackerAbility: "ちからもち" });
+    const special = calculateDamage({ ...options, move: { ...move, damageClass: "special" }, attackerAbility: "ヨガパワー" });
+    const unboostedSpecial = calculateDamage({ ...options, move: { ...move, damageClass: "special" } });
+    expect(boosted.maxDamage).toBe(135);
+    expect(special).toEqual(unboostedSpecial);
+  });
+
+  it("applies Technician only when the move power is 60 or lower", () => {
+    const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
+    const boosted = calculateDamage({ ...options, move: { ...move, power: 60 }, attackerAbility: "テクニシャン" });
+    const overLimit = calculateDamage({ ...options, move: { ...move, power: 61 }, attackerAbility: "テクニシャン" });
+    const unboostedOverLimit = calculateDamage({ ...options, move: { ...move, power: 61 } });
+    expect(boosted.maxDamage).toBe(61);
+    expect(overLimit).toEqual(unboostedOverLimit);
+  });
+
+  it("applies Adaptability only to same-type attacks and ignores unsupported abilities", () => {
+    const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
+    const adapted = calculateDamage({ ...options, move, attackerAbility: "てきおうりょく" });
+    const unsupported = calculateDamage({ ...options, move, attackerAbility: "あついしぼう" });
+    const baseline = calculateDamage({ ...options, move });
+    expect(adapted.maxDamage).toBe(92);
+    expect(unsupported).toEqual(baseline);
+  });
+});
+
+describe("damage ability support", () => {
+  it("clearly separates supported and unsupported offensive abilities", () => {
+    expect(isSupportedOffensiveAbility("テクニシャン")).toBe(true);
+    expect(isSupportedOffensiveAbility("ちからもち")).toBe(true);
+    expect(isSupportedOffensiveAbility("あついしぼう")).toBe(false);
   });
 });
 
