@@ -8,9 +8,7 @@ import { pushDataLayer, useToolView } from "@/lib/analytics";
 import {
   ATTACK_PATTERNS,
   DEFENSE_PATTERNS,
-  calculateBattleStat,
   calculateDamage,
-  calculateHpStat,
   damageBarColor,
   type DamageChartDataset,
   type DamageChartMove,
@@ -38,8 +36,8 @@ function PokemonSummary({ pokemon, label, onClick }: { pokemon: DamageChartPokem
 function DamageCell({ result }: { result: ReturnType<typeof calculateDamage> }) {
   return (
     <div className="min-w-0 px-0.5 py-1 text-center">
-      <p className="whitespace-nowrap text-[9px] font-bold tabular-nums text-slate-700 sm:text-[10px]">
-        {formatPercent(result.minPercent)}〜{formatPercent(result.maxPercent)}%
+      <p className="whitespace-nowrap text-[8px] font-bold tabular-nums text-slate-700 sm:text-[10px]">
+        {result.minDamage}〜{result.maxDamage}（{formatPercent(result.minPercent)}〜{formatPercent(result.maxPercent)}%）
       </p>
       <div className="mx-auto mt-1 h-1 w-full overflow-hidden rounded-full bg-slate-200" aria-hidden="true">
         <div className={`h-full rounded-full ${damageBarColor(result.maxPercent)}`} style={{ width: `${Math.min(100, result.maxPercent)}%` }} />
@@ -51,10 +49,6 @@ function DamageCell({ result }: { result: ReturnType<typeof calculateDamage> }) 
 
 function MoveDamageGrid({ attacker, defender, move }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; move: DamageChartMove }) {
   const physical = move.damageClass === "physical";
-  const attackBase = physical ? attacker.baseStats.attack : attacker.baseStats.specialAttack;
-  const defenseBase = physical ? defender.baseStats.defense : defender.baseStats.specialDefense;
-  const statLabel = physical ? "A" : "C";
-  const defenseLabel = physical ? "B" : "D";
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <header className="flex flex-wrap items-center gap-1.5 border-b border-slate-100 px-3 py-2">
@@ -63,20 +57,17 @@ function MoveDamageGrid({ attacker, defender, move }: { attacker: DamageChartPok
         <DamageClassBadge damageClass={move.damageClass} />
         <span className="text-[10px] font-bold text-slate-500">威力 {move.power}</span>
       </header>
-      <div className="grid grid-cols-[3.1rem_repeat(3,minmax(0,1fr))] items-center px-1 pb-1.5 pt-1">
+      <div className="grid grid-cols-[2.8rem_repeat(3,minmax(0,1fr))] items-center px-1.5 pb-1.5 pt-1">
         <span className="text-center text-[8px] font-bold text-slate-400">攻＼防</span>
         {DEFENSE_PATTERNS.map((pattern) => (
-          <span key={pattern.id} className="px-px text-center text-[8px] font-bold leading-[11px] text-slate-500 sm:text-[9px]">
-            <span className="block text-slate-700">{physical ? pattern.physicalLabel : pattern.specialLabel}</span>
-            <span className="block font-medium">HP {calculateHpStat(defender.baseStats.hp, pattern.hpEv)}</span>
-            <span className="block font-medium">{defenseLabel} {calculateBattleStat(defenseBase, pattern.defenseEv, pattern.nature)}</span>
+          <span key={pattern.id} className="px-0.5 text-center text-[8px] font-bold leading-3 text-slate-500 sm:text-[9px]">
+            {physical ? pattern.physicalLabel : pattern.specialLabel}
           </span>
         ))}
         {ATTACK_PATTERNS.map((attackPattern) => (
           <div key={attackPattern.id} className="contents">
-            <span className="text-center text-[8px] font-black leading-[11px] text-blue-700 sm:text-[9px]">
-              <span className="block">{physical ? attackPattern.physicalLabel : attackPattern.specialLabel}</span>
-              <span className="block font-bold text-slate-500">{statLabel} {calculateBattleStat(attackBase, attackPattern.ev, attackPattern.nature)}</span>
+            <span className="text-center text-[9px] font-black text-blue-700">
+              {physical ? attackPattern.physicalLabel : attackPattern.specialLabel}
             </span>
             {DEFENSE_PATTERNS.map((defensePattern) => (
               <DamageCell
