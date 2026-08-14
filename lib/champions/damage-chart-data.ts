@@ -14,15 +14,17 @@ function moveSlug(name: string) {
 
 export async function getDamageChartDataset(): Promise<DamageChartDataset> {
   const root = process.cwd();
-  const [indexRaw, movesRaw, coverageRaw, speedRaw, metadataRaw] = await Promise.all([
+  const [indexRaw, movesRaw, contactMovesRaw, coverageRaw, speedRaw, metadataRaw] = await Promise.all([
     readFile(path.join(root, "data/usage-ranking/index.json"), "utf8"),
     readFile(path.join(root, "data/usage-ranking/moves.json"), "utf8"),
+    readFile(path.join(root, "data/usage-ranking/contact-moves.json"), "utf8"),
     readFile(path.join(root, "data/moves/move-master.json"), "utf8"),
     readFile(path.join(root, "data/champions/speed-ranking.json"), "utf8"),
     readFile(path.join(root, "data/metadata.json"), "utf8"),
   ]);
   const index = JSON.parse(indexRaw) as UsageRankingIndex;
   const moves = JSON.parse(movesRaw) as Record<string, UsageMoveDetail>;
+  const contactMoveIds = new Set(JSON.parse(contactMovesRaw) as string[]);
   const coverage = JSON.parse(coverageRaw) as Record<string, { isCoverageMove?: boolean }>;
   const speed = JSON.parse(speedRaw) as SpeedRankingDataset;
   const metadata = JSON.parse(metadataRaw) as { updatedAt: string };
@@ -52,11 +54,13 @@ export async function getDamageChartDataset(): Promise<DamageChartDataset> {
           power: move.power,
           usage: row.percentageValue,
           rank: row.rank,
+          isContact: contactMoveIds.has(move.id),
         }];
       });
     const formatAbilities = (format: "Singles" | "Doubles") => detail.formats[format].abilities.map((ability) => ({
       nameJa: ability.nameJa,
       descriptionJa: ability.descriptionJa,
+      percentageValue: ability.percentageValue,
     }));
     return {
       id: entry.id,

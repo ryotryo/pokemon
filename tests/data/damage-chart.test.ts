@@ -3,6 +3,7 @@ import {
   calculateBattleStat,
   calculateDamage,
   calculateHpStat,
+  getDefaultAbilityName,
   isSupportedOffensiveAbility,
   isSupportedDamageMove,
   type DamageChartMove,
@@ -31,6 +32,7 @@ const move: DamageChartMove = {
   power: 100,
   usage: null,
   rank: 1,
+  isContact: true,
 };
 
 describe("damage chart stats", () => {
@@ -121,6 +123,15 @@ describe("calculateDamage", () => {
     expect(overLimit).toEqual(unboostedOverLimit);
   });
 
+  it("applies Tough Claws only to contact moves", () => {
+    const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
+    const boosted = calculateDamage({ ...options, move, attackerAbility: "かたいツメ" });
+    const nonContact = calculateDamage({ ...options, move: { ...move, isContact: false }, attackerAbility: "かたいツメ" });
+    const baseline = calculateDamage({ ...options, move: { ...move, isContact: false } });
+    expect(boosted.maxDamage).toBeGreaterThan(baseline.maxDamage);
+    expect(nonContact).toEqual(baseline);
+  });
+
   it("applies Adaptability only to same-type attacks and ignores unsupported abilities", () => {
     const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
     const adapted = calculateDamage({ ...options, move, attackerAbility: "てきおうりょく" });
@@ -136,6 +147,21 @@ describe("damage ability support", () => {
     expect(isSupportedOffensiveAbility("テクニシャン")).toBe(true);
     expect(isSupportedOffensiveAbility("ちからもち")).toBe(true);
     expect(isSupportedOffensiveAbility("あついしぼう")).toBe(false);
+  });
+
+  it("defaults one ability, otherwise uses the highest real usage rate", () => {
+    expect(getDefaultAbilityName([{ nameJa: "かたいツメ", descriptionJa: null, percentageValue: null }])).toBe("かたいツメ");
+    expect(getDefaultAbilityName([
+      { nameJa: "A", descriptionJa: null, percentageValue: 25 },
+      { nameJa: "B", descriptionJa: null, percentageValue: 70 },
+    ])).toBe("B");
+  });
+
+  it("does not guess when multiple abilities have no usage data", () => {
+    expect(getDefaultAbilityName([
+      { nameJa: "A", descriptionJa: null, percentageValue: null },
+      { nameJa: "B", descriptionJa: null, percentageValue: null },
+    ])).toBeNull();
   });
 });
 

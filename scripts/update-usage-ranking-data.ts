@@ -57,6 +57,7 @@ interface ChampoutMove {
   id: string;
   type: string;
   category: string;
+  direct: string;
   power: string;
   accuracy: string;
   pp: string;
@@ -155,6 +156,19 @@ function parseLearnsets(dump: string): Map<string, string[]> {
   return result;
 }
 
+function parseFormAbilities(dump: string): Map<string, string[]> {
+  const result = new Map<string, string[]>();
+  const headings = [...dump.matchAll(/^(\d{4}) - (.+)$/gm)];
+  headings.forEach((heading, index) => {
+    const start = heading.index! + heading[0].length;
+    const end = headings[index + 1]?.index ?? dump.length;
+    const profile = dump.slice(start, end).split("Moves:")[0].trim().split("\n").map((line) => line.trim()).filter(Boolean);
+    const abilities = [...new Set((profile.at(-1) ?? "").split("/").map((ability) => ability.trim()).filter(Boolean))];
+    result.set(normalizedName(heading[2]), abilities);
+  });
+  return result;
+}
+
 function megaLearnsetName(baseShowdownName: string, formKind: string): string {
   const suffix = formKind.replace(/^mega\s*/i, "");
   return `${baseShowdownName}-Mega${suffix ? ` ${suffix}` : ""}`;
@@ -247,6 +261,35 @@ function toFormatDetail(
   return { rank, usagePercentage: null, moves, items, spreads, natures, abilities, teammates };
 }
 
+function formAbilityRows(
+  context: string,
+  abilityNames: string[],
+  usageRows: UsageFormatDetail["abilities"],
+  abilityNamesByIndex: Map<string, string>,
+  abilitiesJa: Map<string, string>,
+  abilityDescriptionsJa: Map<string, string>,
+): UsageFormatDetail["abilities"] {
+  const usageByName = new Map(usageRows.map((ability) => [ability.nameJa, ability]));
+  return abilityNames.flatMap((rawName, index) => {
+    const name = abilityNamesByIndex.get(rawName) ?? rawName;
+    const normalized = normalizedName(name);
+    const corrected = ABILITY_NAME_CORRECTIONS[normalized] ?? normalized;
+    const nameJa = abilitiesJa.get(corrected);
+    if (!nameJa) {
+      console.warn(`[usage] unknown form ability skipped: ${name} (${context})`);
+      return [];
+    }
+    const usage = usageByName.get(nameJa);
+    return [{
+      rank: usage?.rank ?? index + 1,
+      percentage: usage?.percentage ?? null,
+      percentageValue: usage?.percentageValue ?? null,
+      nameJa,
+      descriptionJa: abilityDescriptionsJa.get(corrected) ?? null,
+    }];
+  }).sort((a, b) => Number(a.percentageValue === null) - Number(b.percentageValue === null) || a.rank - b.rank);
+}
+
 async function main() {
   await mkdir(STAGE, { recursive: true });
   try {
@@ -306,6 +349,7 @@ async function main() {
       movesById[detail.id] = detail;
     }
     const learnsets = parseLearnsets(personalDump);
+    const formAbilities = parseFormAbilities(personalDump);
     const learnableMoveIds = new Set(
       [...learnsets.values()].flatMap((moveNames) => moveNames.flatMap((name) => {
         const move = movesByEnglish.get(normalizedName(name));
@@ -337,6 +381,7 @@ async function main() {
     const itemsJa = localizedByEnglish(itemEn, itemJa);
     const naturesJa = localizedByEnglish(natureEn, natureJa);
     const abilitiesJa = localizedByEnglish(abilityEn, abilityJa);
+    const abilityNamesByIndex = new Map(abilityEn.mSDataSet.map((entry) => [String(entry.Index), entry.OriginalText]));
     const abilityInfoByNumber = new Map(abilityInfoJa.mSDataSet.flatMap((entry) => {
       const number = entry.LabelName.match(/(\d+)$/)?.[1];
       const description = normalizedDescription(entry.OriginalText);
@@ -402,7 +447,13 @@ async function main() {
       });
       const formats = Object.fromEntries(battleFormats.map((format) => {
         const rows = battleRows.get(`${format}:${pokemon.battleId}`) ?? [];
-        return [format, toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, abilitiesJa, abilityDescriptionsJa, teammateLookup)];
+        const detail = toFormatDetail(`${format}:${pokemon.id}`, rows, pokemon.ranks[format], movesByEnglish, itemsJa, naturesJa, abilitiesJa, abilityDescriptionsJa, teammateLookup);
+        const abilityNames = formAbilities.get(normalizedName(source.learnsetName)) ?? [];
+        if (!abilityNames.length) throw new Error(`Form abilities missing: ${pokemon.id} -> ${source.learnsetName}`);
+        return [format, {
+          ...detail,
+          abilities: formAbilityRows(`${format}:${pokemon.id}`, abilityNames, detail.abilities, abilityNamesByIndex, abilitiesJa, abilityDescriptionsJa),
+        }];
       })) as Record<BattleFormat, UsageFormatDetail>;
       details.push({ ...pokemon, learnableMoveIds: [...new Set(learnableMoveIds)], formats });
     }
@@ -425,6 +476,7 @@ async function main() {
     await mkdir(path.join(STAGE, "details"), { recursive: true });
     await writeFile(path.join(STAGE, "index.json"), JSON.stringify(usageIndex, null, 2) + "\n");
     await writeFile(path.join(STAGE, "moves.json"), JSON.stringify(movesById, null, 2) + "\n");
+    await writeFile(path.join(STAGE, "contact-moves.json"), JSON.stringify(waza.filter((move) => move.direct === "1").map((move) => move.id), null, 2) + "\n");
     await writeFile(path.join(STAGE, "items-ja.json"), JSON.stringify(Object.fromEntries(itemsJa), null, 2) + "\n");
     await writeFile(path.join(STAGE, "natures-ja.json"), JSON.stringify(Object.fromEntries(naturesJa), null, 2) + "\n");
     await writeFile(path.join(STAGE, "metadata.json"), JSON.stringify({

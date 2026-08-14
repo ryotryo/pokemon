@@ -37,6 +37,29 @@ describe("usage ranking data", () => {
     expect(sorted[0].ranks.Singles).toBeLessThanOrEqual(sorted[1].ranks.Singles!);
   });
 
+  it("keeps every Mega and independent form on its own ID and abilities", () => {
+    const megas = index.pokemon.filter((pokemon) => pokemon.formRelation === "mega");
+    const independentForms = index.pokemon.filter((pokemon) => pokemon.formRelation === "independent");
+    expect(megas).toHaveLength(75);
+    expect(independentForms).toHaveLength(33);
+    for (const pokemon of megas) {
+      const form = detail(pokemon.id);
+      expect(form.id).toBe(pokemon.id);
+      expect(form.formRelation).toBe(pokemon.formRelation);
+      expect(form.formats.Singles.abilities).toHaveLength(1);
+      expect(form.formats.Doubles.abilities).toHaveLength(1);
+    }
+    for (const pokemon of independentForms) {
+      const form = detail(pokemon.id);
+      expect(form.id).toBe(pokemon.id);
+      expect(form.formRelation).toBe("independent");
+      expect(form.formats.Singles.abilities.length).toBeGreaterThan(0);
+      expect(form.formats.Doubles.abilities.length).toBeGreaterThan(0);
+    }
+    expect(detail("metagross").formats.Singles.abilities.map((ability) => ability.nameJa)).toEqual(["クリアボディ", "ライトメタル"]);
+    expect(detail("mega-metagross").formats.Singles.abilities.map((ability) => ability.nameJa)).toEqual(["かたいツメ"]);
+  });
+
   it("keeps only non-mega forms in the public usage ranking", () => {
     const publicPokemon = index.pokemon.filter((pokemon) => pokemon.formRelation !== "mega");
     expect(publicPokemon.some((pokemon) => pokemon.formRelation === "mega")).toBe(false);

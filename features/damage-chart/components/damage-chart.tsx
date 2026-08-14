@@ -11,6 +11,7 @@ import {
   ITEM_DAMAGE_MODIFIERS,
   calculateDamage,
   damageBarColor,
+  getDefaultAbilityName,
   isSupportedOffensiveAbility,
   type DamageChartDataset,
   type DamageChartMove,
@@ -19,8 +20,12 @@ import {
 } from "@/lib/champions/damage-chart";
 import type { BattleFormat } from "@/lib/champions/types";
 
-type AttackSettings = { ability: string; itemDamageModifier: ItemDamageModifier };
-const DEFAULT_ATTACK_SETTINGS: AttackSettings = { ability: "", itemDamageModifier: 1 };
+type AttackSettings = { ability: string | null; itemDamageModifier: ItemDamageModifier };
+const UNSELECTED_ABILITY = "__unselected__";
+
+function defaultAttackSettings(pokemon: DamageChartPokemon | undefined, format: BattleFormat): AttackSettings {
+  return { ability: getDefaultAbilityName(pokemon?.abilities[format] ?? []), itemDamageModifier: 1 };
+}
 
 function formatPercent(value: number) {
   const rounded = Math.round(value * 10) / 10;
@@ -35,7 +40,7 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
   onClick: () => void;
   onSettingsChange: (settings: AttackSettings) => void;
 }) {
-  const unsupported = settings.ability && !isSupportedOffensiveAbility(settings.ability);
+  const unsupported = Boolean(settings.ability && !isSupportedOffensiveAbility(settings.ability));
   return (
     <div className="flex min-w-0 flex-col rounded-2xl bg-slate-50 px-2 py-2 text-center">
       <button type="button" onClick={onClick} aria-label={`${label}の${pokemon.displayNameJa}を変更`} className="flex min-w-0 flex-col items-center active:scale-[0.98]">
@@ -47,9 +52,10 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
       </button>
       <label className="mt-2 grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-1 text-left text-[9px] font-bold text-slate-500">
         特性
-        <select value={settings.ability} onChange={(event) => onSettingsChange({ ...settings, ability: event.target.value })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
+        <select value={settings.ability ?? UNSELECTED_ABILITY} onChange={(event) => onSettingsChange({ ...settings, ability: event.target.value === UNSELECTED_ABILITY ? null : event.target.value })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
+          {settings.ability === null && <option value={UNSELECTED_ABILITY}>選択してください</option>}
+          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{ability.percentageValue !== null ? `（${formatPercent(ability.percentageValue)}%）` : ""}{isSupportedOffensiveAbility(ability.nameJa) ? "" : "（未対応）"}</option>)}
           <option value="">特性補正なし</option>
-          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{isSupportedOffensiveAbility(ability.nameJa) ? "" : "（未対応）"}</option>)}
         </select>
       </label>
       <label className="mt-1 grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-1 text-left text-[9px] font-bold text-slate-500">
@@ -152,10 +158,10 @@ export function DamageChart({ dataset }: { dataset: DamageChartDataset }) {
   const [defenderId, setDefenderId] = useState(sorted[1]?.id ?? sorted[0]?.id ?? "");
   const [picker, setPicker] = useState<"attacker" | "defender" | null>(null);
   const [query, setQuery] = useState("");
-  const [attackerSettings, setAttackerSettings] = useState<AttackSettings>(DEFAULT_ATTACK_SETTINGS);
-  const [defenderSettings, setDefenderSettings] = useState<AttackSettings>(DEFAULT_ATTACK_SETTINGS);
   const attacker = dataset.pokemon.find((pokemon) => pokemon.id === attackerId) ?? sorted[0];
   const defender = dataset.pokemon.find((pokemon) => pokemon.id === defenderId) ?? sorted[1] ?? sorted[0];
+  const [attackerSettings, setAttackerSettings] = useState<AttackSettings>(() => defaultAttackSettings(attacker, format));
+  const [defenderSettings, setDefenderSettings] = useState<AttackSettings>(() => defaultAttackSettings(defender, format));
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) return sorted;
@@ -166,14 +172,15 @@ export function DamageChart({ dataset }: { dataset: DamageChartDataset }) {
   function changeFormat(next: BattleFormat) {
     if (next === format) return;
     setFormat(next);
-    setAttackerSettings((current) => ({ ...current, ability: "" }));
-    setDefenderSettings((current) => ({ ...current, ability: "" }));
+    setAttackerSettings((current) => ({ ...current, ability: getDefaultAbilityName(attacker.abilities[next]) }));
+    setDefenderSettings((current) => ({ ...current, ability: getDefaultAbilityName(defender.abilities[next]) }));
     pushDataLayer({ event: "battle_format_change", tool_name: "damage-chart", battle_format: next });
   }
 
   function choosePokemon(id: string) {
-    if (picker === "attacker") { setAttackerId(id); setAttackerSettings(DEFAULT_ATTACK_SETTINGS); }
-    if (picker === "defender") { setDefenderId(id); setDefenderSettings(DEFAULT_ATTACK_SETTINGS); }
+    const selected = dataset.pokemon.find((pokemon) => pokemon.id === id);
+    if (picker === "attacker") { setAttackerId(id); setAttackerSettings(defaultAttackSettings(selected, format)); }
+    if (picker === "defender") { setDefenderId(id); setDefenderSettings(defaultAttackSettings(selected, format)); }
     setPicker(null);
     setQuery("");
   }

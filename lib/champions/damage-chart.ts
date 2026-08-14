@@ -10,11 +10,13 @@ export interface DamageChartMove {
   power: number;
   usage: number | null;
   rank: number;
+  isContact: boolean;
 }
 
 export interface DamageChartAbility {
   nameJa: string;
   descriptionJa: string | null;
+  percentageValue: number | null;
 }
 
 export interface DamageChartPokemon {
@@ -46,11 +48,18 @@ export interface DamageResult {
 export const ITEM_DAMAGE_MODIFIERS = [1, 1.1, 1.2, 1.3, 1.5] as const;
 export type ItemDamageModifier = typeof ITEM_DAMAGE_MODIFIERS[number];
 
-const SUPPORTED_OFFENSIVE_ABILITIES = new Set(["テクニシャン", "ちからもち", "ヨガパワー", "てきおうりょく"]);
+const SUPPORTED_OFFENSIVE_ABILITIES = new Set(["テクニシャン", "ちからもち", "ヨガパワー", "てきおうりょく", "かたいツメ"]);
 const ITEM_FINAL_MODS: Record<ItemDamageModifier, number> = { 1: 4096, 1.1: 4505, 1.2: 4915, 1.3: 5324, 1.5: 6144 };
 
 export function isSupportedOffensiveAbility(nameJa: string): boolean {
   return SUPPORTED_OFFENSIVE_ABILITIES.has(nameJa);
+}
+
+export function getDefaultAbilityName(abilities: DamageChartAbility[]): string | null {
+  if (abilities.length === 1) return abilities[0].nameJa;
+  const withUsage = abilities.filter((ability) => ability.percentageValue !== null && Number.isFinite(ability.percentageValue));
+  if (!withUsage.length) return null;
+  return withUsage.reduce((top, ability) => ability.percentageValue! > top.percentageValue! ? ability : top).nameJa;
 }
 
 function pokeRound(value: number): number {
@@ -132,6 +141,7 @@ export function calculateDamage(options: {
   const hp = calculateHpStat(defender.baseStats.hp, options.hpEv);
   let power = move.power;
   if (options.attackerAbility === "テクニシャン" && power <= 60) power = applyFixedModifier(power, 6144);
+  if (options.attackerAbility === "かたいツメ" && move.isContact) power = applyFixedModifier(power, 5325);
   if (physical && (options.attackerAbility === "ちからもち" || options.attackerAbility === "ヨガパワー")) attack = applyFixedModifier(attack, 8192);
   const baseDamage = Math.floor(Math.floor(Math.floor((2 * 50 / 5 + 2) * power * attack / defense) / 50) + 2);
   const isStab = attacker.types.includes(move.type);
