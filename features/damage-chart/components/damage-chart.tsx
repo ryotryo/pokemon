@@ -22,6 +22,13 @@ import type { BattleFormat } from "@/lib/champions/types";
 
 type AttackSettings = { ability: string | null; itemDamageModifier: ItemDamageModifier };
 const UNSELECTED_ABILITY = "__unselected__";
+const ITEM_DAMAGE_MODIFIER_LABELS: Record<ItemDamageModifier, string> = {
+  1: "なし",
+  1.1: "×1.1（ちからのハチマキ / ものしりメガネ）",
+  1.2: "×1.2（タイプ強化系 / たつじんのおび）",
+  1.3: "×1.3（いのちのたま）",
+  1.5: "×1.5（該当道具なし）",
+};
 
 function defaultAttackSettings(pokemon: DamageChartPokemon | undefined, format: BattleFormat): AttackSettings {
   return { ability: getDefaultAbilityName(pokemon?.abilities[format] ?? []), itemDamageModifier: 1 };
@@ -60,7 +67,7 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
       <label className="mt-1 grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-1 text-left text-[9px] font-bold text-slate-500">
         道具補正
         <select value={settings.itemDamageModifier} onChange={(event) => onSettingsChange({ ...settings, itemDamageModifier: Number(event.target.value) as ItemDamageModifier })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
-          {ITEM_DAMAGE_MODIFIERS.map((modifier) => <option key={modifier} value={modifier}>{modifier === 1 ? "補正なし" : `×${modifier}`}</option>)}
+          {ITEM_DAMAGE_MODIFIERS.map((modifier) => <option key={modifier} value={modifier}>{ITEM_DAMAGE_MODIFIER_LABELS[modifier]}</option>)}
         </select>
       </label>
     </div>
