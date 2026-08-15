@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
 import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
 import { FormatToggle } from "@/features/usage-ranking/components/format-toggle";
 import { pushDataLayer, useToolView } from "@/lib/analytics";
+import { normalizePokemonSearchText } from "@/lib/champions/display-names";
 import {
   ATTACK_PATTERNS,
   DEFENSE_PATTERNS,
@@ -22,6 +23,8 @@ import type { BattleFormat } from "@/lib/champions/types";
 
 type AttackSettings = { ability: string | null; itemDamageModifier: ItemDamageModifier };
 const UNSELECTED_ABILITY = "__unselected__";
+const ATTACKER_STORAGE_KEY = "pokemon-champions-damage-chart-attacker";
+const DEFENDER_STORAGE_KEY = "pokemon-champions-damage-chart-defender";
 const ITEM_DAMAGE_MODIFIER_LABELS: Record<ItemDamageModifier, string> = {
   1: "なし",
   1.1: "×1.1（ちからのハチマキ / ものしりメガネ）",
@@ -51,8 +54,13 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
     <div className="flex min-w-0 flex-col rounded-2xl bg-slate-50 px-2 py-2 text-center">
       <button type="button" onClick={onClick} aria-label={`${label}の${pokemon.displayNameJa}を変更`} className="flex min-w-0 flex-col items-center active:scale-[0.98]">
         <p className="text-[10px] font-bold text-slate-400">{label}</p>
-        {/* eslint-disable-next-line @next/next/no-img-element -- Champions Battle Data provides form-specific sprites. */}
-        <img src={pokemon.sprite} alt="" className="size-20 max-w-full object-contain sm:size-24" />
+        <span className="relative flex size-20 max-w-full items-center justify-center sm:size-24">
+          {/* eslint-disable-next-line @next/next/no-img-element -- Champions Battle Data provides form-specific sprites. */}
+          <img src={pokemon.sprite} alt="" className="size-full object-contain" />
+          <span aria-hidden="true" className="absolute bottom-0 right-0 rounded-full border border-white bg-slate-700/90 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white shadow-sm">
+            変更
+          </span>
+        </span>
         <p className="w-full truncate text-sm font-black">{pokemon.displayNameJa}</p>
         <div className="mt-1 flex gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
       </button>
@@ -163,16 +171,56 @@ export function DamageChart({ dataset }: { dataset: DamageChartDataset }) {
   const [defenderId, setDefenderId] = useState(sorted[1]?.id ?? sorted[0]?.id ?? "");
   const [picker, setPicker] = useState<"attacker" | "defender" | null>(null);
   const [query, setQuery] = useState("");
+  const [storageReady, setStorageReady] = useState(false);
   const attacker = dataset.pokemon.find((pokemon) => pokemon.id === attackerId) ?? sorted[0];
   const defender = dataset.pokemon.find((pokemon) => pokemon.id === defenderId) ?? sorted[1] ?? sorted[0];
   const [attackerSettings, setAttackerSettings] = useState<AttackSettings>(() => defaultAttackSettings(attacker, format));
   const [defenderSettings, setDefenderSettings] = useState<AttackSettings>(() => defaultAttackSettings(defender, format));
   const filtered = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = normalizePokemonSearchText(query);
     if (!normalizedQuery) return sorted;
-    return sorted.filter((pokemon) => pokemon.displayNameJa.toLowerCase().includes(normalizedQuery) || pokemon.id.toLowerCase().includes(normalizedQuery));
+    return sorted.filter((pokemon) => normalizePokemonSearchText(pokemon.displayNameJa).includes(normalizedQuery) || normalizePokemonSearchText(pokemon.id).includes(normalizedQuery));
   }, [query, sorted]);
   useToolView("damage-chart", format);
+
+  useEffect(() => {
+    const initialPokemon = [...dataset.pokemon].sort((a, b) =>
+      (a.ranks.Singles ?? Number.MAX_SAFE_INTEGER) - (b.ranks.Singles ?? Number.MAX_SAFE_INTEGER)
+        || a.displayNameJa.localeCompare(b.displayNameJa, "ja"));
+    const fallbackAttackerId = initialPokemon[0]?.id ?? "";
+    const fallbackDefenderId = initialPokemon[1]?.id ?? fallbackAttackerId;
+    let restoredAttackerId = fallbackAttackerId;
+    let restoredDefenderId = fallbackDefenderId;
+    try {
+      const savedAttackerId = localStorage.getItem(ATTACKER_STORAGE_KEY);
+      const savedDefenderId = localStorage.getItem(DEFENDER_STORAGE_KEY);
+      if (savedAttackerId && dataset.pokemon.some((pokemon) => pokemon.id === savedAttackerId)) restoredAttackerId = savedAttackerId;
+      else if (savedAttackerId !== null) localStorage.removeItem(ATTACKER_STORAGE_KEY);
+      if (savedDefenderId && dataset.pokemon.some((pokemon) => pokemon.id === savedDefenderId)) restoredDefenderId = savedDefenderId;
+      else if (savedDefenderId !== null) localStorage.removeItem(DEFENDER_STORAGE_KEY);
+    } catch {
+      // LocalStorageを利用できない環境では初期選択のまま表示する。
+    }
+    const restoredAttacker = dataset.pokemon.find((pokemon) => pokemon.id === restoredAttackerId);
+    const restoredDefender = dataset.pokemon.find((pokemon) => pokemon.id === restoredDefenderId);
+    queueMicrotask(() => {
+      setAttackerId(restoredAttackerId);
+      setDefenderId(restoredDefenderId);
+      setAttackerSettings(defaultAttackSettings(restoredAttacker, "Singles"));
+      setDefenderSettings(defaultAttackSettings(restoredDefender, "Singles"));
+      setStorageReady(true);
+    });
+  }, [dataset.pokemon]);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    try {
+      localStorage.setItem(ATTACKER_STORAGE_KEY, attackerId);
+      localStorage.setItem(DEFENDER_STORAGE_KEY, defenderId);
+    } catch {
+      // 保存できない環境でも早見表は通常どおり利用できる。
+    }
+  }, [attackerId, defenderId, storageReady]);
 
   function changeFormat(next: BattleFormat) {
     if (next === format) return;
