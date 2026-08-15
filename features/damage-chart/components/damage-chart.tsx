@@ -12,7 +12,7 @@ import {
   calculateDamage,
   damageBarColor,
   getDefaultAbilityName,
-  isSupportedOffensiveAbility,
+  getOffensiveAbilityDamageStatus,
   type DamageChartDataset,
   type DamageChartMove,
   type DamageChartPokemon,
@@ -40,7 +40,6 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
   onClick: () => void;
   onSettingsChange: (settings: AttackSettings) => void;
 }) {
-  const unsupported = Boolean(settings.ability && !isSupportedOffensiveAbility(settings.ability));
   return (
     <div className="flex min-w-0 flex-col rounded-2xl bg-slate-50 px-2 py-2 text-center">
       <button type="button" onClick={onClick} aria-label={`${label}の${pokemon.displayNameJa}を変更`} className="flex min-w-0 flex-col items-center active:scale-[0.98]">
@@ -54,7 +53,7 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
         特性
         <select value={settings.ability ?? UNSELECTED_ABILITY} onChange={(event) => onSettingsChange({ ...settings, ability: event.target.value === UNSELECTED_ABILITY ? null : event.target.value })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
           {settings.ability === null && <option value={UNSELECTED_ABILITY}>選択してください</option>}
-          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{ability.percentageValue !== null ? `（${formatPercent(ability.percentageValue)}%）` : ""}{isSupportedOffensiveAbility(ability.nameJa) ? "" : "（未対応）"}</option>)}
+          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{ability.percentageValue !== null ? `（${formatPercent(ability.percentageValue)}%）` : ""}{getOffensiveAbilityDamageStatus(ability.nameJa) === "unsupported" ? "（未対応）" : ""}</option>)}
           <option value="">特性補正なし</option>
         </select>
       </label>
@@ -64,7 +63,6 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
           {ITEM_DAMAGE_MODIFIERS.map((modifier) => <option key={modifier} value={modifier}>{modifier === 1 ? "補正なし" : `×${modifier}`}</option>)}
         </select>
       </label>
-      {unsupported && <p className="mt-1 text-[8px] leading-3 text-amber-700">攻撃時のダメージ補正は未対応</p>}
     </div>
   );
 }

@@ -49,10 +49,25 @@ export const ITEM_DAMAGE_MODIFIERS = [1, 1.1, 1.2, 1.3, 1.5] as const;
 export type ItemDamageModifier = typeof ITEM_DAMAGE_MODIFIERS[number];
 
 const SUPPORTED_OFFENSIVE_ABILITIES = new Set(["テクニシャン", "ちからもち", "ヨガパワー", "てきおうりょく", "かたいツメ"]);
+// 威力・攻撃実数値・技タイプ/STAB・急所・攻撃回数など、攻撃ダメージを直接変えるが早見表では未実装の特性。
+// 被ダメージだけに関係する特性や、発動後に通常の能力ランクを変えるだけの特性はここへ含めない。
+const UNSUPPORTED_OFFENSIVE_ABILITIES = new Set([
+  "あめふらし", "うるおいボイス", "おやこあい", "かたやぶり", "がんじょうあご", "きもったま", "きれあじ", "ぎたい",
+  "げきりゅう", "こんじょう", "しんりょく", "すいほう", "すてみ", "すなのちから", "スキルリンク",
+  "そうだいしょう", "ちからずく", "てつのこぶし", "てんきや", "でんきにかえる", "とうそうしん", "はりきり",
+  "ひでり", "ひとでなし", "バトルスイッチ", "へんげんじざい", "ほのおのたてがみ", "むしのしらせ",
+  "もうか", "もらいび", "アナライズ", "エレキメイカー", "サンパワー", "スカイスキン", "スナイパー",
+  "ドラゴンスキン", "フェアリーオーラ", "フェアリースキン", "フリーズスキン", "プラス", "マイナス",
+  "メガソーラー", "メガランチャー",
+]);
 const ITEM_FINAL_MODS: Record<ItemDamageModifier, number> = { 1: 4096, 1.1: 4505, 1.2: 4915, 1.3: 5324, 1.5: 6144 };
 
-export function isSupportedOffensiveAbility(nameJa: string): boolean {
-  return SUPPORTED_OFFENSIVE_ABILITIES.has(nameJa);
+export type OffensiveAbilityDamageStatus = "supported" | "unsupported" | "no-modifier";
+
+export function getOffensiveAbilityDamageStatus(nameJa: string): OffensiveAbilityDamageStatus {
+  if (SUPPORTED_OFFENSIVE_ABILITIES.has(nameJa)) return "supported";
+  if (UNSUPPORTED_OFFENSIVE_ABILITIES.has(nameJa)) return "unsupported";
+  return "no-modifier";
 }
 
 export function getDefaultAbilityName(abilities: DamageChartAbility[]): string | null {

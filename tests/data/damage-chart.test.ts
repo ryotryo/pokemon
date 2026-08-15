@@ -4,7 +4,7 @@ import {
   calculateDamage,
   calculateHpStat,
   getDefaultAbilityName,
-  isSupportedOffensiveAbility,
+  getOffensiveAbilityDamageStatus,
   isSupportedDamageMove,
   type DamageChartMove,
   type DamageChartPokemon,
@@ -132,21 +132,24 @@ describe("calculateDamage", () => {
     expect(nonContact).toEqual(baseline);
   });
 
-  it("applies Adaptability only to same-type attacks and ignores unsupported abilities", () => {
+  it("applies Adaptability only to same-type attacks and safely ignores other abilities", () => {
     const options = { attacker: pokemon(), defender: pokemon(), attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
     const adapted = calculateDamage({ ...options, move, attackerAbility: "てきおうりょく" });
-    const unsupported = calculateDamage({ ...options, move, attackerAbility: "あついしぼう" });
     const baseline = calculateDamage({ ...options, move });
+    const unsupported = calculateDamage({ ...options, move, attackerAbility: "がんじょうあご" });
+    const noModifier = calculateDamage({ ...options, move, attackerAbility: "さめはだ" });
     expect(adapted.maxDamage).toBe(92);
     expect(unsupported).toEqual(baseline);
+    expect(noModifier).toEqual(baseline);
   });
 });
 
 describe("damage ability support", () => {
-  it("clearly separates supported and unsupported offensive abilities", () => {
-    expect(isSupportedOffensiveAbility("テクニシャン")).toBe(true);
-    expect(isSupportedOffensiveAbility("ちからもち")).toBe(true);
-    expect(isSupportedOffensiveAbility("あついしぼう")).toBe(false);
+  it("separates supported, unsupported, and non-modifying abilities", () => {
+    expect(getOffensiveAbilityDamageStatus("テクニシャン")).toBe("supported");
+    expect(getOffensiveAbilityDamageStatus("がんじょうあご")).toBe("unsupported");
+    expect(getOffensiveAbilityDamageStatus("さめはだ")).toBe("no-modifier");
+    expect(getOffensiveAbilityDamageStatus("クリアボディ")).toBe("no-modifier");
   });
 
   it("defaults one ability, otherwise uses the highest real usage rate", () => {
