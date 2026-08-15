@@ -79,16 +79,14 @@ function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
 function Weaknesses({ types }: { types: string[] }) {
   const weaknesses = getWeaknesses(types);
   return (
-    <div className="mt-3">
+    <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1">
       <p className="text-[10px] font-bold text-slate-400">弱点</p>
-      <div className="mt-1 flex flex-wrap gap-1.5">
-        {weaknesses.map(({ type, multiplier }) => (
-          <span key={type} className="inline-flex items-center gap-1">
-            <TypeBadge type={type} />
-            <b className="text-[11px] text-slate-600">{multiplier}倍</b>
-          </span>
-        ))}
-      </div>
+      {weaknesses.map(({ type, multiplier }) => (
+        <span key={type} className="inline-flex items-center gap-1">
+          <TypeBadge type={type} />
+          <b className="text-[11px] text-slate-600">×{multiplier}</b>
+        </span>
+      ))}
     </div>
   );
 }
