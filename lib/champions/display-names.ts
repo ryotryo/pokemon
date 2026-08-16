@@ -14,10 +14,12 @@ export function getPokemonDisplayNameJa(id: string, fallback: string): string {
   return names[id] ?? fallback;
 }
 
-export function normalizePokemonSearchText(value: string): string {
+export function normalizeJapaneseSearchText(value: string): string {
   return value.trim().normalize("NFKC").toLocaleLowerCase("ja").replace(/[ぁ-ゖ]/g, (character) =>
     String.fromCharCode(character.charCodeAt(0) + 0x60));
 }
+
+export const normalizePokemonSearchText = normalizeJapaneseSearchText;
 
 export function getTypeDisplayNameJa(type: string): string {
   return TYPE_NAMES_JA[type.toLowerCase()] ?? type;

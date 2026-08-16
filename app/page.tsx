@@ -40,6 +40,13 @@ const tools = [
     available: true,
   },
   {
+    title: "技からポケモン検索",
+    description: "技を選ぶと、その技を覚えるポケモンを使用率順位で逆引きできます。",
+    href: "/move-search/",
+    iconText: "技",
+    available: true,
+  },
+  {
     title: "技分析",
     description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,
