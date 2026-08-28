@@ -1,4 +1,4 @@
-export type ToolId = "party-check" | "speed-ranking" | "usage-ranking" | "meta-history";
+export type ToolId = "party-check" | "speed-ranking" | "usage-ranking";
 
 // Item names and sprite URLs were verified with PokéAPI Item API.
 // Sprites are stored locally under public/tool-icons; pages never request PokéAPI.
@@ -23,13 +23,6 @@ export const TOOL_ICONS = {
     src: "/tool-icons/wise-glasses.png",
     sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wise-glasses.png",
     displaySize: 24,
-  },
-  "meta-history": {
-    itemId: "poke-radar",
-    itemNameJa: "ポケトレ",
-    src: "/tool-icons/poke-radar.png",
-    sourceUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-radar.png",
-    displaySize: 22,
   },
 } as const satisfies Record<ToolId, {
   itemId: string;
