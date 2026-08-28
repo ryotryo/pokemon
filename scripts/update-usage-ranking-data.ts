@@ -2,6 +2,7 @@
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { classifyForm, getAttachedForms, getUsageRank, isCanonicalPokemonRecord } from "../lib/champions/normalize";
+import { resolveChampoutLearnsetName } from "../lib/champions/learnset-name";
 import { getSeasonDisplayMetadata } from "../lib/champions/season-metadata";
 import { getChampionsSprite } from "../lib/champions/sprites";
 import type { BattleFormat, DamageClass } from "../lib/champions/types";
@@ -167,11 +168,6 @@ function parseFormAbilities(dump: string): Map<string, string[]> {
     result.set(normalizedName(heading[2]), abilities);
   });
   return result;
-}
-
-function megaLearnsetName(baseShowdownName: string, formKind: string): string {
-  const suffix = formKind.replace(/^mega\s*/i, "");
-  return `${baseShowdownName}-Mega${suffix ? ` ${suffix}` : ""}`;
 }
 
 function basePercentage(row: UsageBattleRow): PercentageRankingRow {
@@ -414,7 +410,7 @@ async function main() {
         const formKind = form.form_kind || "Base";
         const id = form.slug;
         const learnsetName = FORM_LEARNSET_OVERRIDES[id]
-          ?? (/^mega(?:\s|$)/i.test(formKind) ? megaLearnsetName(entry.showdownName, formKind) : entry.showdownName);
+          ?? resolveChampoutLearnsetName(entry.showdownName, formKind);
         const record: UsageRankingPokemon = {
           id, battleId: entry.showdownId, displayNameJa: names[id] ?? form.saved_name,
           formRelation: classifyForm(formKind), types: (form.types ?? []).map((type: string) => type.toLowerCase()),

@@ -4108,5 +4108,45 @@
     "metaCategory": "damage",
     "isCoverageMove": true,
     "source": "pokeapi"
+  },
+  "transform": {
+    "id": "transform",
+    "name": "Transform",
+    "displayNameJa": "へんしん",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "stuff-cheeks": {
+    "id": "stuff-cheeks",
+    "name": "Stuff Cheeks",
+    "displayNameJa": "ほおばる",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sing": {
+    "id": "sing",
+    "name": "Sing",
+    "displayNameJa": "うたう",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "dig": {
+    "id": "dig",
+    "name": "Dig",
+    "displayNameJa": "あなをほる",
+    "type": "ground",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
   }
 }

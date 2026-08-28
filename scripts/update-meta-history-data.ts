@@ -3,6 +3,7 @@ import path from "node:path";
 import type { BattleFormat } from "../lib/champions/types";
 import {
   assembleMetaHistoryDataset,
+  indexDisplayPokemonByBattleId,
   type MetaHistoryDataset,
   type MetaHistoryFormatDataset,
   type MetaHistoryPokemon,
@@ -70,13 +71,28 @@ function parseCsvLine(line: string) {
 }
 
 async function getJson<T>(url: string): Promise<T> {
-  const response = await fetch(url);
+  const response = await fetchWithRetry(url);
   if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
   return response.json() as Promise<T>;
 }
 
+async function fetchWithRetry(url: string, init?: RequestInit): Promise<Response> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      if (response.ok || (response.status < 500 && response.status !== 429)) return response;
+      lastError = new Error(`${url}: HTTP ${response.status}`);
+    } catch (error) {
+      lastError = error;
+    }
+    if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+  }
+  throw lastError;
+}
+
 async function getRank(sourcePath: string) {
-  const response = await fetch(new URL(sourcePath, `${API}/`), { headers: { Range: "bytes=0-1023" } });
+  const response = await fetchWithRetry(new URL(sourcePath, `${API}/`).toString(), { headers: { Range: "bytes=0-1023" } });
   if (!response.ok) throw new Error(`${sourcePath}: HTTP ${response.status}`);
   const [headerLine, rowLine] = (await response.text()).split(/\r?\n/);
   if (!headerLine || !rowLine) throw new Error(`${sourcePath}: missing first data row`);
@@ -177,7 +193,7 @@ async function updateSeason(index: ChampionsIndex, usageIndex: UsageRankingIndex
   const previousDates = new Set(previous?.dates ?? []);
   const newDates = apiDates.filter((date) => !previousDates.has(date));
   const dates = [...new Set([...(previous?.dates ?? []), ...apiDates])].sort();
-  const japaneseByBattleId = new Map(usageIndex.pokemon.filter((pokemon) => pokemon.formRelation !== "mega").map((pokemon) => [pokemon.battleId, pokemon]));
+  const japaneseByBattleId = indexDisplayPokemonByBattleId(usageIndex.pokemon);
 
   const pokemonByShowdownId = new Map<string, IndexPokemon>();
   index.pokemon.forEach((pokemon) => {

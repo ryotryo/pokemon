@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   initialMetaHistorySelection,
+  indexDisplayPokemonByBattleId,
   assembleMetaHistoryDataset,
   latestRankBand,
   latestTopPokemon,
@@ -20,15 +21,30 @@ const metadata = JSON.parse(readFileSync(path.join(dataDirectory, "metadata.json
 const singles = JSON.parse(readFileSync(path.join(dataDirectory, "singles.json"), "utf8")) as MetaHistoryFormatDataset;
 const doubles = JSON.parse(readFileSync(path.join(dataDirectory, "doubles.json"), "utf8")) as MetaHistoryFormatDataset;
 const data = assembleMetaHistoryDataset(metadata, singles, doubles) as MetaHistoryDataset;
+const m5Directory = path.join(process.cwd(), "data/meta-history/M5");
+const m5Metadata = JSON.parse(readFileSync(path.join(m5Directory, "metadata.json"), "utf8")) as MetaHistorySeasonMetadata;
+const m5Singles = JSON.parse(readFileSync(path.join(m5Directory, "singles.json"), "utf8")) as MetaHistoryFormatDataset;
+const m5Doubles = JSON.parse(readFileSync(path.join(m5Directory, "doubles.json"), "utf8")) as MetaHistoryFormatDataset;
+const m5Data = assembleMetaHistoryDataset(m5Metadata, m5Singles, m5Doubles) as MetaHistoryDataset;
 
 describe("M4 meta history", () => {
+  it("keeps base display data while retaining standalone Mega battle IDs", () => {
+    const indexed = indexDisplayPokemonByBattleId([
+      { id: "gallade", battleId: "gallade", formRelation: "base" },
+      { id: "mega-gallade", battleId: "gallade", formRelation: "mega" },
+      { id: "mega-gallade", battleId: "gallademega", formRelation: "mega" },
+    ]);
+    expect(indexed.get("gallade")?.id).toBe("gallade");
+    expect(indexed.get("gallademega")?.id).toBe("mega-gallade");
+  });
+
   it("stores the complete observed daily period and unique Champions IDs", () => {
     expect(data.season).toBe("M4");
     expect(data.dates).toEqual([
       "2026-07-16", "2026-07-17", "2026-07-18", "2026-07-19", "2026-07-20",
       "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-25",
       "2026-07-26", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30",
-      "2026-08-04",
+      "2026-08-04", "2026-08-18",
     ]);
     expect(new Set(data.pokemon.map((pokemon) => pokemon.showdownId)).size).toBe(data.pokemon.length);
     expect(data.pokemon.find((pokemon) => pokemon.showdownId === "garchomp")?.displayNameJa).toBe("ガブリアス");
@@ -36,8 +52,8 @@ describe("M4 meta history", () => {
     expect(metadata).toMatchObject({
       season: "M4",
       startDate: "2026-07-16",
-      endDate: "2026-08-04",
-      days: 16,
+      endDate: "2026-08-18",
+      days: 17,
     });
   });
 
@@ -90,6 +106,26 @@ describe("M4 meta history", () => {
       expect(fallers.every((entry) => entry.latestRank - entry.startRank === entry.change && entry.change > 0)).toBe(true);
       expect(fallers.every((entry) => entry.latestRank <= 30)).toBe(true);
       expect(fallers).toEqual([...fallers].sort((a, b) => b.change - a.change || a.latestRank - b.latestRank));
+    }
+  });
+});
+
+describe("M5 meta history", () => {
+  it("stores M5 separately while preserving M4 dates", () => {
+    expect(m5Data.dates).toEqual(["2026-08-18", "2026-08-21", "2026-08-22", "2026-08-24"]);
+    expect(m5Metadata).toMatchObject({ season: "M5", startDate: "2026-08-18", endDate: "2026-08-24", days: 4 });
+    expect(data.season).toBe("M4");
+    expect(data.dates).toContain("2026-07-16");
+    expect(data.dates).toContain("2026-08-18");
+  });
+
+  it("keeps complete unique M5 rankings for Singles and Doubles", () => {
+    for (const format of ["Singles", "Doubles"] as const) {
+      m5Data.dates.forEach((_, dateIndex) => {
+        const ranks = m5Data.pokemon.map((pokemon) => pokemon.ranks[format][dateIndex]).filter((rank): rank is number => rank !== null);
+        expect(new Set(ranks).size).toBe(ranks.length);
+        expect(ranks).toEqual(expect.arrayContaining(Array.from({ length: 30 }, (_, index) => index + 1)));
+      });
     }
   });
 });

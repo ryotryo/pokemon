@@ -19,4 +19,15 @@ describe("season display metadata", () => {
   it("keeps working when period fields are unavailable", () => {
     expect(getSeasonDisplayMetadata({ defaultSeason: "M3" })).toEqual({ seasonLabel: "M3" });
   });
+
+  it("recognizes M5 without inventing an official season period", () => {
+    expect(getSeasonDisplayMetadata({
+      defaultSeason: "Current",
+      battleDataFolders: ["M5", "M4"],
+      dailyDataFolders: ["M5/24_08_2026", "M5/18_08_2026", "M4/18_08_2026"],
+    })).toEqual({
+      seasonLabel: "M5",
+      dailyDataPeriod: { start: "2026-08-18", end: "2026-08-24" },
+    });
+  });
 });

@@ -14,7 +14,7 @@ function formatDate(value: string) {
 }
 
 export function SpeedRankingPage() {
-  const seasonPeriod = metadata.seasonPeriod;
+  const seasonPeriod = (metadata as { seasonPeriod?: { start: string; end: string } }).seasonPeriod;
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-2xl px-3 py-7 sm:px-6 sm:py-12">

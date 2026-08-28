@@ -35,6 +35,17 @@ export interface MetaHistoryFormatDataset {
   ranks: Record<string, Array<number | null>>;
 }
 
+export function indexDisplayPokemonByBattleId<T extends { battleId: string; formRelation: string }>(pokemon: T[]): Map<string, T> {
+  const result = new Map<string, T>();
+  for (const entry of pokemon) {
+    const current = result.get(entry.battleId);
+    if (!current || (current.formRelation === "mega" && entry.formRelation !== "mega")) {
+      result.set(entry.battleId, entry);
+    }
+  }
+  return result;
+}
+
 export function assembleMetaHistoryDataset(
   metadata: MetaHistorySeasonMetadata,
   singles: MetaHistoryFormatDataset,

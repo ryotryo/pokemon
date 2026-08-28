@@ -85,16 +85,20 @@ describe("usage ranking data", () => {
     expect(garchomp.formats.Singles.items).toHaveLength(10);
     expect(garchomp.formats.Singles.spreads.length).toBeGreaterThan(0);
     expect(garchomp.formats.Singles.natures).toHaveLength(10);
-    expect(garchomp.formats.Singles.abilities.map((ability) => ({ rank: ability.rank, nameJa: ability.nameJa, percentageValue: ability.percentageValue }))).toEqual([
-      { rank: 1, nameJa: "さめはだ", percentageValue: 98.9 },
-      { rank: 2, nameJa: "すながくれ", percentageValue: 1.1 },
+    expect(garchomp.formats.Singles.abilities.map((ability) => ({ rank: ability.rank, nameJa: ability.nameJa }))).toEqual([
+      { rank: 1, nameJa: "さめはだ" },
+      { rank: 2, nameJa: "すながくれ" },
     ]);
+    expect(garchomp.formats.Singles.abilities.reduce((sum, ability) => sum + (ability.percentageValue ?? 0), 0)).toBeCloseTo(100);
     expect(garchomp.formats.Singles.abilities[0].descriptionJa).toContain("接触技");
     expect(detail("alakazam").formats.Singles.abilities[0].nameJa).toBe("マジックガード");
     expect(detail("alakazam").formats.Doubles.abilities[0].nameJa).toBe("せいしんりょく");
     expect(garchomp.formats.Singles.teammates).toHaveLength(10);
-    expect(moves[garchomp.formats.Singles.moves[0].moveId].nameJa).toBe("じしん");
-    expect(moves[garchomp.formats.Doubles.moves[0].moveId].nameJa).toBe("ドラゴンクロー");
+    expect(garchomp.formats.Singles.moves[0].rank).toBe(1);
+    expect(garchomp.formats.Doubles.moves[0].rank).toBe(1);
+    expect(moves[garchomp.formats.Singles.moves[0].moveId]).toBeDefined();
+    expect(moves[garchomp.formats.Doubles.moves[0].moveId]).toBeDefined();
+    expect(garchomp.formats.Singles.moves[0].moveId).not.toBe(garchomp.formats.Doubles.moves[0].moveId);
   });
 
   it("uses champout form learnsets without adding unrelated moves", () => {

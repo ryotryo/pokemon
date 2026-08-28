@@ -1,9 +1,15 @@
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import Link from "next/link";
 import { SiteLogo } from "@/components/site-logo";
 import { ToolIcon } from "@/components/tool-icon";
 import type { ToolId } from "@/lib/tool-icons";
+import { latestNumberedSeason } from "@/lib/champions/seasons";
 
-const tools = [
+async function tools() {
+  const entries = await readdir(path.join(process.cwd(), "data/meta-history"), { withFileTypes: true });
+  const latestMetaSeason = latestNumberedSeason(entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name)) ?? "M4";
+  return [
   {
     title: "パーティー相性チェッカー",
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
@@ -27,8 +33,8 @@ const tools = [
   },
   {
     title: "環境推移",
-    description: "ポケモンチャンピオンズM4で記録されている日次順位の変化を、グラフで確認できます。",
-    href: "/meta-history/m4/",
+    description: `ポケモンチャンピオンズ${latestMetaSeason}で記録されている日次順位の変化を、グラフで確認できます。`,
+    href: `/meta-history/${latestMetaSeason.toLowerCase()}/`,
     id: "meta-history" satisfies ToolId,
     available: true,
   },
@@ -52,8 +58,10 @@ const tools = [
     available: false,
   },
 ] as const;
+}
 
-export default function Home() {
+export default async function Home() {
+  const availableTools = await tools();
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
@@ -69,7 +77,7 @@ export default function Home() {
             <span className="h-px flex-1 bg-slate-200" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {tools.filter((tool) => tool.available).map((tool) => (
+            {availableTools.filter((tool) => tool.available).map((tool) => (
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div className="min-w-0">
@@ -98,7 +106,7 @@ export default function Home() {
             <span className="h-px flex-1 bg-slate-200" />
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {tools.filter((tool) => !tool.available).map((tool) => (
+            {availableTools.filter((tool) => !tool.available).map((tool) => (
               <article key={tool.title} className="rounded-2xl border border-slate-200 bg-white p-5">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="font-black">{tool.title}</h3>
