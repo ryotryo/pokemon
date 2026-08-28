@@ -45,6 +45,24 @@ export interface DamageResult {
   hitLabel: string;
 }
 
+export interface DamageStatProfile {
+  attack: "attack" | "specialAttack";
+  defense: "defense" | "specialDefense";
+}
+
+// Championsの技説明で、技分類と異なる参照能力が明記されている技。
+// 分類とは独立して攻撃側・防御側の能力を解決し、例外を計算と表示で共有する。
+const MOVE_STAT_OVERRIDES: Record<string, Partial<DamageStatProfile>> = {
+  "473": { defense: "defense" }, // サイコショック
+};
+
+export function getDamageStatProfile(move: Pick<DamageChartMove, "id" | "damageClass">): DamageStatProfile {
+  const defaults: DamageStatProfile = move.damageClass === "physical"
+    ? { attack: "attack", defense: "defense" }
+    : { attack: "specialAttack", defense: "specialDefense" };
+  return { ...defaults, ...MOVE_STAT_OVERRIDES[move.id] };
+}
+
 export const ITEM_DAMAGE_MODIFIERS = [1, 1.1, 1.2, 1.3, 1.5] as const;
 export type ItemDamageModifier = typeof ITEM_DAMAGE_MODIFIERS[number];
 
@@ -98,6 +116,14 @@ export const DEFENSE_PATTERNS = [
   { id: "max-plus", physicalLabel: "H252/B252+", specialLabel: "H252/D252+", hpEv: 252, defenseEv: 252, nature: 1.1 },
 ] as const;
 
+export function getAttackPatternLabel(move: Pick<DamageChartMove, "id" | "damageClass">, pattern: typeof ATTACK_PATTERNS[number]): string {
+  return getDamageStatProfile(move).attack === "attack" ? pattern.physicalLabel : pattern.specialLabel;
+}
+
+export function getDefensePatternLabel(move: Pick<DamageChartMove, "id" | "damageClass">, pattern: typeof DEFENSE_PATTERNS[number]): string {
+  return getDamageStatProfile(move).defense === "defense" ? pattern.physicalLabel : pattern.specialLabel;
+}
+
 // 威力欄だけでは通常ダメージを確定できない技。試作版では一覧から除外する。
 const UNSUPPORTED_MOVE_IDS = new Set([
   "49", "67", "68", "69", "82", "101", "117", "149", "162", "175", "179", "216", "217", "218", "222",
@@ -149,8 +175,9 @@ export function calculateDamage(options: {
 }): DamageResult {
   const { attacker, defender, move } = options;
   const physical = move.damageClass === "physical";
-  const attackBase = physical ? attacker.baseStats.attack : attacker.baseStats.specialAttack;
-  const defenseBase = physical ? defender.baseStats.defense : defender.baseStats.specialDefense;
+  const statProfile = getDamageStatProfile(move);
+  const attackBase = attacker.baseStats[statProfile.attack];
+  const defenseBase = defender.baseStats[statProfile.defense];
   let attack = calculateBattleStat(attackBase, options.attackEv, options.attackNature);
   const defense = calculateBattleStat(defenseBase, options.defenseEv, options.defenseNature);
   const hp = calculateHpStat(defender.baseStats.hp, options.hpEv);

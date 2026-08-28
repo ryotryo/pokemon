@@ -1,9 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
+  ATTACK_PATTERNS,
+  DEFENSE_PATTERNS,
   calculateBattleStat,
   calculateDamage,
   calculateHpStat,
+  getAttackPatternLabel,
+  getDamageStatProfile,
   getDefaultAbilityName,
+  getDefensePatternLabel,
   getOffensiveAbilityDamageStatus,
   isSupportedDamageMove,
   type DamageChartMove,
@@ -33,6 +38,16 @@ const move: DamageChartMove = {
   usage: null,
   rank: 1,
   isContact: true,
+};
+
+const psyshock: DamageChartMove = {
+  ...move,
+  id: "473",
+  nameJa: "サイコショック",
+  type: "psychic",
+  damageClass: "special",
+  power: 80,
+  isContact: false,
 };
 
 describe("damage chart stats", () => {
@@ -83,6 +98,68 @@ describe("calculateDamage", () => {
       attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
     });
     expect(special.maxDamage).toBeGreaterThan(physical.maxDamage);
+  });
+
+  it("uses special attack and physical defense for Psyshock", () => {
+    const attacker = pokemon({ baseStats: { hp: 100, attack: 20, defense: 100, specialAttack: 150, specialDefense: 100, speed: 100 } });
+    const defender = pokemon({ baseStats: { hp: 100, attack: 100, defense: 200, specialAttack: 100, specialDefense: 50, speed: 100 } });
+    const result = calculateDamage({
+      attacker, defender, move: psyshock,
+      attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+    });
+    const higherSpecialDefense = calculateDamage({
+      attacker,
+      defender: pokemon({ baseStats: { ...defender.baseStats, specialDefense: 200 } }),
+      move: psyshock,
+      attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+    });
+    const lowerDefense = calculateDamage({
+      attacker,
+      defender: pokemon({ baseStats: { ...defender.baseStats, defense: 50 } }),
+      move: psyshock,
+      attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+    });
+    const lowerSpecialAttack = calculateDamage({
+      attacker: pokemon({ baseStats: { ...attacker.baseStats, attack: 200, specialAttack: 50 } }),
+      defender,
+      move: psyshock,
+      attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+    });
+    expect(result).toEqual(higherSpecialDefense);
+    expect(lowerDefense.maxDamage).toBeGreaterThan(result.maxDamage);
+    expect(lowerSpecialAttack.maxDamage).toBeLessThan(result.maxDamage);
+  });
+
+  it("changes Psyshock damage across C and B investment patterns", () => {
+    const options = { attacker: pokemon(), defender: pokemon(), move: psyshock, hpEv: 0 } as const;
+    const c0 = calculateDamage({ ...options, attackEv: 0, attackNature: 1, defenseEv: 0, defenseNature: 1 });
+    const c252 = calculateDamage({ ...options, attackEv: 252, attackNature: 1, defenseEv: 0, defenseNature: 1 });
+    const c252Plus = calculateDamage({ ...options, attackEv: 252, attackNature: 1.1, defenseEv: 0, defenseNature: 1 });
+    const b252Plus = calculateDamage({ ...options, attackEv: 252, attackNature: 1.1, defenseEv: 252, defenseNature: 1.1 });
+    expect(c252.maxDamage).toBeGreaterThan(c0.maxDamage);
+    expect(c252Plus.maxDamage).toBeGreaterThan(c252.maxDamage);
+    expect(b252Plus.maxDamage).toBeLessThan(c252Plus.maxDamage);
+  });
+
+  it("applies the H0/B0, H252/B0, and H252/B252+ defensive grid to Psyshock", () => {
+    const results = DEFENSE_PATTERNS.map((pattern) => calculateDamage({
+      attacker: pokemon(), defender: pokemon(), move: psyshock,
+      attackEv: 0, attackNature: 1,
+      hpEv: pattern.hpEv, defenseEv: pattern.defenseEv, defenseNature: pattern.nature,
+    }));
+    expect(results[1].maxDamage).toBe(results[0].maxDamage);
+    expect(results[1].maxPercent).toBeLessThan(results[0].maxPercent);
+    expect(results[2].maxDamage).toBeLessThan(results[1].maxDamage);
+  });
+
+  it("keeps ordinary special moves dependent on special defense, not defense", () => {
+    const specialMove = { ...move, id: "53", damageClass: "special" as const };
+    const options = { attacker: pokemon(), move: specialMove, attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1 } as const;
+    const baseline = calculateDamage({ ...options, defender: pokemon() });
+    const higherDefense = calculateDamage({ ...options, defender: pokemon({ baseStats: { ...pokemon().baseStats, defense: 200 } }) });
+    const higherSpecialDefense = calculateDamage({ ...options, defender: pokemon({ baseStats: { ...pokemon().baseStats, specialDefense: 200 } }) });
+    expect(higherDefense).toEqual(baseline);
+    expect(higherSpecialDefense.maxDamage).toBeLessThan(baseline.maxDamage);
   });
 
   it("returns zero for an immune target", () => {
@@ -141,6 +218,23 @@ describe("calculateDamage", () => {
     expect(adapted.maxDamage).toBe(92);
     expect(unsupported).toEqual(baseline);
     expect(noModifier).toEqual(baseline);
+  });
+});
+
+describe("damage stat profiles", () => {
+  it("keeps ordinary physical and special stat references", () => {
+    expect(getDamageStatProfile(move)).toEqual({ attack: "attack", defense: "defense" });
+    expect(getDamageStatProfile({ ...move, damageClass: "special" })).toEqual({ attack: "specialAttack", defense: "specialDefense" });
+  });
+
+  it("uses C labels and B labels for Psyshock's 3x3 grid", () => {
+    expect(ATTACK_PATTERNS.map((pattern) => getAttackPatternLabel(psyshock, pattern))).toEqual(["C0", "C252", "C252+"]);
+    expect(DEFENSE_PATTERNS.map((pattern) => getDefensePatternLabel(psyshock, pattern))).toEqual(["H0/B0", "H252/B0", "H252/B252+"]);
+  });
+
+  it("does not apply Psyshock's override to an ordinary special move", () => {
+    const ordinarySpecial = { ...move, id: "53", damageClass: "special" as const };
+    expect(DEFENSE_PATTERNS.map((pattern) => getDefensePatternLabel(ordinarySpecial, pattern))).toEqual(["H0/D0", "H252/D0", "H252/D252+"]);
   });
 });
 

@@ -12,7 +12,9 @@ import {
   ITEM_DAMAGE_MODIFIERS,
   calculateDamage,
   damageBarColor,
+  getAttackPatternLabel,
   getDefaultAbilityName,
+  getDefensePatternLabel,
   getOffensiveAbilityDamageStatus,
   type DamageChartDataset,
   type DamageChartMove,
@@ -97,7 +99,6 @@ function DamageCell({ result }: { result: ReturnType<typeof calculateDamage> }) 
 }
 
 function MoveDamageGrid({ attacker, defender, move, settings }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; move: DamageChartMove; settings: AttackSettings }) {
-  const physical = move.damageClass === "physical";
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <header className="flex flex-wrap items-center gap-1.5 border-b border-slate-100 px-3 py-2">
@@ -110,13 +111,13 @@ function MoveDamageGrid({ attacker, defender, move, settings }: { attacker: Dama
         <span className="text-center text-[8px] font-bold text-slate-400">攻＼防</span>
         {DEFENSE_PATTERNS.map((pattern) => (
           <span key={pattern.id} className="px-0.5 text-center text-[8px] font-bold leading-3 text-slate-500 sm:text-[9px]">
-            {physical ? pattern.physicalLabel : pattern.specialLabel}
+            {getDefensePatternLabel(move, pattern)}
           </span>
         ))}
         {ATTACK_PATTERNS.map((attackPattern) => (
           <div key={attackPattern.id} className="contents">
             <span className="text-center text-[9px] font-black text-blue-700">
-              {physical ? attackPattern.physicalLabel : attackPattern.specialLabel}
+              {getAttackPatternLabel(move, attackPattern)}
             </span>
             {DEFENSE_PATTERNS.map((defensePattern) => (
               <DamageCell
