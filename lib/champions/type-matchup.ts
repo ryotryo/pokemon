@@ -43,10 +43,19 @@ export function getTypeMultiplier(attackType: string, defenderTypes: string[]): 
   return defenderTypes.reduce((total, defender) => total * (TYPE_CHART[attackType.toLowerCase()]?.[defender.toLowerCase()] ?? 1), 1);
 }
 
+export function getTypeMatchups(defenderTypes: string[]) {
+  return TYPE_ORDER.map((type) => ({ type, multiplier: getTypeMultiplier(type, defenderTypes) }));
+}
+
 export function getWeaknesses(defenderTypes: string[]) {
-  return TYPE_ORDER
-    .map((type) => ({ type, multiplier: getTypeMultiplier(type, defenderTypes) }))
+  return getTypeMatchups(defenderTypes)
     .filter(({ multiplier }) => multiplier >= 2)
+    .sort((a, b) => b.multiplier - a.multiplier);
+}
+
+export function getResistances(defenderTypes: string[]) {
+  return getTypeMatchups(defenderTypes)
+    .filter(({ multiplier }) => multiplier < 1)
     .sort((a, b) => b.multiplier - a.multiplier);
 }
 

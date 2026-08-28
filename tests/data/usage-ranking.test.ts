@@ -12,6 +12,7 @@ import {
   type UsageRankingIndex,
 } from "../../lib/champions/usage-ranking";
 import { getUsagePokemonPageData } from "../../lib/champions/usage-ranking-data";
+import { getTypeMultiplier } from "../../lib/champions/type-matchup";
 
 const root = process.cwd();
 const index = JSON.parse(readFileSync(path.join(root, "data/usage-ranking/index.json"), "utf8")) as UsageRankingIndex;
@@ -70,12 +71,17 @@ describe("usage ranking data", () => {
   it("moves mega base stats to the base-form detail and rejects mega detail pages", async () => {
     const garchomp = await getUsagePokemonPageData("garchomp");
     const charizard = await getUsagePokemonPageData("charizard");
+    const rotomWash = await getUsagePokemonPageData("rotom-wash");
     expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス"]);
     expect(garchomp?.baseStats.speed).toBe(102);
     expect(garchomp?.megaForms[0].baseStats.attack).toBe(170);
     expect(garchomp?.megaForms[0].types).toEqual(["dragon", "ground"]);
     expect(garchomp?.megaForms[0].sprite).toContain("Mega%20Garchomp.png");
     expect(charizard?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガリザードンX", "メガリザードンY"]);
+    expect(getTypeMultiplier("rock", charizard!.types)).toBe(4);
+    expect(getTypeMultiplier("rock", charizard!.megaForms[0].types)).toBe(2);
+    expect(getTypeMultiplier("rock", charizard!.megaForms[1].types)).toBe(4);
+    expect(getTypeMultiplier("ground", rotomWash!.types)).toBe(2);
     expect(await getUsagePokemonPageData("mega-garchomp")).toBeNull();
   });
 

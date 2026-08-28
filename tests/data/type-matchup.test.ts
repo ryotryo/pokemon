@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getTypeMultiplier, getWeaknesses } from "../../lib/champions/type-matchup";
+import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getResistances, getTypeMatchups, getTypeMultiplier, getWeaknesses } from "../../lib/champions/type-matchup";
 
 describe("type matchup", () => {
   it("multiplies dual-type effectiveness", () => {
@@ -14,6 +14,33 @@ describe("type matchup", () => {
       { type: "dragon", multiplier: 2 },
       { type: "fairy", multiplier: 2 },
     ]);
+  });
+  it("lists single-type resistances and type-based immunities", () => {
+    expect(getResistances(["Fire"])).toEqual([
+      { type: "fire", multiplier: 0.5 },
+      { type: "grass", multiplier: 0.5 },
+      { type: "ice", multiplier: 0.5 },
+      { type: "bug", multiplier: 0.5 },
+      { type: "steel", multiplier: 0.5 },
+      { type: "fairy", multiplier: 0.5 },
+    ]);
+    expect(getResistances(["Flying"])).toContainEqual({ type: "ground", multiplier: 0 });
+  });
+  it("lists quarter resistances and excludes neutralized dual-type matchups", () => {
+    const matchups = getTypeMatchups(["Bug", "Steel"]);
+    expect(getWeaknesses(["Bug", "Steel"])).toContainEqual({ type: "fire", multiplier: 4 });
+    expect(getResistances(["Bug", "Steel"])).toContainEqual({ type: "grass", multiplier: 0.25 });
+    expect(getResistances(["Bug", "Steel"])).toContainEqual({ type: "poison", multiplier: 0 });
+    expect(matchups.find(({ type }) => type === "fighting")?.multiplier).toBe(1);
+    expect(getWeaknesses(["Bug", "Steel"]).some(({ type }) => type === "fighting")).toBe(false);
+    expect(getResistances(["Bug", "Steel"]).some(({ type }) => type === "fighting")).toBe(false);
+    expect([...getWeaknesses(["Bug", "Steel"]), ...getResistances(["Bug", "Steel"])]).not.toContainEqual(expect.objectContaining({ multiplier: 1 }));
+  });
+  it("uses only form types and does not add Levitate immunity", () => {
+    expect(getTypeMultiplier("rock", ["Fire", "Flying"])).toBe(4);
+    expect(getTypeMultiplier("rock", ["Fire", "Dragon"])).toBe(2);
+    expect(getTypeMultiplier("ground", ["Electric", "Water"])).toBe(2);
+    expect(getResistances(["Electric", "Water"]).some(({ type }) => type === "ground")).toBe(false);
   });
   it("deduplicates attack types and retains effective types and best multiplier", () => {
     expect(evaluatePartyMember({ id: "a", name: "A", moves: [

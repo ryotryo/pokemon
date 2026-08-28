@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { TYPE_NAMES_JA } from "@/lib/champions/display-names";
-import { getWeaknesses } from "@/lib/champions/type-matchup";
+import { getTypeMatchups } from "@/lib/champions/type-matchup";
 import type { BattleFormat, DamageClass } from "@/lib/champions/types";
 import { DamageClassBadge, TypeBadge } from "@/components/ui/type-badge";
 import {
@@ -76,16 +76,23 @@ function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
   );
 }
 
-function Weaknesses({ types }: { types: string[] }) {
-  const weaknesses = getWeaknesses(types);
+function TypeMatchups({ types }: { types: string[] }) {
+  const matchups = getTypeMatchups(types);
+  const weaknesses = matchups.filter(({ multiplier }) => multiplier >= 2).sort((a, b) => b.multiplier - a.multiplier);
+  const resistances = matchups.filter(({ multiplier }) => multiplier < 1).sort((a, b) => b.multiplier - a.multiplier);
+  const groups = [{ label: "弱点", entries: weaknesses }, { label: "耐性", entries: resistances }];
   return (
-    <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1">
-      <p className="text-[10px] font-bold text-slate-400">弱点</p>
-      {weaknesses.map(({ type, multiplier }) => (
-        <span key={type} className="inline-flex items-center gap-1">
-          <TypeBadge type={type} />
-          <b className="text-[11px] text-slate-600">×{multiplier}</b>
-        </span>
+    <div className="mt-3 space-y-1">
+      {groups.map(({ label, entries }) => (
+        <div key={label} className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <p className="text-[10px] font-bold text-slate-400">{label}</p>
+          {entries.map(({ type, multiplier }) => (
+            <span key={type} className="inline-flex items-center gap-1">
+              <TypeBadge type={type} />
+              <b className="text-[11px] text-slate-600">×{multiplier}</b>
+            </span>
+          ))}
+        </div>
       ))}
     </div>
   );
@@ -103,7 +110,7 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs font-bold">{mega.displayNameJa}</p>
               <BaseStats stats={mega.baseStats} />
-              <Weaknesses types={mega.types} />
+              <TypeMatchups types={mega.types} />
             </div>
           </div>
         ))}
@@ -333,7 +340,7 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
           <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
           <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
           <BaseStats stats={pokemon.baseStats} />
-          <Weaknesses types={pokemon.types} />
+          <TypeMatchups types={pokemon.types} />
         </div>
       </div>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
