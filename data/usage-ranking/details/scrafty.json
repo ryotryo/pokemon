@@ -106,34 +106,64 @@
       "usagePercentage": null,
       "moves": [
         {
+          "rank": 1,
+          "percentage": "88.8%",
+          "percentageValue": 88.8,
+          "moveId": "409"
+        },
+        {
+          "rank": 2,
+          "percentage": "74.6%",
+          "percentageValue": 74.6,
+          "moveId": "282"
+        },
+        {
+          "rank": 3,
+          "percentage": "49.7%",
+          "percentageValue": 49.7,
+          "moveId": "349"
+        },
+        {
+          "rank": 4,
+          "percentage": "28.6%",
+          "percentageValue": 28.6,
+          "moveId": "8"
+        },
+        {
+          "rank": 5,
+          "percentage": "27.9%",
+          "percentageValue": 27.9,
+          "moveId": "339"
+        },
+        {
           "rank": 6,
-          "percentage": "23.4%",
-          "percentageValue": 23.4,
+          "percentage": "23.3%",
+          "percentageValue": 23.3,
           "moveId": "398"
         },
         {
           "rank": 7,
-          "percentage": "20.8%",
-          "percentageValue": 20.8,
+          "percentage": "20.9%",
+          "percentageValue": 20.9,
           "moveId": "269"
         },
         {
           "rank": 8,
-          "percentage": "11.8%",
-          "percentageValue": 11.8,
+          "percentage": "11.7%",
+          "percentageValue": 11.7,
           "moveId": "675"
         },
         {
           "rank": 9,
           "percentage": "8.9%",
           "percentageValue": 8.9,
-          "moveId": "9"
+          "moveId": "242"
         },
         {
           "rank": 10,
-          "percentage": "1.0%",
-          "percentageValue": 1,
-          "moveId": "242"
+          "percentage": "8.8%",
+          "percentageValue": 8.8,
+          "moveId": "9"
         }
       ],
       "items": [
@@ -201,8 +231,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "12.4%",
-          "percentageValue": 12.4,
+          "percentage": "12.5%",
+          "percentageValue": 12.5,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -213,8 +243,8 @@
         },
         {
           "rank": 2,
-          "percentage": "11.0%",
-          "percentageValue": 11,
+          "percentage": "10.9%",
+          "percentageValue": 10.9,
           "hp": 32,
           "attack": 32,
           "defense": 2,
@@ -225,8 +255,8 @@
         },
         {
           "rank": 3,
-          "percentage": "5.8%",
-          "percentageValue": 5.8,
+          "percentage": "5.9%",
+          "percentageValue": 5.9,
           "hp": 32,
           "attack": 32,
           "defense": 0,
@@ -331,8 +361,8 @@
         },
         {
           "rank": 2,
-          "percentage": "20.8%",
-          "percentageValue": 20.8,
+          "percentage": "20.9%",
+          "percentageValue": 20.9,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
@@ -386,12 +416,20 @@
           "statDown": "とくぼう"
         },
         {
-          "rank": 10,
+          "rank": 9,
           "percentage": "0.1%",
           "percentageValue": 0.1,
           "nameJa": "さみしがり",
           "statUp": "こうげき",
           "statDown": "ぼうぎょ"
+        },
+        {
+          "rank": 10,
+          "percentage": "0.1%",
+          "percentageValue": 0.1,
+          "nameJa": "のうてんき",
+          "statUp": "ぼうぎょ",
+          "statDown": "とくぼう"
         }
       ],
       "abilities": [
@@ -546,8 +584,8 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "87.9%",
-          "percentageValue": 87.9,
+          "percentage": "87.7%",
+          "percentageValue": 87.7,
           "moveId": "282"
         },
         {
@@ -558,8 +596,8 @@
         },
         {
           "rank": 3,
-          "percentage": "68.1%",
-          "percentageValue": 68.1,
+          "percentage": "68.0%",
+          "percentageValue": 68,
           "moveId": "409"
         },
         {
@@ -570,20 +608,20 @@
         },
         {
           "rank": 5,
-          "percentage": "22.0%",
-          "percentageValue": 22,
+          "percentage": "21.9%",
+          "percentageValue": 21.9,
           "moveId": "197"
         },
         {
           "rank": 6,
-          "percentage": "21.7%",
-          "percentageValue": 21.7,
+          "percentage": "21.8%",
+          "percentageValue": 21.8,
           "moveId": "182"
         },
         {
           "rank": 7,
-          "percentage": "17.0%",
-          "percentageValue": 17,
+          "percentage": "16.9%",
+          "percentageValue": 16.9,
           "moveId": "8"
         },
         {
@@ -608,8 +646,8 @@
       "items": [
         {
           "rank": 1,
-          "percentage": "83.1%",
-          "percentageValue": 83.1,
+          "percentage": "83.0%",
+          "percentageValue": 83,
           "nameJa": "ズルズキナイト"
         },
         {
@@ -682,8 +720,8 @@
         },
         {
           "rank": 2,
-          "percentage": "13.6%",
-          "percentageValue": 13.6,
+          "percentage": "13.4%",
+          "percentageValue": 13.4,
           "hp": 32,
           "attack": 32,
           "defense": 2,
@@ -757,18 +795,6 @@
           "percentage": "1.4%",
           "percentageValue": 1.4,
           "hp": 32,
-          "attack": 32,
-          "defense": 0,
-          "specialAttack": 0,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 32 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 9,
-          "percentage": "1.4%",
-          "percentageValue": 1.4,
-          "hp": 32,
           "attack": 20,
           "defense": 0,
           "specialAttack": 0,
@@ -777,9 +803,21 @@
           "raw": "HP 32 / Atk 20 / Def 0 / SpA 0 / SpD 14 / Spe 0"
         },
         {
+          "rank": 9,
+          "percentage": "1.4%",
+          "percentageValue": 1.4,
+          "hp": 32,
+          "attack": 32,
+          "defense": 0,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 32 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 0"
+        },
+        {
           "rank": 10,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
+          "percentage": "1.2%",
+          "percentageValue": 1.2,
           "hp": 20,
           "attack": 32,
           "defense": 0,
@@ -792,8 +830,8 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "46.7%",
-          "percentageValue": 46.7,
+          "percentage": "46.5%",
+          "percentageValue": 46.5,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
@@ -981,18 +1019,6 @@
           "rank": 8,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "incineroar",
-          "displayNameJa": "ガオガエン",
-          "types": [
-            "fire",
-            "dark"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Incineroar.png"
-        },
-        {
-          "rank": 9,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "whimsicott",
           "displayNameJa": "エルフーン",
           "types": [
@@ -1000,6 +1026,18 @@
             "fairy"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Whimsicott.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "incineroar",
+          "displayNameJa": "ガオガエン",
+          "types": [
+            "fire",
+            "dark"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Incineroar.png"
         },
         {
           "rank": 10,
