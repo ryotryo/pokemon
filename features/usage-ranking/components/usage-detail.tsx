@@ -287,7 +287,7 @@ function LearnableMoves({ moves, topMoveIds, onSelectMove }: { moves: UsageMoveD
   );
 }
 
-export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
+export function UsageDetail({ pokemon, hasGuide = false }: { pokemon: UsagePokemonPageData; hasGuide?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -350,6 +350,11 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
         </div>
         <BaseStats stats={pokemon.baseStats} />
         <TypeMatchups types={pokemon.types} />
+        {hasGuide && (
+          <Link href={`/pokemon-guide/${pokemon.id}/`} className="mt-3 inline-flex min-h-10 items-center rounded-full bg-blue-700 px-4 text-xs font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+            使い方解説を見る →
+          </Link>
+        )}
       </section>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
       <MegaBaseStats pokemon={pokemon} />

@@ -1,6 +1,7 @@
 import { SiteLogo } from "@/components/site-logo";
 import { Suspense } from "react";
 import type { UsagePokemonPageData } from "@/lib/champions/usage-ranking";
+import { hasPokemonGuide } from "@/content/pokemon-guides";
 import { UsageDetail } from "./usage-detail";
 
 export function UsageDetailPage({ pokemon }: { pokemon: UsagePokemonPageData }) {
@@ -12,7 +13,7 @@ export function UsageDetailPage({ pokemon }: { pokemon: UsagePokemonPageData }) 
           <p className="text-[10px] font-bold tracking-[0.12em] text-blue-700">ポケモンチャンピオンズ</p>
         </header>
         <Suspense fallback={<div className="h-64 animate-pulse rounded-2xl bg-slate-200" />}>
-          <UsageDetail pokemon={pokemon} />
+          <UsageDetail pokemon={pokemon} hasGuide={hasPokemonGuide(pokemon.id)} />
         </Suspense>
         <footer className="mt-8 text-xs leading-5 text-slate-500">対戦データ: Champions Battle Data<br />習得技・技情報: projectpokemon/champout</footer>
       </div>

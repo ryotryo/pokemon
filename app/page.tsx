@@ -40,6 +40,13 @@ const tools = [
     available: true,
   },
   {
+    title: "ポケモン使い方解説",
+    description: "基本の使い方、得意・苦手な相手、相性のいい味方を初心者向けに解説します。",
+    href: "/pokemon-guide/",
+    iconText: "解",
+    available: true,
+  },
+  {
     title: "技分析",
     description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,
