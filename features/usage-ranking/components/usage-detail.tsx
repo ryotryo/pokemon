@@ -63,16 +63,17 @@ function BaseStats({ stats }: { stats: UsagePokemonPageData["baseStats"] }) {
     ["すばやさ", stats.speed],
   ] as const;
   return (
-    <div className="mt-2 max-w-72">
-      <div className="grid grid-cols-3 gap-x-3 gap-y-1.5 tabular-nums">
+    <section className="mt-3 border-t border-slate-100 pt-2">
+      <h2 className="text-xs font-black text-slate-700">種族値</h2>
+      <div className="mt-1 grid grid-cols-6 gap-x-1 text-center tabular-nums">
         {values.map(([label, value]) => (
           <span key={label} className="min-w-0">
-            <span className="block truncate text-[9px] leading-3 text-slate-400">{label}</span>
+            <span className="block truncate text-[8px] leading-3 text-slate-400 sm:text-[9px]">{label}</span>
             <b className="block text-xs leading-4 text-slate-700">{value}</b>
           </span>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -82,17 +83,19 @@ function TypeMatchups({ types }: { types: string[] }) {
   const resistances = matchups.filter(({ multiplier }) => multiplier < 1).sort((a, b) => b.multiplier - a.multiplier);
   const groups = [{ label: "弱点", entries: weaknesses }, { label: "耐性", entries: resistances }];
   return (
-    <div className="mt-3 space-y-1">
+    <div className="mt-2 divide-y divide-slate-100 border-t border-slate-100">
       {groups.map(({ label, entries }) => (
-        <div key={label} className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <p className="text-[10px] font-bold text-slate-400">{label}</p>
-          {entries.map(({ type, multiplier }) => (
-            <span key={type} className="inline-flex items-center gap-1">
-              <TypeBadge type={type} />
-              <b className="text-[11px] text-slate-600">×{multiplier}</b>
-            </span>
-          ))}
-        </div>
+        <section key={label} className="py-2 last:pb-0">
+          <h2 className="text-xs font-black text-slate-700">{label}</h2>
+          <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1">
+            {entries.map(({ type, multiplier }) => (
+              <span key={type} className="inline-flex items-center gap-1">
+                <TypeBadge type={type} />
+                <b className="text-[11px] text-slate-600">×{multiplier}</b>
+              </span>
+            ))}
+          </div>
+        </section>
       ))}
     </div>
   );
@@ -102,17 +105,20 @@ function MegaBaseStats({ pokemon }: { pokemon: UsagePokemonPageData }) {
   if (!pokemon.megaForms.length) return null;
   return (
     <section className="mt-3 rounded-xl border border-blue-100 bg-blue-50/60 p-3">
-      <h2 className="text-sm font-black text-blue-950">メガシンカ種族値</h2>
-      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+      <h2 className="text-sm font-black text-blue-950">メガシンカ</h2>
+      <div className="mt-2 divide-y divide-blue-100">
         {pokemon.megaForms.map((mega) => (
-          <div key={mega.id} className="flex items-center gap-2 rounded-lg bg-white px-2 py-2">
-            <PokemonImage src={mega.sprite} name={mega.displayNameJa} size={44} />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-bold">{mega.displayNameJa}</p>
-              <BaseStats stats={mega.baseStats} />
-              <TypeMatchups types={mega.types} />
+          <article key={mega.id} className="py-3 first:pt-0 last:pb-0">
+            <div className="flex items-center gap-3">
+              <PokemonImage src={mega.sprite} name={mega.displayNameJa} size={44} />
+              <div className="min-w-0 flex-1">
+                <h3 className="truncate text-sm font-black">{mega.displayNameJa}</h3>
+                <div className="mt-1 flex flex-wrap gap-1">{mega.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
+              </div>
             </div>
-          </div>
+            <BaseStats stats={mega.baseStats} />
+            <TypeMatchups types={mega.types} />
+          </article>
         ))}
       </div>
     </section>
@@ -333,16 +339,18 @@ export function UsageDetail({ pokemon }: { pokemon: UsagePokemonPageData }) {
   return (
     <div>
       <Link href={`/usage-ranking/?format=${formatQuery(format)}`} className="inline-flex min-h-11 items-center text-sm font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600">← 使用率ランキング</Link>
-      <div className="mt-2 flex items-center gap-4">
-        <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96} />
-        <div className="min-w-0 flex-1">
-          <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
-          <div className="mt-2 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
-          <p className="mt-2 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
-          <BaseStats stats={pokemon.baseStats} />
-          <TypeMatchups types={pokemon.types} />
+      <section className="mt-2" aria-label={`${pokemon.displayNameJa}の基本情報`}>
+        <div className="flex items-center gap-4">
+          <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96} />
+          <div className="min-w-0 flex-1">
+            <h1 className="break-words text-2xl font-black">{pokemon.displayNameJa}</h1>
+            <div className="mt-1.5 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
+            <p className="mt-1.5 text-sm font-bold text-blue-700">{format === "Singles" ? "シングル" : "ダブル"} 第{detail.rank ?? "—"}位</p>
+          </div>
         </div>
-      </div>
+        <BaseStats stats={pokemon.baseStats} />
+        <TypeMatchups types={pokemon.types} />
+      </section>
       <div className="mt-5"><FormatToggle value={format} onChange={changeFormat} /></div>
       <MegaBaseStats pokemon={pokemon} />
       <nav aria-label="詳細セクション" className="sticky top-0 z-30 -mx-3 mt-3 flex gap-1 overflow-x-auto border-y border-slate-200 bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur">
