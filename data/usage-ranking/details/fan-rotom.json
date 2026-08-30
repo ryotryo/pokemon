@@ -69,14 +69,14 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "90.9%",
-          "percentageValue": 90.9,
+          "percentage": "90.7%",
+          "percentageValue": 90.7,
           "moveId": "403"
         },
         {
           "rank": 2,
-          "percentage": "62.2%",
-          "percentageValue": 62.2,
+          "percentage": "61.9%",
+          "percentageValue": 61.9,
           "moveId": "521"
         },
         {
@@ -87,14 +87,14 @@
         },
         {
           "rank": 4,
-          "percentage": "31.1%",
-          "percentageValue": 31.1,
+          "percentage": "31.3%",
+          "percentageValue": 31.3,
           "moveId": "261"
         },
         {
           "rank": 5,
-          "percentage": "27.2%",
-          "percentageValue": 27.2,
+          "percentage": "27.4%",
+          "percentageValue": 27.4,
           "moveId": "271"
         },
         {
@@ -105,15 +105,15 @@
         },
         {
           "rank": 7,
-          "percentage": "11.4%",
-          "percentageValue": 11.4,
-          "moveId": "86"
+          "percentage": "11.3%",
+          "percentageValue": 11.3,
+          "moveId": "220"
         },
         {
           "rank": 8,
-          "percentage": "11.1%",
-          "percentageValue": 11.1,
-          "moveId": "220"
+          "percentage": "11.3%",
+          "percentageValue": 11.3,
+          "moveId": "86"
         },
         {
           "rank": 9,
@@ -149,26 +149,26 @@
         },
         {
           "rank": 4,
-          "percentage": "4.8%",
-          "percentageValue": 4.8,
+          "percentage": "4.7%",
+          "percentageValue": 4.7,
           "nameJa": "こうかくレンズ"
         },
         {
           "rank": 5,
-          "percentage": "4.3%",
-          "percentageValue": 4.3,
+          "percentage": "4.2%",
+          "percentageValue": 4.2,
           "nameJa": "いのちのたま"
         },
         {
           "rank": 6,
-          "percentage": "2.9%",
-          "percentageValue": 2.9,
+          "percentage": "2.8%",
+          "percentageValue": 2.8,
           "nameJa": "たつじんのおび"
         },
         {
           "rank": 7,
-          "percentage": "2.3%",
-          "percentageValue": 2.3,
+          "percentage": "2.5%",
+          "percentageValue": 2.5,
           "nameJa": "じしゃく"
         },
         {
@@ -193,8 +193,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "26.0%",
-          "percentageValue": 26,
+          "percentage": "26.3%",
+          "percentageValue": 26.3,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -315,24 +315,24 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "38.5%",
-          "percentageValue": 38.5,
+          "percentage": "38.2%",
+          "percentageValue": 38.2,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "30.6%",
-          "percentageValue": 30.6,
+          "percentage": "30.8%",
+          "percentageValue": 30.8,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
         },
         {
           "rank": 3,
-          "percentage": "20.1%",
-          "percentageValue": 20.1,
+          "percentage": "20.2%",
+          "percentageValue": 20.2,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
@@ -347,8 +347,8 @@
         },
         {
           "rank": 5,
-          "percentage": "1.2%",
-          "percentageValue": 1.2,
+          "percentage": "1.0%",
+          "percentageValue": 1,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
@@ -389,9 +389,9 @@
           "rank": 10,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "まじめ",
-          "statUp": null,
-          "statDown": null
+          "nameJa": "むじゃき",
+          "statUp": "すばやさ",
+          "statDown": "とくぼう"
         }
       ],
       "abilities": [
@@ -432,18 +432,6 @@
           "rank": 3,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "gengar",
-          "displayNameJa": "ゲンガー",
-          "types": [
-            "ghost",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gengar.png"
-        },
-        {
-          "rank": 4,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "blaziken",
           "displayNameJa": "バシャーモ",
           "types": [
@@ -451,6 +439,18 @@
             "fighting"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Blaziken.png"
+        },
+        {
+          "rank": 4,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "gengar",
+          "displayNameJa": "ゲンガー",
+          "types": [
+            "ghost",
+            "poison"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gengar.png"
         },
         {
           "rank": 5,
@@ -492,17 +492,6 @@
           "rank": 8,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "hippowdon",
-          "displayNameJa": "カバルドン",
-          "types": [
-            "ground"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hippowdon.png"
-        },
-        {
-          "rank": 9,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "charizard",
           "displayNameJa": "リザードン",
           "types": [
@@ -510,6 +499,17 @@
             "flying"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "hippowdon",
+          "displayNameJa": "カバルドン",
+          "types": [
+            "ground"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hippowdon.png"
         },
         {
           "rank": 10,
