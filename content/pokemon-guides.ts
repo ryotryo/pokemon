@@ -7,6 +7,7 @@ export interface GuideSource {
   season: GuideSeason;
   achievement?: string;
   url: string;
+  checkedAt: "2026-08-30";
   usedFor: string;
 }
 
@@ -41,7 +42,7 @@ export interface PokemonGuide {
   sourceIds: string[];
 }
 
-export const guideSources: GuideSource[] = [
+const guideSourceRecords: Omit<GuideSource, "checkedAt">[] = [
   {
     id: "m5-arccosine-1900",
     title: "復帰勢によるシーズンM-5のレート1900到達パーティ",
@@ -134,6 +135,8 @@ export const guideSources: GuideSource[] = [
   },
 ];
 
+export const guideSources: GuideSource[] = guideSourceRecords.map((source) => ({ ...source, checkedAt: "2026-08-30" }));
+
 export const pokemonGuides: PokemonGuide[] = [
   {
     pokemonId: "garchomp", slug: "garchomp", rule: "Singles", seasonScope: ["M3", "M4", "M5"], rankAtCreation: 1, createdFromSeason: "M5",
@@ -143,7 +146,7 @@ export const pokemonGuides: PokemonGuide[] = [
       "M4のギャラドス軸では、耐久に振ったガブリアスがステルスロックやまきびし、ドラゴンテールで相手を削り、メガギャラドスがりゅうのまいを積む準備をしていました。M5の記事では、ねむる＋カゴのみの耐久型を先発に置き、状態異常を回復しながらカバルドンやウォッシュロトムへ粘り強く戦う例もあります。型を見せる前は相手もタスキ・スカーフ・耐久型を区別できない点が強みです。",
     ],
     favorableMatchups: [
-      { pokemonId: "delphox", explanation: "じしんが通り、通常ガブリアスなら素早さでも上です。メガマフォクシーへは相手の素早さが上がるため、スカーフでない限り正面から追い掛けず、メガ前に削るか後続の先制技圏内へ入れます。", sourceIds: ["m4-kou-237", "m4-asano-21"] },
+      { pokemonId: "gengar", explanation: "じしんで毒タイプの弱点を突けます。メガゲンガーは素早さが上なので、通常のタスキ型は一度耐えて返し、スカーフ型は上から攻撃するというように、持ち物ごとに勝ち方が変わります。", caution: "おにびで攻撃を下げられると一撃で倒せないため、状態異常を受けた後は後続の圏内作りへ切り替えます。", sourceIds: ["m5-arccosine-1900", "m4-asano-21"] },
       { pokemonId: "metagross", explanation: "地面技で弱点を突けます。メガメタグロスの耐久と先制バレットパンチがあるので、一撃で倒す前提ではなく、ステルスロックを含めて削る役として考えると安定します。", caution: "れいとうパンチには注意。", sourceIds: ["m3-moyashi-37", "m4-asano-21"] },
       { pokemonId: "hippowdon", explanation: "M5の耐久型記事では先発カバルドンへ強く動けたと報告されています。ドラゴンテールや回復を使う型なら、単純な殴り合いではなく相手のあくび・回復の順番を崩せます。", caution: "タスキ攻撃型はカバルドンをすぐ突破できるとは限りません。", sourceIds: ["m5-arccosine-1900"] },
       { pokemonId: "archaludon", explanation: "じしんで弱点を突けるため、ブリジュラスの鋼技や電気技を受けながら圧力をかけられます。", caution: "がんじょうやシュカのみ、ドラゴン技があるため、無傷の相手を一手で処理できるとは限りません。", sourceIds: ["m4-asano-21"] },

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { TypeBadge } from "@/components/ui/type-badge";
-import { guideByPokemonId, sourceById, type GuideMatchup, type PokemonGuide } from "@/content/pokemon-guides";
+import { guideByPokemonId, type GuideMatchup, type PokemonGuide } from "@/content/pokemon-guides";
+import type { GuideResearchEnhancement } from "@/content/pokemon-guide-research";
 import { PokemonImage } from "@/features/usage-ranking/components/pokemon-image";
+import type { ResolvedGuideDamageExample } from "@/lib/champions/pokemon-guide-damage";
 import type { UsageRankingPokemon } from "@/lib/champions/usage-ranking";
 
 function PokemonName({ pokemonId, pokemon }: { pokemonId: string; pokemon: Map<string, UsageRankingPokemon> }) {
@@ -14,7 +16,24 @@ function PokemonName({ pokemonId, pokemon }: { pokemonId: string; pokemon: Map<s
     : <span className="flex min-w-0 items-center gap-2">{content}</span>;
 }
 
-function MatchupList({ entries, pokemon }: { entries: GuideMatchup[]; pokemon: Map<string, UsageRankingPokemon> }) {
+function DamageExample({ example, pokemon }: { example: ResolvedGuideDamageExample; pokemon: Map<string, UsageRankingPokemon> }) {
+  const attacker = pokemon.get(example.attackerPokemonId)?.displayNameJa ?? example.attackerPokemonId;
+  const defender = pokemon.get(example.defenderPokemonId)?.displayNameJa ?? example.defenderPokemonId;
+  const { result } = example;
+  return (
+    <div className="mt-2 rounded-xl bg-slate-50 px-3 py-2.5 text-xs">
+      <p className="font-black text-slate-800">{attacker} → {defender}　{example.moveNameJa}</p>
+      <p className="mt-1 text-sm font-black text-blue-800">{result.minDamage}〜{result.maxDamage}（{result.minPercent.toFixed(1)}〜{result.maxPercent.toFixed(1)}%）{result.hitLabel}</p>
+      <dl className="mt-1.5 grid gap-1 text-[10px] leading-5 text-slate-500">
+        <div><dt className="inline font-bold text-slate-600">攻撃側：</dt><dd className="inline">{example.attackerCondition}</dd></div>
+        <div><dt className="inline font-bold text-slate-600">防御側：</dt><dd className="inline">{example.defenderCondition}</dd></div>
+      </dl>
+      <p className="mt-1 text-[10px] leading-4 text-slate-400">{example.profileBasis}</p>
+    </div>
+  );
+}
+
+function MatchupList({ entries, pokemon, damageByPokemonId }: { entries: GuideMatchup[]; pokemon: Map<string, UsageRankingPokemon>; damageByPokemonId: Map<string, ResolvedGuideDamageExample[]> }) {
   return (
     <div className="mt-3 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white px-3">
       {entries.map((matchup) => (
@@ -22,6 +41,7 @@ function MatchupList({ entries, pokemon }: { entries: GuideMatchup[]; pokemon: M
           <PokemonName pokemonId={matchup.pokemonId} pokemon={pokemon} />
           <p className="mt-2 text-sm leading-7 text-slate-700">{matchup.explanation}</p>
           {matchup.caution && <p className="mt-1 text-xs leading-6 text-amber-800"><b>注意：</b>{matchup.caution}</p>}
+          {damageByPokemonId.get(matchup.pokemonId)?.map((example) => <DamageExample key={example.id} example={example} pokemon={pokemon} />)}
         </article>
       ))}
     </div>
@@ -32,12 +52,18 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   return <h2 className="border-l-4 border-blue-600 pl-3 text-xl font-black tracking-tight">{children}</h2>;
 }
 
-export function PokemonGuideArticle({ guide, pokemon: entries }: { guide: PokemonGuide; pokemon: UsageRankingPokemon[] }) {
+export function PokemonGuideArticle({ guide, pokemon: entries, research, damageExamples }: { guide: PokemonGuide; pokemon: UsageRankingPokemon[]; research: GuideResearchEnhancement; damageExamples: ResolvedGuideDamageExample[] }) {
   const pokemon = new Map(entries.map((entry) => [entry.id, entry]));
   const subject = pokemon.get(guide.pokemonId);
   if (!subject) return null;
   const megaForms = entries.filter((entry) => entry.formRelation === "mega" && entry.battleId === subject.battleId);
-  const sources = guide.sourceIds.flatMap((id) => sourceById.get(id) ?? []);
+  const damageByPokemonId = new Map<string, ResolvedGuideDamageExample[]>();
+  for (const example of damageExamples) {
+    const opponentId = example.attackerPokemonId === guide.pokemonId || example.attackerPokemonId.startsWith(`mega-${guide.pokemonId}`)
+      ? example.defenderPokemonId.replace(/^mega-/, "")
+      : example.attackerPokemonId.replace(/^mega-/, "");
+    damageByPokemonId.set(opponentId, [...(damageByPokemonId.get(opponentId) ?? []), example]);
+  }
   return (
     <article>
       <Link href="/pokemon-guide/" className="inline-flex min-h-11 items-center text-sm font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600">← ポケモン使い方解説</Link>
@@ -48,7 +74,7 @@ export function PokemonGuideArticle({ guide, pokemon: entries }: { guide: Pokemo
           <div className="min-w-0 flex-1">
             <h1 className="break-words text-2xl font-black tracking-tight sm:text-3xl">{subject.displayNameJa}の使い方｜シングル</h1>
             <div className="mt-2 flex flex-wrap gap-1">{subject.types.map((type) => <TypeBadge key={type} type={type} />)}</div>
-            <p className="mt-2 text-xs font-bold text-slate-500">M5 制作時シングル第{guide.rankAtCreation}位</p>
+            <p className="mt-2 text-xs font-bold text-slate-500">M5 現在シングル第{subject.ranks.Singles ?? "—"}位・制作時第{guide.rankAtCreation}位</p>
           </div>
         </div>
         {!!megaForms.length && (
@@ -63,8 +89,8 @@ export function PokemonGuideArticle({ guide, pokemon: entries }: { guide: Pokemo
 
       <div className="mt-7 space-y-9">
         <section><SectionTitle>基本の使い方</SectionTitle><div className="mt-3 space-y-3">{guide.basicUsage.map((paragraph) => <p key={paragraph} className="text-sm leading-7 text-slate-700">{paragraph}</p>)}</div></section>
-        <section><SectionTitle>得意な相手</SectionTitle><MatchupList entries={guide.favorableMatchups} pokemon={pokemon} /></section>
-        <section><SectionTitle>苦手な相手</SectionTitle><MatchupList entries={guide.unfavorableMatchups} pokemon={pokemon} /></section>
+        <section><SectionTitle>得意な相手</SectionTitle><MatchupList entries={guide.favorableMatchups} pokemon={pokemon} damageByPokemonId={damageByPokemonId} /></section>
+        <section><SectionTitle>苦手な相手</SectionTitle><MatchupList entries={guide.unfavorableMatchups} pokemon={pokemon} damageByPokemonId={damageByPokemonId} /></section>
         <section>
           <SectionTitle>苦手な相手への対策</SectionTitle>
           <div className="mt-3 space-y-3">
@@ -77,19 +103,21 @@ export function PokemonGuideArticle({ guide, pokemon: entries }: { guide: Pokemo
             ))}
           </div>
         </section>
+        {!!research.synergyPairs.length && (
+          <section>
+            <SectionTitle>相性のいい組み合わせ</SectionTitle>
+            <div className="mt-3 space-y-3">
+              {research.synergyPairs.map((pair) => (
+                <article key={pair.pokemonIds.join("-")} className="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-4">
+                  {pair.nickname && <p className="text-[10px] font-black tracking-wide text-emerald-700">通称：{pair.nickname}</p>}
+                  <div className="mt-2 grid gap-2 min-[360px]:grid-cols-2">{pair.pokemonIds.map((id) => <PokemonName key={id} pokemonId={id} pokemon={pokemon} />)}</div>
+                  <p className="mt-3 text-sm leading-7 text-slate-700">{pair.explanation}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
         <section><SectionTitle>初めて使うなら</SectionTitle><div className="mt-3 space-y-3">{guide.beginnerSummary.map((paragraph) => <p key={paragraph} className="text-sm leading-7 text-slate-700">{paragraph}</p>)}</div></section>
-        <section>
-          <SectionTitle>参考にした構築記事</SectionTitle>
-          <p className="mt-3 text-xs leading-6 text-slate-500">M3〜M5は使用可能なポケモンプールが同じため、M5の現行データと照合したうえで参照しています。本文は記事内容を要約し、転載していません。</p>
-          <ul className="mt-3 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white px-3">
-            {sources.map((source) => (
-              <li key={source.id} className="py-3">
-                <a href={source.url} target="_blank" rel="noreferrer" className="text-sm font-bold leading-6 text-blue-800 underline decoration-blue-200 underline-offset-2">{source.title}</a>
-                <p className="mt-1 text-xs leading-5 text-slate-500">{source.author}・{source.season}{source.achievement ? `・${source.achievement}` : ""}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
     </article>
   );
