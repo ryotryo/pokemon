@@ -10,7 +10,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gallade.png",
   "ranks": {
     "Singles": 68,
-    "Doubles": 54
+    "Doubles": 52
   },
   "usagePercentages": {
     "Singles": null,
@@ -131,9 +131,39 @@
       "usagePercentage": null,
       "moves": [
         {
+          "rank": 1,
+          "percentage": "93.0%",
+          "percentageValue": 93,
+          "moveId": "533"
+        },
+        {
+          "rank": 2,
+          "percentage": "82.2%",
+          "percentageValue": 82.2,
+          "moveId": "427"
+        },
+        {
+          "rank": 3,
+          "percentage": "74.1%",
+          "percentageValue": 74.1,
+          "moveId": "348"
+        },
+        {
+          "rank": 4,
+          "percentage": "35.6%",
+          "percentageValue": 35.6,
+          "moveId": "425"
+        },
+        {
+          "rank": 5,
+          "percentage": "22.6%",
+          "percentageValue": 22.6,
+          "moveId": "813"
+        },
+        {
           "rank": 6,
-          "percentage": "15.4%",
-          "percentageValue": 15.4,
+          "percentage": "15.5%",
+          "percentageValue": 15.5,
           "moveId": "400"
         },
         {
@@ -150,15 +180,15 @@
         },
         {
           "rank": 9,
-          "percentage": "3.5%",
-          "percentageValue": 3.5,
+          "percentage": "3.6%",
+          "percentageValue": 3.6,
           "moveId": "370"
         },
         {
           "rank": 10,
           "percentage": "3.4%",
           "percentageValue": 3.4,
-          "moveId": "317"
+          "moveId": "895"
         }
       ],
       "items": [
@@ -170,14 +200,14 @@
         },
         {
           "rank": 2,
-          "percentage": "20.1%",
-          "percentageValue": 20.1,
+          "percentage": "20.0%",
+          "percentageValue": 20,
           "nameJa": "きあいのタスキ"
         },
         {
           "rank": 3,
-          "percentage": "18.0%",
-          "percentageValue": 18,
+          "percentage": "18.1%",
+          "percentageValue": 18.1,
           "nameJa": "エルレイドナイト"
         },
         {
@@ -188,14 +218,14 @@
         },
         {
           "rank": 5,
-          "percentage": "6.6%",
-          "percentageValue": 6.6,
+          "percentage": "6.5%",
+          "percentageValue": 6.5,
           "nameJa": "ピントレンズ"
         },
         {
           "rank": 6,
-          "percentage": "4.1%",
-          "percentageValue": 4.1,
+          "percentage": "4.0%",
+          "percentageValue": 4,
           "nameJa": "ラムのみ"
         },
         {
@@ -226,8 +256,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "39.6%",
-          "percentageValue": 39.6,
+          "percentage": "39.7%",
+          "percentageValue": 39.7,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -238,8 +268,8 @@
         },
         {
           "rank": 2,
-          "percentage": "13.2%",
-          "percentageValue": 13.2,
+          "percentage": "13.1%",
+          "percentageValue": 13.1,
           "hp": 32,
           "attack": 25,
           "defense": 9,
@@ -250,8 +280,8 @@
         },
         {
           "rank": 3,
-          "percentage": "8.6%",
-          "percentageValue": 8.6,
+          "percentage": "8.5%",
+          "percentageValue": 8.5,
           "hp": 0,
           "attack": 32,
           "defense": 2,
@@ -348,16 +378,16 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "59.5%",
-          "percentageValue": 59.5,
+          "percentage": "59.6%",
+          "percentageValue": 59.6,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
         },
         {
           "rank": 2,
-          "percentage": "36.5%",
-          "percentageValue": 36.5,
+          "percentage": "36.4%",
+          "percentageValue": 36.4,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
@@ -388,8 +418,8 @@
         },
         {
           "rank": 6,
-          "percentage": "0.4%",
-          "percentageValue": 0.4,
+          "percentage": "1.0%",
+          "percentageValue": 1,
           "nameJa": "せっかち",
           "statUp": "すばやさ",
           "statDown": "ぼうぎょ"
@@ -420,11 +450,11 @@
         },
         {
           "rank": 10,
-          "percentage": "0.1%",
-          "percentageValue": 0.1,
-          "nameJa": "なまいき",
-          "statUp": "とくぼう",
-          "statDown": "すばやさ"
+          "percentage": "0.0%",
+          "percentageValue": 0,
+          "nameJa": "おくびょう",
+          "statUp": "すばやさ",
+          "statDown": "こうげき"
         }
       ],
       "abilities": [
@@ -574,13 +604,13 @@
       ]
     },
     "Doubles": {
-      "rank": 54,
+      "rank": 52,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
-          "percentage": "80.4%",
-          "percentageValue": 80.4,
+          "percentage": "80.6%",
+          "percentageValue": 80.6,
           "moveId": "533"
         },
         {
@@ -597,52 +627,52 @@
         },
         {
           "rank": 4,
-          "percentage": "49.7%",
-          "percentageValue": 49.7,
+          "percentage": "49.4%",
+          "percentageValue": 49.4,
           "moveId": "182"
         },
         {
           "rank": 5,
-          "percentage": "21.6%",
-          "percentageValue": 21.6,
+          "percentage": "21.3%",
+          "percentageValue": 21.3,
           "moveId": "433"
         },
         {
           "rank": 6,
-          "percentage": "17.4%",
-          "percentageValue": 17.4,
+          "percentage": "17.3%",
+          "percentageValue": 17.3,
           "moveId": "425"
         },
         {
           "rank": 7,
-          "percentage": "17.1%",
-          "percentageValue": 17.1,
+          "percentage": "16.9%",
+          "percentageValue": 16.9,
           "moveId": "409"
         },
         {
           "rank": 8,
-          "percentage": "16.9%",
-          "percentageValue": 16.9,
+          "percentage": "16.7%",
+          "percentageValue": 16.7,
           "moveId": "157"
         },
         {
           "rank": 9,
-          "percentage": "14.5%",
-          "percentageValue": 14.5,
+          "percentage": "14.7%",
+          "percentageValue": 14.7,
           "moveId": "469"
         },
         {
           "rank": 10,
-          "percentage": "14.3%",
-          "percentageValue": 14.3,
+          "percentage": "14.5%",
+          "percentageValue": 14.5,
           "moveId": "400"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "28.2%",
-          "percentageValue": 28.2,
+          "percentage": "28.1%",
+          "percentageValue": 28.1,
           "nameJa": "エルレイドナイト"
         },
         {
@@ -653,14 +683,14 @@
         },
         {
           "rank": 3,
-          "percentage": "17.8%",
-          "percentageValue": 17.8,
+          "percentage": "17.7%",
+          "percentageValue": 17.7,
           "nameJa": "たつじんのおび"
         },
         {
           "rank": 4,
-          "percentage": "9.5%",
-          "percentageValue": 9.5,
+          "percentage": "9.3%",
+          "percentageValue": 9.3,
           "nameJa": "くろいてっきゅう"
         },
         {
@@ -671,14 +701,14 @@
         },
         {
           "rank": 6,
-          "percentage": "8.1%",
-          "percentageValue": 8.1,
+          "percentage": "8.2%",
+          "percentageValue": 8.2,
           "nameJa": "いのちのたま"
         },
         {
           "rank": 7,
-          "percentage": "5.8%",
-          "percentageValue": 5.8,
+          "percentage": "5.9%",
+          "percentageValue": 5.9,
           "nameJa": "ピントレンズ"
         },
         {
@@ -695,8 +725,8 @@
         },
         {
           "rank": 10,
-          "percentage": "1.4%",
-          "percentageValue": 1.4,
+          "percentage": "1.0%",
+          "percentageValue": 1,
           "nameJa": "せんせいのツメ"
         }
       ],
@@ -715,8 +745,8 @@
         },
         {
           "rank": 2,
-          "percentage": "12.1%",
-          "percentageValue": 12.1,
+          "percentage": "12.0%",
+          "percentageValue": 12,
           "hp": 32,
           "attack": 32,
           "defense": 2,
@@ -739,8 +769,8 @@
         },
         {
           "rank": 4,
-          "percentage": "5.6%",
-          "percentageValue": 5.6,
+          "percentage": "5.5%",
+          "percentageValue": 5.5,
           "hp": 21,
           "attack": 32,
           "defense": 13,
@@ -753,13 +783,13 @@
           "rank": 5,
           "percentage": "4.2%",
           "percentageValue": 4.2,
-          "hp": 1,
-          "attack": 1,
-          "defense": 1,
-          "specialAttack": 1,
-          "specialDefense": 1,
-          "speed": 1,
-          "raw": "HP 1 / Atk 1 / Def 1 / SpA 1 / SpD 1 / Spe 1"
+          "hp": 0,
+          "attack": 32,
+          "defense": 0,
+          "specialAttack": 0,
+          "specialDefense": 2,
+          "speed": 32,
+          "raw": "HP 0 / Atk 32 / Def 0 / SpA 0 / SpD 2 / Spe 32"
         },
         {
           "rank": 6,
@@ -825,8 +855,8 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "38.5%",
-          "percentageValue": 38.5,
+          "percentage": "38.8%",
+          "percentageValue": 38.8,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
@@ -841,8 +871,8 @@
         },
         {
           "rank": 3,
-          "percentage": "22.8%",
-          "percentageValue": 22.8,
+          "percentage": "22.6%",
+          "percentageValue": 22.6,
           "nameJa": "ゆうかん",
           "statUp": "こうげき",
           "statDown": "すばやさ"
@@ -897,8 +927,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.2%",
-          "percentageValue": 0.2,
+          "percentage": "0.3%",
+          "percentageValue": 0.3,
           "nameJa": "やんちゃ",
           "statUp": "こうげき",
           "statDown": "とくぼう"
@@ -907,15 +937,15 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "79.1%",
-          "percentageValue": 79.1,
+          "percentage": "79.2%",
+          "percentageValue": 79.2,
           "nameJa": "きれあじ",
           "descriptionJa": "切る技の威力が１．５倍になる。"
         },
         {
           "rank": 2,
-          "percentage": "19.0%",
-          "percentageValue": 19,
+          "percentage": "18.9%",
+          "percentageValue": 18.9,
           "nameJa": "せいぎのこころ",
           "descriptionJa": "あくタイプの技のダメージを受けると 攻撃が１段階上がる。"
         },
@@ -966,18 +996,6 @@
           "rank": 4,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "gholdengo",
-          "displayNameJa": "サーフゴー",
-          "types": [
-            "steel",
-            "ghost"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gholdengo.png"
-        },
-        {
-          "rank": 5,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "kingambit",
           "displayNameJa": "ドドゲザン",
           "types": [
@@ -985,6 +1003,18 @@
             "steel"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kingambit.png"
+        },
+        {
+          "rank": 5,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "gholdengo",
+          "displayNameJa": "サーフゴー",
+          "types": [
+            "steel",
+            "ghost"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gholdengo.png"
         },
         {
           "rank": 6,

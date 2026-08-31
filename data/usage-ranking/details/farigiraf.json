@@ -10,7 +10,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Farigiraf.png",
   "ranks": {
     "Singles": 178,
-    "Doubles": 7
+    "Doubles": 8
   },
   "usagePercentages": {
     "Singles": null,
@@ -566,43 +566,43 @@
       ]
     },
     "Doubles": {
-      "rank": 7,
+      "rank": 8,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
-          "percentage": "95.2%",
-          "percentageValue": 95.2,
+          "percentage": "95.1%",
+          "percentageValue": 95.1,
           "moveId": "433"
         },
         {
           "rank": 2,
-          "percentage": "64.8%",
-          "percentageValue": 64.8,
+          "percentage": "64.7%",
+          "percentageValue": 64.7,
           "moveId": "94"
         },
         {
           "rank": 3,
-          "percentage": "57.7%",
-          "percentageValue": 57.7,
+          "percentage": "57.3%",
+          "percentageValue": 57.3,
           "moveId": "270"
         },
         {
           "rank": 4,
-          "percentage": "49.8%",
-          "percentageValue": 49.8,
+          "percentage": "49.7%",
+          "percentageValue": 49.7,
           "moveId": "182"
         },
         {
           "rank": 5,
-          "percentage": "41.4%",
-          "percentageValue": 41.4,
+          "percentage": "41.7%",
+          "percentageValue": 41.7,
           "moveId": "85"
         },
         {
           "rank": 6,
-          "percentage": "17.7%",
-          "percentageValue": 17.7,
+          "percentage": "17.8%",
+          "percentageValue": 17.8,
           "moveId": "888"
         },
         {
@@ -613,21 +613,21 @@
         },
         {
           "rank": 8,
-          "percentage": "7.6%",
-          "percentageValue": 7.6,
+          "percentage": "7.5%",
+          "percentageValue": 7.5,
           "moveId": "286"
         },
         {
           "rank": 9,
-          "percentage": "5.9%",
-          "percentageValue": 5.9,
+          "percentage": "3.9%",
+          "percentageValue": 3.9,
           "moveId": "502"
         },
         {
           "rank": 10,
-          "percentage": "4.3%",
-          "percentageValue": 4.3,
-          "moveId": "46"
+          "percentage": "2.0%",
+          "percentageValue": 2,
+          "moveId": "605"
         }
       ],
       "items": [
@@ -639,8 +639,8 @@
         },
         {
           "rank": 2,
-          "percentage": "19.1%",
-          "percentageValue": 19.1,
+          "percentage": "19.0%",
+          "percentageValue": 19,
           "nameJa": "ナモのみ"
         },
         {
@@ -675,8 +675,8 @@
         },
         {
           "rank": 8,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
           "nameJa": "まがったスプーン"
         },
         {
@@ -695,8 +695,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "14.2%",
-          "percentageValue": 14.2,
+          "percentage": "14.0%",
+          "percentageValue": 14,
           "hp": 29,
           "attack": 0,
           "defense": 21,
@@ -707,8 +707,8 @@
         },
         {
           "rank": 2,
-          "percentage": "3.6%",
-          "percentageValue": 3.6,
+          "percentage": "3.5%",
+          "percentageValue": 3.5,
           "hp": 25,
           "attack": 0,
           "defense": 26,
@@ -743,8 +743,8 @@
         },
         {
           "rank": 5,
-          "percentage": "2.7%",
-          "percentageValue": 2.7,
+          "percentage": "2.6%",
+          "percentageValue": 2.6,
           "hp": 29,
           "attack": 0,
           "defense": 20,
@@ -781,18 +781,6 @@
           "rank": 8,
           "percentage": "1.6%",
           "percentageValue": 1.6,
-          "hp": 15,
-          "attack": 0,
-          "defense": 31,
-          "specialAttack": 20,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 15 / Atk 0 / Def 31 / SpA 20 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 9,
-          "percentage": "1.6%",
-          "percentageValue": 1.6,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -800,6 +788,18 @@
           "specialDefense": 2,
           "speed": 0,
           "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 2 / Spe 0"
+        },
+        {
+          "rank": 9,
+          "percentage": "1.6%",
+          "percentageValue": 1.6,
+          "hp": 15,
+          "attack": 0,
+          "defense": 31,
+          "specialAttack": 20,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 15 / Atk 0 / Def 31 / SpA 20 / SpD 0 / Spe 0"
         },
         {
           "rank": 10,
@@ -817,8 +817,8 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "21.7%",
-          "percentageValue": 21.7,
+          "percentage": "22.0%",
+          "percentageValue": 22,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
@@ -833,32 +833,32 @@
         },
         {
           "rank": 3,
-          "percentage": "18.1%",
-          "percentageValue": 18.1,
+          "percentage": "17.9%",
+          "percentageValue": 17.9,
           "nameJa": "おだやか",
           "statUp": "とくぼう",
           "statDown": "こうげき"
         },
         {
           "rank": 4,
-          "percentage": "14.3%",
-          "percentageValue": 14.3,
+          "percentage": "14.2%",
+          "percentageValue": 14.2,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
         },
         {
           "rank": 5,
-          "percentage": "4.1%",
-          "percentageValue": 4.1,
+          "percentage": "4.2%",
+          "percentageValue": 4.2,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 6,
-          "percentage": "10.4%",
-          "percentageValue": 10.4,
+          "percentage": "10.3%",
+          "percentageValue": 10.3,
           "nameJa": "なまいき",
           "statUp": "とくぼう",
           "statDown": "すばやさ"
