@@ -9,7 +9,7 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gliscor.png",
   "ranks": {
-    "Singles": 93,
+    "Singles": 96,
     "Doubles": 101
   },
   "usagePercentages": {
@@ -97,7 +97,7 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 93,
+      "rank": 96,
       "usagePercentage": null,
       "moves": [
         {
@@ -108,8 +108,8 @@
         },
         {
           "rank": 2,
-          "percentage": "40.9%",
-          "percentageValue": 40.9,
+          "percentage": "40.7%",
+          "percentageValue": 40.7,
           "moveId": "92"
         },
         {
@@ -120,14 +120,14 @@
         },
         {
           "rank": 4,
-          "percentage": "25.8%",
-          "percentageValue": 25.8,
+          "percentage": "25.9%",
+          "percentageValue": 25.9,
           "moveId": "814"
         },
         {
           "rank": 5,
-          "percentage": "22.1%",
-          "percentageValue": 22.1,
+          "percentage": "22.0%",
+          "percentageValue": 22,
           "moveId": "182"
         },
         {
@@ -150,22 +150,22 @@
         },
         {
           "rank": 9,
-          "percentage": "13.6%",
-          "percentageValue": 13.6,
+          "percentage": "13.7%",
+          "percentageValue": 13.7,
           "moveId": "423"
         },
         {
           "rank": 10,
-          "percentage": "12.2%",
-          "percentageValue": 12.2,
+          "percentage": "14.0%",
+          "percentageValue": 14,
           "moveId": "164"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "47.2%",
-          "percentageValue": 47.2,
+          "percentage": "47.1%",
+          "percentageValue": 47.1,
           "nameJa": "たべのこし"
         },
         {
@@ -218,8 +218,8 @@
         },
         {
           "rank": 10,
-          "percentage": "2.7%",
-          "percentageValue": 2.7,
+          "percentage": "2.1%",
+          "percentageValue": 2.1,
           "nameJa": "ラムのみ"
         }
       ],
@@ -300,18 +300,6 @@
           "rank": 7,
           "percentage": "2.6%",
           "percentageValue": 2.6,
-          "hp": 32,
-          "attack": 2,
-          "defense": 32,
-          "specialAttack": 0,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 32 / Atk 2 / Def 32 / SpA 0 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 8,
-          "percentage": "2.6%",
-          "percentageValue": 2.6,
           "hp": 1,
           "attack": 32,
           "defense": 0,
@@ -321,9 +309,21 @@
           "raw": "HP 1 / Atk 32 / Def 0 / SpA 0 / SpD 1 / Spe 32"
         },
         {
+          "rank": 8,
+          "percentage": "2.5%",
+          "percentageValue": 2.5,
+          "hp": 32,
+          "attack": 2,
+          "defense": 32,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 32 / Atk 2 / Def 32 / SpA 0 / SpD 0 / Spe 0"
+        },
+        {
           "rank": 9,
-          "percentage": "2.3%",
-          "percentageValue": 2.3,
+          "percentage": "2.4%",
+          "percentageValue": 2.4,
           "hp": 32,
           "attack": 32,
           "defense": 0,
@@ -348,16 +348,16 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "36.2%",
-          "percentageValue": 36.2,
+          "percentage": "36.3%",
+          "percentageValue": 36.3,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
         },
         {
           "rank": 2,
-          "percentage": "26.3%",
-          "percentageValue": 26.3,
+          "percentage": "26.1%",
+          "percentageValue": 26.1,
           "nameJa": "わんぱく",
           "statUp": "ぼうぎょ",
           "statDown": "とくこう"
@@ -390,20 +390,28 @@
           "rank": 6,
           "percentage": "0.5%",
           "percentageValue": 0.5,
-          "nameJa": "せっかち",
-          "statUp": "すばやさ",
-          "statDown": "ぼうぎょ"
-        },
-        {
-          "rank": 7,
-          "percentage": "0.5%",
-          "percentageValue": 0.5,
           "nameJa": "のんき",
           "statUp": "ぼうぎょ",
           "statDown": "すばやさ"
         },
         {
+          "rank": 7,
+          "percentage": "0.5%",
+          "percentageValue": 0.5,
+          "nameJa": "せっかち",
+          "statUp": "すばやさ",
+          "statDown": "ぼうぎょ"
+        },
+        {
           "rank": 8,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
+          "nameJa": "おとなしい",
+          "statUp": "とくぼう",
+          "statDown": "ぼうぎょ"
+        },
+        {
+          "rank": 9,
           "percentage": "0.4%",
           "percentageValue": 0.4,
           "nameJa": "ゆうかん",
@@ -411,41 +419,33 @@
           "statDown": "すばやさ"
         },
         {
-          "rank": 9,
+          "rank": 10,
           "percentage": "0.4%",
           "percentageValue": 0.4,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
-        },
-        {
-          "rank": 10,
-          "percentage": "0.4%",
-          "percentageValue": 0.4,
-          "nameJa": "おとなしい",
-          "statUp": "とくぼう",
-          "statDown": "ぼうぎょ"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "60.5%",
-          "percentageValue": 60.5,
+          "percentage": "60.3%",
+          "percentageValue": 60.3,
           "nameJa": "ポイズンヒール",
           "descriptionJa": "どく もうどく状態になると ターン終わりにＨＰが減らずに 最大ＨＰの１／８回復する。"
         },
         {
           "rank": 2,
-          "percentage": "33.3%",
-          "percentageValue": 33.3,
+          "percentage": "33.4%",
+          "percentageValue": 33.4,
           "nameJa": "かいりきバサミ",
           "descriptionJa": "相手の技や特性で攻撃を下げられない。"
         },
         {
           "rank": 3,
-          "percentage": "6.2%",
-          "percentageValue": 6.2,
+          "percentage": "6.3%",
+          "percentageValue": 6.3,
           "nameJa": "すながくれ",
           "descriptionJa": "すなあらし状態の時 回避率が１．２５倍になる。"
         }
@@ -578,8 +578,8 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "50.5%",
-          "percentageValue": 50.5,
+          "percentage": "50.4%",
+          "percentageValue": 50.4,
           "moveId": "366"
         },
         {
@@ -590,20 +590,20 @@
         },
         {
           "rank": 3,
-          "percentage": "49.0%",
-          "percentageValue": 49,
+          "percentage": "49.1%",
+          "percentageValue": 49.1,
           "moveId": "89"
         },
         {
           "rank": 4,
-          "percentage": "47.3%",
-          "percentageValue": 47.3,
+          "percentage": "47.2%",
+          "percentageValue": 47.2,
           "moveId": "814"
         },
         {
           "rank": 5,
-          "percentage": "42.7%",
-          "percentageValue": 42.7,
+          "percentage": "42.5%",
+          "percentageValue": 42.5,
           "moveId": "667"
         },
         {
@@ -620,8 +620,8 @@
         },
         {
           "rank": 8,
-          "percentage": "10.5%",
-          "percentageValue": 10.5,
+          "percentage": "10.4%",
+          "percentageValue": 10.4,
           "moveId": "423"
         },
         {
@@ -658,8 +658,8 @@
         },
         {
           "rank": 4,
-          "percentage": "9.2%",
-          "percentageValue": 9.2,
+          "percentage": "9.3%",
+          "percentageValue": 9.3,
           "nameJa": "きあいのタスキ"
         },
         {
@@ -688,8 +688,8 @@
         },
         {
           "rank": 9,
-          "percentage": "3.7%",
-          "percentageValue": 3.7,
+          "percentage": "3.6%",
+          "percentageValue": 3.6,
           "nameJa": "こうかくレンズ"
         },
         {
@@ -702,8 +702,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "18.7%",
-          "percentageValue": 18.7,
+          "percentage": "18.8%",
+          "percentageValue": 18.8,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -750,8 +750,8 @@
         },
         {
           "rank": 5,
-          "percentage": "3.7%",
-          "percentageValue": 3.7,
+          "percentage": "3.6%",
+          "percentageValue": 3.6,
           "hp": 32,
           "attack": 32,
           "defense": 0,
@@ -762,8 +762,8 @@
         },
         {
           "rank": 6,
-          "percentage": "2.6%",
-          "percentageValue": 2.6,
+          "percentage": "2.7%",
+          "percentageValue": 2.7,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -810,8 +810,8 @@
         },
         {
           "rank": 10,
-          "percentage": "1.8%",
-          "percentageValue": 1.8,
+          "percentage": "1.7%",
+          "percentageValue": 1.7,
           "hp": 0,
           "attack": 32,
           "defense": 0,
@@ -824,16 +824,16 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "51.8%",
-          "percentageValue": 51.8,
+          "percentage": "51.6%",
+          "percentageValue": 51.6,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
         },
         {
           "rank": 2,
-          "percentage": "25.3%",
-          "percentageValue": 25.3,
+          "percentage": "25.4%",
+          "percentageValue": 25.4,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
@@ -906,22 +906,22 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "67.7%",
-          "percentageValue": 67.7,
+          "percentage": "67.5%",
+          "percentageValue": 67.5,
           "nameJa": "かいりきバサミ",
           "descriptionJa": "相手の技や特性で攻撃を下げられない。"
         },
         {
           "rank": 2,
-          "percentage": "16.3%",
-          "percentageValue": 16.3,
+          "percentage": "16.4%",
+          "percentageValue": 16.4,
           "nameJa": "すながくれ",
           "descriptionJa": "すなあらし状態の時 回避率が１．２５倍になる。"
         },
         {
           "rank": 3,
-          "percentage": "16.0%",
-          "percentageValue": 16,
+          "percentage": "16.1%",
+          "percentageValue": 16.1,
           "nameJa": "ポイズンヒール",
           "descriptionJa": "どく もうどく状態になると ターン終わりにＨＰが減らずに 最大ＨＰの１／８回復する。"
         }
@@ -990,17 +990,6 @@
           "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "milotic",
-          "displayNameJa": "ミロカロス",
-          "types": [
-            "water"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Milotic.png"
-        },
-        {
-          "rank": 7,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "alolan-ninetales",
           "displayNameJa": "アローラキュウコン",
           "types": [
@@ -1008,6 +997,17 @@
             "fairy"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Ninetales.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "milotic",
+          "displayNameJa": "ミロカロス",
+          "types": [
+            "water"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Milotic.png"
         },
         {
           "rank": 8,
