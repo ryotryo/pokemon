@@ -10,7 +10,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Chandelure.png",
   "ranks": {
     "Singles": 81,
-    "Doubles": 57
+    "Doubles": 58
   },
   "usagePercentages": {
     "Singles": null,
@@ -79,14 +79,14 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "91.1%",
-          "percentageValue": 91.1,
+          "percentage": "91.0%",
+          "percentageValue": 91,
           "moveId": "247"
         },
         {
           "rank": 2,
-          "percentage": "68.6%",
-          "percentageValue": 68.6,
+          "percentage": "68.5%",
+          "percentageValue": 68.5,
           "moveId": "412"
         },
         {
@@ -103,8 +103,8 @@
         },
         {
           "rank": 5,
-          "percentage": "17.5%",
-          "percentageValue": 17.5,
+          "percentage": "17.4%",
+          "percentageValue": 17.4,
           "moveId": "94"
         },
         {
@@ -115,8 +115,8 @@
         },
         {
           "rank": 7,
-          "percentage": "13.8%",
-          "percentageValue": 13.8,
+          "percentage": "13.9%",
+          "percentageValue": 13.9,
           "moveId": "107"
         },
         {
@@ -127,8 +127,8 @@
         },
         {
           "rank": 9,
-          "percentage": "9.3%",
-          "percentageValue": 9.3,
+          "percentage": "9.2%",
+          "percentageValue": 9.2,
           "moveId": "347"
         },
         {
@@ -141,8 +141,8 @@
       "items": [
         {
           "rank": 1,
-          "percentage": "43.7%",
-          "percentageValue": 43.7,
+          "percentage": "48.6%",
+          "percentageValue": 48.6,
           "nameJa": "シャンデラナイト"
         },
         {
@@ -159,8 +159,8 @@
         },
         {
           "rank": 4,
-          "percentage": "3.2%",
-          "percentageValue": 3.2,
+          "percentage": "3.1%",
+          "percentageValue": 3.1,
           "nameJa": "たべのこし"
         },
         {
@@ -241,18 +241,6 @@
           "rank": 4,
           "percentage": "2.2%",
           "percentageValue": 2.2,
-          "hp": 32,
-          "attack": 0,
-          "defense": 0,
-          "specialAttack": 32,
-          "specialDefense": 0,
-          "speed": 2,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 2"
-        },
-        {
-          "rank": 5,
-          "percentage": "2.2%",
-          "percentageValue": 2.2,
           "hp": 0,
           "attack": 0,
           "defense": 0,
@@ -262,9 +250,21 @@
           "raw": "HP 0 / Atk 0 / Def 0 / SpA 32 / SpD 2 / Spe 32"
         },
         {
+          "rank": 5,
+          "percentage": "2.2%",
+          "percentageValue": 2.2,
+          "hp": 32,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 2,
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 2"
+        },
+        {
           "rank": 6,
-          "percentage": "1.6%",
-          "percentageValue": 1.6,
+          "percentage": "1.5%",
+          "percentageValue": 1.5,
           "hp": 0,
           "attack": 0,
           "defense": 1,
@@ -313,28 +313,28 @@
           "rank": 10,
           "percentage": "0.7%",
           "percentageValue": 0.7,
-          "hp": 13,
+          "hp": 32,
           "attack": 0,
           "defense": 0,
-          "specialAttack": 21,
+          "specialAttack": 2,
           "specialDefense": 0,
           "speed": 32,
-          "raw": "HP 13 / Atk 0 / Def 0 / SpA 21 / SpD 0 / Spe 32"
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 2 / SpD 0 / Spe 32"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "52.0%",
-          "percentageValue": 52,
+          "percentage": "52.1%",
+          "percentageValue": 52.1,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "39.1%",
-          "percentageValue": 39.1,
+          "percentage": "39.0%",
+          "percentageValue": 39,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
@@ -397,8 +397,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.2%",
-          "percentageValue": 0.2,
+          "percentage": "0.1%",
+          "percentageValue": 0.1,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
@@ -414,15 +414,15 @@
         },
         {
           "rank": 2,
-          "percentage": "25.9%",
-          "percentageValue": 25.9,
+          "percentage": "25.8%",
+          "percentageValue": 25.8,
           "nameJa": "すりぬけ",
           "descriptionJa": "相手の ひかりのかべ リフレクター オーロラベール しんぴのまもり みがわりを 無視して技を使うことができる。"
         },
         {
           "rank": 3,
-          "percentage": "7.9%",
-          "percentageValue": 7.9,
+          "percentage": "8.0%",
+          "percentageValue": 8,
           "nameJa": "ほのおのからだ",
           "descriptionJa": "接触技を受けると ３０％の確率で 相手をやけど状態にする。"
         }
@@ -550,19 +550,49 @@
       ]
     },
     "Doubles": {
-      "rank": 57,
+      "rank": 58,
       "usagePercentage": null,
       "moves": [
         {
+          "rank": 1,
+          "percentage": "89.1%",
+          "percentageValue": 89.1,
+          "moveId": "247"
+        },
+        {
+          "rank": 2,
+          "percentage": "80.7%",
+          "percentageValue": 80.7,
+          "moveId": "257"
+        },
+        {
+          "rank": 3,
+          "percentage": "64.2%",
+          "percentageValue": 64.2,
+          "moveId": "182"
+        },
+        {
+          "rank": 4,
+          "percentage": "35.7%",
+          "percentageValue": 35.7,
+          "moveId": "433"
+        },
+        {
+          "rank": 5,
+          "percentage": "35.7%",
+          "percentageValue": 35.7,
+          "moveId": "412"
+        },
+        {
           "rank": 6,
-          "percentage": "17.4%",
-          "percentageValue": 17.4,
+          "percentage": "17.5%",
+          "percentageValue": 17.5,
           "moveId": "53"
         },
         {
           "rank": 7,
-          "percentage": "11.0%",
-          "percentageValue": 11,
+          "percentage": "10.9%",
+          "percentageValue": 10.9,
           "moveId": "347"
         },
         {
@@ -573,28 +603,28 @@
         },
         {
           "rank": 9,
-          "percentage": "8.1%",
-          "percentageValue": 8.1,
+          "percentage": "8.2%",
+          "percentageValue": 8.2,
           "moveId": "315"
         },
         {
           "rank": 10,
-          "percentage": "6.2%",
-          "percentageValue": 6.2,
+          "percentage": "6.1%",
+          "percentageValue": 6.1,
           "moveId": "151"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "49.3%",
-          "percentageValue": 49.3,
+          "percentage": "48.6%",
+          "percentageValue": 48.6,
           "nameJa": "シャンデラナイト"
         },
         {
           "rank": 2,
-          "percentage": "25.7%",
-          "percentageValue": 25.7,
+          "percentage": "25.5%",
+          "percentageValue": 25.5,
           "nameJa": "きあいのタスキ"
         },
         {
@@ -605,8 +635,8 @@
         },
         {
           "rank": 4,
-          "percentage": "3.4%",
-          "percentageValue": 3.4,
+          "percentage": "3.5%",
+          "percentageValue": 3.5,
           "nameJa": "いのちのたま"
         },
         {
@@ -629,8 +659,8 @@
         },
         {
           "rank": 8,
-          "percentage": "2.4%",
-          "percentageValue": 2.4,
+          "percentage": "2.5%",
+          "percentageValue": 2.5,
           "nameJa": "もくたん"
         },
         {
@@ -643,14 +673,14 @@
           "rank": 10,
           "percentage": "1.1%",
           "percentageValue": 1.1,
-          "nameJa": "ラムのみ"
+          "nameJa": "ものしりメガネ"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "32.3%",
-          "percentageValue": 32.3,
+          "percentage": "32.4%",
+          "percentageValue": 32.4,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -661,8 +691,8 @@
         },
         {
           "rank": 2,
-          "percentage": "13.9%",
-          "percentageValue": 13.9,
+          "percentage": "13.7%",
+          "percentageValue": 13.7,
           "hp": 32,
           "attack": 0,
           "defense": 1,
@@ -733,8 +763,8 @@
         },
         {
           "rank": 8,
-          "percentage": "1.2%",
-          "percentageValue": 1.2,
+          "percentage": "1.1%",
+          "percentageValue": 1.1,
           "hp": 32,
           "attack": 0,
           "defense": 2,
@@ -771,24 +801,24 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "52.4%",
-          "percentageValue": 52.4,
+          "percentage": "52.6%",
+          "percentageValue": 52.6,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "24.7%",
-          "percentageValue": 24.7,
+          "percentage": "24.6%",
+          "percentageValue": 24.6,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
         },
         {
           "rank": 3,
-          "percentage": "13.6%",
-          "percentageValue": 13.6,
+          "percentage": "13.5%",
+          "percentageValue": 13.5,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
@@ -811,8 +841,8 @@
         },
         {
           "rank": 6,
-          "percentage": "1.6%",
-          "percentageValue": 1.6,
+          "percentage": "1.0%",
+          "percentageValue": 1,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
@@ -827,8 +857,8 @@
         },
         {
           "rank": 8,
-          "percentage": "0.1%",
-          "percentageValue": 0.1,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
           "nameJa": "せっかち",
           "statUp": "すばやさ",
           "statDown": "ぼうぎょ"
@@ -845,30 +875,30 @@
           "rank": 10,
           "percentage": "0.0%",
           "percentageValue": 0,
-          "nameJa": "ようき",
-          "statUp": "すばやさ",
-          "statDown": "とくこう"
+          "nameJa": "ゆうかん",
+          "statUp": "こうげき",
+          "statDown": "すばやさ"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "83.2%",
-          "percentageValue": 83.2,
+          "percentage": "83.0%",
+          "percentageValue": 83,
           "nameJa": "もらいび",
           "descriptionJa": "ほのおタイプの技が効かず 自分はもらいび状態になる。"
         },
         {
           "rank": 2,
-          "percentage": "12.3%",
-          "percentageValue": 12.3,
+          "percentage": "12.4%",
+          "percentageValue": 12.4,
           "nameJa": "すりぬけ",
           "descriptionJa": "相手の ひかりのかべ リフレクター オーロラベール しんぴのまもり みがわりを 無視して技を使うことができる。"
         },
         {
           "rank": 3,
-          "percentage": "4.5%",
-          "percentageValue": 4.5,
+          "percentage": "4.6%",
+          "percentageValue": 4.6,
           "nameJa": "ほのおのからだ",
           "descriptionJa": "接触技を受けると ３０％の確率で 相手をやけど状態にする。"
         }

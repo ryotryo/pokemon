@@ -10,7 +10,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Camerupt.png",
   "ranks": {
     "Singles": 201,
-    "Doubles": 59
+    "Doubles": 60
   },
   "usagePercentages": {
     "Singles": null,
@@ -552,39 +552,9 @@
       ]
     },
     "Doubles": {
-      "rank": 59,
+      "rank": 60,
       "usagePercentage": null,
       "moves": [
-        {
-          "rank": 1,
-          "percentage": "96.3%",
-          "percentageValue": 96.3,
-          "moveId": "414"
-        },
-        {
-          "rank": 2,
-          "percentage": "88.5%",
-          "percentageValue": 88.5,
-          "moveId": "182"
-        },
-        {
-          "rank": 3,
-          "percentage": "81.4%",
-          "percentageValue": 81.4,
-          "moveId": "257"
-        },
-        {
-          "rank": 4,
-          "percentage": "72.6%",
-          "percentageValue": 72.6,
-          "moveId": "246"
-        },
-        {
-          "rank": 5,
-          "percentage": "36.6%",
-          "percentageValue": 36.6,
-          "moveId": "284"
-        },
         {
           "rank": 6,
           "percentage": "3.6%",
@@ -593,8 +563,8 @@
         },
         {
           "rank": 7,
-          "percentage": "3.6%",
-          "percentageValue": 3.6,
+          "percentage": "3.5%",
+          "percentageValue": 3.5,
           "moveId": "53"
         },
         {
@@ -651,13 +621,13 @@
           "rank": 6,
           "percentage": "0.3%",
           "percentageValue": 0.3,
-          "nameJa": "きあいのタスキ"
+          "nameJa": "オボンのみ"
         },
         {
           "rank": 7,
-          "percentage": "0.2%",
-          "percentageValue": 0.2,
-          "nameJa": "オボンのみ"
+          "percentage": "0.3%",
+          "percentageValue": 0.3,
+          "nameJa": "きあいのタスキ"
         },
         {
           "rank": 8,
@@ -675,7 +645,7 @@
           "rank": 10,
           "percentage": "0.1%",
           "percentageValue": 0.1,
-          "nameJa": "イトケのみ"
+          "nameJa": "たべのこし"
         }
       ],
       "spreads": [
@@ -693,8 +663,8 @@
         },
         {
           "rank": 2,
-          "percentage": "29.7%",
-          "percentageValue": 29.7,
+          "percentage": "29.5%",
+          "percentageValue": 29.5,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -741,8 +711,8 @@
         },
         {
           "rank": 6,
-          "percentage": "1.0%",
-          "percentageValue": 1,
+          "percentage": "1.1%",
+          "percentageValue": 1.1,
           "hp": 0,
           "attack": 0,
           "defense": 32,
@@ -803,8 +773,8 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "87.7%",
-          "percentageValue": 87.7,
+          "percentage": "87.6%",
+          "percentageValue": 87.6,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
@@ -843,8 +813,8 @@
         },
         {
           "rank": 6,
-          "percentage": "0.4%",
-          "percentageValue": 0.4,
+          "percentage": "4.0%",
+          "percentageValue": 4,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
@@ -920,6 +890,17 @@
           "rank": 3,
           "percentage": null,
           "percentageValue": null,
+          "pokemonId": "sylveon",
+          "displayNameJa": "ニンフィア",
+          "types": [
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sylveon.png"
+        },
+        {
+          "rank": 4,
+          "percentage": null,
+          "percentageValue": null,
           "pokemonId": "blastoise",
           "displayNameJa": "カメックス",
           "types": [
@@ -928,7 +909,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Blastoise.png"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "staraptor",
@@ -938,17 +919,6 @@
             "flying"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Staraptor.png"
-        },
-        {
-          "rank": 5,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "sylveon",
-          "displayNameJa": "ニンフィア",
-          "types": [
-            "fairy"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sylveon.png"
         },
         {
           "rank": 6,
@@ -1001,12 +971,12 @@
           "rank": 10,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "torkoal",
-          "displayNameJa": "コータス",
+          "pokemonId": "kangaskhan",
+          "displayNameJa": "ガルーラ",
           "types": [
-            "fire"
+            "normal"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Torkoal.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kangaskhan.png"
         }
       ]
     }
