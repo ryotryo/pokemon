@@ -10,7 +10,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slowbro.png",
   "ranks": {
     "Singles": 83,
-    "Doubles": 149
+    "Doubles": 147
   },
   "usagePercentages": {
     "Singles": null,
@@ -103,14 +103,14 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "88.1%",
-          "percentageValue": 88.1,
+          "percentage": "88.0%",
+          "percentageValue": 88,
           "moveId": "303"
         },
         {
           "rank": 2,
-          "percentage": "85.2%",
-          "percentageValue": 85.2,
+          "percentage": "85.1%",
+          "percentageValue": 85.1,
           "moveId": "503"
         },
         {
@@ -133,8 +133,8 @@
         },
         {
           "rank": 6,
-          "percentage": "20.8%",
-          "percentageValue": 20.8,
+          "percentage": "20.9%",
+          "percentageValue": 20.9,
           "moveId": "347"
         },
         {
@@ -389,8 +389,8 @@
         },
         {
           "rank": 6,
-          "percentage": "1.8%",
-          "percentageValue": 1.8,
+          "percentage": "2.0%",
+          "percentageValue": 2,
           "nameJa": "なまいき",
           "statUp": "とくぼう",
           "statDown": "すばやさ"
@@ -421,8 +421,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.1%",
-          "percentageValue": 0.1,
+          "percentage": "0.0%",
+          "percentageValue": 0,
           "nameJa": "おっとり",
           "statUp": "とくこう",
           "statDown": "ぼうぎょ"
@@ -514,17 +514,6 @@
           "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "clefable",
-          "displayNameJa": "ピクシー",
-          "types": [
-            "fairy"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Clefable.png"
-        },
-        {
-          "rank": 7,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "tyranitar",
           "displayNameJa": "バンギラス",
           "types": [
@@ -532,6 +521,17 @@
             "dark"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tyranitar.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "clefable",
+          "displayNameJa": "ピクシー",
+          "types": [
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Clefable.png"
         },
         {
           "rank": 8,
@@ -572,37 +572,67 @@
       ]
     },
     "Doubles": {
-      "rank": 149,
+      "rank": 147,
       "usagePercentage": null,
       "moves": [
         {
+          "rank": 1,
+          "percentage": "49.8%",
+          "percentageValue": 49.8,
+          "moveId": "503"
+        },
+        {
+          "rank": 2,
+          "percentage": "45.6%",
+          "percentageValue": 45.6,
+          "moveId": "433"
+        },
+        {
+          "rank": 3,
+          "percentage": "41.0%",
+          "percentageValue": 41,
+          "moveId": "303"
+        },
+        {
+          "rank": 4,
+          "percentage": "28.8%",
+          "percentageValue": 28.8,
+          "moveId": "94"
+        },
+        {
+          "rank": 5,
+          "percentage": "28.6%",
+          "percentageValue": 28.6,
+          "moveId": "776"
+        },
+        {
           "rank": 6,
-          "percentage": "23.7%",
-          "percentageValue": 23.7,
+          "percentage": "23.8%",
+          "percentageValue": 23.8,
           "moveId": "182"
         },
         {
           "rank": 7,
-          "percentage": "20.8%",
-          "percentageValue": 20.8,
+          "percentage": "21.0%",
+          "percentageValue": 21,
           "moveId": "500"
         },
         {
           "rank": 8,
-          "percentage": "17.4%",
-          "percentageValue": 17.4,
+          "percentage": "17.3%",
+          "percentageValue": 17.3,
           "moveId": "58"
         },
         {
           "rank": 9,
-          "percentage": "15.5%",
-          "percentageValue": 15.5,
+          "percentage": "15.7%",
+          "percentageValue": 15.7,
           "moveId": "244"
         },
         {
           "rank": 10,
-          "percentage": "14.9%",
-          "percentageValue": 14.9,
+          "percentage": "14.7%",
+          "percentageValue": 14.7,
           "moveId": "334"
         }
       ],
@@ -627,8 +657,8 @@
         },
         {
           "rank": 4,
-          "percentage": "2.6%",
-          "percentageValue": 2.6,
+          "percentage": "2.5%",
+          "percentageValue": 2.5,
           "nameJa": "ナモのみ"
         },
         {
@@ -683,8 +713,8 @@
         },
         {
           "rank": 2,
-          "percentage": "8.2%",
-          "percentageValue": 8.2,
+          "percentage": "8.3%",
+          "percentageValue": 8.3,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -695,8 +725,8 @@
         },
         {
           "rank": 3,
-          "percentage": "6.1%",
-          "percentageValue": 6.1,
+          "percentage": "6.0%",
+          "percentageValue": 6,
           "hp": 32,
           "attack": 0,
           "defense": 32,
@@ -707,8 +737,8 @@
         },
         {
           "rank": 4,
-          "percentage": "5.5%",
-          "percentageValue": 5.5,
+          "percentage": "5.4%",
+          "percentageValue": 5.4,
           "hp": 32,
           "attack": 0,
           "defense": 2,
@@ -743,8 +773,8 @@
         },
         {
           "rank": 7,
-          "percentage": "2.1%",
-          "percentageValue": 2.1,
+          "percentage": "2.2%",
+          "percentageValue": 2.2,
           "hp": 32,
           "attack": 0,
           "defense": 32,
@@ -755,8 +785,8 @@
         },
         {
           "rank": 8,
-          "percentage": "2.0%",
-          "percentageValue": 2,
+          "percentage": "2.1%",
+          "percentageValue": 2.1,
           "hp": 0,
           "attack": 0,
           "defense": 32,
@@ -809,34 +839,34 @@
         },
         {
           "rank": 3,
-          "percentage": "15.7%",
-          "percentageValue": 15.7,
+          "percentage": "15.8%",
+          "percentageValue": 15.8,
           "nameJa": "なまいき",
           "statUp": "とくぼう",
           "statDown": "すばやさ"
         },
         {
           "rank": 4,
-          "percentage": "14.1%",
-          "percentageValue": 14.1,
+          "percentage": "14.2%",
+          "percentageValue": 14.2,
           "nameJa": "おだやか",
           "statUp": "とくぼう",
           "statDown": "こうげき"
         },
         {
           "rank": 5,
-          "percentage": "2.9%",
-          "percentageValue": 2.9,
-          "nameJa": "ひかえめ",
-          "statUp": "とくこう",
+          "percentage": "2.8%",
+          "percentageValue": 2.8,
+          "nameJa": "ずぶとい",
+          "statUp": "ぼうぎょ",
           "statDown": "こうげき"
         },
         {
           "rank": 6,
           "percentage": "2.7%",
           "percentageValue": 2.7,
-          "nameJa": "ずぶとい",
-          "statUp": "ぼうぎょ",
+          "nameJa": "ひかえめ",
+          "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
@@ -849,8 +879,8 @@
         },
         {
           "rank": 8,
-          "percentage": "0.5%",
-          "percentageValue": 0.5,
+          "percentage": "0.6%",
+          "percentageValue": 0.6,
           "nameJa": "おっとり",
           "statUp": "とくこう",
           "statDown": "ぼうぎょ"
@@ -875,8 +905,8 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "50.8%",
-          "percentageValue": 50.8,
+          "percentage": "50.9%",
+          "percentageValue": 50.9,
           "nameJa": "さいせいりょく",
           "descriptionJa": "手持ちに戻ると 最大ＨＰの１／３回復する。"
         },
@@ -889,8 +919,8 @@
         },
         {
           "rank": 3,
-          "percentage": "6.5%",
-          "percentageValue": 6.5,
+          "percentage": "6.4%",
+          "percentageValue": 6.4,
           "nameJa": "マイペース",
           "descriptionJa": "こんらん状態にならず いかくも効かない。"
         }
@@ -970,18 +1000,6 @@
           "rank": 7,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "overqwil",
-          "displayNameJa": "ハリーマン",
-          "types": [
-            "dark",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Overqwil.png"
-        },
-        {
-          "rank": 8,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "sableye",
           "displayNameJa": "ヤミラミ",
           "types": [
@@ -989,6 +1007,18 @@
             "ghost"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sableye.png"
+        },
+        {
+          "rank": 8,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "overqwil",
+          "displayNameJa": "ハリーマン",
+          "types": [
+            "dark",
+            "poison"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Overqwil.png"
         },
         {
           "rank": 9,

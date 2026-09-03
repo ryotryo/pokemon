@@ -86,26 +86,26 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "91.4%",
-          "percentageValue": 91.4,
+          "percentage": "91.3%",
+          "percentageValue": 91.3,
           "moveId": "503"
         },
         {
           "rank": 2,
-          "percentage": "90.2%",
-          "percentageValue": 90.2,
+          "percentage": "90.1%",
+          "percentageValue": 90.1,
           "moveId": "105"
         },
         {
           "rank": 3,
-          "percentage": "61.9%",
-          "percentageValue": 61.9,
+          "percentage": "61.8%",
+          "percentageValue": 61.8,
           "moveId": "243"
         },
         {
           "rank": 4,
-          "percentage": "58.5%",
-          "percentageValue": 58.5,
+          "percentage": "58.4%",
+          "percentageValue": 58.4,
           "moveId": "58"
         },
         {
@@ -140,8 +140,8 @@
         },
         {
           "rank": 10,
-          "percentage": "1.2%",
-          "percentageValue": 1.2,
+          "percentage": "1.3%",
+          "percentageValue": 1.3,
           "moveId": "182"
         }
       ],
@@ -202,8 +202,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.7%",
-          "percentageValue": 0.7,
+          "percentage": "0.6%",
+          "percentageValue": 0.6,
           "nameJa": "カゴのみ"
         }
       ],
@@ -258,8 +258,8 @@
         },
         {
           "rank": 5,
-          "percentage": "3.1%",
-          "percentageValue": 3.1,
+          "percentage": "3.0%",
+          "percentageValue": 3,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -296,18 +296,6 @@
           "rank": 8,
           "percentage": "1.4%",
           "percentageValue": 1.4,
-          "hp": 32,
-          "attack": 0,
-          "defense": 27,
-          "specialAttack": 0,
-          "specialDefense": 0,
-          "speed": 7,
-          "raw": "HP 32 / Atk 0 / Def 27 / SpA 0 / SpD 0 / Spe 7"
-        },
-        {
-          "rank": 9,
-          "percentage": "1.4%",
-          "percentageValue": 1.4,
           "hp": 0,
           "attack": 0,
           "defense": 32,
@@ -317,16 +305,28 @@
           "raw": "HP 0 / Atk 0 / Def 32 / SpA 32 / SpD 2 / Spe 0"
         },
         {
+          "rank": 9,
+          "percentage": "1.4%",
+          "percentageValue": 1.4,
+          "hp": 32,
+          "attack": 0,
+          "defense": 27,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 7,
+          "raw": "HP 32 / Atk 0 / Def 27 / SpA 0 / SpD 0 / Spe 7"
+        },
+        {
           "rank": 10,
           "percentage": "1.3%",
           "percentageValue": 1.3,
-          "hp": 32,
+          "hp": 2,
           "attack": 0,
-          "defense": 0,
+          "defense": 32,
           "specialAttack": 32,
-          "specialDefense": 2,
+          "specialDefense": 0,
           "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 2 / Spe 0"
+          "raw": "HP 2 / Atk 0 / Def 32 / SpA 32 / SpD 0 / Spe 0"
         }
       ],
       "natures": [
@@ -348,8 +348,8 @@
         },
         {
           "rank": 3,
-          "percentage": "13.2%",
-          "percentageValue": 13.2,
+          "percentage": "13.3%",
+          "percentageValue": 13.3,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
@@ -404,8 +404,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.0%",
-          "percentageValue": 0,
+          "percentage": "0.5%",
+          "percentageValue": 0.5,
           "nameJa": "おっとり",
           "statUp": "とくこう",
           "statDown": "ぼうぎょ"
@@ -499,18 +499,6 @@
           "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "metagross",
-          "displayNameJa": "メタグロス",
-          "types": [
-            "steel",
-            "psychic"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Metagross.png"
-        },
-        {
-          "rank": 7,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "dragonite",
           "displayNameJa": "カイリュー",
           "types": [
@@ -518,6 +506,18 @@
             "flying"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragonite.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "metagross",
+          "displayNameJa": "メタグロス",
+          "types": [
+            "steel",
+            "psychic"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Metagross.png"
         },
         {
           "rank": 8,
@@ -561,36 +561,6 @@
       "usagePercentage": null,
       "moves": [
         {
-          "rank": 1,
-          "percentage": "70.4%",
-          "percentageValue": 70.4,
-          "moveId": "503"
-        },
-        {
-          "rank": 2,
-          "percentage": "69.0%",
-          "percentageValue": 69,
-          "moveId": "182"
-        },
-        {
-          "rank": 3,
-          "percentage": "49.8%",
-          "percentageValue": 49.8,
-          "moveId": "58"
-        },
-        {
-          "rank": 4,
-          "percentage": "38.7%",
-          "percentageValue": 38.7,
-          "moveId": "196"
-        },
-        {
-          "rank": 5,
-          "percentage": "34.1%",
-          "percentageValue": 34.1,
-          "moveId": "105"
-        },
-        {
           "rank": 6,
           "percentage": "29.7%",
           "percentageValue": 29.7,
@@ -616,8 +586,8 @@
         },
         {
           "rank": 10,
-          "percentage": "15.0%",
-          "percentageValue": 15,
+          "percentage": "14.9%",
+          "percentageValue": 14.9,
           "moveId": "114"
         }
       ],
@@ -808,8 +778,8 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "38.0%",
-          "percentageValue": 38,
+          "percentage": "37.9%",
+          "percentageValue": 37.9,
           "nameJa": "おだやか",
           "statUp": "とくぼう",
           "statDown": "こうげき"
@@ -824,8 +794,8 @@
         },
         {
           "rank": 3,
-          "percentage": "21.8%",
-          "percentageValue": 21.8,
+          "percentage": "21.9%",
+          "percentageValue": 21.9,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
@@ -850,16 +820,16 @@
           "rank": 6,
           "percentage": "2.0%",
           "percentageValue": 2,
-          "nameJa": "なまいき",
-          "statUp": "とくぼう",
+          "nameJa": "のんき",
+          "statUp": "ぼうぎょ",
           "statDown": "すばやさ"
         },
         {
           "rank": 7,
           "percentage": "1.2%",
           "percentageValue": 1.2,
-          "nameJa": "のんき",
-          "statUp": "ぼうぎょ",
+          "nameJa": "なまいき",
+          "statUp": "とくぼう",
           "statDown": "すばやさ"
         },
         {
@@ -890,15 +860,15 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "98.1%",
-          "percentageValue": 98.1,
+          "percentage": "98.0%",
+          "percentageValue": 98,
           "nameJa": "かちき",
           "descriptionJa": "相手に能力を下げられると 特攻が２段階上がる。"
         },
         {
           "rank": 2,
-          "percentage": "1.3%",
-          "percentageValue": 1.3,
+          "percentage": "1.4%",
+          "percentageValue": 1.4,
           "nameJa": "ふしぎなうろこ",
           "descriptionJa": "状態異常の時 防御が１．５倍になる。"
         },
