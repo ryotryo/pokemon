@@ -12,6 +12,7 @@
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc --noEmit",
     "data:update": "tsx scripts/update-champions-data.ts && tsx scripts/update-usage-ranking-data.ts",
+    "intro-plan:update": "tsx scripts/update-pokemon-intro-production-plan.ts",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "data:check": "vitest run --config vitest.config.ts tests/data"
   },
