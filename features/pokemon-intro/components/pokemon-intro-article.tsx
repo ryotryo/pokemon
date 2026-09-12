@@ -5,6 +5,7 @@ import type { PokemonIntro } from "@/content/pokemon-intros";
 import type { UsageRankingPokemon } from "@/lib/champions/usage-ranking";
 import type { PokemonBaseStats } from "@/lib/champions/speed-ranking";
 import { formatMoveAccuracy, formatMovePower, type ResolvedPokemonIntroMove } from "@/lib/champions/pokemon-intro-moves";
+import { RoleTags } from "@/features/pokemon-roles/components/role-tags";
 
 const statLabels: Array<[keyof PokemonBaseStats,string]> = [["hp","HP"],["attack","攻撃"],["defense","防御"],["specialAttack","特攻"],["specialDefense","特防"],["speed","素早さ"]];
 function Heading({children}:{children:React.ReactNode}) { return <h2 className="border-l-4 border-blue-600 pl-3 text-xl font-black">{children}</h2>; }
@@ -17,7 +18,7 @@ export function PokemonIntroArticle({ intro, pokemon, stats, featuredMoves }: { 
       <p className="text-xs font-bold text-blue-700">このポケモンってどんなポケモン？</p>
       <div className="mt-2 flex items-center gap-4"><PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={96}/><div><h1 className="text-2xl font-black sm:text-3xl">{pokemon.displayNameJa}</h1><div className="mt-2 flex gap-1">{pokemon.types.map(type=><TypeBadge key={type} type={type}/>)}</div></div></div>
       <dl className="mt-4 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-slate-200 sm:grid-cols-6">{statLabels.map(([key,label])=><div key={key} className="bg-white px-2 py-2 text-center"><dt className="text-[10px] font-bold text-slate-500">{label}</dt><dd className="text-sm font-black">{stats[key]}</dd></div>)}</dl>
-      <div className="mt-4 rounded-2xl bg-blue-50 p-4"><p className="text-[10px] font-black text-blue-700">ひとことで</p><p className="mt-1 text-lg font-black text-blue-950">{intro.summary}</p><div className="mt-2 flex flex-wrap gap-1.5">{intro.roles.map(role=><span key={role} className="rounded-full bg-white px-2.5 py-1 text-[10px] font-bold text-blue-700">{role}</span>)}</div></div>
+      <div className="mt-4 rounded-2xl bg-blue-50 p-4"><p className="text-[10px] font-black text-blue-700">ひとことで</p><p className="mt-1 text-lg font-black text-blue-950">{intro.summary}</p><div className="mt-2"><RoleTags roleIds={intro.roles}/></div></div>
     </header>
     <div className="mt-7 space-y-8">
       <section><Heading>どんなポケモン？</Heading><div className="mt-3 space-y-3">{intro.overview.map(p=><p key={p} className="text-sm leading-7 text-slate-700">{p}</p>)}</div></section>
