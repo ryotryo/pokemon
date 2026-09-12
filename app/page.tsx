@@ -47,6 +47,13 @@ const tools = [
     available: true,
   },
   {
+    title: "このポケモンってどんなポケモン？",
+    description: "対戦で何をするポケモンなのかを、初心者向けに短く分かりやすく紹介します。",
+    href: "/pokemon-intro/",
+    iconText: "？",
+    available: true,
+  },
+  {
     title: "技分析",
     description: "ポケモンごとの使用技や技タイプを分析する機能です。",
     available: false,

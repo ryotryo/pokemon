@@ -287,7 +287,7 @@ function LearnableMoves({ moves, topMoveIds, onSelectMove }: { moves: UsageMoveD
   );
 }
 
-export function UsageDetail({ pokemon, hasGuide = false }: { pokemon: UsagePokemonPageData; hasGuide?: boolean }) {
+export function UsageDetail({ pokemon, hasGuide = false, introId }: { pokemon: UsagePokemonPageData; hasGuide?: boolean; introId?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -353,6 +353,11 @@ export function UsageDetail({ pokemon, hasGuide = false }: { pokemon: UsagePokem
         {hasGuide && (
           <Link href={`/pokemon-guide/${pokemon.id}/`} className="mt-3 inline-flex min-h-10 items-center rounded-full bg-blue-700 px-4 text-xs font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
             使い方解説を見る →
+          </Link>
+        )}
+        {introId && (
+          <Link href={`/pokemon-intro/${introId}/`} className="ml-2 mt-3 inline-flex min-h-10 items-center rounded-full border border-blue-200 bg-white px-4 text-xs font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+            どんなポケモン？ →
           </Link>
         )}
       </section>
