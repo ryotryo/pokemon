@@ -42,9 +42,11 @@ describe("Pokemon intro production plan", () => {
 
   it("derives not-started, partial, complete, and next batch from article IDs", () => {
     const first = plan.batches[0];
-    expect(getNextIncompletePokemonIntroBatch(plan, currentArticleIds)?.id).toBe(first.id);
-    expect(getPokemonIntroBatchProgress(plan, currentArticleIds)[0].status).toBe("not-started");
-    expect(getPokemonIntroBatchProgress(plan, [...currentArticleIds, first.pokemon[0].pokemonId])[0].status).toBe("partial");
-    expect(getPokemonIntroBatchProgress(plan, [...currentArticleIds, ...first.pokemon.map((pokemon) => pokemon.pokemonId)])[0].status).toBe("complete");
+    const articlesBeforeBatch01 = plan.existingArticleIdsAtCreation;
+    expect(getNextIncompletePokemonIntroBatch(plan, articlesBeforeBatch01)?.id).toBe(first.id);
+    expect(getPokemonIntroBatchProgress(plan, articlesBeforeBatch01)[0].status).toBe("not-started");
+    expect(getPokemonIntroBatchProgress(plan, [...articlesBeforeBatch01, first.pokemon[0].pokemonId])[0].status).toBe("partial");
+    expect(getPokemonIntroBatchProgress(plan, currentArticleIds)[0].status).toBe("complete");
+    expect(getNextIncompletePokemonIntroBatch(plan, currentArticleIds)?.id).toBe("batch-02");
   });
 });

@@ -3,18 +3,26 @@ import { readFileSync } from "node:fs";
 import indexJson from "../../data/usage-ranking/index.json";
 import speedJson from "../../data/champions/speed-ranking.json";
 import movesJson from "../../data/usage-ranking/moves.json";
-import { pokemonIntros } from "../../content/pokemon-intros";
+import { pokemonIntroById, pokemonIntros } from "../../content/pokemon-intros";
 import { formatMoveAccuracy, formatMovePower, resolvePokemonIntroMoves } from "../../lib/champions/pokemon-intro-moves";
 import type { UsageMoveDetail } from "../../lib/champions/usage-ranking";
 
 describe("pokemon intros", () => {
+  const batch01Ids = [
+    "mega-garchomp", "meowscarada", "archaludon", "mimikyu", "gyarados",
+    "mega-gyarados", "delphox", "mega-dragonite", "metagross", "mega-metagross",
+  ];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains exactly ten unique articles including Mega Delphox", () => {
-    expect(pokemonIntros).toHaveLength(10);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(10);
+  it("contains twenty unique articles including every batch-01 form", () => {
+    expect(pokemonIntros).toHaveLength(20);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(20);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
+    for (const id of batch01Ids) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+      expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
   });
   it("uses Pokemon and stats present in current Champions data", () => {
     for (const intro of pokemonIntros) { expect(ids.has(intro.pokemonId)).toBe(true); expect(statIds.has(intro.pokemonId)).toBe(true); }
@@ -44,5 +52,9 @@ describe("pokemon intros", () => {
   });
   it("has complete beginner-facing sections", () => {
     for (const intro of pokemonIntros) { expect(intro.overview.length).toBeGreaterThanOrEqual(2); expect(intro.strengths.length).toBeGreaterThanOrEqual(2); expect(intro.featuredMoves.length).toBeGreaterThanOrEqual(3); expect(intro.weaknesses.length).toBeGreaterThanOrEqual(2); }
+  });
+  it("keeps batch-01 articles free of season-specific production data", () => {
+    const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
+    for (const id of batch01Ids) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });

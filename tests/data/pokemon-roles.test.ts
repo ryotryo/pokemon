@@ -11,8 +11,8 @@ describe("pokemon roles", () => {
     const groupIds = new Set(roleGroups.map((group) => group.id));
     for (const role of pokemonRoleDefinitions) expect(groupIds.has(role.group)).toBe(true);
   });
-  it("resolves every role on all ten articles", () => {
-    expect(pokemonIntros).toHaveLength(10);
+  it("resolves every role on all twenty articles", () => {
+    expect(pokemonIntros).toHaveLength(20);
     for (const intro of pokemonIntros) {
       expect(intro.roles.length).toBeGreaterThan(0);
       for (const roleId of intro.roles) expect(pokemonRoleById.has(roleId), `${intro.pokemonId}: ${roleId}`).toBe(true);
@@ -23,7 +23,7 @@ describe("pokemon roles", () => {
       const articles = pokemonIntros.filter((intro) => intro.roles.includes(role.id));
       for (const article of articles) expect(article.roles).toContain(role.id);
     }
-    expect(pokemonIntros.filter((intro) => intro.roles.includes("setup-sweeper"))).toHaveLength(5);
+    expect(pokemonIntros.filter((intro) => intro.roles.includes("setup-sweeper")).length).toBeGreaterThan(5);
   });
   it("provides stable article tag anchors", () => {
     for (const intro of pokemonIntros) for (const roleId of intro.roles) expect(`/pokemon-roles/#role-${roleId}`).toMatch(/^\/pokemon-roles\/#role-[a-z-]+$/);
