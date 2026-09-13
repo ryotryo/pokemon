@@ -4448,5 +4448,35 @@
     "metaCategory": "heal",
     "isCoverageMove": false,
     "source": "pokeapi"
+  },
+  "assurance": {
+    "id": "assurance",
+    "name": "Assurance",
+    "displayNameJa": "ダメおし",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "bind": {
+    "id": "bind",
+    "name": "Bind",
+    "displayNameJa": "しめつける",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "confuse-ray": {
+    "id": "confuse-ray",
+    "name": "Confuse Ray",
+    "displayNameJa": "あやしいひかり",
+    "type": "ghost",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
   }
 }
