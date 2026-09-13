@@ -20,12 +20,16 @@ describe("pokemon intros", () => {
     "gengar", "mega-gengar", "glimmora", "mega-glimmora", "greninja",
     "mega-greninja", "kingambit", "blaziken", "mega-blaziken", "aegislash-shield-forme",
   ];
+  const batch04Ids = [
+    "gholdengo", "hisuian-samurott", "staraptor", "mega-staraptor", "umbreon",
+    "sylveon", "lucario", "mega-lucario", "rotom-wash", "venusaur",
+  ];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains forty unique articles including every completed batch-01 through batch-03 form", () => {
-    expect(pokemonIntros).toHaveLength(40);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(40);
+  it("contains fifty unique articles including every completed batch-01 through batch-04 form", () => {
+    expect(pokemonIntros).toHaveLength(50);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(50);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -39,8 +43,12 @@ describe("pokemon intros", () => {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
     }
+    for (const id of batch04Ids) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+      expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
   });
-  it("uses the exact current Champions forms, types, stats, and abilities for batch-02", () => {
+  it("uses the exact current Champions forms, types, stats, and abilities for audited batches", () => {
     const expected = {
       charizard: { types: ["fire", "flying"], stats: [78, 84, 78, 109, 85, 100], abilities: ["もうか", "サンパワー"] },
       "mega-charizard-x": { types: ["fire", "dragon"], stats: [78, 130, 111, 130, 85, 100], abilities: ["かたいツメ"] },
@@ -52,6 +60,16 @@ describe("pokemon intros", () => {
       "mega-raichu-x": { types: ["electric"], stats: [60, 135, 95, 90, 95, 110], abilities: ["エレキメイカー"] },
       "mega-raichu-y": { types: ["electric"], stats: [60, 100, 55, 160, 80, 130], abilities: ["ノーガード"] },
       hydreigon: { types: ["dark", "dragon"], stats: [92, 105, 90, 125, 90, 98], abilities: ["ふゆう"] },
+      gholdengo: { types: ["steel", "ghost"], stats: [87, 60, 95, 133, 91, 84], abilities: ["おうごんのからだ"] },
+      "hisuian-samurott": { types: ["water", "dark"], stats: [90, 108, 80, 100, 65, 85], abilities: ["きれあじ", "げきりゅう"] },
+      staraptor: { types: ["normal", "flying"], stats: [85, 120, 70, 50, 60, 100], abilities: ["いかく", "すてみ"] },
+      "mega-staraptor": { types: ["fighting", "flying"], stats: [85, 140, 100, 60, 90, 110], abilities: ["あまのじゃく"] },
+      umbreon: { types: ["dark"], stats: [95, 65, 110, 60, 130, 65], abilities: ["せいしんりょく", "シンクロ"] },
+      sylveon: { types: ["fairy"], stats: [95, 65, 65, 110, 130, 60], abilities: ["フェアリースキン", "メロメロボディ"] },
+      lucario: { types: ["fighting", "steel"], stats: [70, 110, 70, 115, 70, 90], abilities: ["せいしんりょく", "ふくつのこころ", "せいぎのこころ"] },
+      "mega-lucario": { types: ["fighting", "steel"], stats: [70, 145, 88, 140, 70, 112], abilities: ["てきおうりょく"] },
+      "rotom-wash": { types: ["electric", "water"], stats: [50, 65, 107, 105, 107, 86], abilities: ["ふゆう"] },
+      venusaur: { types: ["grass", "poison"], stats: [80, 82, 83, 100, 100, 80], abilities: ["ようりょくそ", "しんりょく"] },
     } as const;
     for (const [id, facts] of Object.entries(expected)) {
       const indexEntry = indexJson.pokemon.find((pokemon) => pokemon.id === id)!;
@@ -93,6 +111,6 @@ describe("pokemon intros", () => {
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
