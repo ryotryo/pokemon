@@ -6,17 +6,17 @@
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」は30記事まで完成しました。ここでbatch制作を一度止め、既存30記事を対象に文章の単調化、role tagの粒度、情報量、初心者向けの読みやすさ、通常・Mega・独立フォームの書き分けを人間レビューする段階です。
+「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-03までGitHubへcheckpoint済みで、次はbatch-04から再開します。各batchを個別に監査・検証・pushしてから次へ進む方針です。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **30記事**（`content/pokemon-intros.ts`）
-- 現在対象の未記事化: **309フォーム**
+- 公開済みpokemon-intro: **40記事**（`content/pokemon-intros.ts`）
+- 現在対象の未記事化: **299フォーム**
 - 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
-- 完成batch: **batch-01、batch-02**
-- 次の未完成batch: **batch-03（0/10）**
+- 完成batch: **batch-01〜batch-03**
+- 次の未完成batch: **batch-04（0/10）**
 - 進捗は `data/pokemon-intro-production-plan.json`と記事IDの比較で判定し、手書きフラグは使わない。
 
 執筆再開前に [`pokemon-intro-authoring.md`](pokemon-intro-authoring.md)を読み、全体計画は [`pokemon-intro-production-plan.md`](pokemon-intro-production-plan.md)、機械判定には [`../data/pokemon-intro-production-plan.json`](../data/pokemon-intro-production-plan.json)を使ってください。
@@ -35,14 +35,15 @@
 
 ## Next actions
 
-1. 30記事の人間レビューを行い、量産前に文章・role・情報量・フォーム差の基準を確認する。
-2. レビュー結果が出た場合、必要な既存記事・執筆規約・共通role definitionsを調整し、検証する。
-3. レビュー承認後、production planと記事IDから次の未完成batchを再計算し、batch-03から制作を再開する。
-4. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
+1. production planと記事IDを再照合し、batch-04から記事制作を再開する。
+2. 各batchを全文監査・検証し、独立したGitHub checkpointとして保存する。
+3. batch-07完了時（今回の連続制作5batch地点）に品質ドリフト監査とフル検証を行う。
+4. batch-12まで完了したらCURRENT_STATUSを再更新し、最終フル検証とVercel Production確認を行う。
+5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
 
 ## Important cautions
 
-- 人間レビュー前にpokemon-introの次batchへ進まない。
+- 次のbatchを番号だけで決め打ちせず、production planと記事IDから毎回再判定する。
 - 既存の「ポケモン使い方解説」をpokemon-introへ統合・削除しない。
 - PokéAPI learnset、SV、Showdown等をChampionsデータへ混ぜない。
 - Mega / regional / independent formを表示名だけで判定しない。
