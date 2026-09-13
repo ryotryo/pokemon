@@ -27,7 +27,8 @@ describe("move search", () => {
     const earthquake = dataset.moves.find((move) => move.nameJa === "じしん")!;
     const learners = getMoveLearners(dataset.pokemon, earthquake.id, "Singles");
     expect(dataset.pokemon.length).toBeGreaterThan(300);
-    expect(dataset.moves).toHaveLength(561);
+    expect(dataset.moves.length).toBeGreaterThan(560);
+    expect(new Set(dataset.moves.map((move) => move.id)).size).toBe(dataset.moves.length);
     expect(new Set(dataset.pokemon.map((pokemon) => pokemon.id)).size).toBe(dataset.pokemon.length);
     expect(dataset.moves.every((move) => dataset.pokemon.some((pokemon) => pokemon.learnableMoveIds.includes(move.id)))).toBe(true);
     expect(learners.some((pokemon) => pokemon.id === "garchomp")).toBe(true);

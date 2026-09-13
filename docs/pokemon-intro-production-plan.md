@@ -5,8 +5,12 @@
 - 元データ更新日時: 2026-09-08T17:26:52.590Z
 - 記事対象総数（作成時点）: 309
 - 既存記事数（作成時点）: 10
-- 未完成・計画対象数（作成時点）: 299
-- batch数: 30
+- 計画登録数（完成済みbatchを含む）: 330
+- 現在の記事数: 20
+- 最新追記元: M6 / Current（2026-09-12T23:26:03.968Z）
+- 最新Champions対象数: 339
+- 最新追記数: 31
+- batch数: 34
 - 順序: Singles順位の昇順。順位なしはranked対象の後ろ。フォームID単位で扱う。
 - 進捗: `content/pokemon-intros.ts` に同じ `pokemonId` の記事があるかで判定する。
 
@@ -458,3 +462,54 @@
 | paldean-tauros-combat-breed | ケンタロス（パルデアのすがた・コンバット種） | independent | 234 | ranked |
 | watchog | ミルホッグ | base | 235 | ranked |
 | mega-gallade | メガエルレイド | mega | — | unranked |
+
+## batch-31
+
+| ID | 日本語名 | フォーム区分 | Singles順位 | 区分 |
+|---|---|---|---:|---|
+| salamence | ボーマンダ | base | 1 | ranked |
+| mega-salamence | メガボーマンダ | mega | 1 | ranked |
+| mega-garchomp-z | メガガブリアスZ | mega | 2 | ranked |
+| golisopod | グソクムシャ | base | 4 | ranked |
+| mega-golisopod | メガグソクムシャ | mega | 4 | ranked |
+| baxcalibur | セグレイブ | base | 6 | ranked |
+| mega-baxcalibur | メガセグレイブ | mega | 6 | ranked |
+| mega-lucario-z | メガルカリオZ | mega | 7 | ranked |
+| rillaboom | ゴリランダー | base | 12 | ranked |
+| cinderace | エースバーン | base | 21 | ranked |
+
+## batch-32
+
+| ID | 日本語名 | フォーム区分 | Singles順位 | 区分 |
+|---|---|---|---:|---|
+| pawmot | パーモット | base | 27 | ranked |
+| indeedee | イエッサン | base | 31 | ranked |
+| mega-absol-z | メガアブソルZ | mega | 41 | ranked |
+| sirfetch-d | ネギガナイト | base | 72 | ranked |
+| toxtricity | ストリンダー | base | 83 | ranked |
+| inteleon | インテレオン | base | 88 | ranked |
+| toxtricity-low-key-form | ストリンダー | independent | 93 | ranked |
+| arboliva | オリーヴァ | base | 97 | ranked |
+| indeedee-female | イエッサン（メスのすがた） | independent | 103 | ranked |
+| pincurchin | バチンウニ | base | 108 | ranked |
+
+## batch-33
+
+| ID | 日本語名 | フォーム区分 | Singles順位 | 区分 |
+|---|---|---|---:|---|
+| grapploct | オトスパス | base | 121 | ranked |
+| wigglytuff | プクリン | base | 146 | ranked |
+| mabosstiff | マフィティフ | base | 156 | ranked |
+| swalot | マルノーム | base | 183 | ranked |
+| squawkabilly | イキリンコ | base | 192 | ranked |
+| thievul | フォクスライ | base | 200 | ranked |
+| farfetch-d | カモネギ | base | 205 | ranked |
+| mr-mime | バリヤード | base | 208 | ranked |
+| perrserker | ニャイキング | base | 220 | ranked |
+| gogoat | ゴーゴート | base | 248 | ranked |
+
+## batch-34
+
+| ID | 日本語名 | フォーム区分 | Singles順位 | 区分 |
+|---|---|---|---:|---|
+| alolan-persian | アローラペルシアン | independent | 249 | ranked |

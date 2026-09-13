@@ -48,8 +48,6 @@ function appendInStableBatches(
 ): PokemonIntroPlanBatch[] {
   const result = batches.map((batch) => ({ ...batch, pokemon: [...batch.pokemon] }));
   const queue = [...additions];
-  const finalBatch = result.at(-1);
-  while (finalBatch && finalBatch.pokemon.length < 10 && queue.length) finalBatch.pokemon.push(queue.shift()!);
   while (queue.length) {
     const number = result.length + 1;
     result.push({ id: `batch-${String(number).padStart(2, "0")}`, pokemon: queue.splice(0, 10) });
@@ -57,8 +55,9 @@ function appendInStableBatches(
   return result;
 }
 
-function markdown(plan: PokemonIntroProductionPlan): string {
+function markdown(plan: PokemonIntroProductionPlan, currentArticleCount: number): string {
   const plannedCount = plan.batches.reduce((sum, batch) => sum + batch.pokemon.length, 0);
+  const latestUpdate = plan.updates?.at(-1);
   const lines = [
     "# 「このポケモンってどんなポケモン？」制作計画",
     "",
@@ -67,7 +66,13 @@ function markdown(plan: PokemonIntroProductionPlan): string {
     `- 元データ更新日時: ${plan.source.sourceUpdatedAt}`,
     `- 記事対象総数（作成時点）: ${plan.targetCountAtCreation}`,
     `- 既存記事数（作成時点）: ${plan.existingArticleIdsAtCreation.length}`,
-    `- 未完成・計画対象数（作成時点）: ${plannedCount}`,
+    `- 計画登録数（完成済みbatchを含む）: ${plannedCount}`,
+    `- 現在の記事数: ${currentArticleCount}`,
+    ...(latestUpdate ? [
+      `- 最新追記元: ${latestUpdate.seasonLabel} / ${latestUpdate.season}（${latestUpdate.sourceUpdatedAt}）`,
+      `- 最新Champions対象数: ${latestUpdate.currentTargetCount}`,
+      `- 最新追記数: ${latestUpdate.addedPokemonIds.length}`,
+    ] : []),
     `- batch数: ${plan.batches.length}`,
     "- 順序: Singles順位の昇順。順位なしはranked対象の後ろ。フォームID単位で扱う。",
     "- 進捗: `content/pokemon-intros.ts` に同じ `pokemonId` の記事があるかで判定する。",
@@ -93,8 +98,25 @@ async function main() {
     .sort(compareCandidates)
     .map(toPlanItem);
   const batches = appendInStableBatches(existingPlan?.batches ?? [], additions);
+  const initialPlannedCount = existingPlan
+    ? existingPlan.targetCountAtCreation - existingPlan.existingArticleIdsAtCreation.length
+    : 0;
+  const alreadyRecordedUpdateIds = new Set(existingPlan?.updates?.flatMap((update) => update.addedPokemonIds) ?? []);
+  const unrecordedExtensionIds = batches.flatMap((batch) => batch.pokemon).slice(initialPlannedCount)
+    .map((pokemon) => pokemon.pokemonId).filter((id) => !alreadyRecordedUpdateIds.has(id));
+  const sourceAlreadyRecorded = existingPlan?.source.sourceUpdatedAt === index.sourceUpdatedAt
+    || existingPlan?.updates?.some((update) => update.sourceUpdatedAt === index.sourceUpdatedAt);
+  const updates = existingPlan && !sourceAlreadyRecorded
+    ? [...(existingPlan.updates ?? []), {
+        sourceUpdatedAt: index.sourceUpdatedAt,
+        season: index.season,
+        seasonLabel: index.seasonLabel,
+        currentTargetCount: index.pokemon.length,
+        addedPokemonIds: unrecordedExtensionIds,
+      }]
+    : existingPlan?.updates;
   const plan: PokemonIntroProductionPlan = existingPlan
-    ? { ...existingPlan, batches }
+    ? { ...existingPlan, ...(updates ? { updates } : {}), batches }
     : {
         schemaVersion: 1,
         createdAt,
@@ -114,7 +136,7 @@ async function main() {
       };
   await mkdir(path.dirname(documentPath), { recursive: true });
   await writeFile(planPath, `${JSON.stringify(plan, null, 2)}\n`);
-  await writeFile(documentPath, markdown(plan));
+  await writeFile(documentPath, markdown(plan, articleIds.size));
   console.log(`[pokemon-intro-plan] targets=${plan.targetCountAtCreation} existing=${plan.existingArticleIdsAtCreation.length} planned=${plan.batches.flatMap((batch) => batch.pokemon).length} batches=${plan.batches.length} additions=${additions.length}`);
 }
 

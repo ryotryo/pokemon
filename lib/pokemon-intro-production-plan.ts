@@ -30,6 +30,13 @@ export interface PokemonIntroProductionPlan {
   };
   targetCountAtCreation: number;
   existingArticleIdsAtCreation: string[];
+  updates?: Array<{
+    sourceUpdatedAt: string;
+    season: string;
+    seasonLabel: string;
+    currentTargetCount: number;
+    addedPokemonIds: string[];
+  }>;
   batches: PokemonIntroPlanBatch[];
 }
 

@@ -86,7 +86,6 @@ export function normalizeSpeedRanking(indexPokemon: any[], season: string, names
   for (const entry of indexPokemon) {
     const singlesRank = getUsageRank(entry.summary?.battleSummary?.[season]?.Singles);
     const doublesRank = getUsageRank(entry.summary?.battleSummary?.[season]?.Doubles);
-    if (singlesRank === null && doublesRank === null) continue;
     for (const form of getAttachedForms(entry)) {
       const neutral = Number(form.speed);
       if (!Number.isFinite(neutral) || neutral <= 20) continue;

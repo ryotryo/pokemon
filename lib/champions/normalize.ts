@@ -7,8 +7,14 @@ export const slugifyPokemon = (name: string) => name.toLowerCase().normalize("NF
 
 const NON_CANONICAL_POKEMON_IDS = new Set(["rotom-fan"]);
 
-export function isCanonicalPokemonRecord(id: string): boolean {
-  return !NON_CANONICAL_POKEMON_IDS.has(id);
+export function isCanonicalPokemonRecord(record: string | { slug?: unknown; showdownId?: unknown; summary?: { primary?: { slug?: unknown; types?: unknown } } }): boolean {
+  const id = typeof record === "string" ? record : record.slug;
+  if (typeof id !== "string" || NON_CANONICAL_POKEMON_IDS.has(id)) return false;
+  if (typeof record === "string") return true;
+  const primary = record.summary?.primary;
+  return typeof record.showdownId === "string" && record.showdownId.length > 0
+    && typeof primary?.slug === "string" && primary.slug.length > 0
+    && Array.isArray(primary.types) && primary.types.length > 0;
 }
 
 export function classifyForm(formKind: string): FormRelation {
@@ -32,7 +38,7 @@ export function getUsageRank(summary: any): number | null {
 
 export function getRanking(indexPokemon: any[], season: string, format: BattleFormat, limit?: number) {
   return indexPokemon
-    .filter((entry) => isCanonicalPokemonRecord(entry.slug))
+    .filter((entry) => isCanonicalPokemonRecord(entry))
     .map((entry) => {
       const summary = entry.summary?.battleSummary?.[season]?.[format];
       return { entry, rank: getUsageRank(summary) };

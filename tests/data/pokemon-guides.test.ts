@@ -5,17 +5,15 @@ import type { UsageRankingIndex } from "../../lib/champions/usage-ranking";
 
 const index = usageIndex as UsageRankingIndex;
 const pokemonIds = new Set(index.pokemon.map((pokemon) => pokemon.id));
-const currentTop10 = index.pokemon
-  .filter((pokemon) => pokemon.formRelation !== "mega" && pokemon.ranks.Singles !== null)
-  .sort((a, b) => a.ranks.Singles! - b.ranks.Singles!)
-  .slice(0, 10);
-
 describe("pokemon guides", () => {
   it("freezes the M5 Singles top ten as the first article set", () => {
-    expect(index.seasonLabel).toBe("M5");
     expect(pokemonGuides).toHaveLength(10);
-    expect(pokemonGuides.map((guide) => guide.pokemonId)).toEqual(currentTop10.map((pokemon) => pokemon.id));
+    expect(pokemonGuides.map((guide) => guide.pokemonId)).toEqual([
+      "garchomp", "primarina", "meowscarada", "archaludon", "mimikyu",
+      "hippowdon", "gyarados", "delphox", "dragonite", "metagross",
+    ]);
     expect(pokemonGuides.map((guide) => guide.rankAtCreation)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(pokemonGuides.every((guide) => pokemonIds.has(guide.pokemonId))).toBe(true);
   });
 
   it("has unique routes and only exposes existing guide links", () => {

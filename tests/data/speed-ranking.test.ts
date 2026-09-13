@@ -23,14 +23,15 @@ describe("speed ranking", () => {
       .toEqual({ hp: 108, attack: 130, defense: 95, specialAttack: 80, specialDefense: 85, speed: 102 });
   });
 
-  it("includes only current-season ranked records and expands mega forms", () => {
+  it("includes ranked and unranked current forms and expands mega forms", () => {
     const ranked = { slug: "garchomp", summary: { battleSummary: { Current: { Singles: { position: 1 }, Doubles: { position: 2 } } }, forms: [
       { slug: "garchomp", saved_name: "Garchomp", form_kind: "Base", hp: 183, attack: 150, defense: 115, sp_attack: 100, sp_defense: 105, speed: 122, image_path: "Garchomp.png" },
       { slug: "mega-garchomp", saved_name: "Mega Garchomp", form_kind: "Mega", hp: 183, attack: 190, defense: 135, sp_attack: 140, sp_defense: 115, speed: 112, image_path: "Mega Garchomp.png" },
     ], primary: { form_kind: "Base" } } };
     const unranked = { slug: "missing", summary: { battleSummary: { Current: { Singles: {}, Doubles: {} } }, forms: [{ slug: "missing", saved_name: "Missing", form_kind: "Base", hp: 100, attack: 100, defense: 100, sp_attack: 100, sp_defense: 100, speed: 100, image_path: "Missing.png" }], primary: { form_kind: "Base" } } };
     const result = normalizeSpeedRanking([ranked, unranked], "Current", { garchomp: "ガブリアス", "mega-garchomp": "メガガブリアス" }, "2026-07-26T00:00:00.000Z", "https://championsbattledata.com/api");
-    expect(result.pokemon.map(({ id }) => id)).toEqual(["garchomp", "mega-garchomp"]);
+    expect(result.pokemon.map(({ id }) => id)).toEqual(["garchomp", "mega-garchomp", "missing"]);
     expect(result.pokemon[0]).toMatchObject({ baseSpeed: 102, baseStats: { hp: 108, attack: 130, speed: 102 }, usageRanks: { Singles: 1, Doubles: 2 }, stats: { neutral: 122 } });
+    expect(result.pokemon[2]).toMatchObject({ id: "missing", usageRanks: { Singles: null, Doubles: null } });
   });
 });

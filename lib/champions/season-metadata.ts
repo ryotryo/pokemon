@@ -2,6 +2,8 @@ export interface SeasonDisplayMetadata {
   seasonLabel: string;
   seasonPeriod?: { start: string; end: string };
   sourceGeneratedAt?: string;
+  sourceDataVersion?: string;
+  availableSeasons?: string[];
   dailyDataPeriod?: { start: string; end: string };
 }
 
@@ -21,6 +23,8 @@ export function getSeasonDisplayMetadata(index: {
   battleDataFolders?: unknown;
   dailyDataFolders?: unknown;
   generatedAt?: unknown;
+  dataVersion?: unknown;
+  seasons?: unknown;
 }): SeasonDisplayMetadata {
   const defaultSeason = typeof index.defaultSeason === "string" ? index.defaultSeason : "";
   const battleSeasons = Array.isArray(index.battleDataFolders) ? index.battleDataFolders.filter((value): value is string => typeof value === "string") : [];
@@ -33,6 +37,8 @@ export function getSeasonDisplayMetadata(index: {
     seasonLabel,
     ...(SEASON_PERIODS[seasonLabel] ? { seasonPeriod: SEASON_PERIODS[seasonLabel] } : {}),
     ...(typeof index.generatedAt === "string" ? { sourceGeneratedAt: index.generatedAt } : {}),
+    ...(typeof index.dataVersion === "string" ? { sourceDataVersion: index.dataVersion } : {}),
+    ...(Array.isArray(index.seasons) ? { availableSeasons: index.seasons.filter((value): value is string => typeof value === "string") } : {}),
     ...(relevantDates.length ? { dailyDataPeriod: { start: relevantDates[0], end: relevantDates.at(-1)! } } : {}),
   };
 }

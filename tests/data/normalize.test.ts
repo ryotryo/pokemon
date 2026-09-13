@@ -5,7 +5,7 @@ import type { MoveMasterEntry } from "../../lib/champions/types";
 describe("Champions normalization", () => {
   it("normalizes PokéAPI move identifiers", () => expect(slugifyMove("King's Shield")).toBe("kings-shield"));
   it("orders ranking by API column_position", () => {
-    const pokemon = [2, 1].map((rank) => ({ summary: { battleSummary: { Current: { Singles: { rows: [{ column_position: rank }] } } } } }));
+    const pokemon = [2, 1].map((rank) => ({ slug: `pokemon-${rank}`, showdownId: `pokemon${rank}`, summary: { primary: { slug: `pokemon-${rank}`, types: ["Normal"] }, battleSummary: { Current: { Singles: { rows: [{ column_position: rank }] } } } } }));
     expect(getRanking(pokemon, "Current", "Singles").map((item) => item.rank)).toEqual([1, 2]);
   });
   it("classifies mega separately from independent forms", () => {
@@ -17,6 +17,11 @@ describe("Champions normalization", () => {
   it("keeps the ranked Rotom Fan record and rejects its unranked duplicate alias", () => {
     expect(isCanonicalPokemonRecord("fan-rotom")).toBe(true);
     expect(isCanonicalPokemonRecord("rotom-fan")).toBe(false);
+  });
+  it("rejects placeholder index records without battle and primary-form metadata", () => {
+    expect(isCanonicalPokemonRecord({ slug: "floette-form-5", showdownId: null, summary: { primary: {} } })).toBe(false);
+    expect(isCanonicalPokemonRecord({ slug: "vivillon-fancy-pattern", showdownId: "vivillonfancy", summary: { primary: {} } })).toBe(false);
+    expect(isCanonicalPokemonRecord({ slug: "garchomp", showdownId: "garchomp", summary: { primary: { slug: "garchomp", types: ["Dragon", "Ground"] } } })).toBe(true);
   });
   it("attaches only the primary record and megas to a base ranking", () => {
     const entry = { slug: "raichu", summary: { primary: { form_kind: "Base" }, forms: [

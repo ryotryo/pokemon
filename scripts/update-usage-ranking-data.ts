@@ -38,8 +38,10 @@ const ABILITY_NAME_CORRECTIONS: Record<string, string> = {
 
 interface ChampionsIndex {
   generatedAt: string;
+  dataVersion?: string;
   defaultSeason: string;
   pokemon: any[];
+  battleDataFolders?: string[];
   dailyDataFolders?: string[];
   seasons?: string[];
 }
@@ -388,7 +390,7 @@ async function main() {
       const description = number ? abilityInfoByNumber.get(number) : undefined;
       return description ? [[normalizedName(entry.OriginalText), description] as const] : [];
     }));
-    const canonicalPokemon = index.pokemon.filter((entry) => isCanonicalPokemonRecord(entry.slug));
+    const canonicalPokemon = index.pokemon.filter((entry) => isCanonicalPokemonRecord(entry));
     const battleRows = new Map<string, UsageBattleRow[]>();
     for (const format of battleFormats) {
       const fetched = await mapWithConcurrency(canonicalPokemon, 10, async (entry) => {
@@ -481,18 +483,20 @@ async function main() {
       champoutMoveDescriptions: `${rawRoot}/rom-txt/jpn/wazainfo_syn.json`,
       champoutAbilityDescriptions: `${rawRoot}/rom-txt/jpn/tokuseiinfo_syn.json`,
       pokeApiMoveDescriptions: "https://pokeapi.co/api/v2/move/{move}",
+      dataVersion: index.dataVersion,
+      availableSeasons: index.seasons,
+      battleDataFolders: index.battleDataFolders,
+      dailyDataFolders: index.dailyDataFolders,
       sourceUpdatedAt: index.generatedAt, publishedAt: usageIndex.publishedAt,
     }, null, 2) + "\n");
     for (const detail of details) {
       await writeFile(path.join(STAGE, "details", `${detail.id}.json`), JSON.stringify(detail, null, 2) + "\n");
     }
-    await mkdir(path.join(OUT, "details"), { recursive: true });
     for (const file of ["moves.json", "items-ja.json", "natures-ja.json", "metadata.json"]) {
       await rename(path.join(STAGE, file), path.join(OUT, file));
     }
-    for (const detail of details) {
-      await rename(path.join(STAGE, "details", `${detail.id}.json`), path.join(OUT, "details", `${detail.id}.json`));
-    }
+    await rm(path.join(OUT, "details"), { recursive: true, force: true });
+    await rename(path.join(STAGE, "details"), path.join(OUT, "details"));
     await rename(path.join(STAGE, "index.json"), path.join(OUT, "index.json"));
     console.log(`[usage] validation passed: ${uniquePokemon.length} Pokemon/forms, ${details.length} details, ${Object.keys(movesById).length} moves`);
     console.log(`[usage] season=${index.defaultSeason}, sourceUpdatedAt=${index.generatedAt}, champout=${commit.sha}`);

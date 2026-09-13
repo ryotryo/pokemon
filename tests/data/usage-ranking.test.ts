@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
@@ -13,10 +13,18 @@ import {
 } from "../../lib/champions/usage-ranking";
 import { getUsagePokemonPageData } from "../../lib/champions/usage-ranking-data";
 import { getTypeMultiplier } from "../../lib/champions/type-matchup";
+import type { SpeedRankingDataset } from "../../lib/champions/speed-ranking";
 
 const root = process.cwd();
 const index = JSON.parse(readFileSync(path.join(root, "data/usage-ranking/index.json"), "utf8")) as UsageRankingIndex;
 const moves = JSON.parse(readFileSync(path.join(root, "data/usage-ranking/moves.json"), "utf8")) as Record<string, UsageMoveDetail>;
+const speedRanking = JSON.parse(readFileSync(path.join(root, "data/champions/speed-ranking.json"), "utf8")) as SpeedRankingDataset;
+const metadata = JSON.parse(readFileSync(path.join(root, "data/metadata.json"), "utf8")) as {
+  season: string;
+  seasonLabel: string;
+  sourceDataVersion: string;
+  availableSeasons: string[];
+};
 const detail = (id: string) => JSON.parse(readFileSync(path.join(root, `data/usage-ranking/details/${id}.json`), "utf8")) as UsagePokemonDetail;
 
 describe("usage ranking data", () => {
@@ -36,6 +44,23 @@ describe("usage ranking data", () => {
     expect(index.pokemon.find((pokemon) => pokemon.id === "rotom-wash")?.displayNameJa).toBe("ウォッシュロトム");
     const sorted = sortRankingPokemon(index.pokemon, "Singles");
     expect(sorted[0].ranks.Singles).toBeLessThanOrEqual(sorted[1].ranks.Singles!);
+  });
+
+  it("publishes one complete, current snapshot without stale or malformed forms", () => {
+    const indexIds = index.pokemon.map((pokemon) => pokemon.id);
+    const detailIds = readdirSync(path.join(root, "data/usage-ranking/details"))
+      .filter((filename) => filename.endsWith(".json"))
+      .map((filename) => filename.slice(0, -5));
+
+    expect(metadata.season).toBe("Current");
+    expect(metadata.seasonLabel).not.toBe("Current");
+    expect(metadata.availableSeasons).toContain(metadata.seasonLabel);
+    expect(metadata.sourceDataVersion).toMatch(/^\d+$/);
+    expect(new Set(detailIds)).toEqual(new Set(indexIds));
+    expect(new Set(speedRanking.pokemon.map((pokemon) => pokemon.id))).toEqual(new Set(indexIds));
+    expect(indexIds.some((id) => /^mega-mega-/.test(id))).toBe(false);
+    expect(indexIds).toContain("alolan-persian");
+    expect(indexIds).toContain("mega-garchomp-z");
   });
 
   it("keeps every Mega and independent form on its own ID and abilities", () => {
@@ -72,10 +97,11 @@ describe("usage ranking data", () => {
     const garchomp = await getUsagePokemonPageData("garchomp");
     const charizard = await getUsagePokemonPageData("charizard");
     const rotomWash = await getUsagePokemonPageData("rotom-wash");
-    expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス"]);
+    expect(garchomp?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガガブリアス", "メガガブリアスZ"]);
     expect(garchomp?.baseStats.speed).toBe(102);
     expect(garchomp?.megaForms[0].baseStats.attack).toBe(170);
     expect(garchomp?.megaForms[0].types).toEqual(["dragon", "ground"]);
+    expect(garchomp?.megaForms[1].types).toEqual(["dragon"]);
     expect(garchomp?.megaForms[0].sprite).toContain("Mega%20Garchomp.png");
     expect(charizard?.megaForms.map((form) => form.displayNameJa)).toEqual(["メガリザードンX", "メガリザードンY"]);
     expect(getTypeMultiplier("rock", charizard!.types)).toBe(4);

@@ -42,8 +42,8 @@ async function loadPokemonNames(): Promise<Record<string, string>> {
 }
 
 function localizeForm(baseNameJa: string, formKind: string): string {
-  const megaMatch = formKind.match(/^Mega(?:\s+([XY]))?$/i);
-  if (megaMatch) return `メガ${baseNameJa}${megaMatch[1] ?? ""}`;
+  const megaMatch = formKind.match(/^Mega(?:\s+(.+))?$/i);
+  if (megaMatch) return `メガ${baseNameJa}${(megaMatch[1] ?? "").replace(/\s+/g, "")}`;
   const prefixes: Record<string, string> = { Alolan: "アローラ", Galarian: "ガラル", Hisuian: "ヒスイ" };
   if (prefixes[formKind]) return `${prefixes[formKind]}${baseNameJa}`;
   const labels: Record<string, string> = {
@@ -132,7 +132,7 @@ async function main() {
     const index = await getJson(`${API}/api`);
     const season = index.defaultSeason;
     if (!season || !Array.isArray(index.pokemon) || !index.pokemon.length) throw new Error("invalid index or season");
-    const canonicalPokemon = index.pokemon.filter((entry: any) => isCanonicalPokemonRecord(entry.slug));
+    const canonicalPokemon = index.pokemon.filter((entry: any) => isCanonicalPokemonRecord(entry));
     const seasonDisplay = getSeasonDisplayMetadata(index);
     console.log(`[data] season: ${season} (${seasonDisplay.seasonLabel || "label unavailable"})`);
     const formats: BattleFormat[] = ["Singles", "Doubles"];
@@ -169,7 +169,7 @@ async function main() {
     const { master, fetchedCount } = await hydrateMoves(moveNames, await loadMoveMaster());
     console.log(`[data] PokéAPI newly fetched: ${fetchedCount}`);
     console.log(`[data] move master count: ${Object.keys(master).length}`);
-    const { names: pokemonNamesJa, addedCount: pokemonNamesAdded } = await hydratePokemonNames(index.pokemon, await loadPokemonNames());
+    const { names: pokemonNamesJa, addedCount: pokemonNamesAdded } = await hydratePokemonNames(canonicalPokemon, await loadPokemonNames());
     console.log(`[data] Pokemon Japanese names newly added: ${pokemonNamesAdded}`);
     const updatedAt = new Date().toISOString();
     await mkdir(path.join(STAGE, "champions"), { recursive: true });
