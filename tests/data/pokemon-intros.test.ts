@@ -24,12 +24,16 @@ describe("pokemon intros", () => {
     "gholdengo", "hisuian-samurott", "staraptor", "mega-staraptor", "umbreon",
     "sylveon", "lucario", "mega-lucario", "rotom-wash", "venusaur",
   ];
+  const batch05Ids = [
+    "mega-venusaur", "lopunny", "mega-lopunny", "alolan-ninetales", "skeledirge",
+    "starmie", "mega-starmie", "bellibolt", "dragapult", "swampert",
+  ];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains fifty unique articles including every completed batch-01 through batch-04 form", () => {
-    expect(pokemonIntros).toHaveLength(50);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(50);
+  it("contains sixty unique articles including every completed batch-01 through batch-05 form", () => {
+    expect(pokemonIntros).toHaveLength(60);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(60);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -44,6 +48,10 @@ describe("pokemon intros", () => {
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
     }
     for (const id of batch04Ids) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+      expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
+    for (const id of batch05Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
     }
@@ -111,6 +119,6 @@ describe("pokemon intros", () => {
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
