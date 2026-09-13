@@ -11,8 +11,8 @@ describe("pokemon roles", () => {
     const groupIds = new Set(roleGroups.map((group) => group.id));
     for (const role of pokemonRoleDefinitions) expect(groupIds.has(role.group)).toBe(true);
   });
-  it("resolves every role on all twenty articles", () => {
-    expect(pokemonIntros).toHaveLength(20);
+  it("resolves every role on all thirty articles", () => {
+    expect(pokemonIntros).toHaveLength(30);
     for (const intro of pokemonIntros) {
       expect(intro.roles.length).toBeGreaterThan(0);
       for (const roleId of intro.roles) expect(pokemonRoleById.has(roleId), `${intro.pokemonId}: ${roleId}`).toBe(true);

@@ -12,16 +12,46 @@ describe("pokemon intros", () => {
     "mega-garchomp", "meowscarada", "archaludon", "mimikyu", "gyarados",
     "mega-gyarados", "delphox", "mega-dragonite", "metagross", "mega-metagross",
   ];
+  const batch02Ids = [
+    "charizard", "mega-charizard-x", "mega-charizard-y", "basculegion-male", "scizor",
+    "mega-scizor", "raichu", "mega-raichu-x", "mega-raichu-y", "hydreigon",
+  ];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains twenty unique articles including every batch-01 form", () => {
-    expect(pokemonIntros).toHaveLength(20);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(20);
+  it("contains thirty unique articles including every completed batch-01 and batch-02 form", () => {
+    expect(pokemonIntros).toHaveLength(30);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(30);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
+    for (const id of batch02Ids) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+      expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
+  });
+  it("uses the exact current Champions forms, types, stats, and abilities for batch-02", () => {
+    const expected = {
+      charizard: { types: ["fire", "flying"], stats: [78, 84, 78, 109, 85, 100], abilities: ["もうか", "サンパワー"] },
+      "mega-charizard-x": { types: ["fire", "dragon"], stats: [78, 130, 111, 130, 85, 100], abilities: ["かたいツメ"] },
+      "mega-charizard-y": { types: ["fire", "flying"], stats: [78, 104, 78, 159, 115, 100], abilities: ["ひでり"] },
+      "basculegion-male": { types: ["water", "ghost"], stats: [120, 112, 65, 80, 75, 78], abilities: ["てきおうりょく", "すいすい", "かたやぶり"] },
+      scizor: { types: ["bug", "steel"], stats: [70, 130, 100, 55, 80, 65], abilities: ["テクニシャン", "ライトメタル", "むしのしらせ"] },
+      "mega-scizor": { types: ["bug", "steel"], stats: [70, 150, 140, 65, 100, 75], abilities: ["テクニシャン"] },
+      raichu: { types: ["electric"], stats: [60, 90, 55, 90, 80, 110], abilities: ["ひらいしん", "せいでんき"] },
+      "mega-raichu-x": { types: ["electric"], stats: [60, 135, 95, 90, 95, 110], abilities: ["エレキメイカー"] },
+      "mega-raichu-y": { types: ["electric"], stats: [60, 100, 55, 160, 80, 130], abilities: ["ノーガード"] },
+      hydreigon: { types: ["dark", "dragon"], stats: [92, 105, 90, 125, 90, 98], abilities: ["ふゆう"] },
+    } as const;
+    for (const [id, facts] of Object.entries(expected)) {
+      const indexEntry = indexJson.pokemon.find((pokemon) => pokemon.id === id)!;
+      const statEntry = speedJson.pokemon.find((pokemon) => pokemon.id === id)!;
+      const detail = JSON.parse(readFileSync(`data/usage-ranking/details/${id}.json`, "utf8")) as { formats: { Singles: { abilities: { nameJa: string }[] } } };
+      expect(indexEntry.types, id).toEqual(facts.types);
+      expect(Object.values(statEntry.baseStats), id).toEqual(facts.stats);
+      expect(detail.formats.Singles.abilities.map((ability) => ability.nameJa), id).toEqual(facts.abilities);
     }
   });
   it("uses Pokemon and stats present in current Champions data", () => {
@@ -53,8 +83,8 @@ describe("pokemon intros", () => {
   it("has complete beginner-facing sections", () => {
     for (const intro of pokemonIntros) { expect(intro.overview.length).toBeGreaterThanOrEqual(2); expect(intro.strengths.length).toBeGreaterThanOrEqual(2); expect(intro.featuredMoves.length).toBeGreaterThanOrEqual(3); expect(intro.weaknesses.length).toBeGreaterThanOrEqual(2); }
   });
-  it("keeps batch-01 articles free of season-specific production data", () => {
+  it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of batch01Ids) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
