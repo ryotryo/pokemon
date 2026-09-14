@@ -12,8 +12,8 @@
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **91記事**（`content/pokemon-intros.ts`）
-- 現在対象の未記事化: **248フォーム**
+- 公開済みpokemon-intro: **90記事**（`content/pokemon-intros.ts`）
+- 現在対象の未記事化: **249フォーム**
 - 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
 - 完成batch: **batch-01〜batch-08**
 - 次の未完成batch: **batch-09（0/10）**
