@@ -2,21 +2,21 @@
 
 ## Last updated
 
-2026-09-13（GitHub `main`の実データから再集計）
+2026-09-14（batch-06〜batch-08完了後に再集計）
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-04まで完成し、次はbatch-05から再開します。各batchを個別に監査・検証・pushしてから次へ進む方針です。
+「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-08まで完成し、次はbatch-09から再開します。各batchを個別に監査・検証・pushしてから次へ進む方針です。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **50記事**（`content/pokemon-intros.ts`）
-- 現在対象の未記事化: **289フォーム**
+- 公開済みpokemon-intro: **91記事**（`content/pokemon-intros.ts`）
+- 現在対象の未記事化: **248フォーム**
 - 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
-- 完成batch: **batch-01〜batch-04**
-- 次の未完成batch: **batch-05（0/10）**
+- 完成batch: **batch-01〜batch-08**
+- 次の未完成batch: **batch-09（0/10）**
 - 進捗は `data/pokemon-intro-production-plan.json`と記事IDの比較で判定し、手書きフラグは使わない。
 
 執筆再開前に [`pokemon-intro-authoring.md`](pokemon-intro-authoring.md)を読み、全体計画は [`pokemon-intro-production-plan.md`](pokemon-intro-production-plan.md)、機械判定には [`../data/pokemon-intro-production-plan.json`](../data/pokemon-intro-production-plan.json)を使ってください。
@@ -35,9 +35,9 @@
 
 ## Next actions
 
-1. production planと記事IDを再照合し、batch-05から記事制作を再開する。
+1. production planと記事IDを再照合し、batch-09から記事制作を再開する。
 2. 各batchを全文監査・検証し、独立したGitHub checkpointとして保存する。
-3. batch-07完了時（今回の連続制作5batch地点）に品質ドリフト監査とフル検証を行う。
+3. batch-07時点の品質ドリフト監査は完了。次のまとまった制作区切りでも文章・role・フォーム差を再監査する。
 4. batch-12まで完了したらCURRENT_STATUSを再更新し、最終フル検証とVercel Production確認を行う。
 5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
 
