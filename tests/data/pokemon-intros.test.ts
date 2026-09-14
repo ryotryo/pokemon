@@ -60,9 +60,13 @@ describe("pokemon intros", () => {
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
     }
 
+    for (const id of [...batch06Ids, ...batch07Ids, ...batch08Ids]) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+    }
     for (const id of batch09To15AvailableIds) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
-    }  });
+    }
+  });
   it("uses the exact current Champions forms, types, stats, and abilities for audited batches", () => {
     const expected = {
       charizard: { types: ["fire", "flying"], stats: [78, 84, 78, 109, 85, 100], abilities: ["もうか", "サンパワー"] },
