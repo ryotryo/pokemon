@@ -32,12 +32,19 @@ describe("pokemon intros", () => {
   const batch07Ids = ["excadrill", "mega-excadrill", "tyranitar", "mega-tyranitar", "sneasler", "meganium", "mega-meganium", "mawile", "mega-mawile", "scolipede"];
   const batch08Ids = ["mega-scolipede", "whimsicott", "kangaskhan", "mega-kangaskhan", "victreebel", "mega-victreebel", "mamoswine", "snorlax", "vanilluxe", "maushold"];
   const batch09To15AvailableIds = ["espathra","sableye","mega-sableye","rotom-heat","hisuian-zoroark","araquanid","kleavor","annihilape","milotic","gallade","ditto","orthworm","gardevoir","mega-gardevoir","azumarill","empoleon","hisuian-goodra","dragalge","mega-dragalge","serperior","skarmory","mega-skarmory","banette","mega-banette","sceptile","mega-sceptile","froslass","mega-froslass","chandelure","mega-chandelure","sinistcha","slowbro","mega-slowbro","hatterene","overqwil","espeon","heracross","mega-heracross","armarouge","pyroar","mega-pyroar","incineroar","conkeldurr","diggersby","polteageist","galarian-slowking","gliscor","hisuian-arcanine","torkoal","toucannon","vileplume","scrafty","mega-scrafty","palafin-zero-form","vaporeon","aerodactyl","mega-aerodactyl","sharpedo","mega-sharpedo","galarian-slowbro","weavile","quaquaval","tinkaton","aggron","mega-aggron","feraligatr","mega-feraligatr","chesnaught","mega-chesnaught"];
+  const batch16To20Ids = [
+    "pinsir", "mega-pinsir", "eelektross", "mega-eelektross", "basculegion-female", "salazzle", "paldean-tauros-blaze-breed", "slowking", "heliolisk", "houndstone",
+    "alakazam", "mega-alakazam", "beedrill", "mega-beedrill", "lycanroc-dusk-form", "hisuian-decidueye", "talonflame", "infernape", "reuniclus", "jolteon",
+    "altaria", "mega-altaria", "kommo-o", "abomasnow", "mega-abomasnow", "hawlucha", "mega-hawlucha", "hisuian-typhlosion", "runerigus", "noivern",
+    "mudsdale", "ariados", "glaceon", "chimecho", "mega-chimecho", "arcanine", "glalie", "mega-glalie", "krookodile", "malamar",
+    "mega-malamar", "crabominable", "mega-crabominable", "ninetales", "torterra", "pidgeot", "mega-pidgeot", "houndoom", "mega-houndoom", "medicham",
+  ];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains 159 unique articles including every available batch-01 through batch-15 form", () => {
-    expect(pokemonIntros).toHaveLength(159);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(159);
+  it("contains 209 unique articles including every available batch-01 through batch-20 form", () => {
+    expect(pokemonIntros).toHaveLength(209);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(209);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -64,6 +71,9 @@ describe("pokemon intros", () => {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
     }
     for (const id of batch09To15AvailableIds) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+    }
+    for (const id of batch16To20Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
     }
   });
@@ -130,6 +140,6 @@ describe("pokemon intros", () => {
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids, ...batch09To15AvailableIds]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids, ...batch09To15AvailableIds, ...batch16To20Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
