@@ -28,12 +28,15 @@ describe("pokemon intros", () => {
     "mega-venusaur", "lopunny", "mega-lopunny", "alolan-ninetales", "skeledirge",
     "starmie", "mega-starmie", "bellibolt", "dragapult", "swampert",
   ];
+  const batch06Ids = ["mega-swampert", "floette", "mega-floette", "clefable", "mega-clefable", "scovillain", "mega-scovillain", "blastoise", "mega-blastoise", "ceruledge"];
+  const batch07Ids = ["excadrill", "mega-excadrill", "tyranitar", "mega-tyranitar", "sneasler", "meganium", "mega-meganium", "mawile", "mega-mawile", "scolipede"];
+  const batch08Ids = ["mega-scolipede", "whimsicott", "kangaskhan", "mega-kangaskhan", "victreebel", "mega-victreebel", "mamoswine", "snorlax", "vanilluxe", "maushold"];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains sixty unique articles including every completed batch-01 through batch-05 form", () => {
-    expect(pokemonIntros).toHaveLength(60);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(60);
+  it("contains ninety-one unique articles including every completed batch-01 through batch-08 form", () => {
+    expect(pokemonIntros).toHaveLength(91);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(91);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -119,6 +122,6 @@ describe("pokemon intros", () => {
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
