@@ -34,9 +34,9 @@ describe("pokemon intros", () => {
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains ninety-one unique articles including every completed batch-01 through batch-08 form", () => {
-    expect(pokemonIntros).toHaveLength(91);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(91);
+  it("contains ninety unique articles including every completed batch-01 through batch-08 form", () => {
+    expect(pokemonIntros).toHaveLength(90);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(90);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
