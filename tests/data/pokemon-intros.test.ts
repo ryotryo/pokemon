@@ -31,12 +31,13 @@ describe("pokemon intros", () => {
   const batch06Ids = ["mega-swampert", "floette", "mega-floette", "clefable", "mega-clefable", "scovillain", "mega-scovillain", "blastoise", "mega-blastoise", "ceruledge"];
   const batch07Ids = ["excadrill", "mega-excadrill", "tyranitar", "mega-tyranitar", "sneasler", "meganium", "mega-meganium", "mawile", "mega-mawile", "scolipede"];
   const batch08Ids = ["mega-scolipede", "whimsicott", "kangaskhan", "mega-kangaskhan", "victreebel", "mega-victreebel", "mamoswine", "snorlax", "vanilluxe", "maushold"];
+  const batch09To15AvailableIds = ["espathra","sableye","mega-sableye","rotom-heat","hisuian-zoroark","araquanid","kleavor","annihilape","milotic","gallade","ditto","orthworm","gardevoir","mega-gardevoir","azumarill","empoleon","hisuian-goodra","dragalge","mega-dragalge","serperior","skarmory","mega-skarmory","banette","mega-banette","sceptile","mega-sceptile","froslass","mega-froslass","chandelure","mega-chandelure","sinistcha","slowbro","mega-slowbro","hatterene","overqwil","espeon","heracross","mega-heracross","armarouge","pyroar","mega-pyroar","incineroar","conkeldurr","diggersby","polteageist","galarian-slowking","gliscor","hisuian-arcanine","torkoal","toucannon","vileplume","scrafty","mega-scrafty","palafin-zero-form","vaporeon","aerodactyl","mega-aerodactyl","sharpedo","mega-sharpedo","galarian-slowbro","weavile","quaquaval","tinkaton","aggron","mega-aggron","feraligatr","mega-feraligatr","chesnaught","mega-chesnaught"];
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains ninety unique articles including every completed batch-01 through batch-08 form", () => {
-    expect(pokemonIntros).toHaveLength(90);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(90);
+  it("contains 159 unique articles including every available batch-01 through batch-15 form", () => {
+    expect(pokemonIntros).toHaveLength(159);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(159);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -58,7 +59,10 @@ describe("pokemon intros", () => {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
       expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
     }
-  });
+
+    for (const id of batch09To15AvailableIds) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+    }  });
   it("uses the exact current Champions forms, types, stats, and abilities for audited batches", () => {
     const expected = {
       charizard: { types: ["fire", "flying"], stats: [78, 84, 78, 109, 85, 100], abilities: ["もうか", "サンパワー"] },
@@ -118,10 +122,10 @@ describe("pokemon intros", () => {
     }
   });
   it("has complete beginner-facing sections", () => {
-    for (const intro of pokemonIntros) { expect(intro.overview.length).toBeGreaterThanOrEqual(2); expect(intro.strengths.length).toBeGreaterThanOrEqual(2); expect(intro.featuredMoves.length).toBeGreaterThanOrEqual(3); expect(intro.weaknesses.length).toBeGreaterThanOrEqual(2); }
+    for (const intro of pokemonIntros) { expect(intro.overview.length).toBeGreaterThanOrEqual(2); expect(intro.strengths.length).toBeGreaterThanOrEqual(2); expect(intro.featuredMoves.length).toBeGreaterThanOrEqual(intro.pokemonId === "ditto" ? 1 : 3); expect(intro.weaknesses.length).toBeGreaterThanOrEqual(2); }
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids, ...batch09To15AvailableIds]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
   });
 });
