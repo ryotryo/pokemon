@@ -42,9 +42,9 @@ describe("pokemon intros", () => {
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains 299 unique articles including the completed batch-25 through batch-29 forms", () => {
-    expect(pokemonIntros).toHaveLength(299);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(299);
+  it("contains one article for all 339 current Champions forms", () => {
+    expect(pokemonIntros).toHaveLength(339);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(339);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);

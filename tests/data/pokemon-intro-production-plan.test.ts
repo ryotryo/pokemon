@@ -62,6 +62,9 @@ describe("Pokemon intro production plan", () => {
     for (const id of ["batch-25", "batch-26", "batch-27", "batch-28", "batch-29"]) {
       expect(getPokemonIntroBatchProgress(plan, currentArticleIds).find((batch) => batch.id === id)?.status).toBe("complete");
     }
+    for (const id of ["batch-30", "batch-31", "batch-32", "batch-33", "batch-34"]) {
+      expect(getPokemonIntroBatchProgress(plan, currentArticleIds).find((batch) => batch.id === id)?.status).toBe("complete");
+    }
     expect(getPokemonIntroBatchProgress(plan, currentArticleIds).find((batch) => batch.id === "batch-12")?.status).toBe("partial");
     expect(getNextIncompletePokemonIntroBatch(plan, currentArticleIds)?.id).toBe("batch-12");
   });

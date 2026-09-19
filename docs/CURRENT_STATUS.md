@@ -2,20 +2,20 @@
 
 ## Last updated
 
-2026-09-19（batch-25〜batch-29完了後に再集計）
+2026-09-19（現行Champions対象339フォームの記事化完了後に再集計）
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-25〜batch-29まで完成し、batch-12は9/10のままです。計画上の `vivillon-fancy-pattern` は現行Championsデータに存在せず保留中です。次の未着手はbatch-30です。
+「このポケモンってどんなポケモン？」は、現行Champions対象339フォームの記事化を完了しました。batch-30〜batch-34も完成済みです。計画上の `vivillon-fancy-pattern` だけは現行Championsデータに存在しない履歴対象のため、batch-12は9/10表示のまま保留しています。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **299記事**（`content/pokemon-intros.ts`）
-- 現在対象の未記事化: **40フォーム**
+- 公開済みpokemon-intro: **339記事**（`content/pokemon-intros.ts`）
+- 現在対象の未記事化: **0フォーム**
 - 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
-- 完成batch: **batch-01〜batch-11、batch-13〜batch-29**
+- 完成batch: **batch-01〜batch-11、batch-13〜batch-34**
 - 未完成batch: **batch-12（9/10）**。未制作は `vivillon-fancy-pattern` のみで、現行index / detailに存在しないためデータ復帰または計画整理待ち
 - 進捗は `data/pokemon-intro-production-plan.json`と記事IDの比較で判定し、手書きフラグは使わない。
 
@@ -37,8 +37,8 @@
 
 1. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
 2. 各batchを全文監査・検証し、独立したGitHub checkpointとして保存する。
-3. batch-12・batch-15・batch-18・batch-20・batch-29時点の品質ドリフト監査は完了。次の制作区切りでも文章・role・フォーム差を再監査する。
-4. 次の制作は、保留対象の扱いを確認したうえでbatch-30から進める。
+3. batch-12・batch-15・batch-18・batch-20・batch-29・全フォーム完成時点の品質ドリフト監査は完了。今後のデータ追加時にも文章・role・フォーム差を再監査する。
+4. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
 5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
 
 ## Important cautions
