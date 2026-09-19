@@ -26,6 +26,8 @@ const NAMES_FILE = path.join(ROOT, "data/i18n/pokemon-names-ja.json");
 const CHAMPOUT_API = "https://api.github.com/repos/projectpokemon/champout/commits/main";
 const FORM_LEARNSET_OVERRIDES: Record<string, string> = {
   floette: "Floette-Eternal",
+  "mega-floette": "Floette-Mega",
+  maushold: "Maushold",
   "gourgeist-jumbo-variety": "Gourgeist-Jumbo",
   "maushold-family-of-four": "Maushold-Family of Four",
   "mega-meowstic": "Meowstic-M-Mega",

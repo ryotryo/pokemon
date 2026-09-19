@@ -35,6 +35,16 @@ describe("Champions normalization", () => {
     ] } };
     expect(getAttachedForms(entry).map((form: { slug: string }) => form.slug)).toEqual(["alolan-raichu"]);
   });
+  it("uses the primary form when the API wrapper slug differs", () => {
+    const entry = { slug: "aegislash", summary: {
+      primary: { slug: "aegislash-shield-forme", form_kind: "Shield Forme", types: ["Steel", "Ghost"] },
+      forms: [
+        { slug: "aegislash-blade-forme", form_kind: "Blade Forme" },
+        { slug: "aegislash-shield-forme", form_kind: "Shield Forme" },
+      ],
+    } };
+    expect(getAttachedForms(entry).map((form: { slug: string }) => form.slug)).toEqual(["aegislash-shield-forme"]);
+  });
   it("retains status moves for TOP10 viewing while marking them outside coverage", () => {
     const entry = { slug: "testmon", name: "Testmon", battleName: "Testmon", summary: { primary: { form_kind: "Base", types: ["Normal"], image_path: "test.png" }, forms: [{ slug: "testmon", saved_name: "Testmon", form_kind: "Base", types: ["Normal"], image_path: "test.png" }] } };
     const master = { protect: { id: "protect", name: "Protect", displayNameJa: "まもる", type: "normal", damageClass: "status", metaCategory: "damage+raise", isCoverageMove: false, source: "pokeapi" } } satisfies Record<string, MoveMasterEntry>;

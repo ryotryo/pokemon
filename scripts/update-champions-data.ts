@@ -13,7 +13,10 @@ const OUT = path.join(ROOT, "data");
 const STAGE = path.join(OUT, `.staging-${Date.now()}`);
 const MOVE_FILE = path.join(OUT, "moves/move-master.json");
 const POKEMON_NAMES_FILE = path.join(OUT, "i18n/pokemon-names-ja.json");
-const POKEMON_NAME_OVERRIDES: Record<string, string> = { "fan-rotom": "スピンロトム" };
+const POKEMON_NAME_OVERRIDES: Record<string, string> = {
+  "fan-rotom": "スピンロトム",
+  "vivillon-icy-snow-pattern": "ビビヨン（ひょうせつのもよう）",
+};
 
 async function getJson(url: string) {
   const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "champions-party-checker-data-builder/1.0" } });

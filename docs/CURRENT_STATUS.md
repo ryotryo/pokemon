@@ -2,21 +2,23 @@
 
 ## Last updated
 
-2026-09-19（現行Champions対象339フォームの記事化完了後に再集計）
+2026-09-20（最新Current追加2フォームの記事化完了後に再集計）
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」は、現行Champions対象339フォームの記事化を完了しました。batch-30〜batch-34も完成済みです。計画上の `vivillon-fancy-pattern` だけは現行Championsデータに存在しない履歴対象のため、batch-12は9/10表示のまま保留しています。
+「このポケモンってどんなポケモン？」は、現行Champions対象341フォームの記事化を完了しました。今回追加した `vivillon-icy-snow-pattern` と `persian` をbatch-35として完成済みです。計画上の `vivillon-fancy-pattern` だけは現行Championsデータに存在しない履歴対象のため、batch-12は9/10表示のまま保留しています。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
-- pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **339記事**（`content/pokemon-intros.ts`）
+- pokemon-introの現在Champions対象: **341フォーム**（`data/usage-ranking/index.json`）
+- 公開済みpokemon-intro: **341記事**（`content/pokemon-intros.ts`）
 - 現在対象の未記事化: **0フォーム**
-- 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
-- 完成batch: **batch-01〜batch-11、batch-13〜batch-34**
+- 今回の新規追加対象: **2フォーム**（`vivillon-icy-snow-pattern`、`persian`）
+- 制作計画: **35 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
+- 完成batch: **batch-01〜batch-11、batch-13〜batch-35**
 - 未完成batch: **batch-12（9/10）**。未制作は `vivillon-fancy-pattern` のみで、現行index / detailに存在しないためデータ復帰または計画整理待ち
+- 機械判定上の次の未完成batch: **batch-12**。現行Current対象だけに限れば未完成batchなし
 - 進捗は `data/pokemon-intro-production-plan.json`と記事IDの比較で判定し、手書きフラグは使わない。
 
 執筆再開前に [`pokemon-intro-authoring.md`](pokemon-intro-authoring.md)を読み、全体計画は [`pokemon-intro-production-plan.md`](pokemon-intro-production-plan.md)、機械判定には [`../data/pokemon-intro-production-plan.json`](../data/pokemon-intro-production-plan.json)を使ってください。
@@ -25,10 +27,10 @@
 
 - API指定: **Current**
 - 現在の解決ラベル: **M6**
-- Champions source生成日時: **2026-09-13T18:05:09.755Z**
-- 収録daily data期間: **2026-09-11〜2026-09-13**
-- data version: **20260913180509755**
-- 現在の生成データ: Singles / Doubles各259 battle records、すばやさ・使用率indexは339フォーム
+- Champions source生成日時: **2026-09-19T15:00:47.017Z**
+- 収録daily data期間: **2026-09-11〜2026-09-19**
+- data version: **20260919150047017**
+- 現在の生成データ: Singles / Doubles各263 battle records、すばやさ・使用率indexは341フォーム
 - champout snapshot: commit `50e7233b78c3b81df29563f9695386c28e77fc95`
 
 これらは `data/metadata.json`と `data/usage-ranking/metadata.json`の現在値です。新しい作業では固定値として信用せず、まず生成済みmetadataを確認してください。

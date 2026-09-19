@@ -2504,6 +2504,25 @@
           "rankingStatus": "ranked"
         }
       ]
+    },
+    {
+      "id": "batch-35",
+      "pokemon": [
+        {
+          "pokemonId": "vivillon-icy-snow-pattern",
+          "displayNameJa": "ビビヨン（ひょうせつのもよう）",
+          "formRelation": "independent",
+          "singlesRank": 118,
+          "rankingStatus": "ranked"
+        },
+        {
+          "pokemonId": "persian",
+          "displayNameJa": "ペルシアン",
+          "formRelation": "base",
+          "singlesRank": 243,
+          "rankingStatus": "ranked"
+        }
+      ]
     }
   ],
   "updates": [
@@ -2552,6 +2571,16 @@
       "seasonLabel": "M6",
       "currentTargetCount": 339,
       "addedPokemonIds": []
+    },
+    {
+      "sourceUpdatedAt": "2026-09-19T15:00:47.017Z",
+      "season": "Current",
+      "seasonLabel": "M6",
+      "currentTargetCount": 341,
+      "addedPokemonIds": [
+        "vivillon-icy-snow-pattern",
+        "persian"
+      ]
     }
   ]
 }

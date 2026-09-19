@@ -42,9 +42,9 @@ describe("pokemon intros", () => {
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains one article for all 339 current Champions forms", () => {
-    expect(pokemonIntros).toHaveLength(339);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(339);
+  it("contains one article for all 341 current Champions forms", () => {
+    expect(pokemonIntros).toHaveLength(341);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(341);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -76,6 +76,10 @@ describe("pokemon intros", () => {
     for (const id of batch16To20Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
     }
+    for (const id of ["vivillon-icy-snow-pattern", "persian"]) {
+      expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
+      expect(`/pokemon-intro/${id}/`).toMatch(/^\/pokemon-intro\/[a-z0-9-]+\/$/);
+    }
   });
   it("uses the exact current Champions forms, types, stats, and abilities for audited batches", () => {
     const expected = {
@@ -99,6 +103,8 @@ describe("pokemon intros", () => {
       "mega-lucario": { types: ["fighting", "steel"], stats: [70, 145, 88, 140, 70, 112], abilities: ["てきおうりょく"] },
       "rotom-wash": { types: ["electric", "water"], stats: [50, 65, 107, 105, 107, 86], abilities: ["ふゆう"] },
       venusaur: { types: ["grass", "poison"], stats: [80, 82, 83, 100, 100, 80], abilities: ["ようりょくそ", "しんりょく"] },
+      persian: { types: ["normal"], stats: [65, 70, 60, 65, 65, 115], abilities: ["テクニシャン", "きんちょうかん", "じゅうなん"] },
+      "vivillon-icy-snow-pattern": { types: ["bug", "flying"], stats: [80, 52, 50, 90, 50, 89], abilities: ["ふくがん", "りんぷん", "フレンドガード"] },
     } as const;
     for (const [id, facts] of Object.entries(expected)) {
       const indexEntry = indexJson.pokemon.find((pokemon) => pokemon.id === id)!;
@@ -106,7 +112,7 @@ describe("pokemon intros", () => {
       const detail = JSON.parse(readFileSync(`data/usage-ranking/details/${id}.json`, "utf8")) as { formats: { Singles: { abilities: { nameJa: string }[] } } };
       expect(indexEntry.types, id).toEqual(facts.types);
       expect(Object.values(statEntry.baseStats), id).toEqual(facts.stats);
-      expect(detail.formats.Singles.abilities.map((ability) => ability.nameJa), id).toEqual(facts.abilities);
+      expect(detail.formats.Singles.abilities.map((ability) => ability.nameJa).sort(), id).toEqual([...facts.abilities].sort());
     }
   });
   it("uses Pokemon and stats present in current Champions data", () => {

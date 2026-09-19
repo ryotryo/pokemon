@@ -25,12 +25,18 @@ describe("Pokemon intro production plan", () => {
 
   it("keeps the original snapshot boundary while appending batches of at most ten", () => {
     const initialPlannedCount = plan.targetCountAtCreation - plan.existingArticleIdsAtCreation.length;
+    const appendBoundaries = new Set<number>([initialPlannedCount]);
+    let recordedCount = initialPlannedCount;
+    for (const update of plan.updates ?? []) {
+      recordedCount += update.addedPokemonIds.length;
+      appendBoundaries.add(recordedCount);
+    }
     let cumulative = 0;
     for (const batch of plan.batches) {
       expect(batch.pokemon.length).toBeGreaterThan(0);
       expect(batch.pokemon.length).toBeLessThanOrEqual(10);
       cumulative += batch.pokemon.length;
-      if (batch.pokemon.length < 10 && cumulative !== initialPlannedCount) expect(batch).toBe(plan.batches.at(-1));
+      if (batch.pokemon.length < 10) expect(appendBoundaries.has(cumulative)).toBe(true);
     }
   });
 

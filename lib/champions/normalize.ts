@@ -27,7 +27,7 @@ export function getAttachedForms(entry: any) {
   const primaryRelation = classifyForm(primary?.form_kind || "Base");
   return (entry.summary?.forms ?? []).filter((form: any) => {
     const relation = classifyForm(form.form_kind || "Base");
-    return form.slug === entry.slug || (relation === "mega" && primaryRelation === "base");
+    return form.slug === entry.slug || form.slug === primary?.slug || (relation === "mega" && primaryRelation === "base");
   });
 }
 
@@ -50,6 +50,7 @@ export function getRanking(indexPokemon: any[], season: string, format: BattleFo
 
 export function normalizePokemon(entry: any, rank: number, battle: any, moves: Record<string, MoveMasterEntry>, namesJa: Record<string, string>): ChampionPokemon {
   const primary = entry.summary?.primary;
+  const id = primary?.slug || entry.slug;
   const forms = getAttachedForms(entry).map((form: any) => ({
     id: form.slug || slugifyPokemon(form.saved_name), name: form.saved_name, displayNameJa: namesJa[form.slug] ?? form.saved_name, baseName: entry.name,
     form: form.form_kind === "Base" ? null : form.form_name, formKind: form.form_kind || "Base",
@@ -61,10 +62,10 @@ export function normalizePokemon(entry: any, rank: number, battle: any, moves: R
     return !master ? null : { id: master.id, rank: row.rank, name: row.name, displayNameJa: master.displayNameJa, usage: row.percentage_value, type: master.type, damageClass: master.damageClass, isCoverageMove: master.isCoverageMove };
   }).filter(Boolean);
   return {
-    id: entry.slug, name: entry.battleName || entry.name, displayNameJa: namesJa[entry.slug] ?? entry.battleName ?? entry.name, baseName: entry.name,
+    id, name: entry.battleName || entry.name, displayNameJa: namesJa[id] ?? entry.battleName ?? entry.name, baseName: entry.name,
     form: primary?.form_kind === "Base" ? null : primary?.form_name ?? null, formKind: primary?.form_kind || "Base",
     formRelation: classifyForm(primary?.form_kind || "Base"),
-    rank, types: primary?.types ?? [], sprite: getChampionsSprite(entry.slug, primary?.image_path ?? ""),
+    rank, types: primary?.types ?? [], sprite: getChampionsSprite(id, primary?.image_path ?? ""),
     forms, moves: normalizedMoves, attackTypes: [...new Set<string>(normalizedMoves.filter((move: any) => move.isCoverageMove).map((move: any) => String(move.type)))],
   };
 }
