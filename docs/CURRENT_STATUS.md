@@ -2,20 +2,20 @@
 
 ## Last updated
 
-2026-09-14（batch-16〜batch-20完了後に再集計）
+2026-09-19（batch-25〜batch-29完了後に再集計）
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-16〜batch-20まで完成し、batch-12は9/10のままです。計画上の `vivillon-fancy-pattern` は現行Championsデータに存在せず保留中です。各batchを個別に監査・検証・pushしてから次へ進む方針です。
+「このポケモンってどんなポケモン？」の連続batch制作を進行中です。batch-25〜batch-29まで完成し、batch-12は9/10のままです。計画上の `vivillon-fancy-pattern` は現行Championsデータに存在せず保留中です。次の未着手はbatch-30です。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **339フォーム**（`data/usage-ranking/index.json`）
-- 公開済みpokemon-intro: **209記事**（`content/pokemon-intros.ts`）
-- 現在対象の未記事化: **130フォーム**
+- 公開済みpokemon-intro: **299記事**（`content/pokemon-intros.ts`）
+- 現在対象の未記事化: **40フォーム**
 - 制作計画: **34 batch**。作成時点の対象に後日追加されたフォームを末尾batchへ追記しているため、計画は履歴スナップショットを含む。
-- 完成batch: **batch-01〜batch-11、batch-13〜batch-20**
+- 完成batch: **batch-01〜batch-11、batch-13〜batch-29**
 - 未完成batch: **batch-12（9/10）**。未制作は `vivillon-fancy-pattern` のみで、現行index / detailに存在しないためデータ復帰または計画整理待ち
 - 進捗は `data/pokemon-intro-production-plan.json`と記事IDの比較で判定し、手書きフラグは使わない。
 
@@ -25,9 +25,9 @@
 
 - API指定: **Current**
 - 現在の解決ラベル: **M6**
-- Champions source生成日時: **2026-09-12T23:26:03.968Z**
+- Champions source生成日時: **2026-09-13T18:05:09.755Z**
 - 収録daily data期間: **2026-09-11〜2026-09-13**
-- data version: **20260912232603968**
+- data version: **20260913180509755**
 - 現在の生成データ: Singles / Doubles各259 battle records、すばやさ・使用率indexは339フォーム
 - champout snapshot: commit `50e7233b78c3b81df29563f9695386c28e77fc95`
 
@@ -37,8 +37,8 @@
 
 1. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
 2. 各batchを全文監査・検証し、独立したGitHub checkpointとして保存する。
-3. batch-12・batch-15・batch-18・batch-20時点の品質ドリフト監査は完了。次の制作区切りでも文章・role・フォーム差を再監査する。
-4. 次の制作は、保留対象の扱いを確認したうえでbatch-21から進める。
+3. batch-12・batch-15・batch-18・batch-20・batch-29時点の品質ドリフト監査は完了。次の制作区切りでも文章・role・フォーム差を再監査する。
+4. 次の制作は、保留対象の扱いを確認したうえでbatch-30から進める。
 5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
 
 ## Important cautions

@@ -42,9 +42,9 @@ describe("pokemon intros", () => {
   const ids = new Set(indexJson.pokemon.map((pokemon) => pokemon.id));
   const statIds = new Set(speedJson.pokemon.map((pokemon) => pokemon.id));
   const moves = movesJson as Record<string, UsageMoveDetail>;
-  it("contains 209 unique articles including every available batch-01 through batch-20 form", () => {
-    expect(pokemonIntros).toHaveLength(209);
-    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(209);
+  it("contains 299 unique articles including the completed batch-25 through batch-29 forms", () => {
+    expect(pokemonIntros).toHaveLength(299);
+    expect(new Set(pokemonIntros.map((intro) => intro.pokemonId)).size).toBe(299);
     expect(pokemonIntros.some((intro) => intro.pokemonId === "mega-delphox")).toBe(true);
     for (const id of batch01Ids) {
       expect(pokemonIntroById.get(id)?.pokemonId).toBe(id);
@@ -83,7 +83,7 @@ describe("pokemon intros", () => {
       "mega-charizard-x": { types: ["fire", "dragon"], stats: [78, 130, 111, 130, 85, 100], abilities: ["かたいツメ"] },
       "mega-charizard-y": { types: ["fire", "flying"], stats: [78, 104, 78, 159, 115, 100], abilities: ["ひでり"] },
       "basculegion-male": { types: ["water", "ghost"], stats: [120, 112, 65, 80, 75, 78], abilities: ["てきおうりょく", "すいすい", "かたやぶり"] },
-      scizor: { types: ["bug", "steel"], stats: [70, 130, 100, 55, 80, 65], abilities: ["テクニシャン", "ライトメタル", "むしのしらせ"] },
+      scizor: { types: ["bug", "steel"], stats: [70, 130, 100, 55, 80, 65], abilities: ["テクニシャン", "むしのしらせ", "ライトメタル"] },
       "mega-scizor": { types: ["bug", "steel"], stats: [70, 150, 140, 65, 100, 75], abilities: ["テクニシャン"] },
       raichu: { types: ["electric"], stats: [60, 90, 55, 90, 80, 110], abilities: ["ひらいしん", "せいでんき"] },
       "mega-raichu-x": { types: ["electric"], stats: [60, 135, 95, 90, 95, 110], abilities: ["エレキメイカー"] },
@@ -140,6 +140,6 @@ describe("pokemon intros", () => {
   });
   it("keeps completed batch articles free of season-specific production data", () => {
     const forbidden = /M\d+|採用率|使用率|現在\d+位|現在の環境|努力値|性格テンプレ|持ち物ランキング/;
-    for (const id of [...batch01Ids, ...batch02Ids, ...batch03Ids, ...batch04Ids, ...batch05Ids, ...batch06Ids, ...batch07Ids, ...batch08Ids, ...batch09To15AvailableIds, ...batch16To20Ids]) expect(JSON.stringify(pokemonIntroById.get(id)), id).not.toMatch(forbidden);
+    for (const intro of pokemonIntros) expect(JSON.stringify(intro), intro.pokemonId).not.toMatch(forbidden);
   });
 });
