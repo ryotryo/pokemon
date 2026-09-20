@@ -1,14 +1,16 @@
 {
   "season": "Current",
   "seasonLabel": "M6",
-  "sourceUpdatedAt": "2026-09-19T19:10:06.138Z",
-  "publishedAt": "2026-09-19T20:48:50.693Z",
+  "sourceUpdatedAt": "2026-09-20T03:33:50.683Z",
+  "publishedAt": "2026-09-20T07:24:08.077Z",
   "source": "https://championsbattledata.com/api",
   "pokemon": [
     {
       "id": "abomasnow",
       "battleId": "abomasnow",
       "displayNameJa": "ユキノオー",
+      "dexNumber": 460,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -28,6 +30,8 @@
       "id": "mega-abomasnow",
       "battleId": "abomasnow",
       "displayNameJa": "メガユキノオー",
+      "dexNumber": 460,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -47,6 +51,8 @@
       "id": "absol",
       "battleId": "absol",
       "displayNameJa": "アブソル",
+      "dexNumber": 359,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
@@ -65,6 +71,8 @@
       "id": "mega-absol",
       "battleId": "absol",
       "displayNameJa": "メガアブソル",
+      "dexNumber": 359,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dark"
@@ -83,6 +91,8 @@
       "id": "mega-absol-z",
       "battleId": "absol",
       "displayNameJa": "メガアブソルZ",
+      "dexNumber": 359,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "dark",
@@ -102,6 +112,8 @@
       "id": "aegislash-shield-forme",
       "battleId": "aegislash",
       "displayNameJa": "ギルガルド（シールドフォルム）",
+      "dexNumber": 681,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "steel",
@@ -110,7 +122,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aegislash%20Shield%20Forme.png",
       "ranks": {
         "Singles": 13,
-        "Doubles": 78
+        "Doubles": 77
       },
       "usagePercentages": {
         "Singles": null,
@@ -121,6 +133,8 @@
       "id": "aerodactyl",
       "battleId": "aerodactyl",
       "displayNameJa": "プテラ",
+      "dexNumber": 142,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -128,7 +142,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aerodactyl.png",
       "ranks": {
-        "Singles": 142,
+        "Singles": 141,
         "Doubles": 44
       },
       "usagePercentages": {
@@ -140,6 +154,8 @@
       "id": "mega-aerodactyl",
       "battleId": "aerodactyl",
       "displayNameJa": "メガプテラ",
+      "dexNumber": 142,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "rock",
@@ -147,7 +163,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Aerodactyl.png",
       "ranks": {
-        "Singles": 142,
+        "Singles": 141,
         "Doubles": 44
       },
       "usagePercentages": {
@@ -159,6 +175,8 @@
       "id": "aggron",
       "battleId": "aggron",
       "displayNameJa": "ボスゴドラ",
+      "dexNumber": 306,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -166,8 +184,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aggron.png",
       "ranks": {
-        "Singles": 123,
-        "Doubles": 119
+        "Singles": 122,
+        "Doubles": 118
       },
       "usagePercentages": {
         "Singles": null,
@@ -178,14 +196,16 @@
       "id": "mega-aggron",
       "battleId": "aggron",
       "displayNameJa": "メガボスゴドラ",
+      "dexNumber": 306,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "steel"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Aggron.png",
       "ranks": {
-        "Singles": 123,
-        "Doubles": 119
+        "Singles": 122,
+        "Doubles": 118
       },
       "usagePercentages": {
         "Singles": null,
@@ -196,6 +216,8 @@
       "id": "alakazam",
       "battleId": "alakazam",
       "displayNameJa": "フーディン",
+      "dexNumber": 65,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -214,6 +236,8 @@
       "id": "mega-alakazam",
       "battleId": "alakazam",
       "displayNameJa": "メガフーディン",
+      "dexNumber": 65,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "psychic"
@@ -232,6 +256,8 @@
       "id": "alcremie",
       "battleId": "alcremie",
       "displayNameJa": "マホイップ",
+      "dexNumber": 869,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
@@ -239,7 +265,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alcremie.png",
       "ranks": {
         "Singles": 196,
-        "Doubles": 156
+        "Doubles": 155
       },
       "usagePercentages": {
         "Singles": null,
@@ -250,6 +276,8 @@
       "id": "altaria",
       "battleId": "altaria",
       "displayNameJa": "チルタリス",
+      "dexNumber": 334,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -257,8 +285,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Altaria.png",
       "ranks": {
-        "Singles": 125,
-        "Doubles": 134
+        "Singles": 126,
+        "Doubles": 133
       },
       "usagePercentages": {
         "Singles": null,
@@ -269,6 +297,8 @@
       "id": "mega-altaria",
       "battleId": "altaria",
       "displayNameJa": "メガチルタリス",
+      "dexNumber": 334,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dragon",
@@ -276,8 +306,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Altaria.png",
       "ranks": {
-        "Singles": 125,
-        "Doubles": 134
+        "Singles": 126,
+        "Doubles": 133
       },
       "usagePercentages": {
         "Singles": null,
@@ -288,13 +318,15 @@
       "id": "ampharos",
       "battleId": "ampharos",
       "displayNameJa": "デンリュウ",
+      "dexNumber": 181,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ampharos.png",
       "ranks": {
-        "Singles": 170,
+        "Singles": 171,
         "Doubles": 123
       },
       "usagePercentages": {
@@ -306,6 +338,8 @@
       "id": "mega-ampharos",
       "battleId": "ampharos",
       "displayNameJa": "メガデンリュウ",
+      "dexNumber": 181,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "electric",
@@ -313,7 +347,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Ampharos.png",
       "ranks": {
-        "Singles": 170,
+        "Singles": 171,
         "Doubles": 123
       },
       "usagePercentages": {
@@ -325,6 +359,8 @@
       "id": "annihilape",
       "battleId": "annihilape",
       "displayNameJa": "コノヨザル",
+      "dexNumber": 979,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -344,6 +380,8 @@
       "id": "appletun",
       "battleId": "appletun",
       "displayNameJa": "タルップル",
+      "dexNumber": 842,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -351,8 +389,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Appletun.png",
       "ranks": {
-        "Singles": 244,
-        "Doubles": 243
+        "Singles": 243,
+        "Doubles": 244
       },
       "usagePercentages": {
         "Singles": null,
@@ -363,6 +401,8 @@
       "id": "araquanid",
       "battleId": "araquanid",
       "displayNameJa": "オニシズクモ",
+      "dexNumber": 752,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -370,7 +410,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Araquanid.png",
       "ranks": {
-        "Singles": 85,
+        "Singles": 86,
         "Doubles": 100
       },
       "usagePercentages": {
@@ -382,13 +422,15 @@
       "id": "arbok",
       "battleId": "arbok",
       "displayNameJa": "アーボック",
+      "dexNumber": 24,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Arbok.png",
       "ranks": {
-        "Singles": 226,
+        "Singles": 225,
         "Doubles": 230
       },
       "usagePercentages": {
@@ -400,6 +442,8 @@
       "id": "arboliva",
       "battleId": "arboliva",
       "displayNameJa": "オリーヴァ",
+      "dexNumber": 930,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -407,7 +451,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Arboliva.png",
       "ranks": {
-        "Singles": 89,
+        "Singles": 88,
         "Doubles": 157
       },
       "usagePercentages": {
@@ -419,6 +463,8 @@
       "id": "arcanine",
       "battleId": "arcanine",
       "displayNameJa": "ウインディ",
+      "dexNumber": 59,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -437,6 +483,8 @@
       "id": "hisuian-arcanine",
       "battleId": "arcaninehisui",
       "displayNameJa": "ヒスイウインディ",
+      "dexNumber": 59,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "fire",
@@ -456,6 +504,8 @@
       "id": "archaludon",
       "battleId": "archaludon",
       "displayNameJa": "ブリジュラス",
+      "dexNumber": 1018,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -475,6 +525,8 @@
       "id": "ariados",
       "battleId": "ariados",
       "displayNameJa": "アリアドス",
+      "dexNumber": 168,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -494,6 +546,8 @@
       "id": "armarouge",
       "battleId": "armarouge",
       "displayNameJa": "グレンアルマ",
+      "dexNumber": 936,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -513,13 +567,15 @@
       "id": "aromatisse",
       "battleId": "aromatisse",
       "displayNameJa": "フレフワン",
+      "dexNumber": 683,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aromatisse.png",
       "ranks": {
-        "Singles": 250,
+        "Singles": 251,
         "Doubles": 175
       },
       "usagePercentages": {
@@ -531,6 +587,8 @@
       "id": "audino",
       "battleId": "audino",
       "displayNameJa": "タブンネ",
+      "dexNumber": 531,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -538,7 +596,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Audino.png",
       "ranks": {
         "Singles": 194,
-        "Doubles": 118
+        "Doubles": 120
       },
       "usagePercentages": {
         "Singles": null,
@@ -549,6 +607,8 @@
       "id": "mega-audino",
       "battleId": "audino",
       "displayNameJa": "メガタブンネ",
+      "dexNumber": 531,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "normal",
@@ -557,7 +617,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Audino.png",
       "ranks": {
         "Singles": 194,
-        "Doubles": 118
+        "Doubles": 120
       },
       "usagePercentages": {
         "Singles": null,
@@ -568,6 +628,8 @@
       "id": "aurorus",
       "battleId": "aurorus",
       "displayNameJa": "アマルルガ",
+      "dexNumber": 699,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -576,7 +638,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Aurorus.png",
       "ranks": {
         "Singles": 146,
-        "Doubles": 172
+        "Doubles": 173
       },
       "usagePercentages": {
         "Singles": null,
@@ -587,6 +649,8 @@
       "id": "avalugg",
       "battleId": "avalugg",
       "displayNameJa": "クレベース",
+      "dexNumber": 713,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice"
@@ -594,7 +658,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Avalugg.png",
       "ranks": {
         "Singles": 191,
-        "Doubles": 247
+        "Doubles": 248
       },
       "usagePercentages": {
         "Singles": null,
@@ -605,6 +669,8 @@
       "id": "hisuian-avalugg",
       "battleId": "avalugghisui",
       "displayNameJa": "ヒスイクレベース",
+      "dexNumber": 713,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "ice",
@@ -624,6 +690,8 @@
       "id": "azumarill",
       "battleId": "azumarill",
       "displayNameJa": "マリルリ",
+      "dexNumber": 184,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -631,7 +699,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Azumarill.png",
       "ranks": {
-        "Singles": 93,
+        "Singles": 92,
         "Doubles": 132
       },
       "usagePercentages": {
@@ -643,6 +711,8 @@
       "id": "banette",
       "battleId": "banette",
       "displayNameJa": "ジュペッタ",
+      "dexNumber": 354,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost"
@@ -650,7 +720,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Banette.png",
       "ranks": {
         "Singles": 42,
-        "Doubles": 185
+        "Doubles": 184
       },
       "usagePercentages": {
         "Singles": null,
@@ -661,6 +731,8 @@
       "id": "mega-banette",
       "battleId": "banette",
       "displayNameJa": "メガジュペッタ",
+      "dexNumber": 354,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ghost"
@@ -668,7 +740,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Banette.png",
       "ranks": {
         "Singles": 42,
-        "Doubles": 185
+        "Doubles": 184
       },
       "usagePercentages": {
         "Singles": null,
@@ -679,6 +751,8 @@
       "id": "barbaracle",
       "battleId": "barbaracle",
       "displayNameJa": "ガメノデス",
+      "dexNumber": 689,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -698,6 +772,8 @@
       "id": "mega-barbaracle",
       "battleId": "barbaracle",
       "displayNameJa": "メガガメノデス",
+      "dexNumber": 689,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "rock",
@@ -717,6 +793,8 @@
       "id": "basculegion-male",
       "battleId": "basculegion",
       "displayNameJa": "イダイトウ（オスのすがた）",
+      "dexNumber": 902,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "water",
@@ -736,6 +814,8 @@
       "id": "basculegion-female",
       "battleId": "basculegionf",
       "displayNameJa": "イダイトウ（メスのすがた）",
+      "dexNumber": 902,
+      "formOrder": 0,
       "formRelation": "independent",
       "types": [
         "water",
@@ -743,8 +823,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Basculegion%20Female.png",
       "ranks": {
-        "Singles": 115,
-        "Doubles": 91
+        "Singles": 116,
+        "Doubles": 92
       },
       "usagePercentages": {
         "Singles": null,
@@ -755,6 +835,8 @@
       "id": "bastiodon",
       "battleId": "bastiodon",
       "displayNameJa": "トリデプス",
+      "dexNumber": 411,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -763,7 +845,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Bastiodon.png",
       "ranks": {
         "Singles": 202,
-        "Doubles": 222
+        "Doubles": 224
       },
       "usagePercentages": {
         "Singles": null,
@@ -774,6 +856,8 @@
       "id": "baxcalibur",
       "battleId": "baxcalibur",
       "displayNameJa": "セグレイブ",
+      "dexNumber": 998,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -793,6 +877,8 @@
       "id": "mega-baxcalibur",
       "battleId": "baxcalibur",
       "displayNameJa": "メガセグレイブ",
+      "dexNumber": 998,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dragon",
@@ -812,14 +898,16 @@
       "id": "beartic",
       "battleId": "beartic",
       "displayNameJa": "ツンベアー",
+      "dexNumber": 614,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Beartic.png",
       "ranks": {
-        "Singles": 227,
-        "Doubles": 218
+        "Singles": 228,
+        "Doubles": 217
       },
       "usagePercentages": {
         "Singles": null,
@@ -830,6 +918,8 @@
       "id": "beedrill",
       "battleId": "beedrill",
       "displayNameJa": "スピアー",
+      "dexNumber": 15,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -849,6 +939,8 @@
       "id": "mega-beedrill",
       "battleId": "beedrill",
       "displayNameJa": "メガスピアー",
+      "dexNumber": 15,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -868,6 +960,8 @@
       "id": "bellibolt",
       "battleId": "bellibolt",
       "displayNameJa": "ハラバリー",
+      "dexNumber": 939,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -886,6 +980,8 @@
       "id": "blastoise",
       "battleId": "blastoise",
       "displayNameJa": "カメックス",
+      "dexNumber": 9,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
@@ -904,6 +1000,8 @@
       "id": "mega-blastoise",
       "battleId": "blastoise",
       "displayNameJa": "メガカメックス",
+      "dexNumber": 9,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water"
@@ -922,6 +1020,8 @@
       "id": "blaziken",
       "battleId": "blaziken",
       "displayNameJa": "バシャーモ",
+      "dexNumber": 257,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -941,6 +1041,8 @@
       "id": "mega-blaziken",
       "battleId": "blaziken",
       "displayNameJa": "メガバシャーモ",
+      "dexNumber": 257,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -960,6 +1062,8 @@
       "id": "camerupt",
       "battleId": "camerupt",
       "displayNameJa": "バクーダ",
+      "dexNumber": 323,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -979,6 +1083,8 @@
       "id": "mega-camerupt",
       "battleId": "camerupt",
       "displayNameJa": "メガバクーダ",
+      "dexNumber": 323,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -998,6 +1104,8 @@
       "id": "castform",
       "battleId": "castform",
       "displayNameJa": "ポワルン",
+      "dexNumber": 351,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -1016,6 +1124,8 @@
       "id": "ceruledge",
       "battleId": "ceruledge",
       "displayNameJa": "ソウブレイズ",
+      "dexNumber": 937,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -1035,6 +1145,8 @@
       "id": "chandelure",
       "battleId": "chandelure",
       "displayNameJa": "シャンデラ",
+      "dexNumber": 609,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -1054,6 +1166,8 @@
       "id": "mega-chandelure",
       "battleId": "chandelure",
       "displayNameJa": "メガシャンデラ",
+      "dexNumber": 609,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ghost",
@@ -1073,6 +1187,8 @@
       "id": "charizard",
       "battleId": "charizard",
       "displayNameJa": "リザードン",
+      "dexNumber": 6,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -1092,6 +1208,8 @@
       "id": "mega-charizard-x",
       "battleId": "charizard",
       "displayNameJa": "メガリザードンX",
+      "dexNumber": 6,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -1111,6 +1229,8 @@
       "id": "mega-charizard-y",
       "battleId": "charizard",
       "displayNameJa": "メガリザードンY",
+      "dexNumber": 6,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -1130,6 +1250,8 @@
       "id": "chesnaught",
       "battleId": "chesnaught",
       "displayNameJa": "ブリガロン",
+      "dexNumber": 652,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -1138,7 +1260,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Chesnaught.png",
       "ranks": {
         "Singles": 160,
-        "Doubles": 145
+        "Doubles": 144
       },
       "usagePercentages": {
         "Singles": null,
@@ -1149,6 +1271,8 @@
       "id": "mega-chesnaught",
       "battleId": "chesnaught",
       "displayNameJa": "メガブリガロン",
+      "dexNumber": 652,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -1157,7 +1281,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Chesnaught.png",
       "ranks": {
         "Singles": 160,
-        "Doubles": 145
+        "Doubles": 144
       },
       "usagePercentages": {
         "Singles": null,
@@ -1168,6 +1292,8 @@
       "id": "chimecho",
       "battleId": "chimecho",
       "displayNameJa": "チリーン",
+      "dexNumber": 358,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -1186,6 +1312,8 @@
       "id": "mega-chimecho",
       "battleId": "chimecho",
       "displayNameJa": "メガチリーン",
+      "dexNumber": 358,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "psychic",
@@ -1205,6 +1333,8 @@
       "id": "cinderace",
       "battleId": "cinderace",
       "displayNameJa": "エースバーン",
+      "dexNumber": 815,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -1223,14 +1353,16 @@
       "id": "clawitzer",
       "battleId": "clawitzer",
       "displayNameJa": "ブロスター",
+      "dexNumber": 693,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Clawitzer.png",
       "ranks": {
-        "Singles": 173,
-        "Doubles": 129
+        "Singles": 172,
+        "Doubles": 128
       },
       "usagePercentages": {
         "Singles": null,
@@ -1241,6 +1373,8 @@
       "id": "clefable",
       "battleId": "clefable",
       "displayNameJa": "ピクシー",
+      "dexNumber": 36,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
@@ -1259,6 +1393,8 @@
       "id": "mega-clefable",
       "battleId": "clefable",
       "displayNameJa": "メガピクシー",
+      "dexNumber": 36,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fairy",
@@ -1278,6 +1414,8 @@
       "id": "cofagrigus",
       "battleId": "cofagrigus",
       "displayNameJa": "デスカーン",
+      "dexNumber": 563,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost"
@@ -1285,7 +1423,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Cofagrigus.png",
       "ranks": {
         "Singles": 161,
-        "Doubles": 159
+        "Doubles": 160
       },
       "usagePercentages": {
         "Singles": null,
@@ -1296,6 +1434,8 @@
       "id": "conkeldurr",
       "battleId": "conkeldurr",
       "displayNameJa": "ローブシン",
+      "dexNumber": 534,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
@@ -1303,7 +1443,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Conkeldurr.png",
       "ranks": {
         "Singles": 121,
-        "Doubles": 139
+        "Doubles": 140
       },
       "usagePercentages": {
         "Singles": null,
@@ -1314,6 +1454,8 @@
       "id": "corviknight",
       "battleId": "corviknight",
       "displayNameJa": "アーマーガア",
+      "dexNumber": 823,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "flying",
@@ -1333,6 +1475,8 @@
       "id": "crabominable",
       "battleId": "crabominable",
       "displayNameJa": "ケケンカニ",
+      "dexNumber": 740,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -1340,8 +1484,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Crabominable.png",
       "ranks": {
-        "Singles": 188,
-        "Doubles": 114
+        "Singles": 187,
+        "Doubles": 115
       },
       "usagePercentages": {
         "Singles": null,
@@ -1352,6 +1496,8 @@
       "id": "mega-crabominable",
       "battleId": "crabominable",
       "displayNameJa": "メガケケンカニ",
+      "dexNumber": 740,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -1359,8 +1505,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Crabominable.png",
       "ranks": {
-        "Singles": 188,
-        "Doubles": 114
+        "Singles": 187,
+        "Doubles": 115
       },
       "usagePercentages": {
         "Singles": null,
@@ -1371,6 +1517,8 @@
       "id": "decidueye",
       "battleId": "decidueye",
       "displayNameJa": "ジュナイパー",
+      "dexNumber": 724,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -1390,6 +1538,8 @@
       "id": "hisuian-decidueye",
       "battleId": "decidueyehisui",
       "displayNameJa": "ヒスイジュナイパー",
+      "dexNumber": 724,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "grass",
@@ -1409,6 +1559,8 @@
       "id": "dedenne",
       "battleId": "dedenne",
       "displayNameJa": "デデンネ",
+      "dexNumber": 702,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -1428,6 +1580,8 @@
       "id": "delphox",
       "battleId": "delphox",
       "displayNameJa": "マフォクシー",
+      "dexNumber": 655,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -1447,6 +1601,8 @@
       "id": "mega-delphox",
       "battleId": "delphox",
       "displayNameJa": "メガマフォクシー",
+      "dexNumber": 655,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -1466,6 +1622,8 @@
       "id": "diggersby",
       "battleId": "diggersby",
       "displayNameJa": "ホルード",
+      "dexNumber": 660,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -1485,6 +1643,8 @@
       "id": "ditto",
       "battleId": "ditto",
       "displayNameJa": "メタモン",
+      "dexNumber": 132,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -1492,7 +1652,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Ditto.png",
       "ranks": {
         "Singles": 56,
-        "Doubles": 144
+        "Doubles": 145
       },
       "usagePercentages": {
         "Singles": null,
@@ -1503,6 +1663,8 @@
       "id": "dragalge",
       "battleId": "dragalge",
       "displayNameJa": "ドラミドロ",
+      "dexNumber": 691,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison",
@@ -1522,6 +1684,8 @@
       "id": "mega-dragalge",
       "battleId": "dragalge",
       "displayNameJa": "メガドラミドロ",
+      "dexNumber": 691,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "poison",
@@ -1541,6 +1705,8 @@
       "id": "dragapult",
       "battleId": "dragapult",
       "displayNameJa": "ドラパルト",
+      "dexNumber": 887,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -1549,7 +1715,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragapult.png",
       "ranks": {
         "Singles": 59,
-        "Doubles": 64
+        "Doubles": 63
       },
       "usagePercentages": {
         "Singles": null,
@@ -1560,6 +1726,8 @@
       "id": "dragonite",
       "battleId": "dragonite",
       "displayNameJa": "カイリュー",
+      "dexNumber": 149,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -1579,6 +1747,8 @@
       "id": "mega-dragonite",
       "battleId": "dragonite",
       "displayNameJa": "メガカイリュー",
+      "dexNumber": 149,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dragon",
@@ -1598,6 +1768,8 @@
       "id": "drampa",
       "battleId": "drampa",
       "displayNameJa": "ジジーロン",
+      "dexNumber": 780,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -1617,6 +1789,8 @@
       "id": "mega-drampa",
       "battleId": "drampa",
       "displayNameJa": "メガジジーロン",
+      "dexNumber": 780,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "normal",
@@ -1636,6 +1810,8 @@
       "id": "eelektross",
       "battleId": "eelektross",
       "displayNameJa": "シビルドン",
+      "dexNumber": 604,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -1643,7 +1819,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Eelektross.png",
       "ranks": {
         "Singles": 135,
-        "Doubles": 140
+        "Doubles": 139
       },
       "usagePercentages": {
         "Singles": null,
@@ -1654,6 +1830,8 @@
       "id": "mega-eelektross",
       "battleId": "eelektross",
       "displayNameJa": "メガシビルドン",
+      "dexNumber": 604,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "electric"
@@ -1661,7 +1839,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Eelektross.png",
       "ranks": {
         "Singles": 135,
-        "Doubles": 140
+        "Doubles": 139
       },
       "usagePercentages": {
         "Singles": null,
@@ -1672,6 +1850,8 @@
       "id": "emboar",
       "battleId": "emboar",
       "displayNameJa": "エンブオー",
+      "dexNumber": 500,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -1680,7 +1860,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Emboar.png",
       "ranks": {
         "Singles": 190,
-        "Doubles": 208
+        "Doubles": 207
       },
       "usagePercentages": {
         "Singles": null,
@@ -1691,6 +1871,8 @@
       "id": "mega-emboar",
       "battleId": "emboar",
       "displayNameJa": "メガエンブオー",
+      "dexNumber": 500,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -1699,7 +1881,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Emboar.png",
       "ranks": {
         "Singles": 190,
-        "Doubles": 208
+        "Doubles": 207
       },
       "usagePercentages": {
         "Singles": null,
@@ -1710,6 +1892,8 @@
       "id": "emolga",
       "battleId": "emolga",
       "displayNameJa": "エモンガ",
+      "dexNumber": 587,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -1718,7 +1902,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Emolga.png",
       "ranks": {
         "Singles": 216,
-        "Doubles": 232
+        "Doubles": 231
       },
       "usagePercentages": {
         "Singles": null,
@@ -1729,6 +1913,8 @@
       "id": "empoleon",
       "battleId": "empoleon",
       "displayNameJa": "エンペルト",
+      "dexNumber": 395,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -1748,6 +1934,8 @@
       "id": "espathra",
       "battleId": "espathra",
       "displayNameJa": "クエスパトラ",
+      "dexNumber": 956,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -1766,6 +1954,8 @@
       "id": "espeon",
       "battleId": "espeon",
       "displayNameJa": "エーフィ",
+      "dexNumber": 196,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -1773,7 +1963,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Espeon.png",
       "ranks": {
         "Singles": 107,
-        "Doubles": 165
+        "Doubles": 164
       },
       "usagePercentages": {
         "Singles": null,
@@ -1784,6 +1974,8 @@
       "id": "excadrill",
       "battleId": "excadrill",
       "displayNameJa": "ドリュウズ",
+      "dexNumber": 530,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -1803,6 +1995,8 @@
       "id": "mega-excadrill",
       "battleId": "excadrill",
       "displayNameJa": "メガドリュウズ",
+      "dexNumber": 530,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ground",
@@ -1822,6 +2016,8 @@
       "id": "falinks",
       "battleId": "falinks",
       "displayNameJa": "タイレーツ",
+      "dexNumber": 870,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
@@ -1829,7 +2025,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Falinks.png",
       "ranks": {
         "Singles": 235,
-        "Doubles": 223
+        "Doubles": 221
       },
       "usagePercentages": {
         "Singles": null,
@@ -1840,6 +2036,8 @@
       "id": "mega-falinks",
       "battleId": "falinks",
       "displayNameJa": "メガタイレーツ",
+      "dexNumber": 870,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting"
@@ -1847,7 +2045,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Falinks.png",
       "ranks": {
         "Singles": 235,
-        "Doubles": 223
+        "Doubles": 221
       },
       "usagePercentages": {
         "Singles": null,
@@ -1858,6 +2056,8 @@
       "id": "farfetch-d",
       "battleId": "farfetchd",
       "displayNameJa": "カモネギ",
+      "dexNumber": 83,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -1866,7 +2066,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Farfetch'd.png",
       "ranks": {
         "Singles": 222,
-        "Doubles": 201
+        "Doubles": 202
       },
       "usagePercentages": {
         "Singles": null,
@@ -1877,6 +2077,8 @@
       "id": "farigiraf",
       "battleId": "farigiraf",
       "displayNameJa": "リキキリン",
+      "dexNumber": 981,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -1896,6 +2098,8 @@
       "id": "feraligatr",
       "battleId": "feraligatr",
       "displayNameJa": "オーダイル",
+      "dexNumber": 160,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
@@ -1903,7 +2107,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Feraligatr.png",
       "ranks": {
         "Singles": 156,
-        "Doubles": 155
+        "Doubles": 156
       },
       "usagePercentages": {
         "Singles": null,
@@ -1914,6 +2118,8 @@
       "id": "mega-feraligatr",
       "battleId": "feraligatr",
       "displayNameJa": "メガオーダイル",
+      "dexNumber": 160,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -1922,7 +2128,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Feraligatr.png",
       "ranks": {
         "Singles": 156,
-        "Doubles": 155
+        "Doubles": 156
       },
       "usagePercentages": {
         "Singles": null,
@@ -1933,6 +2139,8 @@
       "id": "flapple",
       "battleId": "flapple",
       "displayNameJa": "アップリュー",
+      "dexNumber": 841,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -1952,14 +2160,16 @@
       "id": "flareon",
       "battleId": "flareon",
       "displayNameJa": "ブースター",
+      "dexNumber": 136,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Flareon.png",
       "ranks": {
-        "Singles": 213,
-        "Doubles": 242
+        "Singles": 214,
+        "Doubles": 240
       },
       "usagePercentages": {
         "Singles": null,
@@ -1970,6 +2180,8 @@
       "id": "floette",
       "battleId": "floetteeternal",
       "displayNameJa": "フラエッテ",
+      "dexNumber": 670,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
@@ -1988,6 +2200,8 @@
       "id": "mega-floette",
       "battleId": "floetteeternal",
       "displayNameJa": "メガフラエッテ",
+      "dexNumber": 670,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fairy"
@@ -2006,6 +2220,8 @@
       "id": "florges-red-flower",
       "battleId": "florges",
       "displayNameJa": "フラージェス（あかいはな）",
+      "dexNumber": 671,
+      "formOrder": 0,
       "formRelation": "independent",
       "types": [
         "fairy"
@@ -2013,7 +2229,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Florges%20Red%20Flower.png",
       "ranks": {
         "Singles": 219,
-        "Doubles": 217
+        "Doubles": 216
       },
       "usagePercentages": {
         "Singles": null,
@@ -2024,6 +2240,8 @@
       "id": "forretress",
       "battleId": "forretress",
       "displayNameJa": "フォレトス",
+      "dexNumber": 205,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -2032,7 +2250,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Forretress.png",
       "ranks": {
         "Singles": 139,
-        "Doubles": 244
+        "Doubles": 243
       },
       "usagePercentages": {
         "Singles": null,
@@ -2043,6 +2261,8 @@
       "id": "froslass",
       "battleId": "froslass",
       "displayNameJa": "ユキメノコ",
+      "dexNumber": 478,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice",
@@ -2062,6 +2282,8 @@
       "id": "mega-froslass",
       "battleId": "froslass",
       "displayNameJa": "メガユキメノコ",
+      "dexNumber": 478,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ice",
@@ -2081,6 +2303,8 @@
       "id": "furfrou-natural-form",
       "battleId": "furfrou",
       "displayNameJa": "トリミアン（あるがまま）",
+      "dexNumber": 676,
+      "formOrder": 0,
       "formRelation": "independent",
       "types": [
         "normal"
@@ -2088,7 +2312,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Furfrou%20Natural%20Form.png",
       "ranks": {
         "Singles": 237,
-        "Doubles": 252
+        "Doubles": 250
       },
       "usagePercentages": {
         "Singles": null,
@@ -2099,6 +2323,8 @@
       "id": "gallade",
       "battleId": "gallade",
       "displayNameJa": "エルレイド",
+      "dexNumber": 475,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic",
@@ -2106,7 +2332,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gallade.png",
       "ranks": {
-        "Singles": 88,
+        "Singles": 89,
         "Doubles": 62
       },
       "usagePercentages": {
@@ -2118,6 +2344,8 @@
       "id": "mega-gallade",
       "battleId": "gallade",
       "displayNameJa": "メガエルレイド",
+      "dexNumber": 475,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "psychic",
@@ -2125,7 +2353,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gallade.png",
       "ranks": {
-        "Singles": 88,
+        "Singles": 89,
         "Doubles": 62
       },
       "usagePercentages": {
@@ -2137,6 +2365,8 @@
       "id": "garbodor",
       "battleId": "garbodor",
       "displayNameJa": "ダストダス",
+      "dexNumber": 569,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison"
@@ -2144,7 +2374,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garbodor.png",
       "ranks": {
         "Singles": 240,
-        "Doubles": 248
+        "Doubles": 249
       },
       "usagePercentages": {
         "Singles": null,
@@ -2155,6 +2385,8 @@
       "id": "garchomp",
       "battleId": "garchomp",
       "displayNameJa": "ガブリアス",
+      "dexNumber": 445,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -2174,6 +2406,8 @@
       "id": "mega-garchomp",
       "battleId": "garchomp",
       "displayNameJa": "メガガブリアス",
+      "dexNumber": 445,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dragon",
@@ -2193,6 +2427,8 @@
       "id": "mega-garchomp-z",
       "battleId": "garchomp",
       "displayNameJa": "メガガブリアスZ",
+      "dexNumber": 445,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "dragon"
@@ -2211,6 +2447,8 @@
       "id": "gardevoir",
       "battleId": "gardevoir",
       "displayNameJa": "サーナイト",
+      "dexNumber": 282,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic",
@@ -2218,7 +2456,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gardevoir.png",
       "ranks": {
-        "Singles": 83,
+        "Singles": 84,
         "Doubles": 16
       },
       "usagePercentages": {
@@ -2230,6 +2468,8 @@
       "id": "mega-gardevoir",
       "battleId": "gardevoir",
       "displayNameJa": "メガサーナイト",
+      "dexNumber": 282,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "psychic",
@@ -2237,7 +2477,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Gardevoir.png",
       "ranks": {
-        "Singles": 83,
+        "Singles": 84,
         "Doubles": 16
       },
       "usagePercentages": {
@@ -2249,6 +2489,8 @@
       "id": "garganacl",
       "battleId": "garganacl",
       "displayNameJa": "キョジオーン",
+      "dexNumber": 934,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock"
@@ -2267,6 +2509,8 @@
       "id": "gengar",
       "battleId": "gengar",
       "displayNameJa": "ゲンガー",
+      "dexNumber": 94,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -2286,6 +2530,8 @@
       "id": "mega-gengar",
       "battleId": "gengar",
       "displayNameJa": "メガゲンガー",
+      "dexNumber": 94,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ghost",
@@ -2305,6 +2551,8 @@
       "id": "gholdengo",
       "battleId": "gholdengo",
       "displayNameJa": "サーフゴー",
+      "dexNumber": 1000,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -2324,6 +2572,8 @@
       "id": "glaceon",
       "battleId": "glaceon",
       "displayNameJa": "グレイシア",
+      "dexNumber": 471,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice"
@@ -2342,6 +2592,8 @@
       "id": "glalie",
       "battleId": "glalie",
       "displayNameJa": "オニゴーリ",
+      "dexNumber": 362,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice"
@@ -2349,7 +2601,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glalie.png",
       "ranks": {
         "Singles": 137,
-        "Doubles": 178
+        "Doubles": 179
       },
       "usagePercentages": {
         "Singles": null,
@@ -2360,6 +2612,8 @@
       "id": "mega-glalie",
       "battleId": "glalie",
       "displayNameJa": "メガオニゴーリ",
+      "dexNumber": 362,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ice"
@@ -2367,7 +2621,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Glalie.png",
       "ranks": {
         "Singles": 137,
-        "Doubles": 178
+        "Doubles": 179
       },
       "usagePercentages": {
         "Singles": null,
@@ -2378,6 +2632,8 @@
       "id": "glimmora",
       "battleId": "glimmora",
       "displayNameJa": "キラフロル",
+      "dexNumber": 970,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -2397,6 +2653,8 @@
       "id": "mega-glimmora",
       "battleId": "glimmora",
       "displayNameJa": "メガキラフロル",
+      "dexNumber": 970,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "rock",
@@ -2416,6 +2674,8 @@
       "id": "gliscor",
       "battleId": "gliscor",
       "displayNameJa": "グライオン",
+      "dexNumber": 472,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -2423,8 +2683,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gliscor.png",
       "ranks": {
-        "Singles": 126,
-        "Doubles": 137
+        "Singles": 125,
+        "Doubles": 136
       },
       "usagePercentages": {
         "Singles": null,
@@ -2435,14 +2695,16 @@
       "id": "gogoat",
       "battleId": "gogoat",
       "displayNameJa": "ゴーゴート",
+      "dexNumber": 673,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gogoat.png",
       "ranks": {
-        "Singles": 246,
-        "Doubles": 196
+        "Singles": 245,
+        "Doubles": 197
       },
       "usagePercentages": {
         "Singles": null,
@@ -2453,6 +2715,8 @@
       "id": "golisopod",
       "battleId": "golisopod",
       "displayNameJa": "グソクムシャ",
+      "dexNumber": 768,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -2472,6 +2736,8 @@
       "id": "mega-golisopod",
       "battleId": "golisopod",
       "displayNameJa": "メガグソクムシャ",
+      "dexNumber": 768,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -2491,6 +2757,8 @@
       "id": "golurk",
       "battleId": "golurk",
       "displayNameJa": "ゴルーグ",
+      "dexNumber": 623,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -2510,6 +2778,8 @@
       "id": "mega-golurk",
       "battleId": "golurk",
       "displayNameJa": "メガゴルーグ",
+      "dexNumber": 623,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "ground",
@@ -2529,6 +2799,8 @@
       "id": "goodra",
       "battleId": "goodra",
       "displayNameJa": "ヌメルゴン",
+      "dexNumber": 706,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon"
@@ -2547,6 +2819,8 @@
       "id": "hisuian-goodra",
       "battleId": "goodrahisui",
       "displayNameJa": "ヒスイヌメルゴン",
+      "dexNumber": 706,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "steel",
@@ -2555,7 +2829,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Goodra.png",
       "ranks": {
         "Singles": 64,
-        "Doubles": 96
+        "Doubles": 93
       },
       "usagePercentages": {
         "Singles": null,
@@ -2566,6 +2840,8 @@
       "id": "gourgeist",
       "battleId": "gourgeist",
       "displayNameJa": "パンプジン",
+      "dexNumber": 711,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -2574,7 +2850,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist.png",
       "ranks": {
         "Singles": 260,
-        "Doubles": 254
+        "Doubles": 255
       },
       "usagePercentages": {
         "Singles": null,
@@ -2585,6 +2861,8 @@
       "id": "gourgeist-large-variety",
       "battleId": "gourgeistlarge",
       "displayNameJa": "パンプジン（おおきいサイズ）",
+      "dexNumber": 711,
+      "formOrder": 2,
       "formRelation": "independent",
       "types": [
         "ghost",
@@ -2593,7 +2871,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Large%20Variety.png",
       "ranks": {
         "Singles": 261,
-        "Doubles": 251
+        "Doubles": 252
       },
       "usagePercentages": {
         "Singles": null,
@@ -2604,6 +2882,8 @@
       "id": "gourgeist-small-variety",
       "battleId": "gourgeistsmall",
       "displayNameJa": "パンプジン（ちいさいサイズ）",
+      "dexNumber": 711,
+      "formOrder": 3,
       "formRelation": "independent",
       "types": [
         "ghost",
@@ -2611,8 +2891,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Small%20Variety.png",
       "ranks": {
-        "Singles": 258,
-        "Doubles": 262
+        "Singles": 259,
+        "Doubles": 261
       },
       "usagePercentages": {
         "Singles": null,
@@ -2623,6 +2903,8 @@
       "id": "gourgeist-jumbo-variety",
       "battleId": "gourgeistsuper",
       "displayNameJa": "パンプジン（とくだいサイズ）",
+      "dexNumber": 711,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "ghost",
@@ -2630,8 +2912,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist%20Jumbo%20Variety.png",
       "ranks": {
-        "Singles": 225,
-        "Doubles": 210
+        "Singles": 226,
+        "Doubles": 211
       },
       "usagePercentages": {
         "Singles": null,
@@ -2642,6 +2924,8 @@
       "id": "grapploct",
       "battleId": "grapploct",
       "displayNameJa": "オトスパス",
+      "dexNumber": 853,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
@@ -2660,6 +2944,8 @@
       "id": "greninja",
       "battleId": "greninja",
       "displayNameJa": "ゲッコウガ",
+      "dexNumber": 658,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -2668,7 +2954,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Greninja.png",
       "ranks": {
         "Singles": 22,
-        "Doubles": 92
+        "Doubles": 91
       },
       "usagePercentages": {
         "Singles": null,
@@ -2679,6 +2965,8 @@
       "id": "mega-greninja",
       "battleId": "greninja",
       "displayNameJa": "メガゲッコウガ",
+      "dexNumber": 658,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -2687,7 +2975,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Greninja.png",
       "ranks": {
         "Singles": 22,
-        "Doubles": 92
+        "Doubles": 91
       },
       "usagePercentages": {
         "Singles": null,
@@ -2698,6 +2986,8 @@
       "id": "grimmsnarl",
       "battleId": "grimmsnarl",
       "displayNameJa": "オーロンゲ",
+      "dexNumber": 861,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -2717,6 +3007,8 @@
       "id": "gyarados",
       "battleId": "gyarados",
       "displayNameJa": "ギャラドス",
+      "dexNumber": 130,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -2736,6 +3028,8 @@
       "id": "mega-gyarados",
       "battleId": "gyarados",
       "displayNameJa": "メガギャラドス",
+      "dexNumber": 130,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -2755,6 +3049,8 @@
       "id": "hatterene",
       "battleId": "hatterene",
       "displayNameJa": "ブリムオン",
+      "dexNumber": 858,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic",
@@ -2762,7 +3058,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hatterene.png",
       "ranks": {
-        "Singles": 86,
+        "Singles": 85,
         "Doubles": 46
       },
       "usagePercentages": {
@@ -2774,6 +3070,8 @@
       "id": "hawlucha",
       "battleId": "hawlucha",
       "displayNameJa": "ルチャブル",
+      "dexNumber": 701,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -2793,6 +3091,8 @@
       "id": "mega-hawlucha",
       "battleId": "hawlucha",
       "displayNameJa": "メガルチャブル",
+      "dexNumber": 701,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -2812,6 +3112,8 @@
       "id": "heliolisk",
       "battleId": "heliolisk",
       "displayNameJa": "エレザード",
+      "dexNumber": 695,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -2831,6 +3133,8 @@
       "id": "heracross",
       "battleId": "heracross",
       "displayNameJa": "ヘラクロス",
+      "dexNumber": 214,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -2850,6 +3154,8 @@
       "id": "mega-heracross",
       "battleId": "heracross",
       "displayNameJa": "メガヘラクロス",
+      "dexNumber": 214,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -2869,6 +3175,8 @@
       "id": "hippowdon",
       "battleId": "hippowdon",
       "displayNameJa": "カバルドン",
+      "dexNumber": 450,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground"
@@ -2887,6 +3195,8 @@
       "id": "houndoom",
       "battleId": "houndoom",
       "displayNameJa": "ヘルガー",
+      "dexNumber": 229,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -2895,7 +3205,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Houndoom.png",
       "ranks": {
         "Singles": 168,
-        "Doubles": 143
+        "Doubles": 142
       },
       "usagePercentages": {
         "Singles": null,
@@ -2906,6 +3216,8 @@
       "id": "mega-houndoom",
       "battleId": "houndoom",
       "displayNameJa": "メガヘルガー",
+      "dexNumber": 229,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dark",
@@ -2914,7 +3226,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Houndoom.png",
       "ranks": {
         "Singles": 168,
-        "Doubles": 143
+        "Doubles": 142
       },
       "usagePercentages": {
         "Singles": null,
@@ -2925,6 +3237,8 @@
       "id": "houndstone",
       "battleId": "houndstone",
       "displayNameJa": "ハカドッグ",
+      "dexNumber": 972,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost"
@@ -2932,7 +3246,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Houndstone.png",
       "ranks": {
         "Singles": 138,
-        "Doubles": 133
+        "Doubles": 134
       },
       "usagePercentages": {
         "Singles": null,
@@ -2943,6 +3257,8 @@
       "id": "hydrapple",
       "battleId": "hydrapple",
       "displayNameJa": "カミツオロチ",
+      "dexNumber": 1019,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -2951,7 +3267,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hydrapple.png",
       "ranks": {
         "Singles": 200,
-        "Doubles": 187
+        "Doubles": 189
       },
       "usagePercentages": {
         "Singles": null,
@@ -2962,6 +3278,8 @@
       "id": "hydreigon",
       "battleId": "hydreigon",
       "displayNameJa": "サザンドラ",
+      "dexNumber": 635,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -2981,6 +3299,8 @@
       "id": "incineroar",
       "battleId": "incineroar",
       "displayNameJa": "ガオガエン",
+      "dexNumber": 727,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -3000,6 +3320,8 @@
       "id": "indeedee",
       "battleId": "indeedee",
       "displayNameJa": "イエッサン",
+      "dexNumber": 876,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic",
@@ -3019,6 +3341,8 @@
       "id": "indeedee-female",
       "battleId": "indeedeef",
       "displayNameJa": "イエッサン（メスのすがた）",
+      "dexNumber": 876,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "psychic",
@@ -3026,7 +3350,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Indeedee%20Female.png",
       "ranks": {
-        "Singles": 92,
+        "Singles": 91,
         "Doubles": 6
       },
       "usagePercentages": {
@@ -3038,6 +3362,8 @@
       "id": "infernape",
       "battleId": "infernape",
       "displayNameJa": "ゴウカザル",
+      "dexNumber": 392,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -3057,14 +3383,16 @@
       "id": "inteleon",
       "battleId": "inteleon",
       "displayNameJa": "インテレオン",
+      "dexNumber": 818,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Inteleon.png",
       "ranks": {
-        "Singles": 84,
-        "Doubles": 63
+        "Singles": 83,
+        "Doubles": 64
       },
       "usagePercentages": {
         "Singles": null,
@@ -3075,6 +3403,8 @@
       "id": "jolteon",
       "battleId": "jolteon",
       "displayNameJa": "サンダース",
+      "dexNumber": 135,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -3082,7 +3412,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Jolteon.png",
       "ranks": {
         "Singles": 169,
-        "Doubles": 120
+        "Doubles": 119
       },
       "usagePercentages": {
         "Singles": null,
@@ -3093,6 +3423,8 @@
       "id": "kangaskhan",
       "battleId": "kangaskhan",
       "displayNameJa": "ガルーラ",
+      "dexNumber": 115,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -3111,6 +3443,8 @@
       "id": "mega-kangaskhan",
       "battleId": "kangaskhan",
       "displayNameJa": "メガガルーラ",
+      "dexNumber": 115,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "normal"
@@ -3129,6 +3463,8 @@
       "id": "kingambit",
       "battleId": "kingambit",
       "displayNameJa": "ドドゲザン",
+      "dexNumber": 983,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -3148,6 +3484,8 @@
       "id": "kleavor",
       "battleId": "kleavor",
       "displayNameJa": "バサギリ",
+      "dexNumber": 900,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -3156,7 +3494,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kleavor.png",
       "ranks": {
         "Singles": 80,
-        "Doubles": 69
+        "Doubles": 68
       },
       "usagePercentages": {
         "Singles": null,
@@ -3167,6 +3505,8 @@
       "id": "klefki",
       "battleId": "klefki",
       "displayNameJa": "クレッフィ",
+      "dexNumber": 707,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -3175,7 +3515,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Klefki.png",
       "ranks": {
         "Singles": 148,
-        "Doubles": 115
+        "Doubles": 114
       },
       "usagePercentages": {
         "Singles": null,
@@ -3186,6 +3526,8 @@
       "id": "kommo-o",
       "battleId": "kommoo",
       "displayNameJa": "ジャラランガ",
+      "dexNumber": 784,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -3205,6 +3547,8 @@
       "id": "krookodile",
       "battleId": "krookodile",
       "displayNameJa": "ワルビアル",
+      "dexNumber": 553,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -3212,8 +3556,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Krookodile.png",
       "ranks": {
-        "Singles": 162,
-        "Doubles": 160
+        "Singles": 163,
+        "Doubles": 159
       },
       "usagePercentages": {
         "Singles": null,
@@ -3224,6 +3568,8 @@
       "id": "leafeon",
       "battleId": "leafeon",
       "displayNameJa": "リーフィア",
+      "dexNumber": 470,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
@@ -3231,7 +3577,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Leafeon.png",
       "ranks": {
         "Singles": 221,
-        "Doubles": 224
+        "Doubles": 222
       },
       "usagePercentages": {
         "Singles": null,
@@ -3242,14 +3588,16 @@
       "id": "liepard",
       "battleId": "liepard",
       "displayNameJa": "レパルダス",
+      "dexNumber": 510,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Liepard.png",
       "ranks": {
-        "Singles": 187,
-        "Doubles": 181
+        "Singles": 188,
+        "Doubles": 182
       },
       "usagePercentages": {
         "Singles": null,
@@ -3260,6 +3608,8 @@
       "id": "lopunny",
       "battleId": "lopunny",
       "displayNameJa": "ミミロップ",
+      "dexNumber": 428,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -3278,6 +3628,8 @@
       "id": "mega-lopunny",
       "battleId": "lopunny",
       "displayNameJa": "メガミミロップ",
+      "dexNumber": 428,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "normal",
@@ -3297,6 +3649,8 @@
       "id": "lucario",
       "battleId": "lucario",
       "displayNameJa": "ルカリオ",
+      "dexNumber": 448,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -3316,6 +3670,8 @@
       "id": "mega-lucario",
       "battleId": "lucario",
       "displayNameJa": "メガルカリオ",
+      "dexNumber": 448,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -3335,6 +3691,8 @@
       "id": "mega-lucario-z",
       "battleId": "lucario",
       "displayNameJa": "メガルカリオZ",
+      "dexNumber": 448,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -3354,6 +3712,8 @@
       "id": "luxray",
       "battleId": "luxray",
       "displayNameJa": "レントラー",
+      "dexNumber": 405,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -3372,6 +3732,8 @@
       "id": "lycanroc",
       "battleId": "lycanroc",
       "displayNameJa": "ルガルガン",
+      "dexNumber": 745,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock"
@@ -3390,6 +3752,8 @@
       "id": "lycanroc-dusk-form",
       "battleId": "lycanrocdusk",
       "displayNameJa": "ルガルガン（たそがれのすがた）",
+      "dexNumber": 745,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "rock"
@@ -3408,6 +3772,8 @@
       "id": "lycanroc-midnight-form",
       "battleId": "lycanrocmidnight",
       "displayNameJa": "ルガルガン（まよなかのすがた）",
+      "dexNumber": 745,
+      "formOrder": 2,
       "formRelation": "independent",
       "types": [
         "rock"
@@ -3415,7 +3781,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lycanroc%20Midnight%20Form.png",
       "ranks": {
         "Singles": 253,
-        "Doubles": 240
+        "Doubles": 242
       },
       "usagePercentages": {
         "Singles": null,
@@ -3426,6 +3792,8 @@
       "id": "mabosstiff",
       "battleId": "mabosstiff",
       "displayNameJa": "マフィティフ",
+      "dexNumber": 943,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
@@ -3433,7 +3801,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mabosstiff.png",
       "ranks": {
         "Singles": 181,
-        "Doubles": 188
+        "Doubles": 187
       },
       "usagePercentages": {
         "Singles": null,
@@ -3444,14 +3812,16 @@
       "id": "machamp",
       "battleId": "machamp",
       "displayNameJa": "カイリキー",
+      "dexNumber": 68,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Machamp.png",
       "ranks": {
-        "Singles": 186,
-        "Doubles": 180
+        "Singles": 185,
+        "Doubles": 178
       },
       "usagePercentages": {
         "Singles": null,
@@ -3462,6 +3832,8 @@
       "id": "malamar",
       "battleId": "malamar",
       "displayNameJa": "カラマネロ",
+      "dexNumber": 687,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -3469,7 +3841,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Malamar.png",
       "ranks": {
-        "Singles": 163,
+        "Singles": 162,
         "Doubles": 84
       },
       "usagePercentages": {
@@ -3481,6 +3853,8 @@
       "id": "mega-malamar",
       "battleId": "malamar",
       "displayNameJa": "メガカラマネロ",
+      "dexNumber": 687,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dark",
@@ -3488,7 +3862,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Malamar.png",
       "ranks": {
-        "Singles": 163,
+        "Singles": 162,
         "Doubles": 84
       },
       "usagePercentages": {
@@ -3500,6 +3874,8 @@
       "id": "mamoswine",
       "battleId": "mamoswine",
       "displayNameJa": "マンムー",
+      "dexNumber": 473,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice",
@@ -3519,6 +3895,8 @@
       "id": "manectric",
       "battleId": "manectric",
       "displayNameJa": "ライボルト",
+      "dexNumber": 310,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -3537,6 +3915,8 @@
       "id": "mega-manectric",
       "battleId": "manectric",
       "displayNameJa": "メガライボルト",
+      "dexNumber": 310,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "electric"
@@ -3555,13 +3935,15 @@
       "id": "maushold",
       "battleId": "mausholdfour",
       "displayNameJa": "イッカネズミ",
+      "dexNumber": 925,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Maushold.png",
       "ranks": {
-        "Singles": 109,
+        "Singles": 110,
         "Doubles": 51
       },
       "usagePercentages": {
@@ -3573,6 +3955,8 @@
       "id": "mawile",
       "battleId": "mawile",
       "displayNameJa": "クチート",
+      "dexNumber": 303,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -3592,6 +3976,8 @@
       "id": "mega-mawile",
       "battleId": "mawile",
       "displayNameJa": "メガクチート",
+      "dexNumber": 303,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "steel",
@@ -3611,6 +3997,8 @@
       "id": "medicham",
       "battleId": "medicham",
       "displayNameJa": "チャーレム",
+      "dexNumber": 308,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -3618,7 +4006,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Medicham.png",
       "ranks": {
-        "Singles": 185,
+        "Singles": 186,
         "Doubles": 169
       },
       "usagePercentages": {
@@ -3630,6 +4018,8 @@
       "id": "mega-medicham",
       "battleId": "medicham",
       "displayNameJa": "メガチャーレム",
+      "dexNumber": 308,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -3637,7 +4027,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Medicham.png",
       "ranks": {
-        "Singles": 185,
+        "Singles": 186,
         "Doubles": 169
       },
       "usagePercentages": {
@@ -3649,6 +4039,8 @@
       "id": "meganium",
       "battleId": "meganium",
       "displayNameJa": "メガニウム",
+      "dexNumber": 154,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
@@ -3656,7 +4048,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meganium.png",
       "ranks": {
         "Singles": 65,
-        "Doubles": 86
+        "Doubles": 87
       },
       "usagePercentages": {
         "Singles": null,
@@ -3667,6 +4059,8 @@
       "id": "mega-meganium",
       "battleId": "meganium",
       "displayNameJa": "メガメガニウム",
+      "dexNumber": 154,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -3675,7 +4069,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Meganium.png",
       "ranks": {
         "Singles": 65,
-        "Doubles": 86
+        "Doubles": 87
       },
       "usagePercentages": {
         "Singles": null,
@@ -3686,6 +4080,8 @@
       "id": "meowscarada",
       "battleId": "meowscarada",
       "displayNameJa": "マスカーニャ",
+      "dexNumber": 908,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -3705,6 +4101,8 @@
       "id": "meowstic",
       "battleId": "meowstic",
       "displayNameJa": "ニャオニクス",
+      "dexNumber": 678,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -3723,6 +4121,8 @@
       "id": "mega-meowstic",
       "battleId": "meowstic",
       "displayNameJa": "メガニャオニクス",
+      "dexNumber": 678,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "psychic"
@@ -3741,6 +4141,8 @@
       "id": "meowstic-female",
       "battleId": "meowsticf",
       "displayNameJa": "ニャオニクス（メスのすがた）",
+      "dexNumber": 678,
+      "formOrder": 2,
       "formRelation": "independent",
       "types": [
         "psychic"
@@ -3759,6 +4161,8 @@
       "id": "metagross",
       "battleId": "metagross",
       "displayNameJa": "メタグロス",
+      "dexNumber": 376,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -3766,7 +4170,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Metagross.png",
       "ranks": {
-        "Singles": 25,
+        "Singles": 24,
         "Doubles": 27
       },
       "usagePercentages": {
@@ -3778,6 +4182,8 @@
       "id": "mega-metagross",
       "battleId": "metagross",
       "displayNameJa": "メガメタグロス",
+      "dexNumber": 376,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "steel",
@@ -3785,7 +4191,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Metagross.png",
       "ranks": {
-        "Singles": 25,
+        "Singles": 24,
         "Doubles": 27
       },
       "usagePercentages": {
@@ -3797,6 +4203,8 @@
       "id": "milotic",
       "battleId": "milotic",
       "displayNameJa": "ミロカロス",
+      "dexNumber": 350,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
@@ -3815,6 +4223,8 @@
       "id": "mimikyu",
       "battleId": "mimikyu",
       "displayNameJa": "ミミッキュ",
+      "dexNumber": 778,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -3823,7 +4233,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png",
       "ranks": {
         "Singles": 11,
-        "Doubles": 87
+        "Doubles": 86
       },
       "usagePercentages": {
         "Singles": null,
@@ -3834,6 +4244,8 @@
       "id": "morpeko",
       "battleId": "morpeko",
       "displayNameJa": "モルペコ",
+      "dexNumber": 877,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -3842,7 +4254,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Morpeko.png",
       "ranks": {
         "Singles": 180,
-        "Doubles": 193
+        "Doubles": 192
       },
       "usagePercentages": {
         "Singles": null,
@@ -3853,6 +4265,8 @@
       "id": "mr-mime",
       "battleId": "mrmime",
       "displayNameJa": "バリヤード",
+      "dexNumber": 122,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic",
@@ -3872,6 +4286,8 @@
       "id": "mr-rime",
       "battleId": "mrrime",
       "displayNameJa": "バリコオル",
+      "dexNumber": 866,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice",
@@ -3879,8 +4295,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mr.%20Rime.png",
       "ranks": {
-        "Singles": 214,
-        "Doubles": 184
+        "Singles": 213,
+        "Doubles": 185
       },
       "usagePercentages": {
         "Singles": null,
@@ -3891,6 +4307,8 @@
       "id": "mudsdale",
       "battleId": "mudsdale",
       "displayNameJa": "バンバドロ",
+      "dexNumber": 750,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground"
@@ -3898,7 +4316,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mudsdale.png",
       "ranks": {
         "Singles": 164,
-        "Doubles": 153
+        "Doubles": 154
       },
       "usagePercentages": {
         "Singles": null,
@@ -3909,6 +4327,8 @@
       "id": "musharna",
       "battleId": "musharna",
       "displayNameJa": "ムシャーナ",
+      "dexNumber": 518,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -3916,7 +4336,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Musharna.png",
       "ranks": {
         "Singles": 208,
-        "Doubles": 207
+        "Doubles": 208
       },
       "usagePercentages": {
         "Singles": null,
@@ -3927,6 +4347,8 @@
       "id": "ninetales",
       "battleId": "ninetales",
       "displayNameJa": "キュウコン",
+      "dexNumber": 38,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -3945,6 +4367,8 @@
       "id": "alolan-ninetales",
       "battleId": "ninetalesalola",
       "displayNameJa": "アローラキュウコン",
+      "dexNumber": 38,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "ice",
@@ -3953,7 +4377,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Ninetales.png",
       "ranks": {
         "Singles": 23,
-        "Doubles": 38
+        "Doubles": 37
       },
       "usagePercentages": {
         "Singles": null,
@@ -3964,6 +4388,8 @@
       "id": "noivern",
       "battleId": "noivern",
       "displayNameJa": "オンバーン",
+      "dexNumber": 715,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "flying",
@@ -3972,7 +4398,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Noivern.png",
       "ranks": {
         "Singles": 150,
-        "Doubles": 154
+        "Doubles": 152
       },
       "usagePercentages": {
         "Singles": null,
@@ -3983,6 +4409,8 @@
       "id": "oranguru",
       "battleId": "oranguru",
       "displayNameJa": "ヤレユータン",
+      "dexNumber": 765,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -3991,7 +4419,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Oranguru.png",
       "ranks": {
         "Singles": 255,
-        "Doubles": 95
+        "Doubles": 96
       },
       "usagePercentages": {
         "Singles": null,
@@ -4002,6 +4430,8 @@
       "id": "orthworm",
       "battleId": "orthworm",
       "displayNameJa": "ミミズズ",
+      "dexNumber": 968,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel"
@@ -4009,7 +4439,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Orthworm.png",
       "ranks": {
         "Singles": 101,
-        "Doubles": 186
+        "Doubles": 190
       },
       "usagePercentages": {
         "Singles": null,
@@ -4020,6 +4450,8 @@
       "id": "overqwil",
       "battleId": "overqwil",
       "displayNameJa": "ハリーマン",
+      "dexNumber": 904,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -4039,13 +4471,15 @@
       "id": "palafin-zero-form",
       "battleId": "palafin",
       "displayNameJa": "イルカマン（ナイーブフォルム）",
+      "dexNumber": 964,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Palafin%20Zero%20Form.png",
       "ranks": {
-        "Singles": 134,
+        "Singles": 132,
         "Doubles": 146
       },
       "usagePercentages": {
@@ -4057,6 +4491,8 @@
       "id": "pangoro",
       "battleId": "pangoro",
       "displayNameJa": "ゴロンダ",
+      "dexNumber": 675,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -4065,7 +4501,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pangoro.png",
       "ranks": {
         "Singles": 218,
-        "Doubles": 204
+        "Doubles": 201
       },
       "usagePercentages": {
         "Singles": null,
@@ -4076,6 +4512,8 @@
       "id": "passimian",
       "battleId": "passimian",
       "displayNameJa": "ナゲツケサル",
+      "dexNumber": 766,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
@@ -4094,6 +4532,8 @@
       "id": "pawmot",
       "battleId": "pawmot",
       "displayNameJa": "パーモット",
+      "dexNumber": 923,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -4102,7 +4542,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pawmot.png",
       "ranks": {
         "Singles": 27,
-        "Doubles": 37
+        "Doubles": 38
       },
       "usagePercentages": {
         "Singles": null,
@@ -4113,6 +4553,8 @@
       "id": "pelipper",
       "battleId": "pelipper",
       "displayNameJa": "ペリッパー",
+      "dexNumber": 279,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -4132,6 +4574,8 @@
       "id": "perrserker",
       "battleId": "perrserker",
       "displayNameJa": "ニャイキング",
+      "dexNumber": 863,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel"
@@ -4139,7 +4583,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Perrserker.png",
       "ranks": {
         "Singles": 223,
-        "Doubles": 136
+        "Doubles": 137
       },
       "usagePercentages": {
         "Singles": null,
@@ -4150,14 +4594,16 @@
       "id": "persian",
       "battleId": "persian",
       "displayNameJa": "ペルシアン",
+      "dexNumber": 53,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Persian.png",
       "ranks": {
-        "Singles": 243,
-        "Doubles": 231
+        "Singles": 244,
+        "Doubles": 232
       },
       "usagePercentages": {
         "Singles": null,
@@ -4168,6 +4614,8 @@
       "id": "alolan-persian",
       "battleId": "persianalola",
       "displayNameJa": "アローラペルシアン",
+      "dexNumber": 53,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "dark"
@@ -4175,7 +4623,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Persian.png",
       "ranks": {
         "Singles": 112,
-        "Doubles": 142
+        "Doubles": 143
       },
       "usagePercentages": {
         "Singles": null,
@@ -4186,6 +4634,8 @@
       "id": "pidgeot",
       "battleId": "pidgeot",
       "displayNameJa": "ピジョット",
+      "dexNumber": 18,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -4194,7 +4644,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pidgeot.png",
       "ranks": {
         "Singles": 152,
-        "Doubles": 200
+        "Doubles": 199
       },
       "usagePercentages": {
         "Singles": null,
@@ -4205,6 +4655,8 @@
       "id": "mega-pidgeot",
       "battleId": "pidgeot",
       "displayNameJa": "メガピジョット",
+      "dexNumber": 18,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "normal",
@@ -4213,7 +4665,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Pidgeot.png",
       "ranks": {
         "Singles": 152,
-        "Doubles": 200
+        "Doubles": 199
       },
       "usagePercentages": {
         "Singles": null,
@@ -4224,14 +4676,16 @@
       "id": "pikachu",
       "battleId": "pikachu",
       "displayNameJa": "ピカチュウ",
+      "dexNumber": 25,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pikachu.png",
       "ranks": {
-        "Singles": 172,
-        "Doubles": 190
+        "Singles": 173,
+        "Doubles": 186
       },
       "usagePercentages": {
         "Singles": null,
@@ -4242,13 +4696,15 @@
       "id": "pincurchin",
       "battleId": "pincurchin",
       "displayNameJa": "バチンウニ",
+      "dexNumber": 871,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pincurchin.png",
       "ranks": {
-        "Singles": 113,
+        "Singles": 114,
         "Doubles": 81
       },
       "usagePercentages": {
@@ -4260,6 +4716,8 @@
       "id": "pinsir",
       "battleId": "pinsir",
       "displayNameJa": "カイロス",
+      "dexNumber": 127,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug"
@@ -4278,6 +4736,8 @@
       "id": "mega-pinsir",
       "battleId": "pinsir",
       "displayNameJa": "メガカイロス",
+      "dexNumber": 127,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -4297,13 +4757,15 @@
       "id": "politoed",
       "battleId": "politoed",
       "displayNameJa": "ニョロトノ",
+      "dexNumber": 186,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Politoed.png",
       "ranks": {
-        "Singles": 91,
+        "Singles": 93,
         "Doubles": 32
       },
       "usagePercentages": {
@@ -4315,14 +4777,16 @@
       "id": "polteageist",
       "battleId": "polteageist",
       "displayNameJa": "ポットデス",
+      "dexNumber": 855,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Polteageist.png",
       "ranks": {
-        "Singles": 110,
-        "Doubles": 225
+        "Singles": 111,
+        "Doubles": 226
       },
       "usagePercentages": {
         "Singles": null,
@@ -4333,6 +4797,8 @@
       "id": "primarina",
       "battleId": "primarina",
       "displayNameJa": "アシレーヌ",
+      "dexNumber": 730,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -4352,6 +4818,8 @@
       "id": "pyroar",
       "battleId": "pyroar",
       "displayNameJa": "カエンジシ",
+      "dexNumber": 668,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -4371,6 +4839,8 @@
       "id": "mega-pyroar",
       "battleId": "pyroar",
       "displayNameJa": "メガカエンジシ",
+      "dexNumber": 668,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fire",
@@ -4390,6 +4860,8 @@
       "id": "quaquaval",
       "battleId": "quaquaval",
       "displayNameJa": "ウェーニバル",
+      "dexNumber": 914,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -4397,8 +4869,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Quaquaval.png",
       "ranks": {
-        "Singles": 132,
-        "Doubles": 189
+        "Singles": 133,
+        "Doubles": 188
       },
       "usagePercentages": {
         "Singles": null,
@@ -4409,6 +4881,8 @@
       "id": "qwilfish",
       "battleId": "qwilfish",
       "displayNameJa": "ハリーセン",
+      "dexNumber": 211,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -4417,7 +4891,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Qwilfish.png",
       "ranks": {
         "Singles": 233,
-        "Doubles": 249
+        "Doubles": 247
       },
       "usagePercentages": {
         "Singles": null,
@@ -4428,6 +4902,8 @@
       "id": "raichu",
       "battleId": "raichu",
       "displayNameJa": "ライチュウ",
+      "dexNumber": 26,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric"
@@ -4446,6 +4922,8 @@
       "id": "mega-raichu-x",
       "battleId": "raichu",
       "displayNameJa": "メガライチュウX",
+      "dexNumber": 26,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "electric"
@@ -4464,6 +4942,8 @@
       "id": "mega-raichu-y",
       "battleId": "raichu",
       "displayNameJa": "メガライチュウY",
+      "dexNumber": 26,
+      "formOrder": 3,
       "formRelation": "mega",
       "types": [
         "electric"
@@ -4482,6 +4962,8 @@
       "id": "alolan-raichu",
       "battleId": "raichualola",
       "displayNameJa": "アローラライチュウ",
+      "dexNumber": 26,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -4501,6 +4983,8 @@
       "id": "rampardos",
       "battleId": "rampardos",
       "displayNameJa": "ラムパルド",
+      "dexNumber": 409,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock"
@@ -4519,6 +5003,8 @@
       "id": "reuniclus",
       "battleId": "reuniclus",
       "displayNameJa": "ランクルス",
+      "dexNumber": 579,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "psychic"
@@ -4537,6 +5023,8 @@
       "id": "rhyperior",
       "battleId": "rhyperior",
       "displayNameJa": "ドサイドン",
+      "dexNumber": 464,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -4556,6 +5044,8 @@
       "id": "rillaboom",
       "battleId": "rillaboom",
       "displayNameJa": "ゴリランダー",
+      "dexNumber": 812,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
@@ -4574,6 +5064,8 @@
       "id": "roserade",
       "battleId": "roserade",
       "displayNameJa": "ロズレイド",
+      "dexNumber": 407,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -4593,6 +5085,8 @@
       "id": "rotom",
       "battleId": "rotom",
       "displayNameJa": "ロトム",
+      "dexNumber": 479,
+      "formOrder": 1,
       "formRelation": "base",
       "types": [
         "electric",
@@ -4600,7 +5094,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom.png",
       "ranks": {
-        "Singles": 251,
+        "Singles": 252,
         "Doubles": 259
       },
       "usagePercentages": {
@@ -4612,6 +5106,8 @@
       "id": "rotom-frost",
       "battleId": "rotomfrost",
       "displayNameJa": "フロストロトム",
+      "dexNumber": 479,
+      "formOrder": 3,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -4631,6 +5127,8 @@
       "id": "rotom-heat",
       "battleId": "rotomheat",
       "displayNameJa": "ヒートロトム",
+      "dexNumber": 479,
+      "formOrder": 4,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -4639,7 +5137,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Heat.png",
       "ranks": {
         "Singles": 33,
-        "Doubles": 93
+        "Doubles": 95
       },
       "usagePercentages": {
         "Singles": null,
@@ -4650,6 +5148,8 @@
       "id": "rotom-mow",
       "battleId": "rotommow",
       "displayNameJa": "カットロトム",
+      "dexNumber": 479,
+      "formOrder": 5,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -4669,6 +5169,8 @@
       "id": "rotom-wash",
       "battleId": "rotomwash",
       "displayNameJa": "ウォッシュロトム",
+      "dexNumber": 479,
+      "formOrder": 0,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -4676,7 +5178,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rotom%20Wash.png",
       "ranks": {
-        "Singles": 24,
+        "Singles": 25,
         "Doubles": 66
       },
       "usagePercentages": {
@@ -4688,6 +5190,8 @@
       "id": "runerigus",
       "battleId": "runerigus",
       "displayNameJa": "デスバーン",
+      "dexNumber": 867,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -4707,6 +5211,8 @@
       "id": "sableye",
       "battleId": "sableye",
       "displayNameJa": "ヤミラミ",
+      "dexNumber": 302,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -4726,6 +5232,8 @@
       "id": "mega-sableye",
       "battleId": "sableye",
       "displayNameJa": "メガヤミラミ",
+      "dexNumber": 302,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dark",
@@ -4745,6 +5253,8 @@
       "id": "salamence",
       "battleId": "salamence",
       "displayNameJa": "ボーマンダ",
+      "dexNumber": 373,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dragon",
@@ -4764,6 +5274,8 @@
       "id": "mega-salamence",
       "battleId": "salamence",
       "displayNameJa": "メガボーマンダ",
+      "dexNumber": 373,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dragon",
@@ -4783,6 +5295,8 @@
       "id": "salazzle",
       "battleId": "salazzle",
       "displayNameJa": "エンニュート",
+      "dexNumber": 758,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison",
@@ -4791,7 +5305,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Salazzle.png",
       "ranks": {
         "Singles": 130,
-        "Doubles": 164
+        "Doubles": 163
       },
       "usagePercentages": {
         "Singles": null,
@@ -4802,14 +5316,16 @@
       "id": "samurott",
       "battleId": "samurott",
       "displayNameJa": "ダイケンキ",
+      "dexNumber": 503,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Samurott.png",
       "ranks": {
-        "Singles": 245,
-        "Doubles": 261
+        "Singles": 246,
+        "Doubles": 262
       },
       "usagePercentages": {
         "Singles": null,
@@ -4820,6 +5336,8 @@
       "id": "hisuian-samurott",
       "battleId": "samurotthisui",
       "displayNameJa": "ヒスイダイケンキ",
+      "dexNumber": 503,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "water",
@@ -4839,6 +5357,8 @@
       "id": "sandaconda",
       "battleId": "sandaconda",
       "displayNameJa": "サダイジャ",
+      "dexNumber": 844,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground"
@@ -4857,13 +5377,15 @@
       "id": "sceptile",
       "battleId": "sceptile",
       "displayNameJa": "ジュカイン",
+      "dexNumber": 254,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sceptile.png",
       "ranks": {
-        "Singles": 114,
+        "Singles": 113,
         "Doubles": 113
       },
       "usagePercentages": {
@@ -4875,6 +5397,8 @@
       "id": "mega-sceptile",
       "battleId": "sceptile",
       "displayNameJa": "メガジュカイン",
+      "dexNumber": 254,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -4882,7 +5406,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Sceptile.png",
       "ranks": {
-        "Singles": 114,
+        "Singles": 113,
         "Doubles": 113
       },
       "usagePercentages": {
@@ -4894,6 +5418,8 @@
       "id": "scizor",
       "battleId": "scizor",
       "displayNameJa": "ハッサム",
+      "dexNumber": 212,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -4913,6 +5439,8 @@
       "id": "mega-scizor",
       "battleId": "scizor",
       "displayNameJa": "メガハッサム",
+      "dexNumber": 212,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -4932,6 +5460,8 @@
       "id": "scolipede",
       "battleId": "scolipede",
       "displayNameJa": "ペンドラー",
+      "dexNumber": 545,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -4951,6 +5481,8 @@
       "id": "mega-scolipede",
       "battleId": "scolipede",
       "displayNameJa": "メガペンドラー",
+      "dexNumber": 545,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "bug",
@@ -4970,6 +5502,8 @@
       "id": "scovillain",
       "battleId": "scovillain",
       "displayNameJa": "スコヴィラン",
+      "dexNumber": 952,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -4978,7 +5512,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scovillain.png",
       "ranks": {
         "Singles": 67,
-        "Doubles": 68
+        "Doubles": 69
       },
       "usagePercentages": {
         "Singles": null,
@@ -4989,6 +5523,8 @@
       "id": "mega-scovillain",
       "battleId": "scovillain",
       "displayNameJa": "メガスコヴィラン",
+      "dexNumber": 952,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -4997,7 +5533,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Scovillain.png",
       "ranks": {
         "Singles": 67,
-        "Doubles": 68
+        "Doubles": 69
       },
       "usagePercentages": {
         "Singles": null,
@@ -5008,6 +5544,8 @@
       "id": "scrafty",
       "battleId": "scrafty",
       "displayNameJa": "ズルズキン",
+      "dexNumber": 560,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -5027,6 +5565,8 @@
       "id": "mega-scrafty",
       "battleId": "scrafty",
       "displayNameJa": "メガズルズキン",
+      "dexNumber": 560,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "dark",
@@ -5046,6 +5586,8 @@
       "id": "serperior",
       "battleId": "serperior",
       "displayNameJa": "ジャローダ",
+      "dexNumber": 497,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
@@ -5053,7 +5595,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Serperior.png",
       "ranks": {
         "Singles": 108,
-        "Doubles": 167
+        "Doubles": 165
       },
       "usagePercentages": {
         "Singles": null,
@@ -5064,6 +5606,8 @@
       "id": "sharpedo",
       "battleId": "sharpedo",
       "displayNameJa": "サメハダー",
+      "dexNumber": 319,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -5072,7 +5616,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sharpedo.png",
       "ranks": {
         "Singles": 128,
-        "Doubles": 202
+        "Doubles": 204
       },
       "usagePercentages": {
         "Singles": null,
@@ -5083,6 +5627,8 @@
       "id": "mega-sharpedo",
       "battleId": "sharpedo",
       "displayNameJa": "メガサメハダー",
+      "dexNumber": 319,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -5091,7 +5637,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Sharpedo.png",
       "ranks": {
         "Singles": 128,
-        "Doubles": 202
+        "Doubles": 204
       },
       "usagePercentages": {
         "Singles": null,
@@ -5102,13 +5648,15 @@
       "id": "simipour",
       "battleId": "simipour",
       "displayNameJa": "ヒヤッキー",
+      "dexNumber": 516,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Simipour.png",
       "ranks": {
-        "Singles": 252,
+        "Singles": 250,
         "Doubles": 245
       },
       "usagePercentages": {
@@ -5120,6 +5668,8 @@
       "id": "simisage",
       "battleId": "simisage",
       "displayNameJa": "ヤナッキー",
+      "dexNumber": 512,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
@@ -5138,6 +5688,8 @@
       "id": "simisear",
       "battleId": "simisear",
       "displayNameJa": "バオッキー",
+      "dexNumber": 514,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -5156,6 +5708,8 @@
       "id": "sinistcha",
       "battleId": "sinistcha",
       "displayNameJa": "ヤバソチャ",
+      "dexNumber": 1013,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -5163,8 +5717,8 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sinistcha.png",
       "ranks": {
-        "Singles": 116,
-        "Doubles": 25
+        "Singles": 115,
+        "Doubles": 26
       },
       "usagePercentages": {
         "Singles": null,
@@ -5175,13 +5729,15 @@
       "id": "sirfetch-d",
       "battleId": "sirfetchd",
       "displayNameJa": "ネギガナイト",
+      "dexNumber": 865,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sirfetch'd.png",
       "ranks": {
-        "Singles": 74,
+        "Singles": 73,
         "Doubles": 61
       },
       "usagePercentages": {
@@ -5193,6 +5749,8 @@
       "id": "skarmory",
       "battleId": "skarmory",
       "displayNameJa": "エアームド",
+      "dexNumber": 227,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -5200,7 +5758,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Skarmory.png",
       "ranks": {
-        "Singles": 73,
+        "Singles": 74,
         "Doubles": 116
       },
       "usagePercentages": {
@@ -5212,6 +5770,8 @@
       "id": "mega-skarmory",
       "battleId": "skarmory",
       "displayNameJa": "メガエアームド",
+      "dexNumber": 227,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "steel",
@@ -5219,7 +5779,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Skarmory.png",
       "ranks": {
-        "Singles": 73,
+        "Singles": 74,
         "Doubles": 116
       },
       "usagePercentages": {
@@ -5231,6 +5791,8 @@
       "id": "skeledirge",
       "battleId": "skeledirge",
       "displayNameJa": "ラウドボーン",
+      "dexNumber": 911,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -5250,6 +5812,8 @@
       "id": "slowbro",
       "battleId": "slowbro",
       "displayNameJa": "ヤドラン",
+      "dexNumber": 80,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -5269,6 +5833,8 @@
       "id": "mega-slowbro",
       "battleId": "slowbro",
       "displayNameJa": "メガヤドラン",
+      "dexNumber": 80,
+      "formOrder": 2,
       "formRelation": "mega",
       "types": [
         "water",
@@ -5288,6 +5854,8 @@
       "id": "galarian-slowbro",
       "battleId": "slowbrogalar",
       "displayNameJa": "ガラルヤドラン",
+      "dexNumber": 80,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "poison",
@@ -5295,7 +5863,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Slowbro.png",
       "ranks": {
-        "Singles": 111,
+        "Singles": 109,
         "Doubles": 135
       },
       "usagePercentages": {
@@ -5307,6 +5875,8 @@
       "id": "slowking",
       "battleId": "slowking",
       "displayNameJa": "ヤドキング",
+      "dexNumber": 199,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -5315,7 +5885,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slowking.png",
       "ranks": {
         "Singles": 127,
-        "Doubles": 192
+        "Doubles": 193
       },
       "usagePercentages": {
         "Singles": null,
@@ -5326,6 +5896,8 @@
       "id": "galarian-slowking",
       "battleId": "slowkinggalar",
       "displayNameJa": "ガラルヤドキング",
+      "dexNumber": 199,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "poison",
@@ -5345,6 +5917,8 @@
       "id": "slurpuff",
       "battleId": "slurpuff",
       "displayNameJa": "ペロリーム",
+      "dexNumber": 685,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
@@ -5352,7 +5926,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Slurpuff.png",
       "ranks": {
         "Singles": 151,
-        "Doubles": 211
+        "Doubles": 210
       },
       "usagePercentages": {
         "Singles": null,
@@ -5363,6 +5937,8 @@
       "id": "sneasler",
       "battleId": "sneasler",
       "displayNameJa": "オオニューラ",
+      "dexNumber": 903,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fighting",
@@ -5382,6 +5958,8 @@
       "id": "snorlax",
       "battleId": "snorlax",
       "displayNameJa": "カビゴン",
+      "dexNumber": 143,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -5400,6 +5978,8 @@
       "id": "spiritomb",
       "battleId": "spiritomb",
       "displayNameJa": "ミカルゲ",
+      "dexNumber": 442,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -5419,6 +5999,8 @@
       "id": "squawkabilly",
       "battleId": "squawkabillyyellow",
       "displayNameJa": "イキリンコ",
+      "dexNumber": 931,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -5438,6 +6020,8 @@
       "id": "staraptor",
       "battleId": "staraptor",
       "displayNameJa": "ムクホーク",
+      "dexNumber": 398,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -5446,7 +6030,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Staraptor.png",
       "ranks": {
         "Singles": 50,
-        "Doubles": 26
+        "Doubles": 25
       },
       "usagePercentages": {
         "Singles": null,
@@ -5457,6 +6041,8 @@
       "id": "mega-staraptor",
       "battleId": "staraptor",
       "displayNameJa": "メガムクホーク",
+      "dexNumber": 398,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "fighting",
@@ -5465,7 +6051,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Staraptor.png",
       "ranks": {
         "Singles": 50,
-        "Doubles": 26
+        "Doubles": 25
       },
       "usagePercentages": {
         "Singles": null,
@@ -5476,6 +6062,8 @@
       "id": "starmie",
       "battleId": "starmie",
       "displayNameJa": "スターミー",
+      "dexNumber": 121,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -5495,6 +6083,8 @@
       "id": "mega-starmie",
       "battleId": "starmie",
       "displayNameJa": "メガスターミー",
+      "dexNumber": 121,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -5514,6 +6104,8 @@
       "id": "steelix",
       "battleId": "steelix",
       "displayNameJa": "ハガネール",
+      "dexNumber": 208,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "steel",
@@ -5522,7 +6114,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Steelix.png",
       "ranks": {
         "Singles": 177,
-        "Doubles": 128
+        "Doubles": 129
       },
       "usagePercentages": {
         "Singles": null,
@@ -5533,6 +6125,8 @@
       "id": "mega-steelix",
       "battleId": "steelix",
       "displayNameJa": "メガハガネール",
+      "dexNumber": 208,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "steel",
@@ -5541,7 +6135,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Steelix.png",
       "ranks": {
         "Singles": 177,
-        "Doubles": 128
+        "Doubles": 129
       },
       "usagePercentages": {
         "Singles": null,
@@ -5552,6 +6146,8 @@
       "id": "stunfisk",
       "battleId": "stunfisk",
       "displayNameJa": "マッギョ",
+      "dexNumber": 618,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ground",
@@ -5571,6 +6167,8 @@
       "id": "galarian-stunfisk",
       "battleId": "stunfiskgalar",
       "displayNameJa": "ガラルマッギョ",
+      "dexNumber": 618,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "ground",
@@ -5579,7 +6177,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Stunfisk.png",
       "ranks": {
         "Singles": 230,
-        "Doubles": 255
+        "Doubles": 254
       },
       "usagePercentages": {
         "Singles": null,
@@ -5590,14 +6188,16 @@
       "id": "swalot",
       "battleId": "swalot",
       "displayNameJa": "マルノーム",
+      "dexNumber": 317,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Swalot.png",
       "ranks": {
-        "Singles": 184,
-        "Doubles": 216
+        "Singles": 183,
+        "Doubles": 218
       },
       "usagePercentages": {
         "Singles": null,
@@ -5608,6 +6208,8 @@
       "id": "swampert",
       "battleId": "swampert",
       "displayNameJa": "ラグラージ",
+      "dexNumber": 260,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water",
@@ -5627,6 +6229,8 @@
       "id": "mega-swampert",
       "battleId": "swampert",
       "displayNameJa": "メガラグラージ",
+      "dexNumber": 260,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "water",
@@ -5646,6 +6250,8 @@
       "id": "sylveon",
       "battleId": "sylveon",
       "displayNameJa": "ニンフィア",
+      "dexNumber": 700,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy"
@@ -5664,6 +6270,8 @@
       "id": "talonflame",
       "battleId": "talonflame",
       "displayNameJa": "ファイアロー",
+      "dexNumber": 663,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire",
@@ -5671,7 +6279,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Talonflame.png",
       "ranks": {
-        "Singles": 133,
+        "Singles": 134,
         "Doubles": 52
       },
       "usagePercentages": {
@@ -5683,6 +6291,8 @@
       "id": "tauros",
       "battleId": "tauros",
       "displayNameJa": "ケンタロス",
+      "dexNumber": 128,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
@@ -5701,6 +6311,8 @@
       "id": "paldean-tauros-aqua-breed",
       "battleId": "taurospaldeaaqua",
       "displayNameJa": "ケンタロス（パルデアのすがた・ウォーター種）",
+      "dexNumber": 128,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "fighting",
@@ -5709,7 +6321,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Aqua%20Breed.png",
       "ranks": {
         "Singles": 229,
-        "Doubles": 182
+        "Doubles": 181
       },
       "usagePercentages": {
         "Singles": null,
@@ -5720,6 +6332,8 @@
       "id": "paldean-tauros-blaze-breed",
       "battleId": "taurospaldeablaze",
       "displayNameJa": "ケンタロス（パルデアのすがた・ブレイズ種）",
+      "dexNumber": 128,
+      "formOrder": 2,
       "formRelation": "independent",
       "types": [
         "fighting",
@@ -5728,7 +6342,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Blaze%20Breed.png",
       "ranks": {
         "Singles": 117,
-        "Doubles": 179
+        "Doubles": 180
       },
       "usagePercentages": {
         "Singles": null,
@@ -5739,6 +6353,8 @@
       "id": "paldean-tauros-combat-breed",
       "battleId": "taurospaldeacombat",
       "displayNameJa": "ケンタロス（パルデアのすがた・コンバット種）",
+      "dexNumber": 128,
+      "formOrder": 3,
       "formRelation": "independent",
       "types": [
         "fighting"
@@ -5757,6 +6373,8 @@
       "id": "thievul",
       "battleId": "thievul",
       "displayNameJa": "フォクスライ",
+      "dexNumber": 828,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
@@ -5764,7 +6382,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Thievul.png",
       "ranks": {
         "Singles": 205,
-        "Doubles": 199
+        "Doubles": 200
       },
       "usagePercentages": {
         "Singles": null,
@@ -5775,6 +6393,8 @@
       "id": "tinkaton",
       "battleId": "tinkaton",
       "displayNameJa": "デカヌチャン",
+      "dexNumber": 959,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fairy",
@@ -5794,6 +6414,8 @@
       "id": "torkoal",
       "battleId": "torkoal",
       "displayNameJa": "コータス",
+      "dexNumber": 324,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -5812,6 +6434,8 @@
       "id": "torterra",
       "battleId": "torterra",
       "displayNameJa": "ドダイトス",
+      "dexNumber": 389,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -5820,7 +6444,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Torterra.png",
       "ranks": {
         "Singles": 167,
-        "Doubles": 163
+        "Doubles": 167
       },
       "usagePercentages": {
         "Singles": null,
@@ -5831,6 +6455,8 @@
       "id": "toucannon",
       "battleId": "toucannon",
       "displayNameJa": "ドデカバシ",
+      "dexNumber": 733,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -5839,7 +6465,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toucannon.png",
       "ranks": {
         "Singles": 105,
-        "Doubles": 226
+        "Doubles": 225
       },
       "usagePercentages": {
         "Singles": null,
@@ -5850,6 +6476,8 @@
       "id": "toxapex",
       "battleId": "toxapex",
       "displayNameJa": "ドヒドイデ",
+      "dexNumber": 748,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison",
@@ -5858,7 +6486,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxapex.png",
       "ranks": {
         "Singles": 43,
-        "Doubles": 77
+        "Doubles": 79
       },
       "usagePercentages": {
         "Singles": null,
@@ -5869,6 +6497,8 @@
       "id": "toxicroak",
       "battleId": "toxicroak",
       "displayNameJa": "ドクロッグ",
+      "dexNumber": 454,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "poison",
@@ -5877,7 +6507,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxicroak.png",
       "ranks": {
         "Singles": 234,
-        "Doubles": 197
+        "Doubles": 196
       },
       "usagePercentages": {
         "Singles": null,
@@ -5888,6 +6518,8 @@
       "id": "toxtricity",
       "battleId": "toxtricity",
       "displayNameJa": "ストリンダー",
+      "dexNumber": 849,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "electric",
@@ -5896,7 +6528,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxtricity.png",
       "ranks": {
         "Singles": 72,
-        "Doubles": 79
+        "Doubles": 78
       },
       "usagePercentages": {
         "Singles": null,
@@ -5907,6 +6539,8 @@
       "id": "toxtricity-low-key-form",
       "battleId": "toxtricitylowkey",
       "displayNameJa": "ストリンダー",
+      "dexNumber": 849,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "electric",
@@ -5926,6 +6560,8 @@
       "id": "trevenant",
       "battleId": "trevenant",
       "displayNameJa": "オーロット",
+      "dexNumber": 709,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ghost",
@@ -5945,13 +6581,15 @@
       "id": "tsareena",
       "battleId": "tsareena",
       "displayNameJa": "アマージョ",
+      "dexNumber": 763,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tsareena.png",
       "ranks": {
-        "Singles": 183,
+        "Singles": 184,
         "Doubles": 65
       },
       "usagePercentages": {
@@ -5963,6 +6601,8 @@
       "id": "typhlosion",
       "battleId": "typhlosion",
       "displayNameJa": "バクフーン",
+      "dexNumber": 157,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "fire"
@@ -5970,7 +6610,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Typhlosion.png",
       "ranks": {
         "Singles": 209,
-        "Doubles": 173
+        "Doubles": 172
       },
       "usagePercentages": {
         "Singles": null,
@@ -5981,6 +6621,8 @@
       "id": "hisuian-typhlosion",
       "battleId": "typhlosionhisui",
       "displayNameJa": "ヒスイバクフーン",
+      "dexNumber": 157,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "fire",
@@ -5988,7 +6630,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Typhlosion.png",
       "ranks": {
-        "Singles": 141,
+        "Singles": 142,
         "Doubles": 59
       },
       "usagePercentages": {
@@ -6000,6 +6642,8 @@
       "id": "tyranitar",
       "battleId": "tyranitar",
       "displayNameJa": "バンギラス",
+      "dexNumber": 248,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -6019,6 +6663,8 @@
       "id": "mega-tyranitar",
       "battleId": "tyranitar",
       "displayNameJa": "メガバンギラス",
+      "dexNumber": 248,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "rock",
@@ -6038,6 +6684,8 @@
       "id": "tyrantrum",
       "battleId": "tyrantrum",
       "displayNameJa": "ガチゴラス",
+      "dexNumber": 697,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "rock",
@@ -6057,6 +6705,8 @@
       "id": "umbreon",
       "battleId": "umbreon",
       "displayNameJa": "ブラッキー",
+      "dexNumber": 197,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
@@ -6075,6 +6725,8 @@
       "id": "vanilluxe",
       "battleId": "vanilluxe",
       "displayNameJa": "バイバニラ",
+      "dexNumber": 584,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "ice"
@@ -6093,6 +6745,8 @@
       "id": "vaporeon",
       "battleId": "vaporeon",
       "displayNameJa": "シャワーズ",
+      "dexNumber": 134,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "water"
@@ -6111,6 +6765,8 @@
       "id": "venusaur",
       "battleId": "venusaur",
       "displayNameJa": "フシギバナ",
+      "dexNumber": 3,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -6130,6 +6786,8 @@
       "id": "mega-venusaur",
       "battleId": "venusaur",
       "displayNameJa": "メガフシギバナ",
+      "dexNumber": 3,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -6149,6 +6807,8 @@
       "id": "victreebel",
       "battleId": "victreebel",
       "displayNameJa": "ウツボット",
+      "dexNumber": 71,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -6157,7 +6817,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Victreebel.png",
       "ranks": {
         "Singles": 75,
-        "Doubles": 221
+        "Doubles": 223
       },
       "usagePercentages": {
         "Singles": null,
@@ -6168,6 +6828,8 @@
       "id": "mega-victreebel",
       "battleId": "victreebel",
       "displayNameJa": "メガウツボット",
+      "dexNumber": 71,
+      "formOrder": 1,
       "formRelation": "mega",
       "types": [
         "grass",
@@ -6176,7 +6838,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mega%20Victreebel.png",
       "ranks": {
         "Singles": 75,
-        "Doubles": 221
+        "Doubles": 223
       },
       "usagePercentages": {
         "Singles": null,
@@ -6187,6 +6849,8 @@
       "id": "vileplume",
       "battleId": "vileplume",
       "displayNameJa": "ラフレシア",
+      "dexNumber": 45,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -6206,6 +6870,8 @@
       "id": "vivillon-icy-snow-pattern",
       "battleId": "vivillonfancy",
       "displayNameJa": "ビビヨン（ひょうせつのもよう）",
+      "dexNumber": 666,
+      "formOrder": 0,
       "formRelation": "independent",
       "types": [
         "bug",
@@ -6225,6 +6891,8 @@
       "id": "volcarona",
       "battleId": "volcarona",
       "displayNameJa": "ウルガモス",
+      "dexNumber": 637,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "bug",
@@ -6244,13 +6912,15 @@
       "id": "watchog",
       "battleId": "watchog",
       "displayNameJa": "ミルホッグ",
+      "dexNumber": 505,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Watchog.png",
       "ranks": {
-        "Singles": 259,
+        "Singles": 258,
         "Doubles": 257
       },
       "usagePercentages": {
@@ -6262,6 +6932,8 @@
       "id": "weavile",
       "battleId": "weavile",
       "displayNameJa": "マニューラ",
+      "dexNumber": 461,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark",
@@ -6269,7 +6941,7 @@
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Weavile.png",
       "ranks": {
-        "Singles": 122,
+        "Singles": 123,
         "Doubles": 74
       },
       "usagePercentages": {
@@ -6281,6 +6953,8 @@
       "id": "whimsicott",
       "battleId": "whimsicott",
       "displayNameJa": "エルフーン",
+      "dexNumber": 547,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "grass",
@@ -6300,6 +6974,8 @@
       "id": "wigglytuff",
       "battleId": "wigglytuff",
       "displayNameJa": "プクリン",
+      "dexNumber": 40,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -6319,6 +6995,8 @@
       "id": "wyrdeer",
       "battleId": "wyrdeer",
       "displayNameJa": "アヤシシ",
+      "dexNumber": 899,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "normal",
@@ -6327,7 +7005,7 @@
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Wyrdeer.png",
       "ranks": {
         "Singles": 241,
-        "Doubles": 152
+        "Doubles": 153
       },
       "usagePercentages": {
         "Singles": null,
@@ -6338,13 +7016,15 @@
       "id": "zoroark",
       "battleId": "zoroark",
       "displayNameJa": "ゾロアーク",
+      "dexNumber": 571,
+      "formOrder": 0,
       "formRelation": "base",
       "types": [
         "dark"
       ],
       "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Zoroark.png",
       "ranks": {
-        "Singles": 171,
+        "Singles": 170,
         "Doubles": 191
       },
       "usagePercentages": {
@@ -6356,6 +7036,8 @@
       "id": "hisuian-zoroark",
       "battleId": "zoroarkhisui",
       "displayNameJa": "ヒスイゾロアーク",
+      "dexNumber": 571,
+      "formOrder": 1,
       "formRelation": "independent",
       "types": [
         "normal",

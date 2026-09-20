@@ -161,6 +161,13 @@ function parseLearnsets(dump: string): Map<string, string[]> {
   return result;
 }
 
+function parseDexNumbers(dump: string): Map<string, number> {
+  return new Map([...dump.matchAll(/^(\d{4}) - (.+)$/gm)].map((heading) => [
+    normalizedName(heading[2]),
+    Number(heading[1]),
+  ]));
+}
+
 function parseFormAbilities(dump: string): Map<string, string[]> {
   const result = new Map<string, string[]>();
   const headings = [...dump.matchAll(/^(\d{4}) - (.+)$/gm)];
@@ -349,6 +356,7 @@ async function main() {
       movesById[detail.id] = detail;
     }
     const learnsets = parseLearnsets(personalDump);
+    const dexNumbers = parseDexNumbers(personalDump);
     const formAbilities = parseFormAbilities(personalDump);
     const learnableMoveIds = new Set(
       [...learnsets.values()].flatMap((moveNames) => moveNames.flatMap((name) => {
@@ -415,8 +423,12 @@ async function main() {
         const id = form.slug;
         const learnsetName = FORM_LEARNSET_OVERRIDES[id]
           ?? resolveChampoutLearnsetName(entry.showdownName, formKind);
+        const dexNumber = dexNumbers.get(normalizedName(learnsetName));
+        if (!dexNumber) throw new Error(`National Pokédex number missing: ${id} -> ${learnsetName}`);
+        const formOrder = (entry.summary?.forms ?? []).findIndex((candidate: any) => candidate.slug === id);
+        if (formOrder < 0) throw new Error(`Form order missing: ${id}`);
         const record: UsageRankingPokemon = {
-          id, battleId: entry.showdownId, displayNameJa: names[id] ?? form.saved_name,
+          id, battleId: entry.showdownId, displayNameJa: names[id] ?? form.saved_name, dexNumber, formOrder,
           formRelation: classifyForm(formKind), types: (form.types ?? []).map((type: string) => type.toLowerCase()),
           sprite: getChampionsSprite(id, form.image_path), ranks, usagePercentages: { Singles: null, Doubles: null },
         };

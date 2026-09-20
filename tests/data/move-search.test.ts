@@ -41,7 +41,7 @@ describe("move search", () => {
       { id: "unranked", displayNameJa: "ア", ranks: { Singles: null, Doubles: null } },
       { id: "second", displayNameJa: "イ", ranks: { Singles: 2, Doubles: 3 } },
       { id: "first", displayNameJa: "ウ", ranks: { Singles: 1, Doubles: 4 } },
-    ].map((entry) => ({ ...entry, battleId: entry.id, formRelation: "base" as const, types: ["normal"], sprite: "", usagePercentages: { Singles: null, Doubles: null }, learnableMoveIds: ["1"] }));
+    ].map((entry, formOrder) => ({ ...entry, battleId: entry.id, dexNumber: 1, formOrder, formRelation: "base" as const, types: ["normal"], sprite: "", usagePercentages: { Singles: null, Doubles: null }, learnableMoveIds: ["1"] }));
     expect(getMoveLearners(sample, "1", "Singles").map((pokemon) => pokemon.ranks.Singles)).toEqual([1, 2, null]);
   });
 });

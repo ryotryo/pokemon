@@ -41,6 +41,9 @@ describe("usage ranking data", () => {
     expect(new Set(index.pokemon.map((pokemon) => pokemon.id)).size).toBe(index.pokemon.length);
     expect(index.pokemon.find((pokemon) => pokemon.id === "alolan-raichu")?.battleId).toBe("raichualola");
     expect(index.pokemon.find((pokemon) => pokemon.id === "mega-charizard-x")?.formRelation).toBe("mega");
+    expect(index.pokemon.find((pokemon) => pokemon.id === "charizard")?.dexNumber).toBe(6);
+    expect(index.pokemon.find((pokemon) => pokemon.id === "mega-charizard-x")?.formOrder).toBe(1);
+    expect(index.pokemon.find((pokemon) => pokemon.id === "mega-charizard-y")?.formOrder).toBe(2);
     expect(index.pokemon.find((pokemon) => pokemon.id === "rotom-wash")?.displayNameJa).toBe("ウォッシュロトム");
     const sorted = sortRankingPokemon(index.pokemon, "Singles");
     expect(sorted[0].ranks.Singles).toBeLessThanOrEqual(sorted[1].ranks.Singles!);

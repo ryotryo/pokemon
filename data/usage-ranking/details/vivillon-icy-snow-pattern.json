@@ -2,6 +2,8 @@
   "id": "vivillon-icy-snow-pattern",
   "battleId": "vivillonfancy",
   "displayNameJa": "ビビヨン（ひょうせつのもよう）",
+  "dexNumber": 666,
+  "formOrder": 0,
   "formRelation": "independent",
   "types": [
     "bug",
@@ -74,8 +76,8 @@
         },
         {
           "rank": 2,
-          "percentage": "96.3%",
-          "percentageValue": 96.3,
+          "percentage": "96.2%",
+          "percentageValue": 96.2,
           "moveId": "483"
         },
         {
@@ -86,14 +88,14 @@
         },
         {
           "rank": 4,
-          "percentage": "84.4%",
-          "percentageValue": 84.4,
+          "percentage": "84.2%",
+          "percentageValue": 84.2,
           "moveId": "164"
         },
         {
           "rank": 5,
-          "percentage": "8.1%",
-          "percentageValue": 8.1,
+          "percentage": "8.2%",
+          "percentageValue": 8.2,
           "moveId": "405"
         },
         {
@@ -124,20 +126,20 @@
           "rank": 10,
           "percentage": "1.0%",
           "percentageValue": 1,
-          "moveId": "676"
+          "moveId": "369"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "77.3%",
-          "percentageValue": 77.3,
+          "percentage": "77.1%",
+          "percentageValue": 77.1,
           "nameJa": "たべのこし"
         },
         {
           "rank": 2,
-          "percentage": "15.1%",
-          "percentageValue": 15.1,
+          "percentage": "15.3%",
+          "percentageValue": 15.3,
           "nameJa": "きあいのタスキ"
         },
         {
@@ -172,15 +174,15 @@
         },
         {
           "rank": 8,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
-          "nameJa": "いのちのたま"
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
+          "nameJa": "するどいくちばし"
         },
         {
           "rank": 9,
           "percentage": "0.3%",
           "percentageValue": 0.3,
-          "nameJa": "するどいくちばし"
+          "nameJa": "いのちのたま"
         },
         {
           "rank": 10,
@@ -192,8 +194,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "43.6%",
-          "percentageValue": 43.6,
+          "percentage": "43.4%",
+          "percentageValue": 43.4,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -228,8 +230,8 @@
         },
         {
           "rank": 4,
-          "percentage": "3.7%",
-          "percentageValue": 3.7,
+          "percentage": "3.8%",
+          "percentageValue": 3.8,
           "hp": 0,
           "attack": 0,
           "defense": 0,
@@ -276,8 +278,8 @@
         },
         {
           "rank": 8,
-          "percentage": "1.5%",
-          "percentageValue": 1.5,
+          "percentage": "1.6%",
+          "percentageValue": 1.6,
           "hp": 0,
           "attack": 0,
           "defense": 1,
@@ -300,8 +302,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.9%",
-          "percentageValue": 0.9,
+          "percentage": "0.8%",
+          "percentageValue": 0.8,
           "hp": 18,
           "attack": 0,
           "defense": 0,
@@ -364,17 +366,17 @@
           "rank": 7,
           "percentage": "0.3%",
           "percentageValue": 0.3,
-          "nameJa": "うっかりや",
-          "statUp": "とくこう",
-          "statDown": "とくぼう"
+          "nameJa": "ようき",
+          "statUp": "すばやさ",
+          "statDown": "とくこう"
         },
         {
           "rank": 8,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "ようき",
-          "statUp": "すばやさ",
-          "statDown": "とくこう"
+          "nameJa": "うっかりや",
+          "statUp": "とくこう",
+          "statDown": "とくぼう"
         },
         {
           "rank": 9,
@@ -493,18 +495,6 @@
           "rank": 7,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "araquanid",
-          "displayNameJa": "オニシズクモ",
-          "types": [
-            "water",
-            "bug"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Araquanid.png"
-        },
-        {
-          "rank": 8,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "mimikyu",
           "displayNameJa": "ミミッキュ",
           "types": [
@@ -514,19 +504,19 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png"
         },
         {
-          "rank": 9,
+          "rank": 8,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "kleavor",
-          "displayNameJa": "バサギリ",
+          "pokemonId": "araquanid",
+          "displayNameJa": "オニシズクモ",
           "types": [
-            "bug",
-            "rock"
+            "water",
+            "bug"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kleavor.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Araquanid.png"
         },
         {
-          "rank": 10,
+          "rank": 9,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "baxcalibur",
@@ -536,6 +526,18 @@
             "ice"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Baxcalibur.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "kleavor",
+          "displayNameJa": "バサギリ",
+          "types": [
+            "bug",
+            "rock"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kleavor.png"
         }
       ]
     },
@@ -551,32 +553,32 @@
         },
         {
           "rank": 2,
-          "percentage": "81.3%",
-          "percentageValue": 81.3,
+          "percentage": "81.4%",
+          "percentageValue": 81.4,
           "moveId": "542"
         },
         {
           "rank": 3,
-          "percentage": "63.9%",
-          "percentageValue": 63.9,
+          "percentage": "64.0%",
+          "percentageValue": 64,
           "moveId": "476"
         },
         {
           "rank": 4,
-          "percentage": "59.8%",
-          "percentageValue": 59.8,
+          "percentage": "60.3%",
+          "percentageValue": 60.3,
           "moveId": "182"
         },
         {
           "rank": 5,
-          "percentage": "37.3%",
-          "percentageValue": 37.3,
+          "percentage": "37.1%",
+          "percentageValue": 37.1,
           "moveId": "366"
         },
         {
           "rank": 6,
-          "percentage": "22.0%",
-          "percentageValue": 22,
+          "percentage": "21.9%",
+          "percentageValue": 21.9,
           "moveId": "676"
         },
         {
@@ -587,14 +589,14 @@
         },
         {
           "rank": 8,
-          "percentage": "6.4%",
-          "percentageValue": 6.4,
+          "percentage": "6.2%",
+          "percentageValue": 6.2,
           "moveId": "240"
         },
         {
           "rank": 9,
-          "percentage": "6.1%",
-          "percentageValue": 6.1,
+          "percentage": "5.9%",
+          "percentageValue": 5.9,
           "moveId": "522"
         },
         {
@@ -607,14 +609,14 @@
       "items": [
         {
           "rank": 1,
-          "percentage": "71.5%",
-          "percentageValue": 71.5,
+          "percentage": "71.9%",
+          "percentageValue": 71.9,
           "nameJa": "きあいのタスキ"
         },
         {
           "rank": 2,
-          "percentage": "24.5%",
-          "percentageValue": 24.5,
+          "percentage": "24.0%",
+          "percentageValue": 24,
           "nameJa": "こだわりスカーフ"
         },
         {
@@ -637,8 +639,8 @@
         },
         {
           "rank": 6,
-          "percentage": "0.4%",
-          "percentageValue": 0.4,
+          "percentage": "0.3%",
+          "percentageValue": 0.3,
           "nameJa": "たべのこし"
         },
         {
@@ -669,8 +671,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "45.8%",
-          "percentageValue": 45.8,
+          "percentage": "45.7%",
+          "percentageValue": 45.7,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -681,8 +683,8 @@
         },
         {
           "rank": 2,
-          "percentage": "14.1%",
-          "percentageValue": 14.1,
+          "percentage": "14.2%",
+          "percentageValue": 14.2,
           "hp": 0,
           "attack": 0,
           "defense": 1,
@@ -693,8 +695,8 @@
         },
         {
           "rank": 3,
-          "percentage": "5.6%",
-          "percentageValue": 5.6,
+          "percentage": "5.7%",
+          "percentageValue": 5.7,
           "hp": 0,
           "attack": 0,
           "defense": 2,
@@ -717,8 +719,8 @@
         },
         {
           "rank": 5,
-          "percentage": "3.3%",
-          "percentageValue": 3.3,
+          "percentage": "3.2%",
+          "percentageValue": 3.2,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -741,8 +743,8 @@
         },
         {
           "rank": 7,
-          "percentage": "2.4%",
-          "percentageValue": 2.4,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
           "hp": 0,
           "attack": 0,
           "defense": 24,
@@ -807,8 +809,8 @@
         },
         {
           "rank": 3,
-          "percentage": "0.9%",
-          "percentageValue": 0.9,
+          "percentage": "0.8%",
+          "percentageValue": 0.8,
           "nameJa": "せっかち",
           "statUp": "すばやさ",
           "statDown": "ぼうぎょ"
@@ -825,17 +827,17 @@
           "rank": 5,
           "percentage": "0.5%",
           "percentageValue": 0.5,
-          "nameJa": "ずぶとい",
-          "statUp": "ぼうぎょ",
-          "statDown": "こうげき"
+          "nameJa": "ようき",
+          "statUp": "すばやさ",
+          "statDown": "とくこう"
         },
         {
           "rank": 6,
           "percentage": "0.5%",
           "percentageValue": 0.5,
-          "nameJa": "ようき",
-          "statUp": "すばやさ",
-          "statDown": "とくこう"
+          "nameJa": "ずぶとい",
+          "statUp": "ぼうぎょ",
+          "statDown": "こうげき"
         },
         {
           "rank": 7,

@@ -2,7 +2,7 @@
 
 ## Last updated
 
-2026-09-20（旧ポケモン使い方解説とホーム予定欄の廃止後に更新）
+2026-09-20（pokemon-intro一覧の検索・絞り込み・並び替え対応後に更新）
 
 ## Current focus
 
@@ -11,6 +11,7 @@
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧を公開中。
+- pokemon-intro一覧は全国図鑑No.順を初期表示とし、名前・Singles/Doubles順位・すばやさ・種族値合計での並び替え、日本語名検索、タイプ絞り込みに対応。状態はURL queryで復元する。
 - pokemon-introの現在Champions対象: **341フォーム**（`data/usage-ranking/index.json`）
 - 公開済みpokemon-intro: **341記事**（`content/pokemon-intros.ts`）
 - 現在対象の未記事化: **0フォーム**
@@ -27,9 +28,9 @@
 
 - API指定: **Current**
 - 現在の解決ラベル: **M6**
-- Champions source生成日時: **2026-09-19T15:00:47.017Z**
-- 収録daily data期間: **2026-09-11〜2026-09-19**
-- data version: **20260919150047017**
+- Champions source生成日時: **2026-09-20T03:33:50.683Z**
+- 収録daily data期間: **2026-09-11〜2026-09-20**
+- data version: **20260920033350683**
 - 現在の生成データ: Singles / Doubles各263 battle records、すばやさ・使用率indexは341フォーム
 - champout snapshot: commit `50e7233b78c3b81df29563f9695386c28e77fc95`
 

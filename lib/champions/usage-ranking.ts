@@ -33,6 +33,8 @@ export interface UsageRankingPokemon {
   id: string;
   battleId: string;
   displayNameJa: string;
+  dexNumber: number;
+  formOrder: number;
   formRelation: FormRelation;
   types: string[];
   sprite: string;
