@@ -21,7 +21,8 @@ describe("battle basics", () => {
 
   it("keeps the original beginner course separate from later category articles", () => {
     expect(beginnerCourseArticles).toHaveLength(15);
-    expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(20);
+    expect(battleBasicsArticles).toHaveLength(45);
+    expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(30);
   });
 
   it("resolves related articles and tool routes", () => {
