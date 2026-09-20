@@ -40,6 +40,12 @@ const tools = [
     href: "/pokemon-intro/",
     iconText: "？",
   },
+  {
+    title: "ポケモン対戦の基礎",
+    description: "対戦を始めたばかりの人向けに、勝ち方、タイプ、技、交代などをゼロから解説します。",
+    href: "/battle-basics/",
+    iconText: "基",
+  },
 ] as const;
 
 export default function Home() {
