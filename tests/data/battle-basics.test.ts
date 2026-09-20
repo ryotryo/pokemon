@@ -25,6 +25,15 @@ describe("battle basics", () => {
     expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(30);
   });
 
+  it("contains all 30 second-wave slugs and expected category totals", () => {
+    const secondWave = ["damage-basics","type-effectiveness-damage","four-times-weakness","critical-hits","damage-randomness","ko-terms","move-power","speed-ties","move-priority","priority-moves","speed-changes","trick-room","burn","paralysis","poison-and-bad-poison","sleep","setup-moves","weather","sun","rain","sandstorm","snow","terrain","stealth-rock","hp-odd-even","substitute-hp","leftovers-recovery","cycle","setup-fodder","move-consistency"];
+    expect(secondWave).toHaveLength(30);
+    expect(secondWave.every((slug) => battleBasicsArticleBySlug.has(slug))).toBe(true);
+    expect(Object.fromEntries(battleBasicsCategories.map((category) => [category.id, battleBasicsArticles.filter((article) => article.categoryId === category.id).length]))).toEqual({
+      "getting-started": 5, damage: 8, speed: 6, status: 7, field: 7, numbers: 3, strategy: 6, terms: 3,
+    });
+  });
+
   it("resolves related articles and tool routes", () => {
     const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/"]);
     for (const article of battleBasicsArticles) {
