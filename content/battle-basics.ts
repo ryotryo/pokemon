@@ -20,7 +20,7 @@ export interface BattleBasicsArticle {
   title: string;
   description: string;
   categoryId: string;
-  beginnerCourseOrder: number;
+  beginnerCourseOrder?: number;
   sections: BattleBasicsSection[];
   relatedArticleSlugs: string[];
   relatedTools: BattleBasicsToolId[];
@@ -36,6 +36,8 @@ export const battleBasicsCategories: BattleBasicsCategory[] = [
   { id: "strategy", name: "パーティーと対戦の考え方", description: "選出、交代、役割、勝ち筋など、試合の考え方を学びます。", order: 7 },
   { id: "terms", name: "対戦でよく見る言葉", description: "対戦記事や会話で使われる言葉を、やさしく読み解きます。", order: 8 },
 ];
+
+function extraArticle(slug:string,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,sections,relatedArticleSlugs,relatedTools};}
 
 export const battleBasicsArticles: BattleBasicsArticle[] = [
   {
@@ -158,10 +160,60 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       { heading: "大切なポケモンを簡単に失わない", paragraphs: ["目の前の1匹を倒せても、勝つために必要なポケモンまで倒されると、勝ち筋がなくなることがあります。逆に、役目を終えたポケモンで相手の攻撃を受け、エースを安全に出す判断が必要なこともあります。", "最初は選出時に「この試合は誰で最後に攻めたいか」を1匹決めてみましょう。試合中の行動に理由が生まれます。"], takeaway: "勝ち筋は、最後に誰でどう倒し切るか。そのために必要な相手を削り、味方を残します。" },
     ], relatedArticleSlugs: ["how-to-win", "roles", "matchups"], relatedTools: ["pokemon-roles", "pokemon-intro", "damage-chart"],
   },
+  extraArticle("damage-basics","ダメージはどうやって決まる？","攻撃技のダメージに関わる主な要素を、式を使わずに整理します。","damage",[
+    {heading:"技と能力値が土台",paragraphs:["物理技なら攻撃と防御、特殊技なら特攻と特防を比べ、技の威力を使って基礎となるダメージが決まります。レベルも計算に関わります。","攻撃が高くても威力の低い技なら小さくなり、防御が高い相手には同じ技でも通りにくくなります。"]},
+    {heading:"そこへ補正が重なる",paragraphs:["タイプ一致、弱点やいまひとつ、急所、天候、特性、持ち物などが順に影響します。1つの数字だけで最終ダメージは決まりません。"],bullets:["使う技の威力と分類","攻撃側・防御側の能力","タイプ一致とタイプ相性","特性・持ち物・天候など","最後に幅を作る乱数"]},
+    {heading:"同じ技でも毎回少し違う",paragraphs:["ダメージには乱数による幅があるため、同じ条件でも毎回まったく同じとは限りません。確実に倒せるかは、最大値だけでなく最小値も見ます。"],takeaway:"威力だけでなく、能力値・タイプ・特性など複数の要素で決まります。"}
+  ],["move-categories","same-type-attack-bonus","damage-randomness"],["damage-chart"]),
+  extraArticle("type-effectiveness-damage","弱点・いまひとつ・無効でダメージはどう変わる？","タイプ相性の倍率を、実際のダメージへ結び付けて説明します。","damage",[
+    {heading:"等倍を基準に考える",paragraphs:["等倍を1とすると、弱点は2倍、いまひとつは1/2倍、無効は0倍です。たとえば等倍で約60ダメージなら、ほかの条件が同じとき弱点では約120、半減では約30が目安です。"]},
+    {heading:"無効は少ないダメージではない",paragraphs:["無効は0倍なので、その技ではダメージを与えられません。じめん技をひこうタイプへ使う場合などです。ただし特性や別の効果で相性が変化する場合があります。"]},
+    {heading:"表示と交代判断につながる",paragraphs:["効果抜群でも相手の耐久が高ければ倒し切れず、等倍でも高火力なら大きく減ります。倍率は重要ですが、残りHPや能力値も合わせて考えます。"],takeaway:"弱点2倍、半減1/2倍、無効0倍。倍率は最終ダメージを大きく変えます。"}
+  ],["type-matchups","four-times-weakness","damage-basics"],["party-check","damage-chart"]),
+  extraArticle("four-times-weakness","4倍弱点・4分の1ってなに？","複合タイプでタイプ相性が重なったときの倍率を説明します。","damage",[
+    {heading:"2つの相性を掛け合わせる",paragraphs:["複合タイプには、それぞれのタイプへの相性を掛け合わせます。両方が弱点なら2×2で4倍、両方が半減なら1/2×1/2で1/4倍です。"]},
+    {heading:"リザードンといわ技の例",paragraphs:["ほのお・ひこうのリザードンは、どちらのタイプもいわ技が弱点なので4倍です。一方、片方が弱点でももう片方が半減なら、2×1/2で等倍になります。"]},
+    {heading:"選出と交代へ大きく影響する",paragraphs:["4倍弱点は大きなダメージになりやすいため、相手がそのタイプの技を使えるか確認します。1/4なら受けやすい候補ですが、別タイプの技には注意が必要です。"],takeaway:"複合タイプは足し算ではなく掛け算。2つの相性を両方確認します。"}
+  ],["type-matchups","type-effectiveness-damage","switching"],["party-check"]),
+  extraArticle("critical-hits","急所に当たるとどうなる？","急所の倍率と、能力変化を一部無視する性質を説明します。","damage",[
+    {heading:"通常より1.5倍のダメージ",paragraphs:["攻撃が急所に当たると、通常の1.5倍のダメージになります。毎回起きるものではありませんが、急所に当たりやすい技や、必ず急所に当たる技もあります。"]},
+    {heading:"不利な能力変化を一部無視する",paragraphs:["急所では、攻撃側の下がった攻撃・特攻や、防御側の上がった防御・特防など、急所を弱くする一部の能力ランクを無視して計算します。すべての効果を無視するわけではありません。"]},
+    {heading:"安全だと思った場面が変わる",paragraphs:["防御を上げて耐える予定でも、急所なら想定より大きく減ることがあります。低い確率だけを恐れすぎず、起きる可能性があると知っておきましょう。"],takeaway:"急所は1.5倍。一部の不利な能力ランクを無視するため、守りを崩すことがあります。"}
+  ],["damage-basics","stat-stages","damage-randomness"],["damage-chart"]),
+  extraArticle("damage-randomness","ダメージの「乱数」ってなに？","同じ攻撃でもダメージに幅がある理由を説明します。","damage",[
+    {heading:"ダメージは85〜100%の範囲で揺れる",paragraphs:["ほかの条件が同じでも、最後に85%から100%の範囲の乱数補正がかかります。そのため、同じ技を同じ相手へ使っても少し違う数字になります。"]},
+    {heading:"最大だけでは倒せると言えない",paragraphs:["ダメージ幅が90〜106なら、HP100の相手を倒せる回と倒せない回があります。これが乱数で倒せる状態です。最小でも100以上なら必ず倒せます。"]},
+    {heading:"幅で判断する",paragraphs:["実戦では、最高ダメージを期待するより、低いダメージでも足りるかを考えると安全です。複数回攻撃する場合は、そのたびに乱数が決まります。"],takeaway:"同じ条件でもダメージには幅があります。最小値と最大値の両方を見ます。"}
+  ],["damage-basics","ko-terms","critical-hits"],["damage-chart"]),
+  extraArticle("ko-terms","確1・確2・乱1ってなに？","ダメージ計算で使われる確定数と乱数の言葉を説明します。","terms",[
+    {heading:"何回で倒せるかを表す言葉",paragraphs:["確1は確定1発の略で、ダメージが最小でも相手の残りHP以上になり、1回で必ず倒せることです。確2は、回復などがなければ2回で必ず倒せることを表します。"]},
+    {heading:"乱1は倒せる場合と残る場合がある",paragraphs:["乱数1発、略して乱1は、1回で倒せるダメージも出ますが、低いダメージでは相手が残る状態です。倒せる確率が高ければ高乱数、低ければ低乱数と表すことがあります。"]},
+    {heading:"行動を決める材料",paragraphs:["確1なら攻撃を選びやすく、乱1なら倒せなかった場合の反撃も考えます。ダメージ早見表の範囲を見るときも、最小値が相手のHPへ届くか確認しましょう。"],takeaway:"確1は必ず1回、確2は必ず2回、乱1は1回で倒せるかが乱数次第です。"}
+  ],["damage-randomness","damage-basics","win-condition"],["damage-chart"]),
+  extraArticle("move-power","技の威力が高ければ強い技なの？","威力だけでは測れない技の使いやすさを説明します。","damage",[
+    {heading:"威力はダメージの大切な土台",paragraphs:["同じポケモンが同じ相手へ使い、ほかの条件も同じなら、威力が高い技ほど大きなダメージを与えやすいです。ただし威力だけで優劣は決まりません。"]},
+    {heading:"命中・反動・追加効果も見る",paragraphs:["高威力でも外れやすい、使った後に能力が下がる、反動でHPが減る技があります。低威力でも必ず当たりやすい、先に動ける、便利な追加効果を持つ技があります。"]},
+    {heading:"役割に合うかが重要",paragraphs:["安定して削りたいなら命中の高い技、一度の好機で倒したいなら高威力技が合うことがあります。そのポケモンが何をしたいかで選びます。"],takeaway:"威力に加え、命中・反動・追加効果・優先度まで見て判断します。"}
+  ],["damage-basics","move-categories","priority-moves"],["move-search","pokemon-intro"]),
+  extraArticle("speed-ties","同じ素早さだったらどっちが先？","同じ優先度・同じ素早さのときの行動順を説明します。","speed",[
+    {heading:"同速では先攻がランダムに決まる",paragraphs:["同じ優先度の技を選び、実際の素早さも同じなら、どちらが先に動くかはランダムに決まります。この状態を「同速」と呼びます。"]},
+    {heading:"一度先でも次も先とは限らない",paragraphs:["同速の判定は固定の上下関係ではありません。前のターンに先に動いたポケモンが、次のターンも必ず先とは限りません。"]},
+    {heading:"勝敗を運だけにしない工夫",paragraphs:["同速に勝たないと負ける場面を減らすには、先制技を残す、攻撃を耐えられる味方へ交代するなど別の道を用意します。"],takeaway:"同じ優先度・同じ素早さなら先攻はランダム。毎回同じとは限りません。"}
+  ],["speed-and-turn-order","move-priority","switching"],["speed-ranking"]),
+  extraArticle("move-priority","技の「優先度」ってなに？","素早さより先に比べられる、技の行動順を説明します。","speed",[
+    {heading:"まず優先度、次に素早さ",paragraphs:["行動順は、最初に技の優先度を比べます。優先度が高い技が先に動き、同じ優先度の中で素早さを比べます。"]},
+    {heading:"先制技と後から動く技",paragraphs:["でんこうせっかのような先制技は通常の攻撃技より優先度が高く、素早さが低くても先に動けます。優先度が低く、後から動きやすい技もあります。"]},
+    {heading:"素早さ逆転中でも優先度は別",paragraphs:["トリックルームで遅い方が先になりやすい場面でも、技の優先度は先に比べます。優先度まで完全に逆になるわけではありません。"],takeaway:"行動順は優先度を先に比較し、同じなら素早さを比べます。"}
+  ],["speed-and-turn-order","priority-moves","speed-ties"],["speed-ranking","move-search"]),
+  extraArticle("priority-moves","先制技ってなに？","素早さに関係なく先に動きやすい攻撃技の使い方を説明します。","speed",[
+    {heading:"通常技より高い優先度を持つ",paragraphs:["先制技は、通常の技より高い優先度を持ちます。相手の方が速くても、優先度で上回れば先に行動できます。"]},
+    {heading:"弱った相手を倒すのが得意",paragraphs:["先制技は威力が低めでも、残りHPの少ない相手を反撃前に倒せるのが強みです。速い相手への最後の一押しにもなります。"]},
+    {heading:"必ず最初とは限らない",paragraphs:["相手も先制技を使えば優先度と素早さを比べます。特性や場の効果で先制技を防がれる場合もあるため、「必ず先」とは覚えないようにしましょう。"],takeaway:"先制技は優先度が高い技。速い相手を倒す手段になりますが、必ず先ではありません。"}
+  ],["move-priority","speed-and-turn-order","move-power"],["move-search"]),
 ];
 
 export const battleBasicsArticleBySlug = new Map(battleBasicsArticles.map((article) => [article.slug, article]));
-export const beginnerCourseArticles = [...battleBasicsArticles].sort((a, b) => a.beginnerCourseOrder - b.beginnerCourseOrder);
+export const beginnerCourseArticles = battleBasicsArticles.filter((article): article is BattleBasicsArticle & { beginnerCourseOrder: number } => article.beginnerCourseOrder !== undefined).sort((a, b) => a.beginnerCourseOrder - b.beginnerCourseOrder);
 
 export const battleBasicsTools: Record<BattleBasicsToolId, { title: string; description: string; href: string }> = {
   "party-check": { title: "パーティー相性チェッカー", description: "6匹のタイプ相性を確認する", href: "/party-check/" },

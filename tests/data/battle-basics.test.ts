@@ -12,11 +12,16 @@ describe("battle basics", () => {
   });
 
   it("publishes 15 unique beginner articles in order", () => {
-    expect(battleBasicsArticles).toHaveLength(15);
-    expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(15);
+    expect(battleBasicsArticles.length).toBeGreaterThanOrEqual(15);
+    expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(battleBasicsArticles.length);
     expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:15},(_,index)=>index+1));
     expect(battleBasicsArticles.every((article) => article.sections.length >= 3 && article.sections.length <= 6)).toBe(true);
     expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0))).toBe(true);
+  });
+
+  it("keeps the original beginner course separate from later category articles", () => {
+    expect(beginnerCourseArticles).toHaveLength(15);
+    expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(10);
   });
 
   it("resolves related articles and tool routes", () => {
