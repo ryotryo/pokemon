@@ -23,10 +23,9 @@ Poké Analyticsは、Pokémon Championsの対戦データを分析し、対戦�
 | ダメージ早見表 | `/damage-chart` | 2匹の代表技による概算ダメージを双方向に比較する |
 | 技からポケモン検索 | `/move-search` | Champions learnsetを技から逆引きし、使用率順位と併せて表示する |
 | このポケモンってどんなポケモン？ | `/pokemon-intro` | 対戦での基本的な役割をシーズン非依存の言葉で説明する初心者向け図鑑 |
-| ポケモン使い方解説 | `/pokemon-guide` | 基本の使い方、相手、味方まで扱う、別系統の初心者向け解説 |
 | 役割一覧 | `/pokemon-roles` | 共通role taxonomyを説明し、該当するpokemon-intro記事へつなぐ |
 
-ホームに表示される「技分析」は準備中であり、現在利用可能な機能ではありません。過去に存在した環境推移機能は現在ありません。
+過去に存在した「ポケモン使い方解説」と環境推移機能は現在ありません。公開前の開発計画はホームへ表示せず、project memoryとproduction planで管理します。
 
 ## データソースと生成
 
@@ -66,4 +65,3 @@ Championsのbattle dataは「実際の利用状況」、champout learnsetは「�
 - pokemon-intro執筆規約: [`pokemon-intro-authoring.md`](pokemon-intro-authoring.md)
 - pokemon-intro全制作計画: [`pokemon-intro-production-plan.md`](pokemon-intro-production-plan.md)
 - 機械可読な制作計画: [`../data/pokemon-intro-production-plan.json`](../data/pokemon-intro-production-plan.json)
-

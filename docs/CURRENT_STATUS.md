@@ -2,15 +2,15 @@
 
 ## Last updated
 
-2026-09-20（最新Current追加2フォームの記事化完了後に再集計）
+2026-09-20（旧ポケモン使い方解説とホーム予定欄の廃止後に更新）
 
 ## Current focus
 
-「このポケモンってどんなポケモン？」は、現行Champions対象341フォームの記事化を完了しました。今回追加した `vivillon-icy-snow-pattern` と `persian` をbatch-35として完成済みです。計画上の `vivillon-fancy-pattern` だけは現行Championsデータに存在しない履歴対象のため、batch-12は9/10表示のまま保留しています。
+旧「ポケモン使い方解説」を廃止し、初心者向けポケモン個別コンテンツは「このポケモンってどんなポケモン？」へ一本化しました。現行Champions対象341フォームの記事化は完了済みです。公開ホームには今後の予定を表示せず、開発計画はproject memoryとproduction planで管理します。
 
 ## Current state
 
-- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、ポケモン使い方解説、役割一覧を公開中。
+- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧を公開中。
 - pokemon-introの現在Champions対象: **341フォーム**（`data/usage-ranking/index.json`）
 - 公開済みpokemon-intro: **341記事**（`content/pokemon-intros.ts`）
 - 現在対象の未記事化: **0フォーム**
@@ -46,7 +46,7 @@
 ## Important cautions
 
 - 次のbatchを番号だけで決め打ちせず、production planと記事IDから毎回再判定する。
-- 既存の「ポケモン使い方解説」をpokemon-introへ統合・削除しない。
+- 廃止済みの旧「ポケモン使い方解説」やホームの公開予定欄を、明確な新方針なしに復活させない。
 - PokéAPI learnset、SV、Showdown等をChampionsデータへ混ぜない。
 - Mega / regional / independent formを表示名だけで判定しない。
 - 不完全なdaily snapshotから環境推移を推測せず、削除済みmeta-historyを復活させない。

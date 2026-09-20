@@ -287,7 +287,7 @@ function LearnableMoves({ moves, topMoveIds, onSelectMove }: { moves: UsageMoveD
   );
 }
 
-export function UsageDetail({ pokemon, hasGuide = false, introId }: { pokemon: UsagePokemonPageData; hasGuide?: boolean; introId?: string }) {
+export function UsageDetail({ pokemon, introId }: { pokemon: UsagePokemonPageData; introId?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -350,13 +350,8 @@ export function UsageDetail({ pokemon, hasGuide = false, introId }: { pokemon: U
         </div>
         <BaseStats stats={pokemon.baseStats} />
         <TypeMatchups types={pokemon.types} />
-        {hasGuide && (
-          <Link href={`/pokemon-guide/${pokemon.id}/`} className="mt-3 inline-flex min-h-10 items-center rounded-full bg-blue-700 px-4 text-xs font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
-            使い方解説を見る →
-          </Link>
-        )}
         {introId && (
-          <Link href={`/pokemon-intro/${introId}/`} className="ml-2 mt-3 inline-flex min-h-10 items-center rounded-full border border-blue-200 bg-white px-4 text-xs font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+          <Link href={`/pokemon-intro/${introId}/`} className="mt-3 inline-flex min-h-10 items-center rounded-full border border-blue-200 bg-white px-4 text-xs font-bold text-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
             どんなポケモン？ →
           </Link>
         )}

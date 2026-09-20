@@ -9,54 +9,36 @@ const tools = [
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
     href: "/party-check/",
     id: "party-check" satisfies ToolId,
-    available: true,
   },
   {
     title: "すばやさランキング",
     description: "ポケモンごとの実数値や抜きラインを、一覧で比較できるツールです。",
     href: "https://poke-analytics.com/speed-ranking/",
     id: "speed-ranking" satisfies ToolId,
-    available: true,
   },
   {
     title: "使用率ランキング",
     description: "ポケモンチャンピオンズの使用率、技、持ち物、努力値、性格、同時採用ポケモンを確認できます。",
     href: "/usage-ranking/",
     id: "usage-ranking" satisfies ToolId,
-    available: true,
   },
   {
     title: "ダメージ早見表",
     description: "2匹を選ぶだけで、よく使われる技のおおよそのダメージを双方向に比較できます。",
     href: "/damage-chart/",
     iconText: "％",
-    available: true,
   },
   {
     title: "技からポケモン検索",
     description: "技を選ぶと、その技を覚えるポケモンを使用率順位で逆引きできます。",
     href: "/move-search/",
     iconText: "技",
-    available: true,
-  },
-  {
-    title: "ポケモン使い方解説",
-    description: "基本の使い方、得意・苦手な相手、相性のいい味方を初心者向けに解説します。",
-    href: "/pokemon-guide/",
-    iconText: "解",
-    available: true,
   },
   {
     title: "このポケモンってどんなポケモン？",
     description: "対戦で何をするポケモンなのかを、初心者向けに短く分かりやすく紹介します。",
     href: "/pokemon-intro/",
     iconText: "？",
-    available: true,
-  },
-  {
-    title: "技分析",
-    description: "ポケモンごとの使用技や技タイプを分析する機能です。",
-    available: false,
   },
 ] as const;
 
@@ -76,7 +58,7 @@ export default function Home() {
             <span className="h-px flex-1 bg-slate-200" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {tools.filter((tool) => tool.available).map((tool) => (
+            {tools.map((tool) => (
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div className="min-w-0">
@@ -95,24 +77,6 @@ export default function Home() {
                 </div>
                 <p className="mt-5 text-sm font-bold text-blue-700">ツールを開く</p>
               </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10" aria-labelledby="planned-tools">
-          <div className="mb-4 flex items-center gap-3">
-            <h2 id="planned-tools" className="text-lg font-black">今後追加予定</h2>
-            <span className="h-px flex-1 bg-slate-200" />
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {tools.filter((tool) => !tool.available).map((tool) => (
-              <article key={tool.title} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-black">{tool.title}</h3>
-                  <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-500">準備中</span>
-                </div>
-                <p className="mt-3 text-sm leading-6 text-slate-500">{tool.description}</p>
-              </article>
             ))}
           </div>
         </section>
