@@ -11,7 +11,7 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Excadrill.png",
   "ranks": {
-    "Singles": 69,
+    "Singles": 70,
     "Doubles": 31
   },
   "usagePercentages": {
@@ -78,7 +78,7 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 69,
+      "rank": 70,
       "usagePercentage": null,
       "moves": [
         {
@@ -101,14 +101,14 @@
         },
         {
           "rank": 4,
-          "percentage": "34.2%",
-          "percentageValue": 34.2,
+          "percentage": "34.1%",
+          "percentageValue": 34.1,
           "moveId": "32"
         },
         {
           "rank": 5,
-          "percentage": "28.1%",
-          "percentageValue": 28.1,
+          "percentage": "28.2%",
+          "percentageValue": 28.2,
           "moveId": "14"
         },
         {
@@ -133,20 +133,20 @@
           "rank": 9,
           "percentage": "7.3%",
           "percentageValue": 7.3,
-          "moveId": "446"
+          "moveId": "398"
         },
         {
           "rank": 10,
-          "percentage": "7.2%",
-          "percentageValue": 7.2,
-          "moveId": "398"
+          "percentage": "7.3%",
+          "percentageValue": 7.3,
+          "moveId": "446"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "41.4%",
-          "percentageValue": 41.4,
+          "percentage": "41.2%",
+          "percentageValue": 41.2,
           "nameJa": "こだわりスカーフ"
         },
         {
@@ -163,14 +163,14 @@
         },
         {
           "rank": 4,
-          "percentage": "4.1%",
-          "percentageValue": 4.1,
+          "percentage": "4.2%",
+          "percentageValue": 4.2,
           "nameJa": "ふうせん"
         },
         {
           "rank": 5,
-          "percentage": "2.8%",
-          "percentageValue": 2.8,
+          "percentage": "2.9%",
+          "percentageValue": 2.9,
           "nameJa": "ドリュウズナイト"
         },
         {
@@ -201,7 +201,7 @@
           "rank": 10,
           "percentage": "0.4%",
           "percentageValue": 0.4,
-          "nameJa": "ラムのみ"
+          "nameJa": "シュカのみ"
         }
       ],
       "spreads": [
@@ -219,8 +219,8 @@
         },
         {
           "rank": 2,
-          "percentage": "14.9%",
-          "percentageValue": 14.9,
+          "percentage": "15.1%",
+          "percentageValue": 15.1,
           "hp": 0,
           "attack": 32,
           "defense": 2,
@@ -281,18 +281,6 @@
           "rank": 7,
           "percentage": "1.2%",
           "percentageValue": 1.2,
-          "hp": 0,
-          "attack": 32,
-          "defense": 8,
-          "specialAttack": 0,
-          "specialDefense": 1,
-          "speed": 25,
-          "raw": "HP 0 / Atk 32 / Def 8 / SpA 0 / SpD 1 / Spe 25"
-        },
-        {
-          "rank": 8,
-          "percentage": "1.2%",
-          "percentageValue": 1.2,
           "hp": 10,
           "attack": 32,
           "defense": 0,
@@ -300,6 +288,18 @@
           "specialDefense": 0,
           "speed": 24,
           "raw": "HP 10 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 24"
+        },
+        {
+          "rank": 8,
+          "percentage": "1.2%",
+          "percentageValue": 1.2,
+          "hp": 0,
+          "attack": 32,
+          "defense": 8,
+          "specialAttack": 0,
+          "specialDefense": 1,
+          "speed": 25,
+          "raw": "HP 0 / Atk 32 / Def 8 / SpA 0 / SpD 1 / Spe 25"
         },
         {
           "rank": 9,
@@ -329,16 +329,16 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "50.0%",
-          "percentageValue": 50,
+          "percentage": "50.2%",
+          "percentageValue": 50.2,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
         },
         {
           "rank": 2,
-          "percentage": "47.8%",
-          "percentageValue": 47.8,
+          "percentage": "47.6%",
+          "percentageValue": 47.6,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
@@ -371,17 +371,17 @@
           "rank": 6,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "さみしがり",
-          "statUp": "こうげき",
-          "statDown": "ぼうぎょ"
+          "nameJa": "むじゃき",
+          "statUp": "すばやさ",
+          "statDown": "とくぼう"
         },
         {
           "rank": 7,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "むじゃき",
-          "statUp": "すばやさ",
-          "statDown": "とくぼう"
+          "nameJa": "さみしがり",
+          "statUp": "こうげき",
+          "statDown": "ぼうぎょ"
         },
         {
           "rank": 8,
@@ -401,25 +401,25 @@
         },
         {
           "rank": 10,
-          "percentage": "0.0%",
-          "percentageValue": 0,
-          "nameJa": "すなお",
-          "statUp": null,
-          "statDown": null
+          "percentage": "0.1%",
+          "percentageValue": 0.1,
+          "nameJa": "おくびょう",
+          "statUp": "すばやさ",
+          "statDown": "こうげき"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "68.4%",
-          "percentageValue": 68.4,
+          "percentage": "68.3%",
+          "percentageValue": 68.3,
           "nameJa": "かたやぶり",
           "descriptionJa": "相手の特性に関係なく技を出すことができる。 例外となる特性もある。"
         },
         {
           "rank": 2,
-          "percentage": "30.8%",
-          "percentageValue": 30.8,
+          "percentage": "31.0%",
+          "percentageValue": 31,
           "nameJa": "すなかき",
           "descriptionJa": "すなあらし状態の時 素早さが２倍になる。"
         },
@@ -565,8 +565,8 @@
         },
         {
           "rank": 2,
-          "percentage": "96.8%",
-          "percentageValue": 96.8,
+          "percentage": "96.7%",
+          "percentageValue": 96.7,
           "moveId": "182"
         },
         {
@@ -577,8 +577,8 @@
         },
         {
           "rank": 4,
-          "percentage": "83.5%",
-          "percentageValue": 83.5,
+          "percentage": "83.4%",
+          "percentageValue": 83.4,
           "moveId": "667"
         },
         {
@@ -595,8 +595,8 @@
         },
         {
           "rank": 7,
-          "percentage": "1.2%",
-          "percentageValue": 1.2,
+          "percentage": "1.3%",
+          "percentageValue": 1.3,
           "moveId": "529"
         },
         {
@@ -613,8 +613,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.7%",
-          "percentageValue": 0.7,
+          "percentage": "0.8%",
+          "percentageValue": 0.8,
           "moveId": "317"
         }
       ],
@@ -627,8 +627,8 @@
         },
         {
           "rank": 2,
-          "percentage": "12.9%",
-          "percentageValue": 12.9,
+          "percentage": "12.7%",
+          "percentageValue": 12.7,
           "nameJa": "いのちのたま"
         },
         {
@@ -645,8 +645,8 @@
         },
         {
           "rank": 5,
-          "percentage": "0.8%",
-          "percentageValue": 0.8,
+          "percentage": "0.9%",
+          "percentageValue": 0.9,
           "nameJa": "たつじんのおび"
         },
         {
@@ -657,21 +657,21 @@
         },
         {
           "rank": 7,
-          "percentage": "0.2%",
-          "percentageValue": 0.2,
-          "nameJa": "おうじゃのしるし"
+          "percentage": "0.3%",
+          "percentageValue": 0.3,
+          "nameJa": "くろいてっきゅう"
         },
         {
           "rank": 8,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "ヨプのみ"
+          "nameJa": "おうじゃのしるし"
         },
         {
           "rank": 9,
           "percentage": "0.2%",
           "percentageValue": 0.2,
-          "nameJa": "くろいてっきゅう"
+          "nameJa": "ヨプのみ"
         },
         {
           "rank": 10,
@@ -683,8 +683,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "60.8%",
-          "percentageValue": 60.8,
+          "percentage": "60.4%",
+          "percentageValue": 60.4,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -695,8 +695,8 @@
         },
         {
           "rank": 2,
-          "percentage": "18.5%",
-          "percentageValue": 18.5,
+          "percentage": "18.7%",
+          "percentageValue": 18.7,
           "hp": 0,
           "attack": 32,
           "defense": 2,
@@ -767,8 +767,8 @@
         },
         {
           "rank": 8,
-          "percentage": "0.7%",
-          "percentageValue": 0.7,
+          "percentage": "0.8%",
+          "percentageValue": 0.8,
           "hp": 1,
           "attack": 32,
           "defense": 0,
@@ -779,8 +779,8 @@
         },
         {
           "rank": 9,
-          "percentage": "0.4%",
-          "percentageValue": 0.4,
+          "percentage": "0.5%",
+          "percentageValue": 0.5,
           "hp": 32,
           "attack": 32,
           "defense": 0,
@@ -791,8 +791,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
           "hp": 32,
           "attack": 32,
           "defense": 2,
@@ -805,43 +805,43 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "78.6%",
-          "percentageValue": 78.6,
+          "percentage": "78.4%",
+          "percentageValue": 78.4,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
         },
         {
           "rank": 2,
-          "percentage": "19.9%",
-          "percentageValue": 19.9,
+          "percentage": "20.0%",
+          "percentageValue": 20,
           "nameJa": "ようき",
           "statUp": "すばやさ",
           "statDown": "とくこう"
         },
         {
           "rank": 3,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
+          "nameJa": "ゆうかん",
+          "statUp": "こうげき",
+          "statDown": "すばやさ"
+        },
+        {
+          "rank": 4,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
           "nameJa": "やんちゃ",
           "statUp": "こうげき",
           "statDown": "とくぼう"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "percentage": "0.3%",
           "percentageValue": 0.3,
           "nameJa": "さみしがり",
           "statUp": "こうげき",
           "statDown": "ぼうぎょ"
-        },
-        {
-          "rank": 5,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
-          "nameJa": "ゆうかん",
-          "statUp": "こうげき",
-          "statDown": "すばやさ"
         },
         {
           "rank": 6,
@@ -887,8 +887,8 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "96.5%",
-          "percentageValue": 96.5,
+          "percentage": "96.3%",
+          "percentageValue": 96.3,
           "nameJa": "すなかき",
           "descriptionJa": "すなあらし状態の時 素早さが２倍になる。"
         },
@@ -901,8 +901,8 @@
         },
         {
           "rank": 3,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
+          "percentage": "1.2%",
+          "percentageValue": 1.2,
           "nameJa": "すなのちから",
           "descriptionJa": "すなあらし状態の時 いわ じめん はがねタイプの 技の威力が１．３倍になる。"
         }
