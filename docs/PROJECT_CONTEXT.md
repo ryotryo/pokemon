@@ -24,6 +24,7 @@ Poké Analyticsは、Pokémon Championsの対戦データを分析し、対戦�
 | 技からポケモン検索 | `/move-search` | Champions learnsetを技から逆引きし、使用率順位と併せて表示する |
 | このポケモンってどんなポケモン？ | `/pokemon-intro` | 対戦での基本的な役割をシーズン非依存の言葉で説明する初心者向け図鑑 |
 | 役割一覧 | `/pokemon-roles` | 共通role taxonomyを説明し、該当するpokemon-intro記事へつなぐ |
+| ポケモン対戦の基礎 | `/battle-basics` | 8カテゴリと順番に読める完全初心者コースで、対戦ルールや考え方をゼロから説明する |
 
 過去に存在した「ポケモン使い方解説」と環境推移機能は現在ありません。公開前の開発計画はホームへ表示せず、project memoryとproduction planで管理します。
 

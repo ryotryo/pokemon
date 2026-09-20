@@ -2,15 +2,16 @@
 
 ## Last updated
 
-2026-09-20（pokemon-intro一覧の検索・絞り込み・並び替え対応後に更新）
+2026-09-20（「ポケモン対戦の基礎」公開後に更新）
 
 ## Current focus
 
-旧「ポケモン使い方解説」を廃止し、初心者向けポケモン個別コンテンツは「このポケモンってどんなポケモン？」へ一本化しました。現行Champions対象341フォームの記事化は完了済みです。公開ホームには今後の予定を表示せず、開発計画はproject memoryとproduction planで管理します。
+初心者向けの学習コンテンツ「ポケモン対戦の基礎」を新設し、完全初心者コース15記事を公開しました。ポケモン個別の理解は「このポケモンってどんなポケモン？」、ルールや用語の理解は「ポケモン対戦の基礎」へ分けて運用します。
 
 ## Current state
 
-- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧を公開中。
+- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧、ポケモン対戦の基礎を公開中。
+- 「ポケモン対戦の基礎」は8カテゴリの共通定義と構造化記事データを使用し、完全初心者コース15記事をreading order 1〜15で公開。各記事は前後移動、関連記事、必要な既存ツールへの導線を持つ。
 - pokemon-intro一覧は全国図鑑No.順を初期表示とし、名前・Singles/Doubles順位・すばやさ・種族値合計での並び替え、日本語名検索、タイプ絞り込みに対応。状態はURL queryで復元する。
 - pokemon-introの現在Champions対象: **341フォーム**（`data/usage-ranking/index.json`）
 - 公開済みpokemon-intro: **341記事**（`content/pokemon-intros.ts`）
@@ -38,11 +39,10 @@
 
 ## Next actions
 
-1. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
-2. 各batchを全文監査・検証し、独立したGitHub checkpointとして保存する。
-3. batch-12・batch-15・batch-18・batch-20・batch-29・全フォーム完成時点の品質ドリフト監査は完了。今後のデータ追加時にも文章・role・フォーム差を再監査する。
-4. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
-5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
+1. 「ポケモン対戦の基礎」の第2弾は、天候・フィールド・HP数値・設置技・サイクル等の優先度を人間レビューしてから制作する。
+2. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
+3. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
+4. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
 
 ## Important cautions
 
@@ -52,4 +52,5 @@
 - Mega / regional / independent formを表示名だけで判定しない。
 - 不完全なdaily snapshotから環境推移を推測せず、削除済みmeta-historyを復活させない。
 - 記事の技数値・一般効果は共通move metadataから解決し、記事側へ重複保存しない。
+- 基礎記事は用語辞典だけにせず、仕組みと「対戦で何が変わるか」をつなげる。完全初心者コースのreading orderと内容カテゴリを混同しない。
 - 大きな作業は早めにGitHub checkpointを作り、project memory更新だけを理由に安全な実装のpushを遅らせない。
