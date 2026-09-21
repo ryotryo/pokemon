@@ -24,7 +24,7 @@ export interface BattleBasicsArticle {
   description: string;
   categoryId: string;
   beginnerCourseOrder?: number;
-  icon?: SiteIconName;
+  icon: SiteIconName;
   sections: BattleBasicsSection[];
   relatedArticleSlugs: string[];
   relatedTools: BattleBasicsToolId[];
@@ -42,7 +42,39 @@ export const battleBasicsCategories: BattleBasicsCategory[] = [
 ];
 
 let nextExtraCourseOrder = 16;
-function extraArticle(slug:string,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,beginnerCourseOrder:nextExtraCourseOrder++,sections,relatedArticleSlugs,relatedTools};}
+const secondWaveIcons = {
+  "damage-basics": "damage",
+  "type-effectiveness-damage": "type-matchup",
+  "four-times-weakness": "type-matchup",
+  "critical-hits": "critical-hit",
+  "damage-randomness": "random-range",
+  "ko-terms": "ko-count",
+  "move-power": "move-power",
+  "speed-ties": "speed-tie",
+  "move-priority": "priority",
+  "priority-moves": "priority-move",
+  "speed-changes": "speed-change",
+  "trick-room": "trick-room",
+  burn: "burn",
+  paralysis: "paralysis",
+  "poison-and-bad-poison": "poison",
+  sleep: "sleep",
+  "setup-moves": "setup",
+  weather: "weather",
+  sun: "weather-sun",
+  rain: "weather-rain",
+  sandstorm: "weather-sand",
+  snow: "weather-snow",
+  terrain: "terrain",
+  "stealth-rock": "stealth-rock",
+  "hp-odd-even": "hp-parity",
+  "substitute-hp": "substitute",
+  "leftovers-recovery": "recovery",
+  cycle: "cycle",
+  "setup-fodder": "setup-opportunity",
+  "move-consistency": "coverage-path",
+} as const satisfies Record<string, SiteIconName>;
+function extraArticle(slug:keyof typeof secondWaveIcons,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,beginnerCourseOrder:nextExtraCourseOrder++,icon:secondWaveIcons[slug],sections,relatedArticleSlugs,relatedTools};}
 
 export const battleBasicsArticles: BattleBasicsArticle[] = [
   {
@@ -70,7 +102,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["same-type-attack-bonus", "matchups", "switching"], relatedTools: ["party-check", "damage-chart"],
   },
   {
-    slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4,
+    slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4, icon: "type-stab",
     sections: [
       { heading: "自分と同じタイプの技は強くなる", paragraphs: ["ポケモン自身のタイプと、使う技のタイプが同じだと、その技のダメージは基本的に1.5倍になります。これを「タイプ一致」と呼びます。", "たとえば、ほのおタイプのリザードンがほのお技を使えばタイプ一致です。リザードンがノーマル技を使っても、タイプ一致にはなりません。"] },
       { heading: "弱点とは別のしくみ", paragraphs: ["タイプ一致は「使う側のポケモンと技」を比べます。弱点は「技と受ける側のポケモン」を比べます。2つは別々に計算されます。", "タイプ一致のほのお技で、ほのおが弱点の相手を攻撃すれば、1.5倍と2倍の両方が重なります。タイプ一致でも相手にいまひとつなら、思ったほど減らないことがあります。"] },
@@ -78,7 +110,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["type-matchups", "move-categories", "stats"], relatedTools: ["damage-chart", "move-search"],
   },
   {
-    slug: "move-categories", title: "物理技・特殊技・変化技ってなに？", description: "3種類の技と、ダメージに使う能力値の違いを説明します。", categoryId: "getting-started", beginnerCourseOrder: 5,
+    slug: "move-categories", title: "物理技・特殊技・変化技ってなに？", description: "3種類の技と、ダメージに使う能力値の違いを説明します。", categoryId: "getting-started", beginnerCourseOrder: 5, icon: "physical-special",
     sections: [
       { heading: "攻撃技には物理と特殊がある", paragraphs: ["相手へダメージを与える技は、大きく物理技と特殊技に分かれます。物理技は使う側の「攻撃」と受ける側の「防御」、特殊技は使う側の「特攻」と受ける側の「特防」を主に使ってダメージを決めます。"], facts: [{ label: "物理技", value: "攻撃 ↔ 防御" }, { label: "特殊技", value: "特攻 ↔ 特防" }, { label: "変化技", value: "補助や妨害" }] },
       { heading: "タイプだけでは決まらない", paragraphs: ["同じほのおタイプでも、物理技と特殊技があります。技のタイプを見ただけでは物理か特殊かは分かりません。技に表示される分類の印や説明を確認します。", "攻撃が高いポケモンには物理技、特攻が高いポケモンには特殊技が合いやすいですが、覚える技や役割によって例外もあります。"] },
@@ -86,7 +118,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["stats", "stat-stages", "abilities"], relatedTools: ["move-search", "pokemon-intro"],
   },
   {
-    slug: "stats", title: "HP・攻撃・防御・特攻・特防・素早さってなに？", description: "ポケモンの6つの能力値と、H・A・B・C・D・Sという略称を説明します。", categoryId: "getting-started", beginnerCourseOrder: 6,
+    slug: "stats", title: "HP・攻撃・防御・特攻・特防・素早さってなに？", description: "ポケモンの6つの能力値と、H・A・B・C・D・Sという略称を説明します。", categoryId: "getting-started", beginnerCourseOrder: 6, icon: "stats",
     sections: [
       { heading: "6つの数字が得意・不得意を表す", paragraphs: ["ポケモンには6つの能力値があります。数字が高いほど、その分野が得意です。全部が高いとは限らず、攻撃が高い、守りが得意、素早いなど、ポケモンごとに個性があります。"], bullets: ["HP：攻撃に耐えられる量", "攻撃：物理技で与えるダメージに関わる", "防御：物理技を受ける力", "特攻：特殊技で与えるダメージに関わる", "特防：特殊技を受ける力", "素早さ：原則として行動する順番に関わる"] },
       { heading: "攻めと守りは組になっている", paragraphs: ["物理技を使うなら攻撃が高いほど有利で、受ける側は防御が高いほど耐えやすくなります。特殊技では特攻と特防の組み合わせです。HPは物理・特殊のどちらを受けるときにも使います。", "そのため、防御だけ高くてもHPが低ければ何度も受けるのは難しく、攻撃が高くても使う技が特殊技なら、その高さを生かせないことがあります。"] },
@@ -94,7 +126,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["move-categories", "speed-and-turn-order", "roles"], relatedTools: ["speed-ranking", "pokemon-intro"],
   },
   {
-    slug: "speed-and-turn-order", title: "素早さと行動順", description: "素早さが行動順にどう関わり、どんな例外があるのかを説明します。", categoryId: "speed", beginnerCourseOrder: 7,
+    slug: "speed-and-turn-order", title: "素早さと行動順", description: "素早さが行動順にどう関わり、どんな例外があるのかを説明します。", categoryId: "speed", beginnerCourseOrder: 7, icon: "speed",
     sections: [
       { heading: "原則は素早い方が先", paragraphs: ["お互いが同じ優先度の技を選んだときは、素早さが高いポケモンから行動します。先に相手を倒せれば、そのターンは相手の攻撃を受けずにすむことがあります。だから素早さはとても重要です。"] },
       { heading: "先制技などの例外がある", paragraphs: ["技には「優先度」があり、優先度が高い技は素早さに関係なく先に出やすくなります。でんこうせっかなどが先制技です。反対に、後から動く性質の技もあります。", "同じ優先度で素早さも同じ、いわゆる「同速」の場合は、どちらが先に動くか毎回確定しません。"] },
@@ -102,7 +134,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["stats", "status-conditions", "stat-stages"], relatedTools: ["speed-ranking"],
   },
   {
-    slug: "abilities", title: "特性ってなに？", description: "ポケモンが持つ特別な効果と、対戦で確認する意味を説明します。", categoryId: "getting-started", beginnerCourseOrder: 8,
+    slug: "abilities", title: "特性ってなに？", description: "ポケモンが持つ特別な効果と、対戦で確認する意味を説明します。", categoryId: "getting-started", beginnerCourseOrder: 8, icon: "ability",
     sections: [
       { heading: "ポケモンごとの特別な力", paragraphs: ["特性は、ポケモンが持っている特別な効果です。技のように毎ターン選ぶものではなく、条件を満たすと自動で働くものが多くあります。", "場に出たときに天候を変える、特定の技を無効にする、攻撃を受けると能力が上がるなど、内容はさまざまです。"] },
       { heading: "同じタイプでも動きが変わる", paragraphs: ["タイプや能力値が似ていても、特性が違えば得意な相手や役割が変わります。弱点の技を無効にする特性があれば、タイプ相性だけを見た予想が外れることもあります。", "相手のポケモンが場に出たときに特性名が表示されたら、その後の行動を考える大切な手がかりです。"] },
@@ -110,7 +142,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["held-items", "matchups", "roles"], relatedTools: ["pokemon-intro"],
   },
   {
-    slug: "held-items", title: "持ち物ってなに？", description: "ポケモンに持たせる道具が、対戦中にどう働くかを説明します。", categoryId: "getting-started", beginnerCourseOrder: 9,
+    slug: "held-items", title: "持ち物ってなに？", description: "ポケモンに持たせる道具が、対戦中にどう働くかを説明します。", categoryId: "getting-started", beginnerCourseOrder: 9, icon: "item",
     sections: [
       { heading: "1匹につき1つ持たせる", paragraphs: ["ポケモンには、対戦中に効果を発揮する持ち物を1つ持たせられます。HPが減ると回復するきのみ、技を強くする道具、素早さを上げる道具などがあります。", "持ち物は技とは別に働き、条件を満たすと自動で使われるものや、持っている間ずっと効果が続くものがあります。"] },
       { heading: "強い代わりに制限もある", paragraphs: ["大きく能力を高める代わりに同じ技しか選べなくなるなど、強みと欠点がセットの持ち物もあります。効果の一部だけでなく、制限まで読むことが大切です。", "相手の持ち物は最初から見えないため、与えたダメージや行動順から予想することもあります。初心者のうちは、まず自分の持ち物の効果を忘れないようにしましょう。"] },
@@ -118,7 +150,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["abilities", "roles", "win-condition"], relatedTools: ["usage-ranking", "pokemon-intro"],
   },
   {
-    slug: "status-conditions", title: "状態異常ってなに？", description: "やけど、まひ、どく、ねむり、こおりで何が困るのかを整理します。", categoryId: "status", beginnerCourseOrder: 10,
+    slug: "status-conditions", title: "状態異常ってなに？", description: "やけど、まひ、どく、ねむり、こおりで何が困るのかを整理します。", categoryId: "status", beginnerCourseOrder: 10, icon: "status",
     sections: [
       { heading: "しばらく残る不利な状態", paragraphs: ["状態異常は、技や特性などによってポケモンに付く不利な状態です。交代しても残るものが多く、治す効果を使うか、対戦中の条件を満たすまで影響が続きます。", "同じポケモンが、やけどとまひのような主要な状態異常に同時になることは基本的にありません。"] },
       { heading: "まずは何が困るかを知る", paragraphs: ["細かな確率やターン数より、行動やHPにどんな影響があるかを覚えましょう。"], bullets: ["やけど：毎ターンHPが減り、物理技のダメージも下がる", "まひ：素早さが下がり、行動できないことがある", "どく：毎ターンHPが減る", "もうどく：経過するほど毎ターンのダメージが増える", "ねむり：眠っている間は、多くの技を使えない", "こおり：行動できず、ターン経過などで解けることがある"] },
@@ -126,7 +158,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["speed-and-turn-order", "switching", "abilities"], relatedTools: ["pokemon-intro"],
   },
   {
-    slug: "stat-stages", title: "能力ランクってなに？", description: "能力が1段階、2段階上がる・下がるとはどういうことかを説明します。", categoryId: "status", beginnerCourseOrder: 11,
+    slug: "stat-stages", title: "能力ランクってなに？", description: "能力が1段階、2段階上がる・下がるとはどういうことかを説明します。", categoryId: "status", beginnerCourseOrder: 11, icon: "stat-stage",
     sections: [
       { heading: "対戦中だけ能力を変える段階", paragraphs: ["技や特性で「攻撃が上がった」と表示されると、その試合中の能力に補正がかかります。この上げ下げを能力ランクと呼び、通常を0として、上は+6、下は-6まで変化します。", "「ぐーんと上がった」は2段階など、表示によって変化量が違います。"] },
       { heading: "1段階でも影響は大きい", paragraphs: ["攻撃・防御・特攻・特防・素早さは、+1で通常の1.5倍、+2で2倍になります。下がる場合は、-1で通常の2/3、-2で1/2です。", "たとえば攻撃が+2になれば、物理技のダメージを大きく伸ばせます。素早さが+1なら、それまで抜けなかった相手より先に動けることがあります。"], facts: [{ label: "+1", value: "3/2倍" }, { label: "+2", value: "2倍" }, { label: "-1", value: "2/3倍" }, { label: "-2", value: "1/2倍" }] },
@@ -134,7 +166,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["move-categories", "speed-and-turn-order", "switching"], relatedTools: ["speed-ranking", "pokemon-intro"],
   },
   {
-    slug: "switching", title: "なぜポケモンを交代するの？", description: "不利な場面から逃げ、次に有利な状況を作る交代の意味を説明します。", categoryId: "strategy", beginnerCourseOrder: 12,
+    slug: "switching", title: "なぜポケモンを交代するの？", description: "不利な場面から逃げ、次に有利な状況を作る交代の意味を説明します。", categoryId: "strategy", beginnerCourseOrder: 12, icon: "switch",
     sections: [
       { heading: "倒される前に控えへ戻す", paragraphs: ["交代を選ぶと、場のポケモンを控えへ戻し、別の味方を出します。相手の攻撃を受ける前に交代できれば、弱点を突かれて倒されるのを避けられることがあります。", "交代先のポケモンは、そのターンの相手の攻撃を受ける可能性があります。誰なら受けられるかを考える必要があります。"] },
       { heading: "交代する主な理由", paragraphs: ["交代は逃げるだけの行動ではなく、次に攻めやすい場面を作る行動です。"], bullets: ["不利なタイプの相手から離れる", "攻撃を受けやすい味方へ代わる", "相手へ有利なポケモンを場に出す", "能力低下など、交代で消える効果をリセットする", "残しておきたいポケモンのHPを守る"] },
@@ -142,7 +174,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["type-matchups", "matchups", "roles"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
-    slug: "roles", title: "ポケモンの「役割」ってなに？", description: "チームの中でポケモンが担当する仕事を、代表例から説明します。", categoryId: "strategy", beginnerCourseOrder: 13,
+    slug: "roles", title: "ポケモンの「役割」ってなに？", description: "チームの中でポケモンが担当する仕事を、代表例から説明します。", categoryId: "strategy", beginnerCourseOrder: 13, icon: "roles",
     sections: [
       { heading: "役割はチームの中での仕事", paragraphs: ["ポケモンには、攻撃が得意、攻撃を受けるのが得意、味方を助けるのが得意などの違いがあります。チームで担当する仕事を「役割」と呼びます。", "同じポケモンでも技や持ち物で役割が変わることがありますが、まずは何が得意なポケモンかを見ると理解しやすくなります。"] },
       { heading: "よくある役割", paragraphs: ["役割の名前には厳密に1つだけの定義があるとは限りません。初心者は次のイメージから始めましょう。"], bullets: ["アタッカー：高い火力で相手を倒す", "受け：高い耐久や回復で攻撃を受け止める", "サポート：状態異常や場の効果で味方を助ける", "エース：準備を整え、終盤に相手を倒し切る中心役", "クッション：いったん攻撃を受け、安全に次の味方へつなぐ"] },
@@ -150,7 +182,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["team-selection", "switching", "win-condition"], relatedTools: ["pokemon-roles", "pokemon-intro"],
   },
   {
-    slug: "matchups", title: "有利対面・不利対面ってなに？", description: "場にいる2匹のどちらが動きやすいかを判断する考え方を説明します。", categoryId: "strategy", beginnerCourseOrder: 14,
+    slug: "matchups", title: "有利対面・不利対面ってなに？", description: "場にいる2匹のどちらが動きやすいかを判断する考え方を説明します。", categoryId: "strategy", beginnerCourseOrder: 14, icon: "matchup",
     sections: [
       { heading: "目の前の組み合わせを「対面」と呼ぶ", paragraphs: ["自分と相手の場にいるポケモン同士の組み合わせを「対面」と呼びます。自分が相手を倒しやすく、相手からは倒されにくいなら有利対面。反対なら不利対面です。", "不利対面では、無理に攻撃せず交代することが選択肢になります。"] },
       { heading: "タイプだけでは決まらない", paragraphs: ["タイプ相性は大きな判断材料ですが、それだけで有利・不利が決まるわけではありません。"], bullets: ["どちらが先に動くか", "攻撃を何回耐えられるか", "弱点を突ける技を実際に覚えているか", "特性で技を無効にしないか", "状態異常や能力変化が残っていないか"] },
@@ -158,7 +190,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["type-matchups", "speed-and-turn-order", "switching"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
-    slug: "win-condition", title: "勝ち筋ってなに？", description: "最後にどうやって相手を倒し切るか、試合のゴールから考える方法を説明します。", categoryId: "strategy", beginnerCourseOrder: 15,
+    slug: "win-condition", title: "勝ち筋ってなに？", description: "最後にどうやって相手を倒し切るか、試合のゴールから考える方法を説明します。", categoryId: "strategy", beginnerCourseOrder: 15, icon: "win-condition",
     sections: [
       { heading: "勝つまでの道筋", paragraphs: ["勝ち筋とは、「最後にどうやって相手を倒し切るか」という道筋です。難しい作戦だけを指す言葉ではありません。「最後に素早いポケモンで残りを倒す」も立派な勝ち筋です。", "試合の途中で、残っているポケモンとHPを見て、自分が勝てそうな形を考えます。"] },
       { heading: "簡単な勝ち筋の例", paragraphs: ["自分のエースを止める相手がいるなら、その相手を先に倒すか、エースの攻撃で倒せるところまで削ります。相手にとても速いポケモンがいるなら、先に倒しておくと、最後に自分の攻撃役が動きやすくなります。"], bullets: ["苦手な相手を先に削る", "相手の速いポケモンを倒す", "最後に自分のエースを安全に出す", "相手の攻撃を受けられる味方を残す"] },
