@@ -173,7 +173,7 @@ export function MoveSearch({ dataset }: { dataset: MoveSearchDataset }) {
             {learners.map((pokemon) => (
               <li key={pokemon.id} className="grid min-h-14 grid-cols-[2rem_2.75rem_minmax(0,1fr)] items-center gap-2 px-3 py-1.5 [content-visibility:auto]">
                 <span className="text-center text-xs font-black text-slate-500">{pokemon.ranks[format] ?? "—"}</span>
-                <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={44} />
+                <PokemonImage src={pokemon.sprite} name={pokemon.displayNameJa} size={44} mini decorative />
                 <span className="min-w-0">
                   <span className="block truncate text-sm font-bold">{pokemon.displayNameJa}</span>
                   <span className="mt-1 flex flex-wrap gap-1">{pokemon.types.map((type) => <TypeBadge key={type} type={type} />)}</span>

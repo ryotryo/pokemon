@@ -47,7 +47,7 @@ export function PokemonIntroList({ items }: { items: PokemonIntroListItem[] }) {
     </div>
     <div className="mb-2 flex items-center justify-between px-1 text-xs text-slate-500"><h2 id="pokemon-intro-results" className="font-bold text-slate-700">該当するポケモン</h2><span aria-live="polite">{visibleItems.length}匹</span></div>
     {visibleItems.length ? <div className="grid gap-2 sm:grid-cols-2">{visibleItems.map((entry) => <Link key={entry.id} href={`/pokemon-intro/${entry.id}/`} className="group flex min-w-0 items-center gap-3 rounded-2xl border border-blue-100 bg-white p-3 shadow-sm transition hover:border-blue-300 focus-visible:outline-2 focus-visible:outline-blue-600">
-      <PokemonImage src={entry.sprite} name={entry.displayNameJa} size={44} />
+      <PokemonImage src={entry.sprite} name={entry.displayNameJa} size={44} mini decorative />
       <span className="min-w-0 flex-1"><span className="flex min-w-0 items-baseline gap-2"><strong className="truncate text-sm font-black">{entry.displayNameJa}</strong><small className="shrink-0 text-[10px] font-medium text-slate-400">No.{String(entry.dexNumber).padStart(4, "0")}</small></span><span className="mt-1 flex flex-wrap gap-1">{entry.types.map((entryType) => <TypeBadge key={entryType} type={entryType} />)}</span><span className="mt-1.5 block text-xs leading-5 text-slate-600">{entry.summary}</span></span><span aria-hidden="true" className="font-bold text-blue-700">→</span>
     </Link>)}</div> : <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-10 text-center"><p className="font-bold text-slate-700">条件に合うポケモンが見つかりません</p><p className="mt-1 text-xs text-slate-500">名前やタイプを変えてお試しください。</p></div>}
   </section>;

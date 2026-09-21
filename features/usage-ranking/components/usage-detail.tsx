@@ -24,6 +24,8 @@ import { AbilityDetailSheet } from "./ability-detail-sheet";
 import { MoveDetailSheet } from "./move-detail-sheet";
 import { PercentageBar } from "./percentage-bar";
 import { PokemonImage } from "./pokemon-image";
+import { ItemAssetImage } from "@/components/ui/game-asset-image";
+import { getItemAssetName } from "@/lib/champions/item-assets";
 
 const SECTIONS = [
   ["moves", "使用技"],
@@ -90,7 +92,7 @@ function TypeMatchups({ types }: { types: string[] }) {
           <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1">
             {entries.map(({ type, multiplier }) => (
               <span key={type} className="inline-flex items-center gap-1">
-                <TypeBadge type={type} />
+                <TypeBadge type={type} withIcon />
                 <b className="text-[11px] text-slate-600">×{multiplier}</b>
               </span>
             ))}
@@ -155,8 +157,9 @@ function ItemRankings({ detail }: { detail: UsageFormatDetail }) {
   return (
     <ol className={RANKING_GRID_CLASS}>
       {detail.items.map((row) => (
-        <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_minmax(0,1fr)] gap-1.5 border-b border-slate-100 py-2">
+        <li key={`${row.rank}-${row.nameJa}`} className="grid min-h-12 grid-cols-[1.25rem_1.75rem_minmax(0,1fr)] items-center gap-1.5 border-b border-slate-100 py-2">
           <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
+          <ItemAssetImage canonicalName={getItemAssetName(row.nameJa)} nameJa={row.nameJa} />
           <div className="min-w-0"><div className="flex gap-1"><p className="min-w-0 flex-1 truncate text-xs font-bold" title={row.nameJa}>{row.nameJa}</p><UsageValue value={row.percentageValue} fallback={row.percentage} /></div><PercentageBar value={row.percentageValue} /></div>
         </li>
       ))}
@@ -229,7 +232,7 @@ function TeammateRankings({ detail, format }: { detail: UsageFormatDetail; forma
         <li key={`${row.rank}-${row.pokemonId}`}>
           <Link href={`/usage-ranking/${row.pokemonId}/?format=${formatQuery(format)}`} className="grid min-h-14 grid-cols-[1.25rem_2.25rem_minmax(0,1fr)_auto] items-center gap-1.5 border-b border-slate-100 py-1.5 focus-visible:outline-2 focus-visible:outline-blue-600">
             <span className="text-center text-[11px] font-black text-slate-400">{row.rank}</span>
-            <PokemonImage src={row.sprite} name={row.displayNameJa} size={44} />
+              <PokemonImage src={row.sprite} name={row.displayNameJa} size={44} mini decorative />
             <span className="min-w-0">
               <span className="block truncate text-xs font-bold" title={row.displayNameJa}>{row.displayNameJa}</span>
             </span>

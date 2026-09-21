@@ -1,21 +1,6 @@
-"use client";
+import { PokemonAssetImage } from "@/components/ui/game-asset-image";
 
-import Image from "next/image";
-import { useState } from "react";
-
-export function PokemonImage({ src, name, size }: { src: string; name: string; size: 24 | 44 | 96 }) {
-  const [failed, setFailed] = useState(false);
-  const sizeClass = size === 96 ? "size-24" : size === 44 ? "size-11" : "size-6";
-  if (failed) {
-    return (
-      <span
-        role="img"
-        aria-label={`${name}の画像を表示できません`}
-        className={`flex shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-400 ${sizeClass}`}
-      >
-        ？
-      </span>
-    );
-  }
-  return <Image src={src} alt={`${name}の画像`} width={size} height={size} unoptimized onError={() => setFailed(true)} className={`${sizeClass} shrink-0 object-contain`} />;
+export function PokemonImage({ src, name, size, mini = false, decorative = false }: { src: string; name: string; size: 24 | 44 | 96; mini?: boolean; decorative?: boolean }) {
+  const assetSize = size === 96 ? "lg" : size === 44 ? "md" : "xs";
+  return <PokemonAssetImage imagePath={src} name={name} size={assetSize} mini={mini} decorative={decorative} priority={size === 96} />;
 }

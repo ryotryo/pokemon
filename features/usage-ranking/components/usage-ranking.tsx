@@ -70,7 +70,7 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
               className="grid min-h-16 grid-cols-[2rem_2.75rem_minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-blue-600"
             >
               <span className="text-center text-xs font-black text-slate-500">{entry.ranks[format] ?? "—"}</span>
-              <PokemonImage src={entry.sprite} name={entry.displayNameJa} size={44} />
+              <PokemonImage src={entry.sprite} name={entry.displayNameJa} size={44} mini decorative />
               <span className="min-w-0">
                 <span className="block truncate text-sm font-bold">{entry.displayNameJa}</span>
                 <span className="mt-1 flex min-w-0 flex-wrap gap-1">

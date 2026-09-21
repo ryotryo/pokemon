@@ -1,5 +1,6 @@
 import { getTypeDisplayNameJa } from "@/lib/champions/display-names";
 import type { DamageClass } from "@/lib/champions/types";
+import { TypeAssetImage } from "@/components/ui/game-asset-image";
 
 const TYPE_COLORS: Record<string, string> = {
   fire: "bg-red-100 text-red-700",
@@ -30,8 +31,9 @@ const DAMAGE_CLASS_LABELS: Record<DamageClass, string> = {
 
 const badgeBase = "inline-flex shrink-0 items-center rounded-full px-2 py-0.5 text-[10px] font-bold leading-4";
 
-export function TypeBadge({ type }: { type: string }) {
-  return <span className={`${badgeBase} ${TYPE_COLORS[type.toLowerCase()] ?? "bg-slate-100 text-slate-700"}`}>{getTypeDisplayNameJa(type)}</span>;
+export function TypeBadge({ type, withIcon = false }: { type: string; withIcon?: boolean }) {
+  const nameJa = getTypeDisplayNameJa(type);
+  return <span className={`${badgeBase} ${withIcon ? "gap-1 pl-1" : ""} ${TYPE_COLORS[type.toLowerCase()] ?? "bg-slate-100 text-slate-700"}`}>{withIcon ? <TypeAssetImage type={type} nameJa={nameJa} /> : null}{nameJa}</span>;
 }
 
 export function DamageClassBadge({ damageClass }: { damageClass: DamageClass }) {

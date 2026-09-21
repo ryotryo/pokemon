@@ -387,6 +387,7 @@ async function main() {
       movesById[id].descriptionSource = "pokeapi";
     }
     const itemsJa = localizedByEnglish(itemEn, itemJa);
+    const itemAssets = Object.fromEntries(itemEn.mSDataSet.map((entry) => [normalizedName(entry.OriginalText), entry.OriginalText]));
     const naturesJa = localizedByEnglish(natureEn, natureJa);
     const abilitiesJa = localizedByEnglish(abilityEn, abilityJa);
     const abilityNamesByIndex = new Map(abilityEn.mSDataSet.map((entry) => [String(entry.Index), entry.OriginalText]));
@@ -490,6 +491,7 @@ async function main() {
     await writeFile(path.join(STAGE, "moves.json"), JSON.stringify(movesById, null, 2) + "\n");
     await writeFile(path.join(STAGE, "contact-moves.json"), JSON.stringify(waza.filter((move) => move.direct === "1").map((move) => move.id), null, 2) + "\n");
     await writeFile(path.join(STAGE, "items-ja.json"), JSON.stringify(Object.fromEntries(itemsJa), null, 2) + "\n");
+    await writeFile(path.join(STAGE, "item-assets.json"), JSON.stringify(itemAssets, null, 2) + "\n");
     await writeFile(path.join(STAGE, "natures-ja.json"), JSON.stringify(Object.fromEntries(naturesJa), null, 2) + "\n");
     await writeFile(path.join(STAGE, "metadata.json"), JSON.stringify({
       championsBattleData: `${API}/api`, champoutCommit: commit.sha,
@@ -506,7 +508,7 @@ async function main() {
     for (const detail of details) {
       await writeFile(path.join(STAGE, "details", `${detail.id}.json`), JSON.stringify(detail, null, 2) + "\n");
     }
-    for (const file of ["moves.json", "items-ja.json", "natures-ja.json", "metadata.json"]) {
+    for (const file of ["moves.json", "items-ja.json", "item-assets.json", "natures-ja.json", "metadata.json"]) {
       await rename(path.join(STAGE, file), path.join(OUT, file));
     }
     await rm(path.join(OUT, "details"), { recursive: true, force: true });
