@@ -37,7 +37,8 @@ export const battleBasicsCategories: BattleBasicsCategory[] = [
   { id: "terms", name: "対戦でよく見る言葉", description: "対戦記事や会話で使われる言葉を、やさしく読み解きます。", order: 8 },
 ];
 
-function extraArticle(slug:string,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,sections,relatedArticleSlugs,relatedTools};}
+let nextExtraCourseOrder = 16;
+function extraArticle(slug:string,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,beginnerCourseOrder:nextExtraCourseOrder++,sections,relatedArticleSlugs,relatedTools};}
 
 export const battleBasicsArticles: BattleBasicsArticle[] = [
   {

@@ -11,18 +11,20 @@ describe("battle basics", () => {
     expect(battleBasicsArticles.every((article) => categoryIds.has(article.categoryId))).toBe(true);
   });
 
-  it("publishes 15 unique beginner articles in order", () => {
+  it("publishes 45 unique beginner articles in order", () => {
     expect(battleBasicsArticles.length).toBeGreaterThanOrEqual(15);
     expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(battleBasicsArticles.length);
-    expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:15},(_,index)=>index+1));
+    expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:45},(_,index)=>index+1));
     expect(battleBasicsArticles.every((article) => article.sections.length >= 3 && article.sections.length <= 6)).toBe(true);
     expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0))).toBe(true);
   });
 
-  it("keeps the original beginner course separate from later category articles", () => {
-    expect(beginnerCourseArticles).toHaveLength(15);
+  it("adds the second-wave articles to the numbered course", () => {
+    expect(beginnerCourseArticles).toHaveLength(45);
     expect(battleBasicsArticles).toHaveLength(45);
-    expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(30);
+    expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(0);
+    expect(battleBasicsArticleBySlug.get("damage-basics")?.beginnerCourseOrder).toBe(16);
+    expect(battleBasicsArticleBySlug.get("move-consistency")?.beginnerCourseOrder).toBe(45);
   });
 
   it("contains all 30 second-wave slugs and expected category totals", () => {
@@ -56,7 +58,7 @@ describe("battle basics", () => {
     expect(articleSource).toContain("← 前の記事");
     expect(articleSource).toContain("次の記事 →");
     expect(beginnerCourseArticles[0].beginnerCourseOrder).toBe(1);
-    expect(beginnerCourseArticles.at(-1)?.beginnerCourseOrder).toBe(15);
+    expect(beginnerCourseArticles.at(-1)?.beginnerCourseOrder).toBe(45);
   });
 
   it("adds all articles to the sitemap and keeps existing main routes", () => {
