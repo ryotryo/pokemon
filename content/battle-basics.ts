@@ -1,5 +1,4 @@
 import type { SiteIconName } from "@/components/ui/site-icon";
-import type { BattleBasicsDiagramName } from "@/features/battle-basics/components/concept-diagram";
 
 export interface BattleBasicsCategory {
   id: string;
@@ -26,7 +25,6 @@ export interface BattleBasicsArticle {
   categoryId: string;
   beginnerCourseOrder?: number;
   icon: SiteIconName;
-  diagram?: BattleBasicsDiagramName;
   sections: BattleBasicsSection[];
   relatedArticleSlugs: string[];
   relatedTools: BattleBasicsToolId[];
@@ -76,12 +74,7 @@ const secondWaveIcons = {
   "setup-fodder": "setup-opportunity",
   "move-consistency": "coverage-path",
 } as const satisfies Record<string, SiteIconName>;
-const secondWaveDiagrams: Partial<Record<keyof typeof secondWaveIcons, BattleBasicsDiagramName>> = {
-  "damage-basics": "damage-factors", "ko-terms": "ko-count", "speed-ties": "speed-tie", "move-priority": "priority", "trick-room": "trick-room",
-  weather: "weather", sun: "sun", rain: "rain", sandstorm: "sandstorm", snow: "snow", "stealth-rock": "stealth-rock",
-  "hp-odd-even": "hp-parity", "substitute-hp": "substitute", "leftovers-recovery": "leftovers", cycle: "cycle", "setup-fodder": "setup-opportunity", "move-consistency": "coverage",
-};
-function extraArticle(slug:keyof typeof secondWaveIcons,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,beginnerCourseOrder:nextExtraCourseOrder++,icon:secondWaveIcons[slug],diagram:secondWaveDiagrams[slug],sections,relatedArticleSlugs,relatedTools};}
+function extraArticle(slug:keyof typeof secondWaveIcons,title:string,description:string,categoryId:string,sections:BattleBasicsSection[],relatedArticleSlugs:string[],relatedTools:BattleBasicsToolId[]=[]):BattleBasicsArticle{return{slug,title,description,categoryId,beginnerCourseOrder:nextExtraCourseOrder++,icon:secondWaveIcons[slug],sections,relatedArticleSlugs,relatedTools};}
 
 export const battleBasicsArticles: BattleBasicsArticle[] = [
   {
@@ -101,7 +94,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["how-to-win", "roles", "matchups"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
-    slug: "type-matchups", title: "タイプ相性ってどう考えればいい？", description: "弱点、等倍、いまひとつ、無効と複合タイプの見方を説明します。", categoryId: "damage", beginnerCourseOrder: 3, icon: "type-matchup", diagram: "type-matchup",
+    slug: "type-matchups", title: "タイプ相性ってどう考えればいい？", description: "弱点、等倍、いまひとつ、無効と複合タイプの見方を説明します。", categoryId: "damage", beginnerCourseOrder: 3, icon: "type-matchup",
     sections: [
       { heading: "技のタイプと相手のタイプを比べる", paragraphs: ["攻撃技にはタイプがあり、相手のタイプとの組み合わせでダメージが変わります。効果抜群なら通常より大きく、いまひとつなら小さくなります。相性がない組み合わせは等倍です。無効の相手には、その技ではダメージを与えられません。"], facts: [{ label: "弱点", value: "2倍" }, { label: "等倍", value: "1倍" }, { label: "いまひとつ", value: "1/2倍" }, { label: "無効", value: "0倍" }] },
       { heading: "複合タイプでは両方を組み合わせる", paragraphs: ["相手が2つのタイプを持つときは、両方の相性を掛け合わせます。たとえば、ほのお・ひこうタイプにいわ技を使うと、どちらにも効果抜群なので2倍×2倍で4倍になります。", "片方に効果抜群でも、もう片方にいまひとつなら2倍×1/2倍で等倍です。見た目だけで決めず、2つのタイプを確認するのが大切です。"] },
@@ -109,7 +102,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["same-type-attack-bonus", "matchups", "switching"], relatedTools: ["party-check", "damage-chart"],
   },
   {
-    slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4, icon: "type-stab", diagram: "stab",
+    slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4, icon: "type-stab",
     sections: [
       { heading: "自分と同じタイプの技は強くなる", paragraphs: ["ポケモン自身のタイプと、使う技のタイプが同じだと、その技のダメージは基本的に1.5倍になります。これを「タイプ一致」と呼びます。", "たとえば、ほのおタイプのリザードンがほのお技を使えばタイプ一致です。リザードンがノーマル技を使っても、タイプ一致にはなりません。"] },
       { heading: "弱点とは別のしくみ", paragraphs: ["タイプ一致は「使う側のポケモンと技」を比べます。弱点は「技と受ける側のポケモン」を比べます。2つは別々に計算されます。", "タイプ一致のほのお技で、ほのおが弱点の相手を攻撃すれば、1.5倍と2倍の両方が重なります。タイプ一致でも相手にいまひとつなら、思ったほど減らないことがあります。"] },
@@ -117,7 +110,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["type-matchups", "move-categories", "stats"], relatedTools: ["damage-chart", "move-search"],
   },
   {
-    slug: "move-categories", title: "物理技・特殊技・変化技ってなに？", description: "3種類の技と、ダメージに使う能力値の違いを説明します。", categoryId: "getting-started", beginnerCourseOrder: 5, icon: "physical-special", diagram: "move-categories",
+    slug: "move-categories", title: "物理技・特殊技・変化技ってなに？", description: "3種類の技と、ダメージに使う能力値の違いを説明します。", categoryId: "getting-started", beginnerCourseOrder: 5, icon: "physical-special",
     sections: [
       { heading: "攻撃技には物理と特殊がある", paragraphs: ["相手へダメージを与える技は、大きく物理技と特殊技に分かれます。物理技は使う側の「攻撃」と受ける側の「防御」、特殊技は使う側の「特攻」と受ける側の「特防」を主に使ってダメージを決めます。"], facts: [{ label: "物理技", value: "攻撃 ↔ 防御" }, { label: "特殊技", value: "特攻 ↔ 特防" }, { label: "変化技", value: "補助や妨害" }] },
       { heading: "タイプだけでは決まらない", paragraphs: ["同じほのおタイプでも、物理技と特殊技があります。技のタイプを見ただけでは物理か特殊かは分かりません。技に表示される分類の印や説明を確認します。", "攻撃が高いポケモンには物理技、特攻が高いポケモンには特殊技が合いやすいですが、覚える技や役割によって例外もあります。"] },
@@ -125,7 +118,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["stats", "stat-stages", "abilities"], relatedTools: ["move-search", "pokemon-intro"],
   },
   {
-    slug: "stats", title: "HP・攻撃・防御・特攻・特防・素早さってなに？", description: "ポケモンの6つの能力値と、H・A・B・C・D・Sという略称を説明します。", categoryId: "getting-started", beginnerCourseOrder: 6, icon: "stats", diagram: "stats",
+    slug: "stats", title: "HP・攻撃・防御・特攻・特防・素早さってなに？", description: "ポケモンの6つの能力値と、H・A・B・C・D・Sという略称を説明します。", categoryId: "getting-started", beginnerCourseOrder: 6, icon: "stats",
     sections: [
       { heading: "6つの数字が得意・不得意を表す", paragraphs: ["ポケモンには6つの能力値があります。数字が高いほど、その分野が得意です。全部が高いとは限らず、攻撃が高い、守りが得意、素早いなど、ポケモンごとに個性があります。"], bullets: ["HP：攻撃に耐えられる量", "攻撃：物理技で与えるダメージに関わる", "防御：物理技を受ける力", "特攻：特殊技で与えるダメージに関わる", "特防：特殊技を受ける力", "素早さ：原則として行動する順番に関わる"] },
       { heading: "攻めと守りは組になっている", paragraphs: ["物理技を使うなら攻撃が高いほど有利で、受ける側は防御が高いほど耐えやすくなります。特殊技では特攻と特防の組み合わせです。HPは物理・特殊のどちらを受けるときにも使います。", "そのため、防御だけ高くてもHPが低ければ何度も受けるのは難しく、攻撃が高くても使う技が特殊技なら、その高さを生かせないことがあります。"] },
@@ -133,7 +126,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["move-categories", "speed-and-turn-order", "roles"], relatedTools: ["speed-ranking", "pokemon-intro"],
   },
   {
-    slug: "speed-and-turn-order", title: "素早さと行動順", description: "素早さが行動順にどう関わり、どんな例外があるのかを説明します。", categoryId: "speed", beginnerCourseOrder: 7, icon: "speed", diagram: "speed-order",
+    slug: "speed-and-turn-order", title: "素早さと行動順", description: "素早さが行動順にどう関わり、どんな例外があるのかを説明します。", categoryId: "speed", beginnerCourseOrder: 7, icon: "speed",
     sections: [
       { heading: "原則は素早い方が先", paragraphs: ["お互いが同じ優先度の技を選んだときは、素早さが高いポケモンから行動します。先に相手を倒せれば、そのターンは相手の攻撃を受けずにすむことがあります。だから素早さはとても重要です。"] },
       { heading: "先制技などの例外がある", paragraphs: ["技には「優先度」があり、優先度が高い技は素早さに関係なく先に出やすくなります。でんこうせっかなどが先制技です。反対に、後から動く性質の技もあります。", "同じ優先度で素早さも同じ、いわゆる「同速」の場合は、どちらが先に動くか毎回確定しません。"] },
@@ -165,10 +158,10 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["speed-and-turn-order", "switching", "abilities"], relatedTools: ["pokemon-intro"],
   },
   {
-    slug: "stat-stages", title: "能力ランクってなに？", description: "能力が1段階、2段階上がる・下がるとはどういうことかを説明します。", categoryId: "status", beginnerCourseOrder: 11, icon: "stat-stage", diagram: "stat-stage",
+    slug: "stat-stages", title: "能力ランクってなに？", description: "能力が1段階、2段階上がる・下がるとはどういうことかを説明します。", categoryId: "status", beginnerCourseOrder: 11, icon: "stat-stage",
     sections: [
       { heading: "対戦中だけ能力を変える段階", paragraphs: ["技や特性で「攻撃が上がった」と表示されると、その試合中の能力に補正がかかります。この上げ下げを能力ランクと呼び、通常を0として、上は+6、下は-6まで変化します。", "「ぐーんと上がった」は2段階など、表示によって変化量が違います。"] },
-      { heading: "1段階でも影響は大きい", paragraphs: ["攻撃・防御・特攻・特防・素早さは、+1で通常の1.5倍、+2で2倍になります。下がる場合は、-1で通常の2/3、-2で1/2です。", "たとえば攻撃が+2になれば、物理技のダメージを大きく伸ばせます。素早さが+1なら、それまで抜けなかった相手より先に動けることがあります。"], facts: [{ label: "+1", value: "3/2倍" }, { label: "+2", value: "2倍" }, { label: "-1", value: "2/3倍" }, { label: "-2", value: "1/2倍" }] },
+      { heading: "1段階でも影響は大きい", paragraphs: ["攻撃・防御・特攻・特防・素早さは、0段階では通常どおりの1倍、+1で1.5倍、+2で2倍になります。下がる場合は、-1で通常の2/3、-2で1/2です。", "たとえば攻撃が+2になれば、物理技のダメージを大きく伸ばせます。素早さが+1なら、それまで抜けなかった相手より先に動けることがあります。"], facts: [{ label: "0", value: "1倍" }, { label: "+1", value: "3/2倍" }, { label: "+2", value: "2倍" }, { label: "-1", value: "2/3倍" }, { label: "-2", value: "1/2倍" }] },
       { heading: "交代すると基本的に元へ戻る", paragraphs: ["能力ランクは、そのポケモンが控えへ戻ると基本的に0へ戻ります。相手が何段階も能力を上げたときは、交代させる技や効果で強化を消せる場合があります。", "自分から交代すれば上げた能力も失うため、強化した後にどれだけ攻められるかが大切です。"], takeaway: "+1は少しではなく1.5倍。能力を上げた後の攻撃と、交代によるリセットを意識します。" },
     ], relatedArticleSlugs: ["move-categories", "speed-and-turn-order", "switching"], relatedTools: ["speed-ranking", "pokemon-intro"],
   },
@@ -189,7 +182,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["team-selection", "switching", "win-condition"], relatedTools: ["pokemon-roles", "pokemon-intro"],
   },
   {
-    slug: "matchups", title: "有利対面・不利対面ってなに？", description: "場にいる2匹のどちらが動きやすいかを判断する考え方を説明します。", categoryId: "strategy", beginnerCourseOrder: 14, icon: "matchup", diagram: "matchup",
+    slug: "matchups", title: "有利対面・不利対面ってなに？", description: "場にいる2匹のどちらが動きやすいかを判断する考え方を説明します。", categoryId: "strategy", beginnerCourseOrder: 14, icon: "matchup",
     sections: [
       { heading: "目の前の組み合わせを「対面」と呼ぶ", paragraphs: ["自分と相手の場にいるポケモン同士の組み合わせを「対面」と呼びます。自分が相手を倒しやすく、相手からは倒されにくいなら有利対面。反対なら不利対面です。", "不利対面では、無理に攻撃せず交代することが選択肢になります。"] },
       { heading: "タイプだけでは決まらない", paragraphs: ["タイプ相性は大きな判断材料ですが、それだけで有利・不利が決まるわけではありません。"], bullets: ["どちらが先に動くか", "攻撃を何回耐えられるか", "弱点を突ける技を実際に覚えているか", "特性で技を無効にしないか", "状態異常や能力変化が残っていないか"] },
@@ -230,8 +223,8 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     {heading:"幅で判断する",paragraphs:["実戦では、最高ダメージを期待するより、低いダメージでも足りるかを考えると安全です。複数回攻撃する場合は、そのたびに乱数が決まります。"],takeaway:"同じ条件でもダメージには幅があります。最小値と最大値の両方を見ます。"}
   ],["damage-basics","ko-terms","critical-hits"],["damage-chart"]),
   extraArticle("ko-terms","確1・確2・乱1ってなに？","ダメージ計算で使われる確定数と乱数の言葉を説明します。","terms",[
-    {heading:"何回で倒せるかを表す言葉",paragraphs:["確1は確定1発の略で、ダメージが最小でも相手の残りHP以上になり、1回で必ず倒せることです。確2は、回復などがなければ2回で必ず倒せることを表します。"]},
-    {heading:"乱1は倒せる場合と残る場合がある",paragraphs:["乱数1発、略して乱1は、1回で倒せるダメージも出ますが、低いダメージでは相手が残る状態です。倒せる確率が高ければ高乱数、低ければ低乱数と表すことがあります。"]},
+    {heading:"何回で倒せるかを表す言葉",paragraphs:["確1は確定1発の略で、ダメージが最小でも相手の残りHP以上になり、1回で必ず倒せることです。確2は、回復などがなければ2回で必ず倒せることを表します。", "たとえば相手の残りHPが100なら、最低ダメージが100以上で確1です。1回のダメージが必ず50以上100未満なら、2回分を合わせて倒せるため確2です。"]},
+    {heading:"乱1は倒せる場合と残る場合がある",paragraphs:["乱数1発、略して乱1は、1回で倒せるダメージも出ますが、低いダメージでは相手が残る状態です。倒せる確率が高ければ高乱数、低ければ低乱数と表すことがあります。", "相手の残りHPが100で、ダメージ幅が90〜110なら、100以上を引いたときだけ1回で倒せます。このように最小値は届かず最大値は届く範囲が乱1です。"]},
     {heading:"行動を決める材料",paragraphs:["確1なら攻撃を選びやすく、乱1なら倒せなかった場合の反撃も考えます。ダメージ早見表の範囲を見るときも、最小値が相手のHPへ届くか確認しましょう。"],takeaway:"確1は必ず1回、確2は必ず2回、乱1は1回で倒せるかが乱数次第です。"}
   ],["damage-randomness","damage-basics","win-condition"],["damage-chart"]),
   extraArticle("move-power","技の威力が高ければ強い技なの？","威力だけでは測れない技の使いやすさを説明します。","damage",[

@@ -59,6 +59,48 @@ describe("battle basics", () => {
     expect(hpArticle).toContain("4の倍数を避ける");
   });
 
+  it("keeps diagram topics understandable in article text alone", () => {
+    const requiredText: Record<string, string[]> = {
+      "type-matchups": ["2倍", "1/2倍", "0倍"],
+      "same-type-attack-bonus": ["1.5倍", "弱点とは別のしくみ"],
+      "move-categories": ["攻撃 ↔ 防御", "特攻 ↔ 特防", "補助や妨害"],
+      stats: ["AとBは物理", "CとDは特殊", "素早さ"],
+      "speed-and-turn-order": ["同じ優先度", "素早さが高い"],
+      "stat-stages": ["0段階", "1倍", "3/2倍", "2/3倍"],
+      matchups: ["タイプ相性、素早さ、残りHP"],
+      "damage-basics": ["使う技の威力と分類", "タイプ一致とタイプ相性", "最後に幅を作る乱数"],
+      "ko-terms": ["残りHPが100", "確1", "確2", "乱1"],
+      "speed-ties": ["同じ優先度・同じ素早さ", "ランダム"],
+      "move-priority": ["最初に技の優先度", "同じ優先度の中で素早さ"],
+      "trick-room": ["同じ優先度", "素早さが低い"],
+      weather: ["晴れ・雨・砂嵐・雪", "上書き"],
+      sun: ["炎は1.5倍、水は半分", "ほのおタイプの技のダメージが1.5倍"],
+      rain: ["水は1.5倍、炎は半分", "みずタイプの技のダメージが1.5倍"],
+      sandstorm: ["最大HPの1/16", "岩タイプの特防が1.5倍"],
+      snow: ["こおりタイプのポケモンの防御が1.5倍", "毎ターンダメージは与えません"],
+      "stealth-rock": ["最大HPの1/8", "いわ弱点なら1/4", "4倍弱点なら1/2"],
+      "hp-odd-even": ["みがわりを4回", "はらだいこ", "ゴーストタイプが使うのろい"],
+      "substitute-hp": ["最大HPの1/4", "4回目"],
+      "leftovers-recovery": ["最大HPの1/16", "最大HP160なら10"],
+      cycle: ["不利な相手から交代", "攻撃を受けやすい味方"],
+      "setup-fodder": ["相手の隙", "積み技や場作り"],
+      "move-consistency": ["相手の残っているポケモン全体", "無効や大きな半減"],
+    };
+
+    for (const [slug, phrases] of Object.entries(requiredText)) {
+      const articleText = JSON.stringify(battleBasicsArticleBySlug.get(slug));
+      for (const phrase of phrases) expect(articleText, `${slug}: ${phrase}`).toContain(phrase);
+    }
+  });
+
+  it("does not ship the retired concept-diagram UI", () => {
+    expect(existsSync("features/battle-basics/components/concept-diagram.tsx")).toBe(false);
+    const articleSource = readFileSync("features/battle-basics/components/battle-basics-article.tsx", "utf8");
+    expect(articleSource).not.toContain("ConceptDiagram");
+    expect(articleSource).not.toContain("図で見る");
+    expect(battleBasicsArticles.every((article) => !("diagram" in article))).toBe(true);
+  });
+
   it("resolves related articles and tool routes", () => {
     const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/"]);
     for (const article of battleBasicsArticles) {
