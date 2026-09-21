@@ -1,8 +1,11 @@
+import type { SiteIconName } from "@/components/ui/site-icon";
+
 export interface BattleBasicsCategory {
   id: string;
   name: string;
   description: string;
   order: number;
+  icon: SiteIconName;
 }
 
 export interface BattleBasicsSection {
@@ -21,20 +24,21 @@ export interface BattleBasicsArticle {
   description: string;
   categoryId: string;
   beginnerCourseOrder?: number;
+  icon?: SiteIconName;
   sections: BattleBasicsSection[];
   relatedArticleSlugs: string[];
   relatedTools: BattleBasicsToolId[];
 }
 
 export const battleBasicsCategories: BattleBasicsCategory[] = [
-  { id: "getting-started", name: "まず知っておきたいこと", description: "勝ち方や技、能力など、対戦画面を見るための土台です。", order: 1 },
-  { id: "damage", name: "ダメージのしくみ", description: "技の威力やタイプが、ダメージへどう関わるかを学びます。", order: 2 },
-  { id: "speed", name: "素早さと行動順", description: "どちらが先に動くのか、その基本を整理します。", order: 3 },
-  { id: "status", name: "状態異常・能力変化", description: "状態異常や能力の上げ下げが、対戦へ与える影響を学びます。", order: 4 },
-  { id: "field", name: "場にかかわる効果", description: "天候やフィールドなど、場全体に影響する効果を扱います。", order: 5 },
-  { id: "numbers", name: "HPと数値のちょっとした知識", description: "HPの減り方や回復量など、知ると役立つ数値を扱います。", order: 6 },
-  { id: "strategy", name: "パーティーと対戦の考え方", description: "選出、交代、役割、勝ち筋など、試合の考え方を学びます。", order: 7 },
-  { id: "terms", name: "対戦でよく見る言葉", description: "対戦記事や会話で使われる言葉を、やさしく読み解きます。", order: 8 },
+  { id: "getting-started", name: "まず知っておきたいこと", description: "勝ち方や技、能力など、対戦画面を見るための土台です。", order: 1, icon: "book" },
+  { id: "damage", name: "ダメージのしくみ", description: "技の威力やタイプが、ダメージへどう関わるかを学びます。", order: 2, icon: "damage" },
+  { id: "speed", name: "素早さと行動順", description: "どちらが先に動くのか、その基本を整理します。", order: 3, icon: "speed" },
+  { id: "status", name: "状態異常・能力変化", description: "状態異常や能力の上げ下げが、対戦へ与える影響を学びます。", order: 4, icon: "status" },
+  { id: "field", name: "場にかかわる効果", description: "天候やフィールドなど、場全体に影響する効果を扱います。", order: 5, icon: "weather" },
+  { id: "numbers", name: "HPと数値のちょっとした知識", description: "HPの減り方や回復量など、知ると役立つ数値を扱います。", order: 6, icon: "hp-parity" },
+  { id: "strategy", name: "パーティーと対戦の考え方", description: "選出、交代、役割、勝ち筋など、試合の考え方を学びます。", order: 7, icon: "cycle" },
+  { id: "terms", name: "対戦でよく見る言葉", description: "対戦記事や会話で使われる言葉を、やさしく読み解きます。", order: 8, icon: "terms" },
 ];
 
 let nextExtraCourseOrder = 16;
@@ -42,7 +46,7 @@ function extraArticle(slug:string,title:string,description:string,categoryId:str
 
 export const battleBasicsArticles: BattleBasicsArticle[] = [
   {
-    slug: "how-to-win", title: "ポケモン対戦ってどうやって勝つの？", description: "対戦の目的と、勝つまでの大まかな流れをゼロから説明します。", categoryId: "getting-started", beginnerCourseOrder: 1,
+    slug: "how-to-win", title: "ポケモン対戦ってどうやって勝つの？", description: "対戦の目的と、勝つまでの大まかな流れをゼロから説明します。", categoryId: "getting-started", beginnerCourseOrder: 1, icon: "target",
     sections: [
       { heading: "相手のポケモンをすべて倒せば勝ち", paragraphs: ["ポケモン対戦では、技で相手のHPを減らし、戦えるポケモンをすべて倒すことが基本の勝利条件です。HPが0になったポケモンは、その試合では戦えなくなります。", "自分のポケモンが1匹でも残り、相手に戦えるポケモンがいなくなれば勝ちです。まずはこのゴールだけ覚えれば、対戦画面の見え方が変わります。"] },
       { heading: "毎ターン、行動を選ぶ", paragraphs: ["自分の番では、技を使うか、控えのポケモンへ交代するかを選びます。両方のプレイヤーが選び終えると、技の優先度や素早さなどに従って行動します。", "強い技を選び続けるだけでなく、相手が何をしてきそうかを考えて行動を選ぶのが対戦です。最初は、相手に効果抜群の技があるかを見るだけでも十分です。"] },
@@ -50,7 +54,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["team-selection", "win-condition"], relatedTools: ["pokemon-intro"],
   },
   {
-    slug: "team-selection", title: "6匹のポケモンと選出", description: "手持ち6匹から、その試合で戦うポケモンを選ぶ流れを説明します。", categoryId: "strategy", beginnerCourseOrder: 2,
+    slug: "team-selection", title: "6匹のポケモンと選出", description: "手持ち6匹から、その試合で戦うポケモンを選ぶ流れを説明します。", categoryId: "strategy", beginnerCourseOrder: 2, icon: "team-selection",
     sections: [
       { heading: "まず6匹でチームを作る", paragraphs: ["対戦へ持ち込むチームは6匹です。ただし、試合で6匹すべてを必ず使うとは限りません。対戦前にお互いの6匹を確認し、その試合へ出すポケモンを選びます。これを「選出」と呼びます。"] },
       { heading: "対戦形式で出す数が変わる", paragraphs: ["基本的なランクバトルでは、シングルバトルは6匹から3匹、ダブルバトルは6匹から4匹を選びます。シングルは場に1匹ずつ、ダブルは場に2匹ずつ出して戦います。", "ルールによって選出数が異なる場合があります。使用できるポケモンなどを定めたルールを「レギュレーション」と呼ぶので、対戦を始める前に画面の表示も確認しましょう。"] },
@@ -58,7 +62,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ], relatedArticleSlugs: ["how-to-win", "roles", "matchups"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
-    slug: "type-matchups", title: "タイプ相性ってどう考えればいい？", description: "弱点、等倍、いまひとつ、無効と複合タイプの見方を説明します。", categoryId: "damage", beginnerCourseOrder: 3,
+    slug: "type-matchups", title: "タイプ相性ってどう考えればいい？", description: "弱点、等倍、いまひとつ、無効と複合タイプの見方を説明します。", categoryId: "damage", beginnerCourseOrder: 3, icon: "type-matchup",
     sections: [
       { heading: "技のタイプと相手のタイプを比べる", paragraphs: ["攻撃技にはタイプがあり、相手のタイプとの組み合わせでダメージが変わります。効果抜群なら通常より大きく、いまひとつなら小さくなります。相性がない組み合わせは等倍です。無効の相手には、その技ではダメージを与えられません。"], facts: [{ label: "弱点", value: "2倍" }, { label: "等倍", value: "1倍" }, { label: "いまひとつ", value: "1/2倍" }, { label: "無効", value: "0倍" }] },
       { heading: "複合タイプでは両方を組み合わせる", paragraphs: ["相手が2つのタイプを持つときは、両方の相性を掛け合わせます。たとえば、ほのお・ひこうタイプにいわ技を使うと、どちらにも効果抜群なので2倍×2倍で4倍になります。", "片方に効果抜群でも、もう片方にいまひとつなら2倍×1/2倍で等倍です。見た目だけで決めず、2つのタイプを確認するのが大切です。"] },
