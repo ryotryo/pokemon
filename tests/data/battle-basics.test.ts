@@ -49,6 +49,16 @@ describe("battle basics", () => {
     expect(overview).toContain("3回目は必ず回復");
   });
 
+  it("explains practical odd and even HP breakpoints", () => {
+    const hpArticle = JSON.stringify(battleBasicsArticleBySlug.get("hp-odd-even"));
+    for (const phrase of ["みがわりを4回", "ステルスロック", "通常のどく", "やけど", "砂嵐", "いのちのたま", "はらだいこ", "オボンのみ", "ゴーストタイプが使うのろい", "たべのこし"]) {
+      expect(hpArticle).toContain(phrase);
+    }
+    expect(hpArticle).toContain("HP200");
+    expect(hpArticle).toContain("HP201");
+    expect(hpArticle).toContain("4の倍数を避ける");
+  });
+
   it("resolves related articles and tool routes", () => {
     const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/"]);
     for (const article of battleBasicsArticles) {

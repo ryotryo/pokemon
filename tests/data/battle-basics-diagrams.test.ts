@@ -21,6 +21,13 @@ describe("battle basics concept diagrams", () => {
     expect(over).toContain("width:100%");
   });
 
+  it("compares both odd-HP survival and even-HP activation goals", () => {
+    const parity = renderToStaticMarkup(createElement(ConceptDiagram, { name: "hp-parity" }));
+    expect(parity).toContain("4回使える");
+    expect(parity).toContain("半分以下・発動");
+    expect(parity).toContain("半分より多い・未発動");
+  });
+
   it("renders captions and textual labels instead of color-only meaning", () => {
     const weather = renderToStaticMarkup(createElement(ConceptDiagram, { name: "weather" }));
     expect(weather).toContain("晴れ");
