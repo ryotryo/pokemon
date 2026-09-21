@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteIcon } from "@/components/ui/site-icon";
+import { ConceptDiagram } from "@/features/battle-basics/components/concept-diagram";
 import { battleBasicsArticleBySlug, battleBasicsCategories, battleBasicsTools, beginnerCourseArticles, type BattleBasicsArticle } from "@/content/battle-basics";
 
 export function BattleBasicsArticle({ article }: { article: BattleBasicsArticle }) {
@@ -17,6 +18,8 @@ export function BattleBasicsArticle({ article }: { article: BattleBasicsArticle 
       <p className="mt-3 text-sm leading-7 text-slate-600">{article.description}</p>
       <p className="mt-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-600">{category.name}</p>
     </header>
+
+    {article.diagram ? <ConceptDiagram name={article.diagram} /> : null}
 
     <div className="mt-7 space-y-8">
       {article.sections.map((section) => <section key={section.heading}>
