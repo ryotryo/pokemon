@@ -36,6 +36,19 @@ describe("battle basics", () => {
     });
   });
 
+  it("uses Pokémon Champions status-condition rules", () => {
+    const paralysis = JSON.stringify(battleBasicsArticleBySlug.get("paralysis"));
+    const sleep = JSON.stringify(battleBasicsArticleBySlug.get("sleep"));
+    const overview = JSON.stringify(battleBasicsArticleBySlug.get("status-conditions"));
+    expect(paralysis).toContain("12.5%");
+    expect(paralysis).toContain("1/2");
+    expect(paralysis).not.toContain("25%で技を出せない");
+    expect(sleep).toContain("2回目は1/3");
+    expect(sleep).toContain("3回目は必ず起きる");
+    expect(overview).toContain("技を使う時に25%で回復");
+    expect(overview).toContain("3回目は必ず回復");
+  });
+
   it("resolves related articles and tool routes", () => {
     const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/"]);
     for (const article of battleBasicsArticles) {

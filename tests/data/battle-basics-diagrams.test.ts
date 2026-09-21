@@ -28,5 +28,14 @@ describe("battle basics concept diagrams", () => {
     expect(weather).toContain("砂嵐");
     expect(weather).toContain("雪");
     expect(weather).toContain("figcaption");
+    expect(weather).not.toContain("bg-blue-50");
+  });
+
+  it("keeps comparison cards neutral unless color has a separate meaning", () => {
+    for (const name of battleBasicsDiagramNames) {
+      const markup = renderToStaticMarkup(createElement(ConceptDiagram, { name }));
+      expect(markup).not.toContain("bg-blue-50");
+      expect(markup).not.toContain("bg-amber-50");
+    }
   });
 });
