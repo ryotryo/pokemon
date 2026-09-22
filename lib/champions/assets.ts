@@ -7,6 +7,12 @@ export const CHAMPIONS_TYPES = [
 
 export type ChampionsAssetType = (typeof CHAMPIONS_TYPES)[number];
 
+const TYPE_ALIASES: Record<string, ChampionsAssetType> = {
+  むし: "bug", あく: "dark", ドラゴン: "dragon", でんき: "electric", フェアリー: "fairy", かくとう: "fighting",
+  ほのお: "fire", ひこう: "flying", ゴースト: "ghost", くさ: "grass", じめん: "ground", こおり: "ice",
+  ノーマル: "normal", どく: "poison", エスパー: "psychic", いわ: "rock", はがね: "steel", みず: "water",
+};
+
 function assetUrl(folder: string, filename: string | null | undefined): string | null {
   const clean = filename?.trim();
   if (!clean || clean.includes("/") || clean.includes("\\")) return null;
@@ -34,7 +40,8 @@ export function getPokemonMiniAssetUrl(imagePath: string | null | undefined): st
 }
 
 export function getTypeAssetUrl(type: string | null | undefined): string | null {
-  const normalized = type?.trim().toLowerCase();
+  const input = type?.trim();
+  const normalized = input ? TYPE_ALIASES[input] ?? input.toLowerCase() : undefined;
   if (!normalized || !CHAMPIONS_TYPES.includes(normalized as ChampionsAssetType)) return null;
   return assetUrl("types", normalized[0].toUpperCase() + normalized.slice(1));
 }

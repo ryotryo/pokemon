@@ -98,6 +98,14 @@
 
 **Consequence:** 24×24、`currentColor`、統一strokeのインラインSVGを基本とし、タイトル文字列からアイコンを推測しない。記事・カテゴリは明示的なicon IDを持つ。Concept Diagram用のデータ、コンポーネント、テストは削除し、過去に図が扱っていた数値・順序・具体例が本文内に残ることをテストする。アイコンのためだけにclient componentや外部ライブラリ、個別network requestを増やさない。
 
+## 2026-09-21: ゲーム内の具体物は共通Champions asset基盤から表示する
+
+**Decision:** ポケモン、Pokémon mini、タイプ、持ち物は、利用可能かつ利用条件を満たす場合にChampions Battle Dataの静的画像を使う。抽象概念は`SiteIcon`、説明関係は必要性を個別確認したHTML/CSS/SVGとする。URL、canonical名、通常画像からminiへの切り替え、fallbackは共通resolver/componentへ集約する。
+
+**Reason:** 画面ごとのURL組み立てや名前推測は、Megaの二重付加、regional・性別フォームの取り違え、broken image、表記ずれを起こしやすいため。Champions Battle Dataは外部利用とCORSを案内しているが、公開利用には明確なattributionを求めているため。
+
+**Consequence:** ポケモンfilenameはChampions metadataの`image_path`から抽出し、表示名からフォーム名を生成しない。持ち物はchampoutの英語canonical名manifestを生成して日本語名と結び、巨大な手書き翻訳表を作らない。画像失敗時はminiから通常画像、または既存placeholder・テキストへフォールバックする。存在確認用の大量HEAD requestは行わない。画像は名称やタイプ名を置き換えず、出典リンクを公開ページに表示する。
+
 ## 2026-09-13: 技metadataを記事へ重複保存しない
 
 **Decision:** pokemon-introは技IDとそのポケモンでの用途だけを持ち、タイプ・分類・威力・命中・技説明は共通move metadataから解決する。

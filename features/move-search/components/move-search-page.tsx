@@ -23,7 +23,7 @@ export async function MoveSearchPage() {
           <MoveSearch dataset={dataset} />
         </Suspense>
         <footer className="mt-8 text-xs leading-5 text-slate-500">
-          順位・対戦データ: Champions Battle Data<br />習得技・技情報: projectpokemon/champout<br />Pokémon、Nintendo等とは関係のない非公式ツールです。
+          順位・対戦データ・画像: <a href="https://championsbattledata.com/" className="underline">Champions Battle Data</a><br />習得技・技情報: projectpokemon/champout<br />Pokémon、Nintendo等とは関係のない非公式ツールです。
         </footer>
       </div>
     </main>

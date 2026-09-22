@@ -92,7 +92,7 @@ function TypeMatchups({ types }: { types: string[] }) {
           <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1">
             {entries.map(({ type, multiplier }) => (
               <span key={type} className="inline-flex items-center gap-1">
-                <TypeBadge type={type} withIcon />
+                <TypeBadge type={type} />
                 <b className="text-[11px] text-slate-600">×{multiplier}</b>
               </span>
             ))}

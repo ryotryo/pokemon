@@ -16,7 +16,7 @@ export function UsageDetailPage({ pokemon }: { pokemon: UsagePokemonPageData }) 
         <Suspense fallback={<div className="h-64 animate-pulse rounded-2xl bg-slate-200" />}>
           <UsageDetail pokemon={pokemon} introId={introId} />
         </Suspense>
-        <footer className="mt-8 text-xs leading-5 text-slate-500">対戦データ: Champions Battle Data<br />習得技・技情報: projectpokemon/champout</footer>
+        <footer className="mt-8 text-xs leading-5 text-slate-500">対戦データ・画像: <a href="https://championsbattledata.com/" className="underline">Champions Battle Data</a><br />習得技・技情報: projectpokemon/champout</footer>
       </div>
     </main>
   );

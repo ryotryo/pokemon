@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SiteIcon } from "@/components/ui/site-icon";
 import { battleBasicsArticleBySlug, battleBasicsCategories, battleBasicsTools, beginnerCourseArticles, type BattleBasicsArticle } from "@/content/battle-basics";
+import { BattleBasicsAssetExamples } from "./battle-basics-asset-examples";
 
 export function BattleBasicsArticle({ article }: { article: BattleBasicsArticle }) {
   const category = battleBasicsCategories.find((entry) => entry.id === article.categoryId)!;
@@ -17,6 +18,8 @@ export function BattleBasicsArticle({ article }: { article: BattleBasicsArticle 
       <p className="mt-3 text-sm leading-7 text-slate-600">{article.description}</p>
       <p className="mt-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-600">{category.name}</p>
     </header>
+
+    <BattleBasicsAssetExamples articleSlug={article.slug} />
 
     <div className="mt-7 space-y-8">
       {article.sections.map((section) => <section key={section.heading}>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { getItemAssetUrl, getPokemonAssetUrl, getPokemonMiniAssetUrl, getTypeAssetUrl } from "@/lib/champions/assets";
+import { getItemAssetUrl, getPokemonAssetUrl, getPokemonMiniAssetUrl, getTypeAssetUrl } from "../../lib/champions/assets";
 
 const sizeClasses = { xs: "size-5", sm: "size-7", md: "size-11", lg: "size-24" } as const;
 type AssetSize = keyof typeof sizeClasses;

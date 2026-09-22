@@ -2,17 +2,19 @@
 
 ## Last updated
 
-2026-09-21（battle-basicsのConcept Diagram撤去後に更新）
+2026-09-21（共通Champions画像asset基盤の導入後に更新）
 
 ## Current focus
 
-初心者向けの学習コンテンツ「ポケモン対戦の基礎」は、導入15記事と第2弾30記事の計45記事を、第1〜45回の連続したコースとして公開しています。全記事と8カテゴリに共通SiteIconを設定しています。試験導入したConcept Diagramは、本文より分かりにくいというレビューを受けて全記事から撤去しました。
+Pokémon、Pokémon mini、タイプ、持ち物のChampions Battle Data画像を、安全に解決・表示・フォールバックできる共通asset基盤を導入しました。抽象概念はSiteIcon、具体物は実画像という役割分担を維持します。
 
 ## Current state
 
 - パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧、ポケモン対戦の基礎を公開中。
 - 「ポケモン対戦の基礎」は8カテゴリの共通定義と構造化記事データを使用し、計45記事を公開。全記事にreading order 1〜45を設定し、一覧の番号付きコースとテーマ別カテゴリの両方からアクセスできる。
 - 全45記事と8カテゴリはstable icon IDを持ち、一覧・記事見出し・関連記事で共通のインラインSVGアイコンを表示。記事本文のConcept Diagramは表示しない。
+- 使用率詳細の持ち物TOP10へ持ち物画像、使用率・pokemon-intro・技検索・役割一覧の小型表示へPokémon mini、使用率詳細の弱点・耐性へタイプ画像を補助表示。通常のdetail hero画像とテキスト名・type badgeは維持する。
+- 「持ち物ってなに？」には、こだわりスカーフ・きあいのタスキ・たべのこしの実画像例をコンパクトに表示する。
 - カテゴリ別記事数: まず知っておきたいこと5、ダメージ8、素早さ6、状態異常・能力変化7、場の効果7、HPと数値3、パーティーと考え方6、対戦用語3。
 - pokemon-intro一覧は全国図鑑No.順を初期表示とし、名前・Singles/Doubles順位・すばやさ・種族値合計での並び替え、日本語名検索、タイプ絞り込みに対応。状態はURL queryで復元する。
 - pokemon-introの現在Champions対象: **341フォーム**（`data/usage-ranking/index.json`）
@@ -45,6 +47,7 @@
 2. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
 3. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
 4. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
+5. 次の画像展開候補は、party-checkとspeed-ranking内の直接`img`、damage toolの持ち物表示。共通componentへ段階的に移し、一覧全体の一括変更は避ける。
 
 ## Important cautions
 
