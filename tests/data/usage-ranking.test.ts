@@ -28,6 +28,13 @@ const metadata = JSON.parse(readFileSync(path.join(root, "data/metadata.json"), 
 const detail = (id: string) => JSON.parse(readFileSync(path.join(root, `data/usage-ranking/details/${id}.json`), "utf8")) as UsagePokemonDetail;
 
 describe("usage ranking data", () => {
+  it("renders every filtered ranking entry without a load-more limit", () => {
+    const source = readFileSync(path.join(root, "features/usage-ranking/components/usage-ranking.tsx"), "utf8");
+    expect(source).toContain("filtered.map((entry)");
+    expect(source).not.toContain("さらに表示");
+    expect(source).not.toContain("visibleCount");
+  });
+
   it("keeps query format and missing percentages safe", () => {
     expect(parseFormat("doubles")).toBe("Doubles");
     expect(parseFormat(undefined)).toBe("Singles");

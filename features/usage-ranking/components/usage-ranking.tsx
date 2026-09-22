@@ -9,21 +9,17 @@ import { FormatToggle } from "./format-toggle";
 import { PokemonImage } from "./pokemon-image";
 import { TypeBadge } from "@/components/ui/type-badge";
 
-const INITIAL_ROWS = 60;
-
 export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const format = parseFormat(searchParams.get("format") ?? undefined);
   const [query, setQuery] = useState("");
-  const [visibleCount, setVisibleCount] = useState(INITIAL_ROWS);
   useToolView("usage-ranking", format);
 
   const changeFormat = (next: ReturnType<typeof parseFormat>) => {
     if (next === format) return;
     pushDataLayer({ event: "battle_format_change", tool_name: "usage-ranking", battle_format: next });
-    setVisibleCount(INITIAL_ROWS);
     router.replace(`${pathname}?format=${formatQuery(next)}`, { scroll: false });
   };
 
@@ -51,7 +47,7 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
         <span className="sr-only">ポケモン名で検索</span>
         <input
           value={query}
-          onChange={(event) => { setQuery(event.target.value); setVisibleCount(INITIAL_ROWS); }}
+          onChange={(event) => setQuery(event.target.value)}
           placeholder="ポケモン名で検索"
           className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
         />
@@ -63,7 +59,7 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
           <span className="text-center">順位</span><span /><span>ポケモン</span><span />
         </div>
         <div className="divide-y divide-slate-100">
-          {filtered.slice(0, visibleCount).map((entry) => (
+          {filtered.map((entry) => (
             <Link
               key={entry.id}
               href={`/usage-ranking/${entry.id}/?format=${formatQuery(format)}`}
@@ -84,11 +80,6 @@ export function UsageRanking({ pokemon }: { pokemon: UsageRankingPokemon[] }) {
           ))}
         </div>
       </div>
-      {visibleCount < filtered.length && (
-        <button type="button" onClick={() => setVisibleCount((count) => count + INITIAL_ROWS)} className="mt-4 min-h-11 w-full rounded-xl border border-blue-200 bg-white text-sm font-bold text-blue-700">
-          さらに表示
-        </button>
-      )}
     </div>
   );
 }
