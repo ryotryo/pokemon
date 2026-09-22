@@ -1,3 +1,5 @@
+import { TYPE_ORDER } from "./display-names";
+
 const TYPE_CHART: Record<string, Record<string, number>> = {
   normal: { rock: 0.5, ghost: 0, steel: 0.5 },
   fire: { fire: 0.5, water: 0.5, grass: 2, ice: 2, bug: 2, rock: 0.5, dragon: 0.5, steel: 2 },
@@ -19,7 +21,11 @@ const TYPE_CHART: Record<string, Record<string, number>> = {
   fairy: { fire: 0.5, fighting: 2, poison: 0.5, dragon: 2, dark: 2, steel: 0.5 },
 };
 
-export const TYPE_ORDER = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"] as const;
+export { TYPE_ORDER };
+
+export function isTypeId(value: string | null | undefined): value is string {
+  return Boolean(value && TYPE_ORDER.includes(value.toLowerCase()));
+}
 
 export interface PartyMemberCoverage {
   id: string;

@@ -1,7 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getResistances, getTypeMatchups, getTypeMultiplier, getWeaknesses } from "../../lib/champions/type-matchup";
+import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getResistances, getTypeMatchups, getTypeMultiplier, getWeaknesses, isTypeId, TYPE_ORDER } from "../../lib/champions/type-matchup";
 
 describe("type matchup", () => {
+  it("defines all 18 types and resolves the complete 18 by 18 chart", () => {
+    expect(TYPE_ORDER).toHaveLength(18);
+    expect(new Set(TYPE_ORDER).size).toBe(18);
+    expect(TYPE_ORDER.flatMap((attack) => TYPE_ORDER.map((defense) => getTypeMultiplier(attack, [defense])))).toHaveLength(324);
+  });
+  it("resolves representative super-effective, resisted, immune, and neutral matchups", () => {
+    expect(getTypeMultiplier("water", ["fire"])).toBe(2);
+    expect(getTypeMultiplier("fire", ["water"])).toBe(0.5);
+    expect(getTypeMultiplier("normal", ["ghost"])).toBe(0);
+    expect(getTypeMultiplier("normal", ["water"])).toBe(1);
+  });
+  it("validates type ids against the same canonical type order", () => {
+    expect(isTypeId("fairy")).toBe(true);
+    expect(isTypeId("FAIRY")).toBe(true);
+    expect(isTypeId("stellar")).toBe(false);
+  });
   it("multiplies dual-type effectiveness", () => {
     expect(getTypeMultiplier("ice", ["Dragon", "Flying"])).toBe(4);
     expect(getTypeMultiplier("ground", ["Electric", "Flying"])).toBe(0);
