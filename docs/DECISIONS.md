@@ -104,7 +104,7 @@
 
 **Reason:** 画面ごとのURL組み立てや名前推測は、Megaの二重付加、regional・性別フォームの取り違え、broken image、表記ずれを起こしやすいため。Champions Battle Dataは外部利用とCORSを案内しているが、公開利用には明確なattributionを求めているため。
 
-**Consequence:** ポケモンfilenameはChampions metadataの`image_path`から抽出し、表示名からフォーム名を生成しない。持ち物はchampoutの英語canonical名manifestを生成して日本語名と結び、巨大な手書き翻訳表を作らない。画像失敗時はminiから通常画像、または既存placeholder・テキストへフォールバックする。存在確認用の大量HEAD requestは行わない。画像は名称やタイプ名を置き換えず、出典リンクを公開ページに表示する。
+**Consequence:** ポケモンfilenameはChampions metadataの`image_path`から抽出し、表示名からフォーム名を生成しない。持ち物はchampoutの英語canonical名manifestを生成して日本語名と結び、巨大な手書き翻訳表を作らない。公開UIで具体的なポケモンまたは技のタイプを表す場合は、原則として共通`TypeBadge`からChampions type assetと日本語名を併記する。本文中の通常文章と、画像を安定表示できないnative `select`の選択肢は画像化しない。画像失敗時はminiから通常画像、または既存placeholder・テキストへフォールバックする。存在確認用の大量HEAD requestは行わない。画像は名称やタイプ名を置き換えず、出典リンクを公開ページに表示する。
 
 ## 2026-09-13: 技metadataを記事へ重複保存しない
 
