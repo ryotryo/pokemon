@@ -62,7 +62,7 @@ export default function Home() {
         <header className="mb-10">
           <SiteLogo />
           <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Poké Analytics</h1>
-          <p className="mt-4 text-base leading-7 text-slate-600">ポケモン対戦をデータで分析するツールサイト</p>
+          <p className="mt-4 text-base leading-7 text-slate-600">ポケモンチャンピオンズの対戦に役立つツールと、初心者に向けたコンテンツを公開中</p>
         </header>
 
         <section aria-labelledby="available-tools">
