@@ -2,15 +2,16 @@
 
 ## Last updated
 
-2026-09-22（公開UIの共通タイプ画像統一後に更新）
+2026-09-22（タイプ相性表公開後に更新）
 
 ## Current focus
 
-Pokémon、Pokémon mini、タイプ、持ち物のChampions Battle Data画像を、安全に解決・表示・フォールバックできる共通asset基盤を導入しました。公開UIでポケモンまたは技の具体的なタイプを示す箇所は、共通`TypeBadge`によるタイプ画像＋日本語名へ統一しています。
+新しい常設コンテンツ「ポケモン タイプ相性表」を追加しました。18×18の一覧表と複合タイプ判定は、既存のパーティー相性・ダメージ計算と同じ共通ロジックを使い、タイプ画像は共通Champions asset基盤から表示します。
 
 ## Current state
 
-- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧、ポケモン対戦の基礎を公開中。
+- パーティー相性チェッカー、すばやさランキング、使用率ランキング、ダメージ早見表、技からポケモン検索、pokemon-intro、役割一覧、ポケモン対戦の基礎、タイプ相性表を公開中。
+- `/type-chart`は攻撃タイプを縦、防御タイプを横にした324通りの表を表示。モバイルでは表だけを横スクロールでき、見出し行と攻撃タイプ列を固定する。複合タイプ判定は4倍・2倍・半減・1/4・無効を分類し、選択状態をURL queryへ保存する。
 - 「ポケモン対戦の基礎」は8カテゴリの共通定義と構造化記事データを使用し、計45記事を公開。全記事にreading order 1〜45を設定し、一覧の番号付きコースとテーマ別カテゴリの両方からアクセスできる。
 - 全45記事と8カテゴリはstable icon IDを持ち、一覧・記事見出し・関連記事で共通のインラインSVGアイコンを表示。記事本文のConcept Diagramは表示しない。
 - 使用率詳細の持ち物TOP10へ持ち物画像、使用率・pokemon-intro・技検索・役割一覧の小型表示へPokémon miniを導入。usage-ranking、party-check、damage、move-search、pokemon-introのポケモン・技・弱点・耐性のタイプUIは共通タイプ画像を表示する。
@@ -44,11 +45,12 @@ Pokémon、Pokémon mini、タイプ、持ち物のChampions Battle Data画像�
 
 ## Next actions
 
-1. 「ポケモン対戦の基礎」の次の記事群は、既存45記事の利用状況と人間レビューを確認してから優先度を決める。
-2. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
-3. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
-4. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
-5. 次の画像展開候補は、party-checkとspeed-ranking内の直接`img`、damage toolの持ち物表示。共通componentへ段階的に移し、一覧全体の一括変更は避ける。
+1. タイプ相性表と複合タイプ判定の利用状況を確認し、必要なら検索導線や説明文を調整する。
+2. 「ポケモン対戦の基礎」の次の記事群は、既存45記事の利用状況と人間レビューを確認してから優先度を決める。
+3. `vivillon-fancy-pattern` が現行Champions対象へ復帰したか確認し、復帰していればbatch-12を完成する。未復帰なら履歴スナップショットとして保留を維持する。
+4. 新しいChampions対象が追加された場合はproduction plan末尾へ追記し、未記事化IDだけを制作する。
+5. Championsの `Current`更新は自動workflowまたは `npm run data:update`で継続する。
+6. 次の画像展開候補は、party-checkとspeed-ranking内の直接`img`、damage toolの持ち物表示。共通componentへ段階的に移し、一覧全体の一括変更は避ける。
 
 ## Important cautions
 
