@@ -67,6 +67,8 @@ describe("Champions game assets", () => {
       "features/pokemon-intro/components/pokemon-intro-list.tsx",
       "features/pokemon-intro/components/pokemon-intro-article.tsx",
       "features/battle-basics/components/battle-basics-asset-examples.tsx",
+      "features/type-chart/components/type-chart-table.tsx",
+      "features/type-chart/components/dual-type-checker.tsx",
     ];
     for (const file of typeUiFiles) expect(readFileSync(file, "utf8"), file).toContain("TypeBadge");
   });

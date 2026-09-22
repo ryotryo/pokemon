@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getResistances, getTypeMatchups, getTypeMultiplier, getWeaknesses, isTypeId, TYPE_ORDER } from "../../lib/champions/type-matchup";
+import { evaluateMatchup, evaluatePartyMember, getCoverageDots, getResistances, getTypeMatchupGroups, getTypeMatchups, getTypeMultiplier, getWeaknesses, isTypeId, TYPE_ORDER } from "../../lib/champions/type-matchup";
 
 describe("type matchup", () => {
   it("defines all 18 types and resolves the complete 18 by 18 chart", () => {
@@ -21,6 +21,17 @@ describe("type matchup", () => {
   it("multiplies dual-type effectiveness", () => {
     expect(getTypeMultiplier("ice", ["Dragon", "Flying"])).toBe(4);
     expect(getTypeMultiplier("ground", ["Electric", "Flying"])).toBe(0);
+  });
+  it("groups dual-type weaknesses, resistances, quarter resistances, and immunities", () => {
+    const groups = getTypeMatchupGroups(["bug", "steel"]);
+    expect(groups.find((group) => group.multiplier === 4)?.types).toEqual(["fire"]);
+    expect(groups.find((group) => group.multiplier === 0.25)?.types).toContain("grass");
+    expect(groups.find((group) => group.multiplier === 0)?.types).toContain("poison");
+    expect(groups.find((group) => group.multiplier === 2)?.types).toEqual([]);
+  });
+  it("treats a duplicate second type as a single type", () => {
+    expect(getTypeMultiplier("water", ["fire", "fire"])).toBe(2);
+    expect(getTypeMatchupGroups(["fire", "fire"])).toEqual(getTypeMatchupGroups(["fire"]));
   });
   it("treats neutralized dual-type attacks as below weakness", () => expect(getTypeMultiplier("fire", ["Grass", "Water"])).toBe(1));
   it("lists dual-type weaknesses by multiplier", () => {

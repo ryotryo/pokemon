@@ -46,11 +46,20 @@ interface MatchupMove {
 }
 
 export function getTypeMultiplier(attackType: string, defenderTypes: string[]): number {
-  return defenderTypes.reduce((total, defender) => total * (TYPE_CHART[attackType.toLowerCase()]?.[defender.toLowerCase()] ?? 1), 1);
+  return [...new Set(defenderTypes.map((type) => type.toLowerCase()))]
+    .reduce((total, defender) => total * (TYPE_CHART[attackType.toLowerCase()]?.[defender] ?? 1), 1);
 }
 
 export function getTypeMatchups(defenderTypes: string[]) {
   return TYPE_ORDER.map((type) => ({ type, multiplier: getTypeMultiplier(type, defenderTypes) }));
+}
+
+export function getTypeMatchupGroups(defenderTypes: string[]) {
+  const matchups = getTypeMatchups(defenderTypes);
+  return ([4, 2, 0.5, 0.25, 0] as const).map((multiplier) => ({
+    multiplier,
+    types: matchups.filter((matchup) => matchup.multiplier === multiplier).map((matchup) => matchup.type),
+  }));
 }
 
 export function getWeaknesses(defenderTypes: string[]) {

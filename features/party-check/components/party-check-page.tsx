@@ -3,6 +3,7 @@ import doubles from "@/data/champions/doubles.json";
 import metadata from "@/data/metadata.json";
 import { PartyChecker } from "@/features/party-check/components/party-checker";
 import { SiteLogo } from "@/components/site-logo";
+import Link from "next/link";
 
 export function PartyCheckPage() {
   return (
@@ -15,6 +16,7 @@ export function PartyCheckPage() {
           </div>
           <h1 className="mt-3 text-3xl font-black tracking-tight">パーティー相性チェッカー</h1>
           <p className="mt-2 text-sm leading-6 text-slate-600">初心者向けのパーティー相性チェック。現在は対戦データ基盤と攻撃範囲の確認に対応しています。</p>
+          <Link href="/type-chart/" className="mt-2 inline-flex min-h-10 items-center text-sm font-bold text-blue-700">タイプ相性表で倍率を確認 →</Link>
         </header>
         <PartyChecker
           singles={singles.pokemon}

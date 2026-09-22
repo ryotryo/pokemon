@@ -16,7 +16,7 @@ export interface BattleBasicsSection {
   takeaway?: string;
 }
 
-export type BattleBasicsToolId = "party-check" | "speed-ranking" | "usage-ranking" | "damage-chart" | "move-search" | "pokemon-intro" | "pokemon-roles";
+export type BattleBasicsToolId = "party-check" | "speed-ranking" | "usage-ranking" | "damage-chart" | "move-search" | "pokemon-intro" | "pokemon-roles" | "type-chart";
 
 export interface BattleBasicsArticle {
   slug: string;
@@ -99,7 +99,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       { heading: "技のタイプと相手のタイプを比べる", paragraphs: ["攻撃技にはタイプがあり、相手のタイプとの組み合わせでダメージが変わります。効果抜群なら通常より大きく、いまひとつなら小さくなります。相性がない組み合わせは等倍です。無効の相手には、その技ではダメージを与えられません。"], facts: [{ label: "弱点", value: "2倍" }, { label: "等倍", value: "1倍" }, { label: "いまひとつ", value: "1/2倍" }, { label: "無効", value: "0倍" }] },
       { heading: "複合タイプでは両方を組み合わせる", paragraphs: ["相手が2つのタイプを持つときは、両方の相性を掛け合わせます。たとえば、ほのお・ひこうタイプにいわ技を使うと、どちらにも効果抜群なので2倍×2倍で4倍になります。", "片方に効果抜群でも、もう片方にいまひとつなら2倍×1/2倍で等倍です。見た目だけで決めず、2つのタイプを確認するのが大切です。"] },
       { heading: "相性は交代を考える合図", paragraphs: ["弱点を突かれそうなときは、その技を受けやすい味方へ交代できます。逆に、相手の弱点を突けるなら攻める好機です。", "ただし、相手が別タイプの技を覚えていることもあります。タイプ相性は大切な出発点ですが、それだけで必ず勝てるわけではありません。"], takeaway: "技のタイプと相手の1つまたは2つのタイプを比べ、最終的な倍率を考えます。" },
-    ], relatedArticleSlugs: ["same-type-attack-bonus", "matchups", "switching"], relatedTools: ["party-check", "damage-chart"],
+    ], relatedArticleSlugs: ["same-type-attack-bonus", "matchups", "switching"], relatedTools: ["type-chart", "party-check", "damage-chart"],
   },
   {
     slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4, icon: "type-stab",
@@ -363,4 +363,5 @@ export const battleBasicsTools: Record<BattleBasicsToolId, { title: string; desc
   "move-search": { title: "技からポケモン検索", description: "技を覚えるポケモンを探す", href: "/move-search/" },
   "pokemon-intro": { title: "このポケモンってどんなポケモン？", description: "ポケモンごとの役割を知る", href: "/pokemon-intro/" },
   "pokemon-roles": { title: "対戦ポケモンの役割一覧", description: "役割の種類と該当ポケモンを見る", href: "/pokemon-roles/" },
+  "type-chart": { title: "ポケモン タイプ相性表", description: "18タイプと複合タイプの相性を調べる", href: "/type-chart/" },
 };

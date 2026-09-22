@@ -102,7 +102,7 @@ describe("battle basics", () => {
   });
 
   it("resolves related articles and tool routes", () => {
-    const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/"]);
+    const validRoutes = new Set(["/party-check/","/speed-ranking/","/usage-ranking/","/damage-chart/","/move-search/","/pokemon-intro/","/pokemon-roles/","/type-chart/"]);
     for (const article of battleBasicsArticles) {
       expect(article.relatedArticleSlugs.every((slug) => battleBasicsArticleBySlug.has(slug))).toBe(true);
       expect(article.relatedTools.every((toolId) => validRoutes.has(battleBasicsTools[toolId].href))).toBe(true);
@@ -129,7 +129,7 @@ describe("battle basics", () => {
   it("adds all articles to the sitemap and keeps existing main routes", () => {
     const urls = sitemap().map((entry) => entry.url);
     for (const article of battleBasicsArticles) expect(urls).toContain(`https://poke-analytics.com/battle-basics/${article.slug}/`);
-    for (const route of ["party-check","speed-ranking","usage-ranking","damage-chart","move-search","pokemon-intro","pokemon-roles"]) expect(urls).toContain(`https://poke-analytics.com/${route}/`);
+    for (const route of ["party-check","speed-ranking","usage-ranking","damage-chart","move-search","pokemon-intro","pokemon-roles","type-chart"]) expect(urls).toContain(`https://poke-analytics.com/${route}/`);
   });
 
   it("links the new content from the home page", () => {

@@ -3,7 +3,7 @@ import { battleBasicsArticles } from "../content/battle-basics";
 import { pokemonIntros } from "../content/pokemon-intros";
 
 const baseUrl = "https://poke-analytics.com";
-const staticRoutes = ["", "/party-check", "/speed-ranking", "/usage-ranking", "/damage-chart", "/move-search", "/pokemon-intro", "/pokemon-roles", "/battle-basics"];
+const staticRoutes = ["", "/party-check", "/speed-ranking", "/usage-ranking", "/damage-chart", "/move-search", "/pokemon-intro", "/pokemon-roles", "/battle-basics", "/type-chart"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

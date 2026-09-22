@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { SiteLogo } from "@/components/site-logo";
 import { ToolIcon } from "@/components/tool-icon";
+import { SiteIcon } from "@/components/ui/site-icon";
 import type { ToolId } from "@/lib/tool-icons";
 
 const tools = [
+  {
+    title: "ポケモン タイプ相性表",
+    description: "18タイプの攻撃・防御相性と、複合タイプの弱点や耐性をまとめて確認できます。",
+    href: "/type-chart/",
+    siteIcon: "type-matchup" as const,
+  },
   {
     title: "パーティー相性チェッカー",
     description: "自分の6匹のパーティが、使用率上位ポケモンへどの程度弱点を突けるか確認できます。",
@@ -71,6 +78,8 @@ export default function Home() {
                     <div className="flex items-center gap-2.5">
                       {"id" in tool
                         ? <ToolIcon tool={tool.id} />
+                        : "siteIcon" in tool
+                          ? <span aria-hidden="true" className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700"><SiteIcon name={tool.siteIcon} className="size-5" /></span>
                         : <span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-md bg-blue-100 text-xs font-black text-blue-700">{tool.iconText}</span>}
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
