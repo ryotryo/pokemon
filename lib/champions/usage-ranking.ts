@@ -63,6 +63,7 @@ export interface UsageMoveDetail {
   pp: number | null;
   descriptionJa: string | null;
   descriptionSource: "champout" | "pokeapi" | null;
+  tags?: Array<"punch" | "sound" | "slicing" | "ballistic" | "pulse" | "bite" | "recoil">;
 }
 
 export interface PercentageRankingRow {

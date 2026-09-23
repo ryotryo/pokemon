@@ -11,6 +11,7 @@ export interface DamageChartMove {
   usage: number | null;
   rank: number;
   isContact: boolean;
+  tags: Array<"punch" | "sound" | "slicing" | "ballistic" | "pulse" | "bite" | "recoil">;
 }
 
 export interface DamageChartAbility {
@@ -43,6 +44,8 @@ export interface DamageResult {
   minPercent: number;
   maxPercent: number;
   hitLabel: string;
+  effectiveMoveType: string;
+  effectivePower: number;
 }
 
 export interface DamageStatProfile {
@@ -66,26 +69,134 @@ export function getDamageStatProfile(move: Pick<DamageChartMove, "id" | "damageC
 export const ITEM_DAMAGE_MODIFIERS = [1, 1.1, 1.2, 1.3, 1.5] as const;
 export type ItemDamageModifier = typeof ITEM_DAMAGE_MODIFIERS[number];
 
-const SUPPORTED_OFFENSIVE_ABILITIES = new Set(["テクニシャン", "ちからもち", "ヨガパワー", "てきおうりょく", "かたいツメ"]);
-// 威力・攻撃実数値・技タイプ/STAB・急所・攻撃回数など、攻撃ダメージを直接変えるが早見表では未実装の特性。
-// 被ダメージだけに関係する特性や、発動後に通常の能力ランクを変えるだけの特性はここへ含めない。
-const UNSUPPORTED_OFFENSIVE_ABILITIES = new Set([
-  "あめふらし", "うるおいボイス", "おやこあい", "かたやぶり", "がんじょうあご", "きもったま", "きれあじ", "ぎたい",
-  "げきりゅう", "こんじょう", "しんりょく", "すいほう", "すてみ", "すなのちから", "スキルリンク",
-  "そうだいしょう", "ちからずく", "てつのこぶし", "てんきや", "でんきにかえる", "とうそうしん", "はりきり",
-  "ひでり", "ひとでなし", "バトルスイッチ", "へんげんじざい", "ほのおのたてがみ", "むしのしらせ",
-  "もうか", "もらいび", "アナライズ", "エレキメイカー", "サンパワー", "スカイスキン", "スナイパー",
-  "ドラゴンスキン", "フェアリーオーラ", "フェアリースキン", "フリーズスキン", "プラス", "マイナス",
-  "メガソーラー", "メガランチャー",
+const TYPE_CHANGE_ABILITIES: Record<string, { fromType: string | null; toType: string; powerModifier: number }> = {
+  スカイスキン: { fromType: "normal", toType: "flying", powerModifier: 4915 },
+  フェアリースキン: { fromType: "normal", toType: "fairy", powerModifier: 4915 },
+  フリーズスキン: { fromType: "normal", toType: "ice", powerModifier: 4915 },
+  エレキスキン: { fromType: "normal", toType: "electric", powerModifier: 4915 },
+  ドラゴンスキン: { fromType: "normal", toType: "dragon", powerModifier: 4915 },
+  うるおいボイス: { fromType: null, toType: "water", powerModifier: 4096 },
+};
+
+const IMPLEMENTED_DAMAGE_ABILITIES = new Set([
+  ...Object.keys(TYPE_CHANGE_ABILITIES),
+  "あついしぼう", "うなぎのぼり", "おやこあい", "かたいツメ", "かたやぶり", "カブトアーマー", "がんじょう", "がんじょうあご",
+  "かんそうはだ", "きもったま", "きよめのしお", "きれあじ", "すいほう", "そうしょく", "たいねつ", "ちからもち",
+  "ちくでん", "ちょすい", "てきおうりょく", "テクニシャン", "てつのこぶし", "でんきエンジン", "どしょく",
+  "すてみ", "ハードロック", "はがねのせいしん", "はどうのぼうご", "はりきり", "パンクロック", "ひらいしん", "ファーコート",
+  "フィルター", "フェアリーオーラ", "ふゆう", "マルチスケイル", "メガランチャー", "もふもふ", "もらいび",
+  "ヨガパワー", "シェルアーマー", "ぼうおん", "ぼうだん", "ほのおのたてがみ",
 ]);
+
+// 技1回の直接ダメージには反映しないと監査済み。説明文の「ダメージ」に反応するcoverage判定の例外だけを置く。
+const AUDITED_NO_DIRECT_DAMAGE_ABILITIES = new Set(["すながくれ", "ぼうじん", "フレンドガード"]);
+
+export const CONDITIONAL_DAMAGE_ABILITIES: Record<string, string> = {
+  アナライズ: "後攻した時だけ威力が変わります",
+  あまのじゃく: "対戦中の能力変化によって実数値が変わります",
+  あめふらし: "天候と登場順によってダメージが変わります",
+  いかく: "登場順・能力変化・相手の特性によって変わります",
+  いかりのつぼ: "急所を受けて発動済みかで変わります",
+  うなぎのぼり: "地面技の無効化は反映。相手を倒した後の能力上昇は含みません",
+  エレキメイカー: "エレキフィールドと登場順によってダメージが変わります",
+  かちき: "能力を下げられて発動済みかで変わります",
+  かわりもの: "変身先の能力・タイプ・特性によって変わります",
+  かんつうドリル: "相手が守る状態の時だけダメージが発生します",
+  ぎたい: "現在のフィールドによってタイプが変わります",
+  ぎゃくじょう: "攻撃を受けて発動済みかで変わります",
+  くさのけがわ: "グラスフィールド時だけ防御が変わります",
+  くだけるよろい: "物理技を受けた後かで防御が変わります",
+  グラスメイカー: "グラスフィールドと登場順によってダメージが変わります",
+  げきりゅう: "残りHPが1/3以下の時だけ発動します",
+  こぼれダネ: "攻撃を受けてグラスフィールドが発生済みかで変わります",
+  こんじょう: "状態異常の時だけ攻撃が変わります",
+  サイコメイカー: "サイコフィールドと登場順によってダメージが変わります",
+  サンパワー: "晴れの時だけ特攻が変わります",
+  じきゅうりょく: "攻撃を受けた後かで防御が変わります",
+  じしんかじょう: "相手を倒して発動済みかで変わります",
+  しんりょく: "残りHPが1/3以下の時だけ発動します",
+  スキルリンク: "連続技は早見表の固定威力対象外です",
+  すなのちから: "砂嵐の時だけ特定タイプの威力が変わります",
+  すなおこし: "砂嵐と登場順によって防御側の特防が変わります",
+  すなはき: "攻撃を受けて砂嵐が発生済みかで変わります",
+  せいぎのこころ: "悪技を受けて攻撃が上がった後かで変わります",
+  そうだいしょう: "倒された味方の数で威力が変わります",
+  そうしょく: "草技の無効化は反映。発動後の攻撃上昇は含みません",
+  ちからずく: "追加効果の有無を現在の技データだけでは全件判定できません",
+  でんきにかえる: "攻撃を受けて発動済みかで変わります",
+  てんきや: "現在の天候によってタイプが変わります",
+  とうそうしん: "相手との性別の組み合わせで変わります",
+  トレース: "コピーした相手の特性によって変わります",
+  はりこみ: "相手が交代で出てきたターンだけ発動します",
+  ひでり: "天候と登場順によってダメージが変わります",
+  ひとでなし: "相手がどく・もうどく状態かで変わります",
+  ひらいしん: "電気技の無効化は反映。発動後の特攻上昇は含みません",
+  バトルスイッチ: "技を出す前のフォルムによって能力値が変わります",
+  ばけのかわ: "ばけたすがたが残っている最初の攻撃だけ受け方が変わります",
+  びんじょう: "相手からコピーした能力上昇によって変わります",
+  へんげんじざい: "その登場中に既に発動したかでタイプが変わります",
+  プラス: "場の味方の特性によって特攻が変わります",
+  ふかしのこぶし: "相手が守る状態の時だけダメージが発生します",
+  ふしぎなうろこ: "状態異常の時だけ防御が変わります",
+  マイナス: "場の味方の特性によって特攻が変わります",
+  まけんき: "能力を下げられて発動済みかで変わります",
+  マイティチェンジ: "交代後のフォルムによって能力値が変わります",
+  むしのしらせ: "残りHPが1/3以下の時だけ発動します",
+  ムラっけ: "発生済みのランダムな能力変化によって変わります",
+  メガソーラー: "晴れ扱いになる技・特性との組み合わせで変わります",
+  もうか: "残りHPが1/3以下の時だけ発動します",
+  もらいび: "炎技の無効化は反映。発動後の炎技強化は含みません",
+  ねつこうかん: "炎技を受けて攻撃が上がった後かで変わります",
+  はらぺこスイッチ: "現在のフォルムによって専用技のタイプが変わります",
+  ばんけん: "いかくを受けて攻撃が上がった後かで変わります",
+  ゆきふらし: "雪と登場順によって防御側の防御が変わります",
+  リベロ: "その登場中に既に発動したかでタイプが変わります",
+  レシーバー: "倒れた味方から受け継いだ特性によって変わります",
+  スナイパー: "急所に当たった時だけ倍率が変わります",
+};
+
+const TOGGLEABLE_DAMAGE_ABILITIES = new Set([
+  "アナライズ", "くさのけがわ", "げきりゅう", "こんじょう", "サンパワー", "しんりょく", "すなのちから",
+  "はりこみ", "ひとでなし", "プラス", "ふしぎなうろこ", "へんげんじざい", "マイナス", "むしのしらせ",
+  "もうか", "もらいび", "リベロ", "スナイパー",
+]);
+
+export function isAbilityConditionToggleAvailable(nameJa: string | null): boolean {
+  return Boolean(nameJa && TOGGLEABLE_DAMAGE_ABILITIES.has(nameJa));
+}
 const ITEM_FINAL_MODS: Record<ItemDamageModifier, number> = { 1: 4096, 1.1: 4505, 1.2: 4915, 1.3: 5324, 1.5: 6144 };
 
-export type OffensiveAbilityDamageStatus = "supported" | "unsupported" | "no-modifier";
+export type AbilityDamageStatus = "supported" | "conditional" | "no-modifier";
 
-export function getOffensiveAbilityDamageStatus(nameJa: string): OffensiveAbilityDamageStatus {
-  if (SUPPORTED_OFFENSIVE_ABILITIES.has(nameJa)) return "supported";
-  if (UNSUPPORTED_OFFENSIVE_ABILITIES.has(nameJa)) return "unsupported";
+export function getAbilityDamageStatus(nameJa: string): AbilityDamageStatus {
+  if (CONDITIONAL_DAMAGE_ABILITIES[nameJa]) return "conditional";
+  if (IMPLEMENTED_DAMAGE_ABILITIES.has(nameJa)) return "supported";
   return "no-modifier";
+}
+
+export function getAbilityDamageNote(nameJa: string | null): string | null {
+  return nameJa ? CONDITIONAL_DAMAGE_ABILITIES[nameJa] ?? null : null;
+}
+
+export function isPotentialDamageAbilityDescription(description: string | null): boolean {
+  return Boolean(description && /(?:技の威力|受けるダメージ|物理技の威力|物理技で受けるダメージ|特攻が１．５倍|攻撃が１．５倍|タイプの技が効かず|タイプの技が[^。]*タイプになり|タイプの技を[^。]*当てる|親と子で２回攻撃|ＨＰが満タンの時[^。]*受けるダメージ|効果バツグンの技で[^。]*受けるダメージ)/.test(description));
+}
+
+export function isAbilityDamageClassificationKnown(nameJa: string, description: string | null): boolean {
+  return IMPLEMENTED_DAMAGE_ABILITIES.has(nameJa)
+    || Boolean(CONDITIONAL_DAMAGE_ABILITIES[nameJa])
+    || AUDITED_NO_DIRECT_DAMAGE_ABILITIES.has(nameJa)
+    || !isPotentialDamageAbilityDescription(description);
+}
+
+export function getEffectiveMove(move: Pick<DamageChartMove, "type" | "power" | "tags">, attackerAbility?: string | null) {
+  const conversion = attackerAbility ? TYPE_CHANGE_ABILITIES[attackerAbility] : undefined;
+  const applies = conversion && (conversion.fromType === null || move.type === conversion.fromType)
+    && (attackerAbility !== "うるおいボイス" || move.tags.includes("sound"));
+  return {
+    type: applies ? conversion.toType : move.type,
+    power: applies ? applyFixedModifier(move.power, conversion.powerModifier) : move.power,
+  };
 }
 
 export function getDefaultAbilityName(abilities: DamageChartAbility[]): string | null {
@@ -171,6 +282,8 @@ export function calculateDamage(options: {
   defenseNature: number;
   attackerAbility?: string | null;
   defenderAbility?: string | null;
+  attackerAbilityCondition?: boolean;
+  defenderAbilityCondition?: boolean;
   itemDamageModifier?: ItemDamageModifier;
 }): DamageResult {
   const { attacker, defender, move } = options;
@@ -179,25 +292,102 @@ export function calculateDamage(options: {
   const attackBase = attacker.baseStats[statProfile.attack];
   const defenseBase = defender.baseStats[statProfile.defense];
   let attack = calculateBattleStat(attackBase, options.attackEv, options.attackNature);
-  const defense = calculateBattleStat(defenseBase, options.defenseEv, options.defenseNature);
+  let defense = calculateBattleStat(defenseBase, options.defenseEv, options.defenseNature);
   const hp = calculateHpStat(defender.baseStats.hp, options.hpEv);
-  let power = move.power;
+  const effectiveMove = getEffectiveMove(move, options.attackerAbility);
+  const effectiveType = effectiveMove.type;
+  let power = effectiveMove.power;
   if (options.attackerAbility === "テクニシャン" && power <= 60) power = applyFixedModifier(power, 6144);
   if (options.attackerAbility === "かたいツメ" && move.isContact) power = applyFixedModifier(power, 5325);
+  if (options.attackerAbility === "がんじょうあご" && move.tags.includes("bite")) power = applyFixedModifier(power, 6144);
+  if (options.attackerAbility === "きれあじ" && move.tags.includes("slicing")) power = applyFixedModifier(power, 6144);
+  if (options.attackerAbility === "てつのこぶし" && move.tags.includes("punch")) power = applyFixedModifier(power, 4915);
+  if (options.attackerAbility === "メガランチャー" && move.tags.includes("pulse")) power = applyFixedModifier(power, 6144);
+  if (options.attackerAbility === "パンクロック" && move.tags.includes("sound")) power = applyFixedModifier(power, 5325);
+  if (options.attackerAbility === "すてみ" && move.tags.includes("recoil")) power = applyFixedModifier(power, 4915);
+  if (options.attackerAbilityCondition && options.attackerAbility === "アナライズ") power = applyFixedModifier(power, 5325);
+  if (options.attackerAbilityCondition && options.attackerAbility === "すなのちから" && ["rock", "ground", "steel"].includes(effectiveType)) power = applyFixedModifier(power, 5325);
+  if (options.attackerAbility === "ほのおのたてがみ" && effectiveType === "fire") power = applyFixedModifier(power, 6144);
+  if (options.attackerAbility === "はがねのせいしん" && effectiveType === "steel") power = applyFixedModifier(power, 6144);
+  if ((options.attackerAbility === "フェアリーオーラ" || options.defenderAbility === "フェアリーオーラ") && effectiveType === "fairy") power = applyFixedModifier(power, 5448);
+  if (options.attackerAbility === "すいほう" && effectiveType === "water") attack = applyFixedModifier(attack, 8192);
   if (physical && (options.attackerAbility === "ちからもち" || options.attackerAbility === "ヨガパワー")) attack = applyFixedModifier(attack, 8192);
+  if (physical && options.attackerAbility === "はりきり") attack = applyFixedModifier(attack, 6144);
+  if (options.attackerAbilityCondition && ((options.attackerAbility === "げきりゅう" && effectiveType === "water")
+    || (options.attackerAbility === "しんりょく" && effectiveType === "grass")
+    || (options.attackerAbility === "むしのしらせ" && effectiveType === "bug")
+    || (options.attackerAbility === "もうか" && effectiveType === "fire"))) attack = applyFixedModifier(attack, 6144);
+  if (physical && options.attackerAbilityCondition && options.attackerAbility === "こんじょう") attack = applyFixedModifier(attack, 6144);
+  if (!physical && options.attackerAbilityCondition && options.attackerAbility === "サンパワー") attack = applyFixedModifier(attack, 6144);
+  if (!physical && options.attackerAbilityCondition && (options.attackerAbility === "プラス" || options.attackerAbility === "マイナス")) attack = applyFixedModifier(attack, 6144);
+  if (options.attackerAbilityCondition && options.attackerAbility === "はりこみ") attack = applyFixedModifier(attack, 8192);
+  if (options.attackerAbilityCondition && options.attackerAbility === "もらいび" && effectiveType === "fire") attack = applyFixedModifier(attack, 6144);
+  if (physical && options.defenderAbility === "ファーコート" && options.attackerAbility !== "かたやぶり") defense = applyFixedModifier(defense, 8192);
+  if (physical && options.defenderAbilityCondition && options.attackerAbility !== "かたやぶり" && (options.defenderAbility === "くさのけがわ" || options.defenderAbility === "ふしぎなうろこ")) defense = applyFixedModifier(defense, 6144);
+  const ignoresDefenderAbility = options.attackerAbility === "かたやぶり";
+  const defenderAbility = ignoresDefenderAbility ? null : options.defenderAbility;
+  if (defenderAbility === "あついしぼう" && (effectiveType === "fire" || effectiveType === "ice")) attack = applyFixedModifier(attack, 2048);
+  if (defenderAbility === "きよめのしお" && effectiveType === "ghost") attack = applyFixedModifier(attack, 2048);
+  if (defenderAbility === "すいほう" && effectiveType === "fire") attack = applyFixedModifier(attack, 2048);
+  if (defenderAbility === "たいねつ" && effectiveType === "fire") attack = applyFixedModifier(attack, 2048);
   const baseDamage = Math.floor(Math.floor(Math.floor((2 * 50 / 5 + 2) * power * attack / defense) / 50) + 2);
-  const isStab = attacker.types.includes(move.type);
+  const abilityChangesUserType = options.attackerAbilityCondition && (options.attackerAbility === "へんげんじざい" || options.attackerAbility === "リベロ");
+  const isStab = abilityChangesUserType || attacker.types.includes(effectiveType);
   const stab = isStab ? options.attackerAbility === "てきおうりょく" ? 2 : 1.5 : 1;
-  const typeMultiplier = getTypeMultiplier(move.type, defender.types);
+  const defenderTypes = options.attackerAbility === "きもったま" && (effectiveType === "normal" || effectiveType === "fighting")
+    ? defender.types.filter((type) => type !== "ghost")
+    : defender.types;
+  let typeMultiplier = getTypeMultiplier(effectiveType, defenderTypes);
+  const immunityTypes: Record<string, string[]> = {
+    うなぎのぼり: ["ground"],
+    かんそうはだ: ["water"],
+    そうしょく: ["grass"],
+    ちくでん: ["electric"],
+    ちょすい: ["water"],
+    でんきエンジン: ["electric"],
+    どしょく: ["ground"],
+    ひらいしん: ["electric"],
+    ふゆう: ["ground"],
+    もらいび: ["fire"],
+  };
+  if (defenderAbility && immunityTypes[defenderAbility]?.includes(effectiveType)) typeMultiplier = 0;
+  if (defenderAbility === "ぼうおん" && move.tags.includes("sound")) typeMultiplier = 0;
+  if (defenderAbility === "ぼうだん" && move.tags.includes("ballistic")) typeMultiplier = 0;
   const itemFinalMod = ITEM_FINAL_MODS[options.itemDamageModifier ?? 1];
-  const maxDamage = applyFixedModifier(Math.floor(baseDamage * stab * typeMultiplier), itemFinalMod);
-  const minDamage = applyFixedModifier(Math.floor(baseDamage * stab * typeMultiplier * 0.85), itemFinalMod);
+  let defensiveModifier = 4096;
+  if (defenderAbility === "かんそうはだ" && effectiveType === "fire") defensiveModifier = applyFixedModifier(defensiveModifier, 5120);
+  if ((defenderAbility === "ハードロック" || defenderAbility === "フィルター") && typeMultiplier > 1) defensiveModifier = applyFixedModifier(defensiveModifier, 3072);
+  if (defenderAbility === "はどうのぼうご" && move.isContact) defensiveModifier = applyFixedModifier(defensiveModifier, 2048);
+  if (defenderAbility === "パンクロック" && move.tags.includes("sound")) defensiveModifier = applyFixedModifier(defensiveModifier, 2048);
+  if (defenderAbility === "もふもふ" && move.isContact) defensiveModifier = applyFixedModifier(defensiveModifier, 2048);
+  if (defenderAbility === "もふもふ" && effectiveType === "fire") defensiveModifier = applyFixedModifier(defensiveModifier, 8192);
+  const criticalBlocked = defenderAbility === "シェルアーマー" || defenderAbility === "カブトアーマー";
+  const critical = !criticalBlocked && options.attackerAbilityCondition && (options.attackerAbility === "ひとでなし" || options.attackerAbility === "スナイパー");
+  const criticalModifier = critical ? options.attackerAbility === "スナイパー" ? 2.25 : 1.5 : 1;
+  const calculateHit = (randomModifier: number, child = false) => {
+    const hitBaseDamage = child ? applyFixedModifier(baseDamage, 1024) : baseDamage;
+    const multiscaleModifier = defenderAbility === "マルチスケイル" && !child ? 2048 : 4096;
+    const raw = Math.floor(hitBaseDamage * criticalModifier * stab * typeMultiplier * randomModifier);
+    return applyFixedModifier(applyFixedModifier(applyFixedModifier(raw, itemFinalMod), defensiveModifier), multiscaleModifier);
+  };
+  let maxDamage = calculateHit(1);
+  let minDamage = calculateHit(0.85);
+  if (defenderAbility === "がんじょう" && hp > 1) {
+    maxDamage = Math.min(maxDamage, hp - 1);
+    minDamage = Math.min(minDamage, hp - 1);
+  }
+  if (options.attackerAbility === "おやこあい" && typeMultiplier > 0) {
+    maxDamage += calculateHit(1, true);
+    minDamage += calculateHit(0.85, true);
+  }
   return {
     minDamage,
     maxDamage,
     minPercent: minDamage / hp * 100,
     maxPercent: maxDamage / hp * 100,
     hitLabel: hitLabel(minDamage, maxDamage, hp),
+    effectiveMoveType: effectiveType,
+    effectivePower: power,
   };
 }
 

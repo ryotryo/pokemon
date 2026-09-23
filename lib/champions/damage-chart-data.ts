@@ -55,6 +55,7 @@ export async function getDamageChartDataset(): Promise<DamageChartDataset> {
           usage: row.percentageValue,
           rank: row.rank,
           isContact: contactMoveIds.has(move.id),
+          tags: move.tags ?? [],
         }];
       });
     const formatAbilities = (format: "Singles" | "Doubles") => detail.formats[format].abilities.map((ability) => ({

@@ -15,7 +15,10 @@ import {
   getAttackPatternLabel,
   getDefaultAbilityName,
   getDefensePatternLabel,
-  getOffensiveAbilityDamageStatus,
+  getAbilityDamageNote,
+  getAbilityDamageStatus,
+  getEffectiveMove,
+  isAbilityConditionToggleAvailable,
   type DamageChartDataset,
   type DamageChartMove,
   type DamageChartPokemon,
@@ -23,7 +26,7 @@ import {
 } from "@/lib/champions/damage-chart";
 import type { BattleFormat } from "@/lib/champions/types";
 
-type AttackSettings = { ability: string | null; itemDamageModifier: ItemDamageModifier };
+type AttackSettings = { ability: string | null; abilityCondition: boolean; itemDamageModifier: ItemDamageModifier };
 const UNSELECTED_ABILITY = "__unselected__";
 const ATTACKER_STORAGE_KEY = "pokemon-champions-damage-chart-attacker";
 const DEFENDER_STORAGE_KEY = "pokemon-champions-damage-chart-defender";
@@ -36,7 +39,7 @@ const ITEM_DAMAGE_MODIFIER_LABELS: Record<ItemDamageModifier, string> = {
 };
 
 function defaultAttackSettings(pokemon: DamageChartPokemon | undefined, format: BattleFormat): AttackSettings {
-  return { ability: getDefaultAbilityName(pokemon?.abilities[format] ?? []), itemDamageModifier: 1 };
+  return { ability: getDefaultAbilityName(pokemon?.abilities[format] ?? []), abilityCondition: false, itemDamageModifier: 1 };
 }
 
 function formatPercent(value: number) {
@@ -52,6 +55,7 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
   onClick: () => void;
   onSettingsChange: (settings: AttackSettings) => void;
 }) {
+  const abilityNote = getAbilityDamageNote(settings.ability);
   return (
     <div className="flex min-w-0 flex-col rounded-2xl bg-slate-50 px-2 py-2 text-center">
       <button type="button" onClick={onClick} aria-label={`${label}の${pokemon.displayNameJa}を変更`} className="flex min-w-0 flex-col items-center active:scale-[0.98]">
@@ -68,12 +72,14 @@ function PokemonSummary({ pokemon, label, format, settings, onClick, onSettingsC
       </button>
       <label className="mt-2 grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-1 text-left text-[9px] font-bold text-slate-500">
         特性
-        <select value={settings.ability ?? UNSELECTED_ABILITY} onChange={(event) => onSettingsChange({ ...settings, ability: event.target.value === UNSELECTED_ABILITY ? null : event.target.value })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
+        <select value={settings.ability ?? UNSELECTED_ABILITY} onChange={(event) => onSettingsChange({ ...settings, ability: event.target.value === UNSELECTED_ABILITY ? null : event.target.value, abilityCondition: false })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
           {settings.ability === null && <option value={UNSELECTED_ABILITY}>選択してください</option>}
-          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{ability.percentageValue !== null ? `（${formatPercent(ability.percentageValue)}%）` : ""}{getOffensiveAbilityDamageStatus(ability.nameJa) === "unsupported" ? "（未対応）" : ""}</option>)}
+          {pokemon.abilities[format].map((ability) => <option key={ability.nameJa} value={ability.nameJa}>{ability.nameJa}{ability.percentageValue !== null ? `（${formatPercent(ability.percentageValue)}%）` : ""}{getAbilityDamageStatus(ability.nameJa) === "conditional" ? "（条件あり）" : ""}</option>)}
           <option value="">特性補正なし</option>
         </select>
       </label>
+      {abilityNote ? <p className="mt-1 text-left text-[8px] leading-3 text-amber-700">※ {abilityNote}</p> : null}
+      {isAbilityConditionToggleAvailable(settings.ability) ? <label className="mt-1 flex items-center justify-end gap-1 text-[9px] font-bold text-slate-600"><input type="checkbox" checked={settings.abilityCondition} onChange={(event) => onSettingsChange({ ...settings, abilityCondition: event.target.checked })} className="size-3 accent-blue-600" />条件を満たす</label> : null}
       <label className="mt-1 grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-1 text-left text-[9px] font-bold text-slate-500">
         道具補正
         <select value={settings.itemDamageModifier} onChange={(event) => onSettingsChange({ ...settings, itemDamageModifier: Number(event.target.value) as ItemDamageModifier })} className="h-8 min-w-0 rounded-lg border border-slate-200 bg-white px-1 text-[10px] font-bold text-slate-700 outline-none">
@@ -98,14 +104,15 @@ function DamageCell({ result }: { result: ReturnType<typeof calculateDamage> }) 
   );
 }
 
-function MoveDamageGrid({ attacker, defender, move, settings }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; move: DamageChartMove; settings: AttackSettings }) {
+function MoveDamageGrid({ attacker, defender, move, attackerSettings, defenderSettings }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; move: DamageChartMove; attackerSettings: AttackSettings; defenderSettings: AttackSettings }) {
+  const effectiveMove = getEffectiveMove(move, attackerSettings.ability);
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <header className="flex flex-wrap items-center gap-1.5 border-b border-slate-100 px-3 py-2">
         <h4 className="mr-auto text-sm font-black">{move.nameJa}</h4>
-        <TypeBadge type={move.type} />
+        <TypeBadge type={effectiveMove.type} />
         <DamageClassBadge damageClass={move.damageClass} />
-        <span className="text-[10px] font-bold text-slate-500">威力 {move.power}</span>
+        <span className="text-[10px] font-bold text-slate-500">威力 {effectiveMove.power}</span>
       </header>
       <div className="grid grid-cols-[2.8rem_repeat(3,minmax(0,1fr))] items-center px-1.5 pb-1.5 pt-1">
         <span className="text-center text-[8px] font-bold text-slate-400">攻＼防</span>
@@ -131,9 +138,11 @@ function MoveDamageGrid({ attacker, defender, move, settings }: { attacker: Dama
                   hpEv: defensePattern.hpEv,
                   defenseEv: defensePattern.defenseEv,
                   defenseNature: defensePattern.nature,
-                  attackerAbility: settings.ability,
-                  defenderAbility: null,
-                  itemDamageModifier: settings.itemDamageModifier,
+                  attackerAbility: attackerSettings.ability,
+                  defenderAbility: defenderSettings.ability,
+                  attackerAbilityCondition: attackerSettings.abilityCondition,
+                  defenderAbilityCondition: defenderSettings.abilityCondition,
+                  itemDamageModifier: attackerSettings.itemDamageModifier,
                 })}
               />
             ))}
@@ -144,7 +153,7 @@ function MoveDamageGrid({ attacker, defender, move, settings }: { attacker: Dama
   );
 }
 
-function DamageDirection({ attacker, defender, format, settings }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; format: BattleFormat; settings: AttackSettings }) {
+function DamageDirection({ attacker, defender, format, attackerSettings, defenderSettings }: { attacker: DamageChartPokemon; defender: DamageChartPokemon; format: BattleFormat; attackerSettings: AttackSettings; defenderSettings: AttackSettings }) {
   const moves = attacker.moves[format];
   return (
     <section className="mt-6" aria-labelledby={`${attacker.id}-to-${defender.id}`}>
@@ -155,7 +164,7 @@ function DamageDirection({ attacker, defender, format, settings }: { attacker: D
         <span className="shrink-0 text-[10px] font-bold text-slate-400">使用技TOP10内</span>
       </div>
       {moves.length ? (
-        <div className="space-y-2">{moves.map((move) => <MoveDamageGrid key={move.id} attacker={attacker} defender={defender} move={move} settings={settings} />)}</div>
+        <div className="space-y-2">{moves.map((move) => <MoveDamageGrid key={move.id} attacker={attacker} defender={defender} move={move} attackerSettings={attackerSettings} defenderSettings={defenderSettings} />)}</div>
       ) : (
         <p className="rounded-xl border border-slate-200 bg-white px-3 py-4 text-sm text-slate-500">表示できる通常攻撃技がありません。</p>
       )}
@@ -226,8 +235,8 @@ export function DamageChart({ dataset }: { dataset: DamageChartDataset }) {
   function changeFormat(next: BattleFormat) {
     if (next === format) return;
     setFormat(next);
-    setAttackerSettings((current) => ({ ...current, ability: getDefaultAbilityName(attacker.abilities[next]) }));
-    setDefenderSettings((current) => ({ ...current, ability: getDefaultAbilityName(defender.abilities[next]) }));
+    setAttackerSettings((current) => ({ ...current, ability: getDefaultAbilityName(attacker.abilities[next]), abilityCondition: false }));
+    setDefenderSettings((current) => ({ ...current, ability: getDefaultAbilityName(defender.abilities[next]), abilityCondition: false }));
     pushDataLayer({ event: "battle_format_change", tool_name: "damage-chart", battle_format: next });
   }
 
@@ -253,11 +262,11 @@ export function DamageChart({ dataset }: { dataset: DamageChartDataset }) {
       </section>
 
       <div className="mt-3 rounded-xl bg-blue-50 px-3 py-2 text-[10px] leading-4 text-blue-900">
-        レベル50・個体値31。選択した対応済み特性と道具倍率以外の補正は含みません。A/Cは攻撃側、H/B/Dは防御側の努力値です。
+        レベル50・個体値31・防御側はHP満タンとして計算します。「条件を満たす」は該当する時だけONにしてください。A/Cは攻撃側、H/B/Dは防御側の努力値です。
       </div>
 
-      <DamageDirection attacker={attacker} defender={defender} format={format} settings={attackerSettings} />
-      <DamageDirection attacker={defender} defender={attacker} format={format} settings={defenderSettings} />
+      <DamageDirection attacker={attacker} defender={defender} format={format} attackerSettings={attackerSettings} defenderSettings={defenderSettings} />
+      <DamageDirection attacker={defender} defender={attacker} format={format} attackerSettings={defenderSettings} defenderSettings={attackerSettings} />
 
       <Sheet open={picker !== null} onOpenChange={(open) => { if (!open) { setPicker(null); setQuery(""); } }}>
         <SheetOverlay onClick={() => { setPicker(null); setQuery(""); }} />

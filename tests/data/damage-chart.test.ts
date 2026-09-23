@@ -1,3 +1,5 @@
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   ATTACK_PATTERNS,
@@ -9,7 +11,10 @@ import {
   getDamageStatProfile,
   getDefaultAbilityName,
   getDefensePatternLabel,
-  getOffensiveAbilityDamageStatus,
+  getAbilityDamageStatus,
+  getEffectiveMove,
+  isAbilityDamageClassificationKnown,
+  isPotentialDamageAbilityDescription,
   isSupportedDamageMove,
   type DamageChartMove,
   type DamageChartPokemon,
@@ -38,6 +43,7 @@ const move: DamageChartMove = {
   usage: null,
   rank: 1,
   isContact: true,
+  tags: [],
 };
 
 const psyshock: DamageChartMove = {
@@ -48,6 +54,7 @@ const psyshock: DamageChartMove = {
   damageClass: "special",
   power: 80,
   isContact: false,
+  tags: [],
 };
 
 describe("damage chart stats", () => {
@@ -240,10 +247,11 @@ describe("damage stat profiles", () => {
 
 describe("damage ability support", () => {
   it("separates supported, unsupported, and non-modifying abilities", () => {
-    expect(getOffensiveAbilityDamageStatus("テクニシャン")).toBe("supported");
-    expect(getOffensiveAbilityDamageStatus("がんじょうあご")).toBe("unsupported");
-    expect(getOffensiveAbilityDamageStatus("さめはだ")).toBe("no-modifier");
-    expect(getOffensiveAbilityDamageStatus("クリアボディ")).toBe("no-modifier");
+    expect(getAbilityDamageStatus("テクニシャン")).toBe("supported");
+    expect(getAbilityDamageStatus("がんじょうあご")).toBe("supported");
+    expect(getAbilityDamageStatus("アナライズ")).toBe("conditional");
+    expect(getAbilityDamageStatus("さめはだ")).toBe("no-modifier");
+    expect(getAbilityDamageStatus("クリアボディ")).toBe("no-modifier");
   });
 
   it("defaults one ability, otherwise uses the highest real usage rate", () => {
@@ -259,6 +267,132 @@ describe("damage ability support", () => {
       { nameJa: "A", descriptionJa: null, percentageValue: null },
       { nameJa: "B", descriptionJa: null, percentageValue: null },
     ])).toBeNull();
+  });
+
+  it("classifies every current damage-related legal ability", () => {
+    const abilities = new Map<string, string | null>();
+    for (const file of readdirSync("data/usage-ranking/details")) {
+      const detail = JSON.parse(readFileSync(path.join("data/usage-ranking/details", file), "utf8")) as {
+        formats: Record<"Singles" | "Doubles", { abilities: Array<{ nameJa: string; descriptionJa: string | null }> }>;
+      };
+      for (const format of ["Singles", "Doubles"] as const) {
+        for (const ability of detail.formats[format].abilities) abilities.set(ability.nameJa, ability.descriptionJa);
+      }
+    }
+    expect(abilities.size).toBe(215);
+    const unclassified = [...abilities].filter(([name, description]) => !isAbilityDamageClassificationKnown(name, description));
+    expect(unclassified).toEqual([]);
+    expect([...abilities].filter(([, description]) => isPotentialDamageAbilityDescription(description)).length).toBeGreaterThan(40);
+  });
+});
+
+describe("damage ability integration", () => {
+  const neutralOptions = {
+    attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
+  } as const;
+
+  it.each([
+    ["スカイスキン", "flying", ["flying"], ["grass"]],
+    ["フェアリースキン", "fairy", ["fairy"], ["dragon"]],
+    ["フリーズスキン", "ice", ["ice"], ["dragon"]],
+    ["エレキスキン", "electric", ["electric"], ["water"]],
+    ["ドラゴンスキン", "dragon", ["dragon"], ["dragon"]],
+  ])("converts Normal moves before STAB and effectiveness for %s", (ability, effectiveType, attackerTypes, defenderTypes) => {
+    const effective = getEffectiveMove(move, ability);
+    expect(effective).toEqual({ type: effectiveType, power: 120 });
+    const converted = calculateDamage({
+      attacker: pokemon({ types: attackerTypes }), defender: pokemon({ types: defenderTypes }), move,
+      ...neutralOptions, attackerAbility: ability,
+    });
+    const normal = calculateDamage({
+      attacker: pokemon({ types: attackerTypes }), defender: pokemon({ types: defenderTypes }), move,
+      ...neutralOptions,
+    });
+    expect(converted.effectiveMoveType).toBe(effectiveType);
+    expect(converted.effectivePower).toBe(120);
+    expect(converted.maxDamage).toBeGreaterThan(normal.maxDamage * 2);
+  });
+
+  it("uses Mega Salamence's form-specific Aerilate ability", () => {
+    const mega = JSON.parse(readFileSync("data/usage-ranking/details/mega-salamence.json", "utf8")) as { formats: { Singles: { abilities: Array<{ nameJa: string }> } } };
+    const base = JSON.parse(readFileSync("data/usage-ranking/details/salamence.json", "utf8")) as { formats: { Singles: { abilities: Array<{ nameJa: string }> } } };
+    expect(mega.formats.Singles.abilities.map((ability) => ability.nameJa)).toEqual(["スカイスキン"]);
+    expect(base.formats.Singles.abilities.map((ability) => ability.nameJa)).not.toContain("スカイスキン");
+  });
+
+  it("publishes Champions move classifications as reusable damage tags", () => {
+    const moves = JSON.parse(readFileSync("data/usage-ranking/moves.json", "utf8")) as Record<string, { tags?: string[] }>;
+    expect(moves["5"].tags).toContain("punch");
+    expect(moves["44"].tags).toContain("bite");
+    expect(moves["304"].tags).toContain("sound");
+    expect(moves["406"].tags).toContain("pulse");
+    expect(moves["400"].tags).toContain("slicing");
+    expect(moves["402"].tags).toContain("ballistic");
+    expect(moves["38"].tags).toContain("recoil");
+  });
+
+  it.each([
+    ["てつのこぶし", "punch"],
+    ["がんじょうあご", "bite"],
+    ["きれあじ", "slicing"],
+    ["メガランチャー", "pulse"],
+    ["パンクロック", "sound"],
+    ["すてみ", "recoil"],
+  ] as const)("applies %s only to matching move metadata", (ability, tag) => {
+    const tagged = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move: { ...move, tags: [tag] }, attackerAbility: ability });
+    const untagged = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, attackerAbility: ability });
+    const baseline = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move });
+    expect(tagged.maxDamage).toBeGreaterThan(baseline.maxDamage);
+    expect(untagged).toEqual(baseline);
+  });
+
+  it("applies defensive reductions and ability immunities", () => {
+    const fireMove = { ...move, type: "fire" };
+    const baseline = calculateDamage({ ...neutralOptions, attacker: pokemon({ types: ["fire"] }), defender: pokemon(), move: fireMove });
+    const thickFat = calculateDamage({ ...neutralOptions, attacker: pokemon({ types: ["fire"] }), defender: pokemon(), move: fireMove, defenderAbility: "あついしぼう" });
+    const waterAbsorb = calculateDamage({ ...neutralOptions, attacker: pokemon({ types: ["water"] }), defender: pokemon(), move: { ...move, type: "water" }, defenderAbility: "ちょすい" });
+    expect(thickFat.maxDamage).toBeLessThan(baseline.maxDamage);
+    expect(waterAbsorb.maxDamage).toBe(0);
+    expect(waterAbsorb.hitLabel).toBe("無効");
+  });
+
+  it("lets Mold Breaker bypass a defensive immunity", () => {
+    const groundMove = { ...move, type: "ground" };
+    const blocked = calculateDamage({ ...neutralOptions, attacker: pokemon({ types: ["ground"] }), defender: pokemon(), move: groundMove, defenderAbility: "ふゆう" });
+    const bypassed = calculateDamage({ ...neutralOptions, attacker: pokemon({ types: ["ground"] }), defender: pokemon(), move: groundMove, attackerAbility: "かたやぶり", defenderAbility: "ふゆう" });
+    expect(blocked.maxDamage).toBe(0);
+    expect(bypassed.maxDamage).toBeGreaterThan(0);
+  });
+
+  it("applies a toggleable offensive condition only when enabled", () => {
+    const inactive = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, attackerAbility: "アナライズ" });
+    const active = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, attackerAbility: "アナライズ", attackerAbilityCondition: true });
+    expect(active.maxDamage).toBeGreaterThan(inactive.maxDamage);
+  });
+
+  it("applies a toggleable defensive condition only when enabled", () => {
+    const inactive = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, defenderAbility: "ふしぎなうろこ" });
+    const active = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, defenderAbility: "ふしぎなうろこ", defenderAbilityCondition: true });
+    expect(active.maxDamage).toBeLessThan(inactive.maxDamage);
+  });
+
+  it("blocks conditional critical hits with Shell Armor and Battle Armor", () => {
+    for (const defenderAbility of ["シェルアーマー", "カブトアーマー"]) {
+      const normal = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, attackerAbility: "スナイパー", defenderAbility });
+      const critical = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move, attackerAbility: "スナイパー", defenderAbility, attackerAbilityCondition: true });
+      expect(critical).toEqual(normal);
+    }
+  });
+
+  it("models full-HP Multiscale and Sturdy, including Parental Bond's second hit", () => {
+    const strongMove = { ...move, power: 250 };
+    const multiscale = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move: strongMove, defenderAbility: "マルチスケイル" });
+    const baseline = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move: strongMove });
+    const sturdy = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move: strongMove, defenderAbility: "がんじょう" });
+    const parentalBond = calculateDamage({ ...neutralOptions, attacker: pokemon(), defender: pokemon(), move: strongMove, attackerAbility: "おやこあい", defenderAbility: "がんじょう" });
+    expect(multiscale.maxDamage).toBeLessThan(baseline.maxDamage);
+    expect(sturdy.maxPercent).toBeLessThan(100);
+    expect(parentalBond.maxPercent).toBeGreaterThan(100);
   });
 });
 

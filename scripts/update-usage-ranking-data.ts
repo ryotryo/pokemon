@@ -68,6 +68,7 @@ interface ChampoutMove {
   pp: string;
   ms_lbl: string;
   ms_lbl_info: string;
+  classification_a: string;
 }
 
 interface ChampoutCommit {
@@ -131,6 +132,15 @@ function normalizedDescription(value: string | undefined): string | null {
 function pokeApiMoveSlug(value: string): string {
   return value.toLowerCase().replace(/['’:.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
+
+const MOVE_TAG_BY_CLASSIFICATION: Record<string, NonNullable<UsageMoveDetail["tags"]>[number]> = {
+  "1": "punch",
+  "2": "sound",
+  "4": "slicing",
+  "7": "ballistic",
+  "8": "pulse",
+  "9": "bite",
+};
 
 function textMap(file: ChampoutTextFile): Map<string, string> {
   return new Map(file.mSDataSet.map((entry) => [entry.LabelName, entry.OriginalText]));
@@ -343,14 +353,20 @@ async function main() {
       const cachedDescription = previousMoves[row.id]?.descriptionSource === "pokeapi"
         ? normalizedDescription(previousMoves[row.id].descriptionJa ?? undefined)
         : null;
+      const descriptionJa = champoutDescription ?? cachedDescription;
+      const tags: NonNullable<UsageMoveDetail["tags"]> = [];
+      const classifiedTag = MOVE_TAG_BY_CLASSIFICATION[row.classification_a];
+      if (classifiedTag) tags.push(classifiedTag);
+      if (descriptionJa && /(?:与えたダメージ[^。]*自分も受ける|自分も[^。]*ダメージを受ける|外れるか失敗すると自分[^。]*ダメージを受ける)/.test(descriptionJa)) tags.push("recoil");
       const detail: UsageMoveDetail = {
         id: row.id, nameJa, nameEn, type, damageClass,
         power: Number(row.power) > 0 ? Number(row.power) : null,
         accuracy: accuracyValue > 0 && accuracyValue !== 101 ? accuracyValue : null,
         alwaysHits: accuracyValue === 101,
         pp: Number(row.pp) > 0 ? Number(row.pp) : null,
-        descriptionJa: champoutDescription ?? cachedDescription,
+        descriptionJa,
         descriptionSource: champoutDescription ? "champout" : cachedDescription ? "pokeapi" : null,
+        ...(tags.length ? { tags } : {}),
       };
       movesByEnglish.set(normalizedName(nameEn), detail);
       movesById[detail.id] = detail;
