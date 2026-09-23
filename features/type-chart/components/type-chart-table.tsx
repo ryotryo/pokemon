@@ -11,7 +11,7 @@ const cellStyles: Record<number, string> = {
 
 function formatMultiplier(multiplier: number) {
   if (multiplier === 1) return "—";
-  return `×${multiplier}`;
+  return String(multiplier);
 }
 
 export function TypeChartTable() {
@@ -21,13 +21,13 @@ export function TypeChartTable() {
       <p className="mt-1 text-xs leading-5 text-slate-500">左の攻撃タイプから、上の防御タイプへ技を使ったときの倍率です。</p>
     </div>
     <div data-testid="type-chart-scroll" className="w-fit max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-      <table className="w-[564px] table-fixed border-separate border-spacing-0 text-center text-[8px]" aria-label="18タイプの攻撃と防御の相性表">
+      <table className="w-[492px] table-fixed border-separate border-spacing-0 text-center text-[8px]" aria-label="18タイプの攻撃と防御の相性表">
         <thead>
           <tr>
             <th scope="col" className="sticky left-0 top-0 z-30 w-[60px] border-b border-r border-slate-200 bg-slate-100 px-0.5 py-0 text-left text-[7px] font-black leading-2.5 text-slate-700">
               <span className="block">攻撃↓</span><span className="block">防御→</span>
             </th>
-            {TYPE_ORDER.map((type) => <th key={type} scope="col" aria-label={`${TYPE_NAMES_JA[type]}タイプ`} title={`${TYPE_NAMES_JA[type]}タイプ`} className="sticky top-0 z-20 w-7 border-b border-r border-slate-200 bg-slate-100 p-0 last:border-r-0">
+            {TYPE_ORDER.map((type) => <th key={type} scope="col" aria-label={`${TYPE_NAMES_JA[type]}タイプ`} title={`${TYPE_NAMES_JA[type]}タイプ`} className="sticky top-0 z-20 w-6 border-b border-r border-slate-200 bg-slate-100 p-0 last:border-r-0">
               <span className="flex justify-center"><TypeAssetImage type={type} nameJa={TYPE_NAMES_JA[type]} size="xxxs" /></span>
             </th>)}
           </tr>
