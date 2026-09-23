@@ -24,11 +24,11 @@ describe("type chart page", () => {
     expect(table).toContain("overflow-x-auto");
     expect(table).toContain("sticky left-0");
     expect(table).toContain("sticky top-0");
-    expect(table).toContain('w-[720px]');
-    expect(table).toContain("h-6");
+    expect(table).toContain('w-[564px]');
+    expect(table).toContain("h-5");
     expect(table).toContain("p-0 text-center");
     expect(table).not.toContain("inline-flex h-5 min-w-7");
-    expect(table).toContain('size="xxs"');
+    expect(table).toContain('size="xxxs"');
     expect(table).toContain('aria-label={`${TYPE_NAMES_JA[type]}タイプ`}');
   });
 });

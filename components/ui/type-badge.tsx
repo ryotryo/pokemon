@@ -33,7 +33,7 @@ const badgeBase = "inline-flex shrink-0 items-center rounded-full font-bold";
 
 export function TypeBadge({ type, withIcon = true, compact = false }: { type: string; withIcon?: boolean; compact?: boolean }) {
   const nameJa = getTypeDisplayNameJa(type);
-  return <span className={`${badgeBase} ${compact ? "gap-1 whitespace-nowrap px-1 text-[9px] leading-4" : `px-2 py-0.5 text-[10px] leading-4 ${withIcon ? "gap-1 pl-1" : ""}`} ${TYPE_COLORS[type.toLowerCase()] ?? "bg-slate-100 text-slate-700"}`}>{withIcon ? <TypeAssetImage type={type} nameJa={nameJa} size={compact ? "xxs" : "xs"} /> : null}{nameJa}</span>;
+  return <span className={`${badgeBase} ${compact ? "gap-0.5 whitespace-nowrap px-0.5 text-[8px] leading-3" : `px-2 py-0.5 text-[10px] leading-4 ${withIcon ? "gap-1 pl-1" : ""}`} ${TYPE_COLORS[type.toLowerCase()] ?? "bg-slate-100 text-slate-700"}`}>{withIcon ? <TypeAssetImage type={type} nameJa={nameJa} size={compact ? "xxxs" : "xs"} /> : null}{nameJa}</span>;
 }
 
 export function DamageClassBadge({ damageClass }: { damageClass: DamageClass }) {

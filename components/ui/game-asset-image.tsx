@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { getItemAssetUrl, getPokemonAssetUrl, getPokemonMiniAssetUrl, getTypeAssetUrl } from "../../lib/champions/assets";
 
-const sizeClasses = { xxs: "size-4", xs: "size-5", sm: "size-7", md: "size-11", lg: "size-24" } as const;
+const sizeClasses = { xxxs: "size-3", xxs: "size-4", xs: "size-5", sm: "size-7", md: "size-11", lg: "size-24" } as const;
 type AssetSize = keyof typeof sizeClasses;
 
 function GameAssetImage({ sources, alt, size, className = "", fallback = null, priority = false }: { sources: Array<string | null>; alt: string; size: AssetSize; className?: string; fallback?: React.ReactNode; priority?: boolean }) {
@@ -12,7 +12,7 @@ function GameAssetImage({ sources, alt, size, className = "", fallback = null, p
   const [sourceIndex, setSourceIndex] = useState(0);
   const source = validSources[sourceIndex];
   if (!source) return fallback;
-  const pixels = { xxs: 16, xs: 20, sm: 28, md: 44, lg: 96 }[size];
+  const pixels = { xxxs: 12, xxs: 16, xs: 20, sm: 28, md: 44, lg: 96 }[size];
   return <Image src={source} alt={alt} width={pixels} height={pixels} priority={priority} loading={priority ? undefined : "lazy"} unoptimized onError={() => setSourceIndex((index) => index + 1)} className={`${sizeClasses[size]} shrink-0 object-contain ${className}`} />;
 }
 
