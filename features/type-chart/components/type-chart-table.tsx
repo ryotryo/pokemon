@@ -37,7 +37,7 @@ export function TypeChartTable() {
             <th scope="row" className="sticky left-0 z-10 border-b border-r border-slate-200 bg-white px-1 py-1 text-left last:border-b-0"><TypeBadge type={attackType} compact /></th>
             {TYPE_ORDER.map((defenseType) => {
               const multiplier = getTypeMultiplier(attackType, [defenseType]);
-              return <td key={defenseType} aria-label={`${TYPE_NAMES_JA[attackType]}技を${TYPE_NAMES_JA[defenseType]}タイプへ使うと${multiplier}倍`} className={`h-7 border-b border-r border-slate-100 px-0.5 tabular-nums last:border-r-0 ${cellStyles[multiplier] ?? "text-slate-300"}`}>{formatMultiplier(multiplier)}</td>;
+              return <td key={defenseType} aria-label={`${TYPE_NAMES_JA[attackType]}技を${TYPE_NAMES_JA[defenseType]}タイプへ使うと${multiplier}倍`} className="h-7 border-b border-r border-slate-100 p-0.5 text-center tabular-nums last:border-r-0"><span className={`inline-flex h-5 min-w-7 items-center justify-center rounded-[2px] px-px ${cellStyles[multiplier] ?? "text-slate-300"}`}>{formatMultiplier(multiplier)}</span></td>;
             })}
           </tr>)}
         </tbody>

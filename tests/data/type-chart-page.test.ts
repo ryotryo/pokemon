@@ -26,6 +26,8 @@ describe("type chart page", () => {
     expect(table).toContain("sticky top-0");
     expect(table).toContain('w-[800px]');
     expect(table).toContain("h-7");
+    expect(table).toContain("inline-flex h-5 min-w-7");
+    expect(table).toContain("px-px");
     expect(table).toContain('size="xxs"');
     expect(table).toContain('aria-label={`${TYPE_NAMES_JA[type]}タイプ`}');
   });
