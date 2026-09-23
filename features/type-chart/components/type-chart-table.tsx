@@ -21,14 +21,14 @@ export function TypeChartTable() {
       <p className="mt-1 text-xs leading-5 text-slate-500">左の攻撃タイプから、上の防御タイプへ技を使ったときの倍率です。</p>
     </div>
     <div data-testid="type-chart-scroll" className="w-fit max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-      <table className="w-[980px] table-fixed border-separate border-spacing-0 text-center text-[9px]" aria-label="18タイプの攻撃と防御の相性表">
+      <table className="w-[800px] table-fixed border-separate border-spacing-0 text-center text-[9px]" aria-label="18タイプの攻撃と防御の相性表">
         <thead>
           <tr>
             <th scope="col" className="sticky left-0 top-0 z-30 w-20 border-b border-r border-slate-200 bg-slate-100 px-1.5 py-1 text-left text-[9px] font-black leading-3 text-slate-700">
               <span className="block">攻撃↓</span><span className="block">防御→</span>
             </th>
-            {TYPE_ORDER.map((type) => <th key={type} scope="col" className="sticky top-0 z-20 w-[50px] border-b border-r border-slate-200 bg-slate-100 px-0.5 py-1 font-bold leading-3 text-slate-700 last:border-r-0">
-              <span className="flex flex-col items-center"><TypeAssetImage type={type} nameJa={TYPE_NAMES_JA[type]} size="xxs" /><span>{TYPE_NAMES_JA[type]}</span></span>
+            {TYPE_ORDER.map((type) => <th key={type} scope="col" aria-label={`${TYPE_NAMES_JA[type]}タイプ`} title={`${TYPE_NAMES_JA[type]}タイプ`} className="sticky top-0 z-20 w-10 border-b border-r border-slate-200 bg-slate-100 p-1 last:border-r-0">
+              <span className="flex justify-center"><TypeAssetImage type={type} nameJa={TYPE_NAMES_JA[type]} size="xxs" /></span>
             </th>)}
           </tr>
         </thead>

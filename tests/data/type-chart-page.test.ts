@@ -24,8 +24,9 @@ describe("type chart page", () => {
     expect(table).toContain("overflow-x-auto");
     expect(table).toContain("sticky left-0");
     expect(table).toContain("sticky top-0");
-    expect(table).toContain('w-[980px]');
+    expect(table).toContain('w-[800px]');
     expect(table).toContain("h-7");
     expect(table).toContain('size="xxs"');
+    expect(table).toContain('aria-label={`${TYPE_NAMES_JA[type]}タイプ`}');
   });
 });
