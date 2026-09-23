@@ -7,7 +7,7 @@ export function BattleBasicsIndex() {
     <section aria-labelledby="beginner-course" className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm sm:p-5">
       <p className="text-xs font-bold text-blue-700">はじめての人はこちら</p>
       <h2 id="beginner-course" className="mt-1 text-xl font-black">完全初心者コース</h2>
-      <p className="mt-2 text-sm leading-6 text-slate-600">第1回から第45回まで、対戦画面の見方から実戦で役立つ仕組みや考え方まで順番に学べます。気になる記事だけ読んでも大丈夫です。</p>
+      <p className="mt-2 text-sm leading-6 text-slate-600">第1回から第47回まで、対戦画面の見方から実戦で役立つ仕組みや考え方まで順番に学べます。気になる記事だけ読んでも大丈夫です。</p>
       <ol className="mt-4 grid gap-2 sm:grid-cols-2">
         {beginnerCourseArticles.map((article) => <li key={article.slug}>
           <Link href={`/battle-basics/${article.slug}/`} className="group flex h-full gap-3 rounded-xl border border-slate-200 p-3 transition hover:border-blue-300 focus-visible:outline-2 focus-visible:outline-blue-600">

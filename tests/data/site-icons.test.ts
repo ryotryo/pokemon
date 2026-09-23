@@ -25,7 +25,7 @@ describe("site icon system", () => {
   });
 
   it("assigns a valid icon to every published battle basics article", () => {
-    expect(battleBasicsArticles).toHaveLength(45);
+    expect(battleBasicsArticles).toHaveLength(47);
     expect(battleBasicsArticles.every((article) => siteIconNames.includes(article.icon))).toBe(true);
     expect(new Set(battleBasicsArticles.map((article) => article.icon)).size).toBeGreaterThanOrEqual(35);
   });

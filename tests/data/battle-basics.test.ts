@@ -11,17 +11,17 @@ describe("battle basics", () => {
     expect(battleBasicsArticles.every((article) => categoryIds.has(article.categoryId))).toBe(true);
   });
 
-  it("publishes 45 unique beginner articles in order", () => {
+  it("publishes 47 unique beginner articles in order", () => {
     expect(battleBasicsArticles.length).toBeGreaterThanOrEqual(15);
     expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(battleBasicsArticles.length);
-    expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:45},(_,index)=>index+1));
+    expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:47},(_,index)=>index+1));
     expect(battleBasicsArticles.every((article) => article.sections.length >= 3 && article.sections.length <= 6)).toBe(true);
     expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0))).toBe(true);
   });
 
   it("adds the second-wave articles to the numbered course", () => {
-    expect(beginnerCourseArticles).toHaveLength(45);
-    expect(battleBasicsArticles).toHaveLength(45);
+    expect(beginnerCourseArticles).toHaveLength(47);
+    expect(battleBasicsArticles).toHaveLength(47);
     expect(battleBasicsArticles.filter((article) => article.beginnerCourseOrder === undefined)).toHaveLength(0);
     expect(battleBasicsArticleBySlug.get("damage-basics")?.beginnerCourseOrder).toBe(16);
     expect(battleBasicsArticleBySlug.get("move-consistency")?.beginnerCourseOrder).toBe(45);
@@ -32,7 +32,7 @@ describe("battle basics", () => {
     expect(secondWave).toHaveLength(30);
     expect(secondWave.every((slug) => battleBasicsArticleBySlug.has(slug))).toBe(true);
     expect(Object.fromEntries(battleBasicsCategories.map((category) => [category.id, battleBasicsArticles.filter((article) => article.categoryId === category.id).length]))).toEqual({
-      "getting-started": 5, damage: 8, speed: 6, status: 7, field: 7, numbers: 3, strategy: 6, terms: 3,
+      "getting-started": 5, damage: 8, speed: 6, status: 9, field: 7, numbers: 3, strategy: 6, terms: 3,
     });
   });
 
@@ -47,6 +47,12 @@ describe("battle basics", () => {
     expect(sleep).toContain("3回目は必ず起きる");
     expect(overview).toContain("技を使う時に25%で回復");
     expect(overview).toContain("3回目は必ず回復");
+    const freeze = JSON.stringify(battleBasicsArticleBySlug.get("freeze"));
+    const confusion = JSON.stringify(battleBasicsArticleBySlug.get("confusion"));
+    expect(freeze).toContain("1回目と2回目は、それぞれ25%");
+    expect(freeze).toContain("3回目に技を使おうとしたときは必ず解けます");
+    expect(confusion).toContain("約1/3の確率で自分を攻撃");
+    expect(confusion).toContain("控えへ交代するとこんらんは治ります");
   });
 
   it("explains practical odd and even HP breakpoints", () => {
@@ -123,7 +129,7 @@ describe("battle basics", () => {
     expect(articleSource).toContain("← 前の記事");
     expect(articleSource).toContain("次の記事 →");
     expect(beginnerCourseArticles[0].beginnerCourseOrder).toBe(1);
-    expect(beginnerCourseArticles.at(-1)?.beginnerCourseOrder).toBe(45);
+    expect(beginnerCourseArticles.at(-1)?.beginnerCourseOrder).toBe(47);
   });
 
   it("adds all articles to the sitemap and keeps existing main routes", () => {
