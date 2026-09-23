@@ -24,5 +24,8 @@ describe("type chart page", () => {
     expect(table).toContain("overflow-x-auto");
     expect(table).toContain("sticky left-0");
     expect(table).toContain("sticky top-0");
+    expect(table).toContain('w-[980px]');
+    expect(table).toContain("h-7");
+    expect(table).toContain('size="xxs"');
   });
 });
