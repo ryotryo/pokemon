@@ -21,23 +21,23 @@ export function TypeChartTable() {
       <p className="mt-1 text-xs leading-5 text-slate-500">左の攻撃タイプから、上の防御タイプへ技を使ったときの倍率です。</p>
     </div>
     <div data-testid="type-chart-scroll" className="w-fit max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-      <table className="w-[800px] table-fixed border-separate border-spacing-0 text-center text-[9px]" aria-label="18タイプの攻撃と防御の相性表">
+      <table className="w-[720px] table-fixed border-separate border-spacing-0 text-center text-[8px]" aria-label="18タイプの攻撃と防御の相性表">
         <thead>
           <tr>
-            <th scope="col" className="sticky left-0 top-0 z-30 w-20 border-b border-r border-slate-200 bg-slate-100 px-1.5 py-1 text-left text-[9px] font-black leading-3 text-slate-700">
+            <th scope="col" className="sticky left-0 top-0 z-30 w-[72px] border-b border-r border-slate-200 bg-slate-100 px-1 py-0.5 text-left text-[8px] font-black leading-3 text-slate-700">
               <span className="block">攻撃↓</span><span className="block">防御→</span>
             </th>
-            {TYPE_ORDER.map((type) => <th key={type} scope="col" aria-label={`${TYPE_NAMES_JA[type]}タイプ`} title={`${TYPE_NAMES_JA[type]}タイプ`} className="sticky top-0 z-20 w-10 border-b border-r border-slate-200 bg-slate-100 p-1 last:border-r-0">
+            {TYPE_ORDER.map((type) => <th key={type} scope="col" aria-label={`${TYPE_NAMES_JA[type]}タイプ`} title={`${TYPE_NAMES_JA[type]}タイプ`} className="sticky top-0 z-20 w-9 border-b border-r border-slate-200 bg-slate-100 p-0.5 last:border-r-0">
               <span className="flex justify-center"><TypeAssetImage type={type} nameJa={TYPE_NAMES_JA[type]} size="xxs" /></span>
             </th>)}
           </tr>
         </thead>
         <tbody>
           {TYPE_ORDER.map((attackType) => <tr key={attackType}>
-            <th scope="row" className="sticky left-0 z-10 border-b border-r border-slate-200 bg-white px-1 py-1 text-left last:border-b-0"><TypeBadge type={attackType} compact /></th>
+            <th scope="row" className="sticky left-0 z-10 border-b border-r border-slate-200 bg-white p-0.5 text-left last:border-b-0"><TypeBadge type={attackType} compact /></th>
             {TYPE_ORDER.map((defenseType) => {
               const multiplier = getTypeMultiplier(attackType, [defenseType]);
-              return <td key={defenseType} aria-label={`${TYPE_NAMES_JA[attackType]}技を${TYPE_NAMES_JA[defenseType]}タイプへ使うと${multiplier}倍`} className="h-7 border-b border-r border-slate-100 p-0.5 text-center tabular-nums last:border-r-0"><span className={`inline-flex h-5 min-w-7 items-center justify-center rounded-[2px] px-px ${cellStyles[multiplier] ?? "text-slate-300"}`}>{formatMultiplier(multiplier)}</span></td>;
+              return <td key={defenseType} aria-label={`${TYPE_NAMES_JA[attackType]}技を${TYPE_NAMES_JA[defenseType]}タイプへ使うと${multiplier}倍`} className={`h-6 border-b border-r border-slate-100 p-0 text-center tabular-nums last:border-r-0 ${cellStyles[multiplier] ?? "text-slate-300"}`}>{formatMultiplier(multiplier)}</td>;
             })}
           </tr>)}
         </tbody>
