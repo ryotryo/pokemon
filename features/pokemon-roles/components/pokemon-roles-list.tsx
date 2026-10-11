@@ -31,7 +31,6 @@ export function PokemonRolesList({ lists }: { lists: PokemonRoleLists }) {
               <Link href={`/pokemon-intro/${entry.id}/`} className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-blue-100 bg-white py-1 pl-1 pr-2.5 text-xs font-bold text-slate-800 hover:border-blue-300 focus-visible:outline-2 focus-visible:outline-blue-600">
                 <PokemonImage src={entry.sprite} name={entry.displayNameJa} size={24} mini decorative/>
                 <span>{entry.displayNameJa}</span>
-                <span className="text-[10px] font-medium text-slate-500">{entry.ranks[format] !== null ? `使用率${entry.ranks[format]}位` : "順位なし"}</span>
               </Link>
             </li>)}</ol>
           </div> : <p className="mt-3 text-xs text-slate-500">該当するポケモンはまだいません。</p>}

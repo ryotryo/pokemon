@@ -42,7 +42,9 @@ describe("role usage lists", () => {
     for (const format of ["Singles", "Doubles"] as const) for (const role of pokemonRoleDefinitions) {
       const result = getPokemonForRole(role.id, pokemonIntros, rankingPokemon, format);
       const matchingIds = new Set(pokemonIntros.filter((intro) => intro.roles.includes(role.id)).map((intro) => intro.pokemonId));
-      const all = rankingPokemon.filter((entry) => matchingIds.has(entry.id));
+      const candidates = rankingPokemon.filter((entry) => matchingIds.has(entry.id));
+      const megaIds = new Set(candidates.filter((entry) => entry.formRelation === "mega").map((entry) => entry.battleId));
+      const all = candidates.filter((entry) => entry.formRelation !== "base" || !megaIds.has(entry.battleId));
       expect(result.total).toBe(all.length);
       expect(result.entries).toHaveLength(Math.min(10, all.length));
       expect(new Set(result.entries.map((entry) => entry.id)).size).toBe(result.entries.length);
@@ -56,19 +58,47 @@ describe("role usage lists", () => {
     }
   });
   it("uses the selected format and keeps unranked entries last", () => {
-    const pokemon = rankingPokemon.slice(0, 3).map((entry, i) => ({ ...entry, ranks: { Singles: [20, 1, null][i], Doubles: [1, null, 2][i] } }));
+    const pokemon = rankingPokemon.filter((entry) => entry.formRelation === "base").slice(0, 3).map((entry, i) => ({ ...entry, ranks: { Singles: [20, 1, null][i], Doubles: [1, null, 2][i] } }));
     const intros = pokemon.map((entry) => ({ pokemonId: entry.id, roles: ["physical-attacker"] as const }));
     expect(getPokemonForRole("physical-attacker", intros, pokemon, "Singles").entries.map((entry) => entry.id)).toEqual([pokemon[1].id, pokemon[0].id, pokemon[2].id]);
     expect(getPokemonForRole("physical-attacker", intros, pokemon, "Doubles").entries.map((entry) => entry.id)).toEqual([pokemon[0].id, pokemon[2].id, pokemon[1].id]);
   });
-  it("keeps equal-ranked forms stable without merging their roles", () => {
+  it("prefers Mega within the role while retaining base-only roles", () => {
     const pokemon = rankingPokemon.slice(0, 2).map((entry) => ({ ...entry, ranks: { Singles: 1, Doubles: 1 } }));
     const intros = pokemon.map((entry) => ({ pokemonId: entry.id, roles: ["physical-attacker"] as const }));
-    expect(getPokemonForRole("physical-attacker", intros, [...pokemon].reverse(), "Singles").entries.map((entry) => entry.id)).toEqual(pokemon.map((entry) => entry.id));
+    expect(getPokemonForRole("physical-attacker", intros, [...pokemon].reverse(), "Singles").entries.map((entry) => entry.id)).toEqual([pokemon[1].id]);
     expect(getPokemonForRole("physical-attacker", intros.slice(1), pokemon, "Singles").entries.map((entry) => entry.id)).toEqual([pokemon[1].id]);
+    expect(getPokemonForRole("physical-attacker", intros.slice(0, 1), pokemon, "Singles").entries.map((entry) => entry.id)).toEqual([pokemon[0].id]);
   });
   it("does not count articles outside the current dataset", () => {
     const intros = [{ pokemonId: "retired-form", roles: ["physical-attacker"] as const }];
     expect(getPokemonForRole("physical-attacker", intros, rankingPokemon, "Singles")).toEqual({ entries: [], total: 0 });
+  });
+});
+
+
+describe("Mega role slots", () => {
+  it("refills the ten slots after removing base forms", () => {
+    const pokemon = rankingPokemon.filter((entry) => entry.formRelation === "base").slice(0, 11).map((entry, i) => ({ ...entry, ranks: { Singles: i + 1, Doubles: 11 - i } }));
+    const mega = { ...pokemon[0], id: "fixture-mega", formRelation: "mega" as const, formOrder: 1 };
+    const all = [...pokemon, mega];
+    const intros = all.map((entry) => ({ pokemonId: entry.id, roles: ["physical-attacker"] as const }));
+    const result = getPokemonForRole("physical-attacker", intros, all, "Singles");
+    expect(result.total).toBe(11);
+    expect(result.entries.map((entry) => entry.id)).toEqual([mega.id, ...pokemon.slice(1, 10).map((entry) => entry.id)]);
+  });
+  it("keeps distinct Mega variants and independent forms", () => {
+    const charizard = rankingPokemon.filter((entry) => entry.battleId === "charizard");
+    const independent = { ...charizard[0], id: "fixture-independent", formRelation: "independent" as const };
+    const all = [...charizard, independent];
+    const intros = all.map((entry) => ({ pokemonId: entry.id, roles: ["special-attacker"] as const }));
+    expect(getPokemonForRole("special-attacker", intros, all, "Singles").entries.map((entry) => entry.id)).toEqual([independent.id, "mega-charizard-x", "mega-charizard-y"]);
+  });
+  it("excludes normal Charizard from the current special attacker list", () => {
+    for (const format of ["Singles", "Doubles"] as const) {
+      const result = getPokemonForRole("special-attacker", pokemonIntros, rankingPokemon, format);
+      expect(result.entries.map((entry) => entry.id)).not.toContain("charizard");
+      expect(result.entries).toHaveLength(10);
+    }
   });
 });

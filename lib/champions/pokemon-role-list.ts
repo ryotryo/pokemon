@@ -11,7 +11,10 @@ export function getPokemonForRole(
   format: BattleFormat,
 ) {
   const ids = new Set(intros.filter((intro) => intro.roles.includes(roleId)).map((intro) => intro.pokemonId));
-  const matches = pokemon.filter((entry) => ids.has(entry.id));
+  const candidates = pokemon.filter((entry) => ids.has(entry.id));
+  // battleId is the authoritative base/Mega relationship; independent forms stay distinct.
+  const megaBattleIds = new Set(candidates.filter((entry) => entry.formRelation === "mega").map((entry) => entry.battleId));
+  const matches = candidates.filter((entry) => entry.formRelation !== "base" || !megaBattleIds.has(entry.battleId));
   const entries = [...matches].sort((a, b) =>
     (a.ranks[format] ?? Infinity) - (b.ranks[format] ?? Infinity)
     || a.dexNumber - b.dexNumber
