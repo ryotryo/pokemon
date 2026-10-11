@@ -23,7 +23,7 @@ Poké Analyticsは、Pokémon Championsの対戦データを分析し、対戦�
 | ダメージ早見表 | `/damage-chart` | 2匹の代表技を双方向に比較。天候・能力ランク・連続技・特殊威力等の条件も指定可能 |
 | 技からポケモン検索 | `/move-search` | Champions learnsetを技から逆引きし、使用率順位と併せて表示する |
 | このポケモンってどんなポケモン？ | `/pokemon-intro` | 対戦での基本的な役割をシーズン非依存の言葉で説明する初心者向け図鑑 |
-| 役割一覧 | `/pokemon-roles` | 共通role taxonomyを説明し、該当するpokemon-intro記事へつなぐ |
+| 対戦ポケモンの役割 | `/pokemon-roles` | ホームから開ける役割一覧。Singles / Doublesの使用率順位順に各役割最大10フォームを表示し、pokemon-intro記事へつなぐ |
 | ポケモン対戦の基礎 | `/battle-basics` | 8カテゴリと順番に読める完全初心者コースで、対戦ルールや考え方をゼロから説明する |
 | ポケモン タイプ相性表 | `/type-chart` | 18×18の攻撃・防御相性表と、複合タイプの弱点・耐性判定を表示する |
 

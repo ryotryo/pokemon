@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SiteIcon } from "@/components/ui/site-icon";
 import { SiteLogo } from "@/components/site-logo";
 
 const tools = [
@@ -46,6 +47,12 @@ const tools = [
     icon: "wise-glasses",
   },
   {
+    title: "対戦ポケモンの役割",
+    description: "物理アタッカーや受け、サポートなどの役割と、それぞれの使用率上位ポケモンを紹介します。",
+    href: "/pokemon-roles/",
+    icon: "roles",
+  },
+  {
     title: "ポケモン対戦の基礎",
     description: "対戦を始めたばかりの人向けに、勝ち方、タイプ、技、交代などをゼロから解説します。",
     href: "/battle-basics/",
@@ -70,7 +77,7 @@ export default function Home() {
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2.5">
-                      <Image src={`/images/home-items/${tool.icon}.png`} alt="" width={28} height={28} unoptimized className="size-7 shrink-0 object-contain" />
+                      {tool.icon === "roles" ? <SiteIcon name="roles" className="size-7 shrink-0 text-blue-700" /> : <Image src={`/images/home-items/${tool.icon}.png`} alt="" width={28} height={28} unoptimized className="size-7 shrink-0 object-contain" />}
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
                         <h3 className="mt-1 text-xl font-black">{tool.title}</h3>
