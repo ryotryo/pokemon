@@ -66,7 +66,7 @@ export default function Home() {
         </header>
 
         <section aria-label="ツール一覧">
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4">
             {tools.map((tool) => (
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                 <div className="flex flex-1 items-start justify-between gap-4">
@@ -86,7 +86,6 @@ export default function Home() {
                   </div>
                   <span aria-hidden="true" className="mt-1 text-2xl text-blue-700 transition group-hover:translate-x-1">→</span>
                 </div>
-                <p className="mt-5 text-sm font-bold text-blue-700">ツールを開く</p>
               </Link>
             ))}
           </div>
