@@ -70,7 +70,7 @@ export default function Home() {
                 <div className="flex flex-1 items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2.5">
-                      <Image src={`/images/home-items/${tool.icon}.png`} alt="" width={28} height={28} unoptimized className="size-7 shrink-0 object-contain [image-rendering:pixelated]" />
+                      <Image src={`/images/home-items/${tool.icon}.png`} alt="" width={28} height={28} unoptimized className="size-7 shrink-0 object-contain" />
                       <div className="min-w-0">
                         <p className="text-xs font-bold text-blue-700">ポケモンチャンピオンズ</p>
                         <h3 className="mt-1 text-xl font-black">{tool.title}</h3>
