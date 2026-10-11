@@ -65,11 +65,7 @@ export default function Home() {
           <p className="mt-4 text-base leading-7 text-slate-600">ポケモンチャンピオンズの対戦に役立つツールと、初心者に向けたコンテンツを公開中</p>
         </header>
 
-        <section aria-labelledby="available-tools">
-          <div className="mb-4 flex items-center gap-3">
-            <h2 id="available-tools" className="text-lg font-black">現在利用可能</h2>
-            <span className="h-px flex-1 bg-slate-200" />
-          </div>
+        <section aria-label="ツール一覧">
           <div className="grid gap-4 sm:grid-cols-2">
             {tools.map((tool) => (
               <Link key={tool.title} href={tool.href} className="group flex h-full flex-col rounded-3xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
