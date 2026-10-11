@@ -11,10 +11,11 @@
     "start": "next start",
     "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc --noEmit",
-    "data:update": "tsx scripts/update-champions-data.ts && tsx scripts/update-usage-ranking-data.ts",
+    "data:update": "tsx scripts/update-champions-data.ts && tsx scripts/update-usage-ranking-data.ts && tsx scripts/update-damage-chart-metadata.ts",
     "intro-plan:update": "tsx scripts/update-pokemon-intro-production-plan.ts",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "data:check": "vitest run --config vitest.config.ts tests/data"
+    "data:check": "vitest run --config vitest.config.ts tests/data",
+    "damage-data:update": "tsx scripts/update-damage-chart-metadata.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.12",

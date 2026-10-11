@@ -88,7 +88,8 @@ describe("calculateDamage", () => {
       move: { ...move, type: "fire" },
       attackEv: 0, attackNature: 1, hpEv: 0, defenseEv: 0, defenseNature: 1,
     });
-    expect(result.minDamage).toBe(234);
+    // 46 → floor(46×0.85)=39 → STAB 58 → 4倍=232。
+    expect(result.minDamage).toBe(232);
     expect(result.maxDamage).toBe(276);
     expect(result.hitLabel).toBe("確1");
   });
@@ -401,9 +402,9 @@ describe("isSupportedDamageMove", () => {
     expect(isSupportedDamageMove({ id: "89", damageClass: "physical", power: 100 }, true)).toBe(true);
   });
 
-  it("excludes status, fixed/counter, and multi-hit moves", () => {
+  it("excludes status while admitting dedicated fixed/counter and multi-hit paths", () => {
     expect(isSupportedDamageMove({ id: "182", damageClass: "status", power: null }, false)).toBe(false);
-    expect(isSupportedDamageMove({ id: "68", damageClass: "physical", power: 1 }, true)).toBe(false);
-    expect(isSupportedDamageMove({ id: "999", damageClass: "physical", power: 25, descriptionJa: "2〜5回連続で攻撃する。" }, true)).toBe(false);
+    expect(isSupportedDamageMove({ id: "68", damageClass: "physical", power: 1 }, true)).toBe(true);
+    expect(isSupportedDamageMove({ id: "331", damageClass: "physical", power: 25, descriptionJa: "2〜5回連続で攻撃する。" }, true)).toBe(true);
   });
 });
