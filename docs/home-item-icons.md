@@ -19,3 +19,4 @@
 | 技からポケモン検索 | ピーピーエイド | ether.png | PKHeX: aitem_38.png |
 | どんなポケモン？ | ものしりメガネ | wise-glasses.png | Champions: Wise Glasses.png |
 | 対戦の基礎 | せんせいの爪 | quick-claw.png | Champions: Quick Claw.png |
+| 対戦ポケモンの役割 | ピッピにんぎょう | poke-doll.png | PKHeX: aitem_63.png |
