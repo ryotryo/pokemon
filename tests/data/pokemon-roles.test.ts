@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import type { UsagePokemonDetail } from "../../lib/champions/usage-ranking";
 import { describe, expect, it } from "vitest";
 import { pokemonIntros } from "../../content/pokemon-intros";
 import { pokemonRoleById, pokemonRoleDefinitions, roleGroups } from "../../content/pokemon-roles";
@@ -100,5 +102,53 @@ describe("Mega role slots", () => {
       expect(result.entries.map((entry) => entry.id)).not.toContain("charizard");
       expect(result.entries).toHaveLength(10);
     }
+  });
+});
+
+
+const roleMechanics = {
+  "offensive-pivot": { moves: ["369", "521", "812", "857"] },
+  "relay-support": { moves: ["226", "880"] },
+  "trick-room": { moves: ["433"] },
+  tailwind: { moves: ["366"] },
+  screens: { moves: ["115", "113", "694"] },
+  "entry-hazard": { moves: ["191", "390", "446", "564", "830", "845", "887"], abilities: ["どくげしょう"] },
+  "hazard-removal": { moves: ["229", "432", "866", "882", "756"] },
+  "team-healing": { moves: ["273", "361", "505", "791", "906", "392"], abilities: ["おもてなし"] },
+  "rain-setter": { abilities: ["あめふらし"] },
+  "sun-setter": { abilities: ["ひでり"] },
+  "sand-setter": { abilities: ["すなおこし", "すなはき"] },
+  "rain-attacker": { abilities: ["すいすい"] },
+  "sun-attacker": { abilities: ["ようりょくそ", "サンパワー", "メガソーラー"] },
+  "sand-attacker": { abilities: ["すなかき", "すなのちから"] },
+  "setup-counter": { moves: ["114", "144"], abilities: ["てんねん", "かわりもの"] },
+} satisfies Record<string, { moves?: string[]; abilities?: string[] }>;
+
+describe("role mechanics audit", () => {
+  it("requires the assigned support or weather mechanism on each exact form", () => {
+    for (const intro of pokemonIntros) {
+      const detail = JSON.parse(readFileSync(`data/usage-ranking/details/${intro.pokemonId}.json`, "utf8")) as UsagePokemonDetail;
+      const abilities = Object.values(detail.formats).flatMap((format) => format.abilities.map((ability) => ability.nameJa));
+      for (const [role, rule] of Object.entries(roleMechanics) as [string, { moves?: string[]; abilities?: string[] }][]) {
+        if (!intro.roles.includes(role as typeof intro.roles[number])) continue;
+        expect(rule.moves?.some((id) => detail.learnableMoveIds.includes(id)) || rule.abilities?.some((ability) => abilities.includes(ability)), `${intro.pokemonId}: ${role}`).toBe(true);
+      }
+    }
+  });
+  it("shows only Pelipper and Politoed as rain starters in both formats", () => {
+    for (const format of ["Singles", "Doubles"] as const) {
+      expect(getPokemonForRole("rain-setter", pokemonIntros, rankingPokemon, format).entries.map((entry) => entry.id).sort()).toEqual(["pelipper", "politoed"]);
+      expect(getPokemonForRole("rain-attacker", pokemonIntros, rankingPokemon, format).entries.map((entry) => entry.id)).toContain("mega-swampert");
+    }
+  });
+  it("keeps weather users, room users, and non-damaging relays out of starter or attacking-pivot lists", () => {
+    for (const [id, excluded] of [
+      ["mega-meganium", "sun-setter"], ["mega-houndoom", "sun-setter"],
+      ["excadrill", "sand-setter"], ["houndstone", "sand-setter"],
+      ["camerupt", "trick-room"], ["mega-camerupt", "trick-room"],
+      ["scolipede", "offensive-pivot"], ["malamar", "offensive-pivot"], ["sceptile", "offensive-pivot"],
+      ["galarian-slowbro", "priority-attacker"], ["ditto", "team-cushion"],
+      ["klefki", "mixed-attacker"], ["slurpuff", "mixed-attacker"], ["skarmory", "hazard-removal"],
+    ]) expect(pokemonIntros.find((intro) => intro.pokemonId === id)?.roles).not.toContain(excluded);
   });
 });
