@@ -1,3 +1,4 @@
+import { canonicalPokemonId } from "../lib/champions/pokemon-id";
 /* eslint-disable @typescript-eslint/no-explicit-any -- External API and upstream dump values are validated before publication. */
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -18,12 +19,13 @@ import {
   type UsageRankingPokemon,
 } from "../lib/champions/usage-ranking";
 
+import { fetchJson, getPublicRepositoryCommit } from "./lib/public-data";
+
 const ROOT = process.cwd();
 const API = "https://championsbattledata.com";
 const OUT = path.join(ROOT, "data/usage-ranking");
 const STAGE = path.join(ROOT, `data/.usage-ranking-staging-${Date.now()}`);
 const NAMES_FILE = path.join(ROOT, "data/i18n/pokemon-names-ja.json");
-const CHAMPOUT_API = "https://api.github.com/repos/projectpokemon/champout/commits/main";
 const FORM_LEARNSET_OVERRIDES: Record<string, string> = {
   floette: "Floette-Eternal",
   "mega-floette": "Floette-Mega",
@@ -71,9 +73,6 @@ interface ChampoutMove {
   classification_a: string;
 }
 
-interface ChampoutCommit {
-  sha: string;
-}
 
 interface PokeApiMove {
   flavor_text_entries?: Array<{
@@ -82,11 +81,7 @@ interface PokeApiMove {
   }>;
 }
 
-async function getJson<T>(url: string): Promise<T> {
-  const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "poke-analytics-data-builder/1.0" } });
-  if (!response.ok) throw new Error(`${response.status} ${url}`);
-  return response.json() as Promise<T>;
-}
+const getJson = fetchJson;
 
 async function getText(url: string): Promise<string> {
   const response = await fetch(url, { headers: { accept: "text/plain", "user-agent": "poke-analytics-data-builder/1.0" } });
@@ -313,7 +308,7 @@ async function main() {
     const [index, names, commit] = await Promise.all([
       getJson<ChampionsIndex>(`${API}/api`),
       readFile(NAMES_FILE, "utf8").then((value) => JSON.parse(value) as Record<string, string>),
-      getJson<ChampoutCommit>(CHAMPOUT_API),
+      getPublicRepositoryCommit("projectpokemon/champout").then((sha) => ({ sha })),
     ]);
     if (!index.generatedAt || !index.defaultSeason || !index.pokemon.length || !commit.sha) throw new Error("Usage ranking source metadata is incomplete");
     const rawRoot = `https://raw.githubusercontent.com/projectpokemon/champout/${commit.sha}`;
@@ -386,11 +381,11 @@ async function main() {
         return move && !move.descriptionJa ? [move] : [];
       });
     const pokeApiDescriptions = await mapWithConcurrency(fallbackMoves, 6, async (move) => {
-      const response = await fetch(`https://pokeapi.co/api/v2/move/${pokeApiMoveSlug(move.nameEn)}`, {
-        headers: { accept: "application/json", "user-agent": "poke-analytics-data-builder/1.0" },
+      const payload = await getJson<PokeApiMove>(`https://pokeapi.co/api/v2/move/${pokeApiMoveSlug(move.nameEn)}`).catch((error) => {
+        console.warn(`[usage] Optional move description unavailable: ${move.id} ${move.nameEn}`, error.message);
+        return null;
       });
-      if (!response.ok) return { id: move.id, description: null };
-      const payload = await response.json() as PokeApiMove;
+      if (!payload) return { id: move.id, description: null };
       const entries = payload.flavor_text_entries ?? [];
       const japanese = entries.filter((entry) => entry.language?.name === "ja-Hrkt");
       const fallbackJapanese = entries.filter((entry) => entry.language?.name === "ja");
@@ -437,12 +432,12 @@ async function main() {
       ])) as Record<BattleFormat, number | null>;
       for (const form of getAttachedForms(entry)) {
         const formKind = form.form_kind || "Base";
-        const id = form.slug;
+        const id = canonicalPokemonId(form.slug);
         const learnsetName = FORM_LEARNSET_OVERRIDES[id]
           ?? resolveChampoutLearnsetName(entry.showdownName, formKind);
         const dexNumber = dexNumbers.get(normalizedName(learnsetName));
         if (!dexNumber) throw new Error(`National Pokédex number missing: ${id} -> ${learnsetName}`);
-        const formOrder = (entry.summary?.forms ?? []).findIndex((candidate: any) => candidate.slug === id);
+        const formOrder = (entry.summary?.forms ?? []).findIndex((candidate: any) => candidate.slug === form.slug);
         if (formOrder < 0) throw new Error(`Form order missing: ${id}`);
         const record: UsageRankingPokemon = {
           id, battleId: entry.showdownId, displayNameJa: names[id] ?? form.saved_name, dexNumber, formOrder,

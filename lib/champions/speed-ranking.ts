@@ -1,3 +1,4 @@
+import { canonicalPokemonId } from "./pokemon-id";
 /* eslint-disable @typescript-eslint/no-explicit-any -- Champions API values are normalized and validated before publication. */
 import { getAttachedForms, getUsageRank } from "./normalize";
 import { getChampionsSprite } from "./sprites";
@@ -92,8 +93,8 @@ export function normalizeSpeedRanking(indexPokemon: any[], season: string, names
       const formKind = form.form_kind || "Base";
       const baseStats = normalizeBaseStats(form);
       if (Object.values(baseStats).some((value) => !Number.isFinite(value) || value <= 0)) continue;
-      records.set(form.slug, {
-        id: form.slug,
+      records.set(canonicalPokemonId(form.slug), {
+        id: canonicalPokemonId(form.slug),
         name: form.saved_name,
         displayNameJa: namesJa[form.slug] ?? form.saved_name,
         formKind,

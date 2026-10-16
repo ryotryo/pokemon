@@ -30,6 +30,9 @@ jobs:
       - name: Fetch, normalize, validate, and publish JSON
         run: npm run data:update
 
+      - name: Verify generated data and existing article links
+        run: npm run data:check
+
       - name: Commit updated data
         shell: bash
         run: |

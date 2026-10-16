@@ -1019,7 +1019,8 @@ describe("damage metadata coverage", () => {
       "893",
     ])
       expect(moves.has(id), id).toBe(true);
-    expect(moves.size).toBe(289);
+    // Usage snapshots can add represented moves; keep the existing coverage floor.
+    expect(moves.size).toBeGreaterThanOrEqual(289);
     for (const p of dataset.pokemon)
       for (const format of ["Singles", "Doubles"] as const)
         for (const m of p.moves[format])

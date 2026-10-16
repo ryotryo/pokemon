@@ -2,9 +2,11 @@
 
 ## Last updated
 
-2026-10-12（役割分類を再監査し、始動役と利用役を分離）
+2026-10-16（M7・10月15日分へ更新し、上流フォームID変更へ対応）
 
 ## Current focus
+
+使用率・関連ツールの静的データをM7へ更新。上流の114フォームID変更は、同一画像・全6種族値を照合した明示的aliasで既存IDへ変換し、341記事との対応を維持。補助API取得には公式JSON mirrorも利用する。
 
 「対戦ポケモンの役割」の全フォーム分類を見直し、天候・トリックルームの始動役と利用役を分離しました。根拠が明確な役割はChampionsの特性・習得技で検証します。監査内容は [`pokemon-role-audit.md`](pokemon-role-audit.md)。
 
@@ -39,11 +41,11 @@
 ## Latest Champions data
 
 - API指定: **Current**
-- 現在の解決ラベル: **M6**
-- Champions source生成日時: **2026-09-21T20:07:50.407Z**
-- 収録daily data期間: **2026-09-11〜2026-09-21**
-- data version: **20260921200750407**
-- 現在の生成データ: Singles / Doubles各263 battle records、すばやさ・使用率indexは341フォーム
+- 現在の解決ラベル: **M7**
+- Champions source生成日時: **2026-10-15T11:54:16.755Z**
+- 収録daily data期間: **2026-10-07〜2026-10-15**
+- data version: **20261015115416755**
+- 現在の生成データ: Singles / Doubles各262 battle records、すばやさ・使用率indexは341フォーム
 - champout snapshot: commit `50e7233b78c3b81df29563f9695386c28e77fc95`
 
 これらは `data/metadata.json`と `data/usage-ranking/metadata.json`の現在値です。新しい作業では固定値として信用せず、まず生成済みmetadataを確認してください。

@@ -179,3 +179,10 @@
 **Reason:** メガラグラージのすいすいを雨始動として紹介し、味方との分担を誤解させていたため。メガソーラーやクイックドロウ等も名前や効果の一部だけで分類すると意味が変わる。
 
 **Consequence:** 37カテゴリの共通定義と記事タグを修正。機構の明確な役割はChampionsの特性・習得技で回帰検証し、受け・火力等の編集判断と区別する。監査範囲は [`pokemon-role-audit.md`](pokemon-role-audit.md)。分類に変更があれば個別記事の説明との整合も確認する。
+
+
+## 2026-10-16: 上流slug変更と補助データ取得
+
+Champions APIの114フォームのslug変更は、既存snapshotと同一の画像URL・全6種族値を照合して `lib/champions/pokemon-id.ts` の明示的aliasへ固定した。公開ID・記事URLは維持し、API問い合わせは上流のslugを使う。フォーム関係は引き続き上流metadataで判定し、名前の接頭辞だけから推測しない。未知のIDは変更しない。
+
+PokéAPI接続失敗時は、同プロジェクト自身の `PokeAPI/api-data` JSON mirrorをcommit固定で利用する。用途は既存の日本語名等の補助情報に限定し、Championsの順位・登場判定・種族値・learnsetを代替しない。公開リポジトリのcommit取得は `git ls-remote` を使用し、GitHub REST APIへの依存を除く。

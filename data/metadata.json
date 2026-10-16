@@ -1,10 +1,11 @@
 {
   "season": "Current",
-  "seasonLabel": "M6",
-  "sourceGeneratedAt": "2026-09-21T20:07:50.407Z",
-  "sourceDataVersion": "20260921200750407",
+  "seasonLabel": "M7",
+  "sourceGeneratedAt": "2026-10-15T11:54:16.755Z",
+  "sourceDataVersion": "20261015115416755",
   "availableSeasons": [
     "Current",
+    "M7",
     "M6",
     "M5",
     "M4",
@@ -13,18 +14,18 @@
     "M1"
   ],
   "dailyDataPeriod": {
-    "start": "2026-09-11",
-    "end": "2026-09-21"
+    "start": "2026-10-07",
+    "end": "2026-10-15"
   },
-  "updatedAt": "2026-09-21T22:02:33.343Z",
+  "updatedAt": "2026-10-16T13:01:19.125Z",
   "source": "https://championsbattledata.com/api",
   "formats": {
     "Singles": {
-      "count": 263,
+      "count": 262,
       "source": "https://championsbattledata.com/api/battle/Singles/:name?season=Current"
     },
     "Doubles": {
-      "count": 263,
+      "count": 262,
       "source": "https://championsbattledata.com/api/battle/Doubles/:name?season=Current"
     }
   },

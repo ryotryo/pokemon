@@ -7,6 +7,8 @@ import { getSeasonDisplayMetadata } from "../lib/champions/season-metadata";
 import { normalizeSpeedRanking, type SpeedRankingDataset } from "../lib/champions/speed-ranking";
 import type { BattleFormat, ChampionsDataset, MoveMasterEntry } from "../lib/champions/types";
 
+import { fetchJson } from "./lib/public-data";
+
 const ROOT = process.cwd();
 const API = "https://championsbattledata.com";
 const OUT = path.join(ROOT, "data");
@@ -18,11 +20,7 @@ const POKEMON_NAME_OVERRIDES: Record<string, string> = {
   "vivillon-icy-snow-pattern": "ビビヨン（ひょうせつのもよう）",
 };
 
-async function getJson(url: string) {
-  const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "champions-party-checker-data-builder/1.0" } });
-  if (!response.ok) throw new Error(`${response.status} ${url}`);
-  return response.json();
-}
+const getJson = (url: string) => fetchJson<any>(url);
 
 async function mapWithConcurrency<T, R>(values: T[], concurrency: number, mapper: (value: T) => Promise<R>): Promise<R[]> {
   const results = new Array<R>(values.length);

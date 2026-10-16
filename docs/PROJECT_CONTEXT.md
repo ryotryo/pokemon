@@ -33,9 +33,9 @@ Poké Analyticsは、Pokémon Championsの対戦データを分析し、対戦�
 
 - **Champions Battle Data**: `Current`、Singles / Doubles順位、battle rows、ポケモン・フォーム、タイプ、種族値、画像などの基礎データ。
 - **projectpokemon/champout**: Pokémon Champions専用learnset、フォーム固有の特性、技のタイプ・分類・威力・命中・PP、日本語の技・特性説明、持ち物・性格の日本語名。
-- **PokéAPI**: Champions由来データに日本語名や不足する技説明等を補う限定用途。ランキング、使用率、登場ポケモン判定、learnsetの情報源にはしない。
+- **PokéAPI（取得失敗時は同プロジェクトのcommit固定JSON mirror）**: Champions由来データに日本語名や不足する技説明等を補う限定用途。ランキング、使用率、登場ポケモン判定、learnsetの情報源にはしない。
 
-`npm run data:update`は `scripts/update-champions-data.ts` と `scripts/update-usage-ranking-data.ts` を順に実行します。外部データをstagingへ取得・正規化・検証し、成功時のみ `data/`へ公開します。主な出力は次のとおりです。
+`npm run data:update`は `scripts/update-champions-data.ts`、`scripts/update-usage-ranking-data.ts`、`scripts/update-damage-chart-metadata.ts`を順に実行します。外部データをstagingへ取得・正規化・検証し、成功時のみ `data/`へ公開します。主な出力は次のとおりです。
 
 - `data/champions/`: パーティー相性チェッカーとすばやさランキング向け
 - `data/usage-ranking/`: 一覧、各フォーム詳細、技metadata、localization

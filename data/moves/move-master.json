@@ -4508,5 +4508,45 @@
     "metaCategory": "damage",
     "isCoverageMove": true,
     "source": "pokeapi"
+  },
+  "thief": {
+    "id": "thief",
+    "name": "Thief",
+    "displayNameJa": "どろぼう",
+    "type": "dark",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "safeguard": {
+    "id": "safeguard",
+    "name": "Safeguard",
+    "displayNameJa": "しんぴのまもり",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "shift-gear": {
+    "id": "shift-gear",
+    "name": "Shift Gear",
+    "displayNameJa": "ギアチェンジ",
+    "type": "steel",
+    "damageClass": "status",
+    "metaCategory": "net-good-stats",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "fly": {
+    "id": "fly",
+    "name": "Fly",
+    "displayNameJa": "そらをとぶ",
+    "type": "flying",
+    "damageClass": "physical",
+    "metaCategory": "damage",
+    "isCoverageMove": true,
+    "source": "pokeapi"
   }
 }

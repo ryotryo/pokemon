@@ -1,3 +1,4 @@
+import { canonicalPokemonId } from "./pokemon-id";
 /* eslint-disable @typescript-eslint/no-explicit-any -- External API values are validated during the publish pipeline. */
 import type { BattleFormat, ChampionPokemon, FormRelation, MoveMasterEntry } from "./types";
 import { getChampionsSprite } from "./sprites";
@@ -50,9 +51,9 @@ export function getRanking(indexPokemon: any[], season: string, format: BattleFo
 
 export function normalizePokemon(entry: any, rank: number, battle: any, moves: Record<string, MoveMasterEntry>, namesJa: Record<string, string>): ChampionPokemon {
   const primary = entry.summary?.primary;
-  const id = primary?.slug || entry.slug;
+  const id = canonicalPokemonId(primary?.slug || entry.slug);
   const forms = getAttachedForms(entry).map((form: any) => ({
-    id: form.slug || slugifyPokemon(form.saved_name), name: form.saved_name, displayNameJa: namesJa[form.slug] ?? form.saved_name, baseName: entry.name,
+    id: canonicalPokemonId(form.slug || slugifyPokemon(form.saved_name)), name: form.saved_name, displayNameJa: namesJa[form.slug] ?? form.saved_name, baseName: entry.name,
     form: form.form_kind === "Base" ? null : form.form_name, formKind: form.form_kind || "Base",
     formRelation: classifyForm(form.form_kind || "Base"),
     types: form.types, sprite: getChampionsSprite(form.slug, form.image_path),
