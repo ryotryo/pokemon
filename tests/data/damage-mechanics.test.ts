@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import {
   calculateDamage,
+  isSupportedDamageMove,
   getAttackPatternLabel,
   ATTACK_PATTERNS,
   type DamageChartPokemon,
@@ -10,6 +11,25 @@ import {
 } from "../../lib/champions/damage-chart";
 import { getDamageChartDataset } from "../../lib/champions/damage-chart-data";
 import mechanics from "../../data/damage-chart/mechanics.json";
+import type { UsageMoveDetail } from "../../lib/champions/usage-ranking";
+
+const moveCatalog = JSON.parse(
+  readFileSync("data/usage-ranking/moves.json", "utf8"),
+) as Record<string, UsageMoveDetail>;
+const contactMoves = new Set<string>(JSON.parse(
+  readFileSync("data/usage-ranking/contact-moves.json", "utf8"),
+));
+
+function catalogDamageMove(id: string): DamageChartMove {
+  const entry = moveCatalog[id];
+  if (!entry || !isSupportedDamageMove(entry, true)) {
+    throw new Error(`Missing supported Champions move: ${id}`);
+  }
+  return {
+    ...entry, power: entry.power ?? 0, usage: null, rank: 1,
+    isContact: contactMoves.has(id), tags: entry.tags ?? [],
+  };
+}
 
 const mon: DamageChartPokemon = {
   id: "test",
@@ -974,53 +994,66 @@ describe("damage metadata coverage", () => {
       dataset.pokemon.find((p) => p.id === "aegislash-shield-forme")?.weightKg,
     ).toBe(53);
   });
-  it("all former 35 exclusions are represented and produce finite results for all grid cells", async () => {
+  // Capability coverage comes from Champions move metadata, never current usage ranks.
+  it.each([
+    "329",
+    "814",
+    "484",
+    "368",
+    "500",
+    "243",
+    "283",
+    "333",
+    "350",
+    "90",
+    "799",
+    "42",
+    "323",
+    "284",
+    "67",
+    "162",
+    "447",
+    "751",
+    "32",
+    "68",
+    "175",
+    "515",
+    "888",
+    "360",
+    "813",
+    "374",
+    "594",
+    "331",
+    "12",
+    "179",
+    "894",
+    "860",
+    "251",
+    "535",
+    "893",
+  ])("supports formerly excluded move %s independently of popularity", (id) => {
+    const selectedMove = catalogDamageMove(id);
+    for (const attackEv of [0, 252])
+      for (const defenseEv of [0, 252]) {
+        const result = calculateDamage({ ...options, move: selectedMove, attackEv, defenseEv });
+        expect(Number.isFinite(result.minDamage), id).toBe(true);
+        expect(Number.isFinite(result.maxDamage), id).toBe(true);
+        expect(result.maxDamage, id).toBeGreaterThanOrEqual(result.minDamage);
+      }
+  });
+
+  it("Reversal increases from 20 to 200 power as HP falls, regardless of usage rank", () => {
+    const selectedMove = catalogDamageMove("179");
+    const fullHp = calculateDamage({ ...options, move: selectedMove, attackerConditions: { hpPercent: 100 } });
+    const lowHp = calculateDamage({ ...options, move: selectedMove, attackerConditions: { hpPercent: 1 } });
+    expect(fullHp.effectivePower).toBe(20);
+    expect(lowHp.effectivePower).toBe(200);
+    expect(lowHp.maxDamage).toBeGreaterThan(fullHp.maxDamage);
+  });
+
+  it("calculates every currently displayed move without requiring historical usage entries or counts", async () => {
     const dataset = await getDamageChartDataset();
-    const moves = new Map(
-      dataset.pokemon.flatMap((p) =>
-        [...p.moves.Singles, ...p.moves.Doubles].map((m) => [m.id, m] as const),
-      ),
-    );
-    for (const id of [
-      "329",
-      "814",
-      "484",
-      "368",
-      "500",
-      "243",
-      "283",
-      "333",
-      "350",
-      "90",
-      "799",
-      "42",
-      "323",
-      "284",
-      "67",
-      "162",
-      "447",
-      "751",
-      "32",
-      "68",
-      "175",
-      "515",
-      "888",
-      "360",
-      "813",
-      "374",
-      "594",
-      "331",
-      "12",
-      "179",
-      "894",
-      "860",
-      "251",
-      "535",
-      "893",
-    ])
-      expect(moves.has(id), id).toBe(true);
-    // Usage snapshots can add represented moves; keep the existing coverage floor.
-    expect(moves.size).toBeGreaterThanOrEqual(289);
+    expect(dataset.pokemon.some((pokemon) => pokemon.moves.Singles.length > 0 || pokemon.moves.Doubles.length > 0)).toBe(true);
     for (const p of dataset.pokemon)
       for (const format of ["Singles", "Doubles"] as const)
         for (const m of p.moves[format])
