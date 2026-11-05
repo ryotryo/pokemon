@@ -4578,5 +4578,85 @@
     "metaCategory": "damage",
     "isCoverageMove": true,
     "source": "pokeapi"
+  },
+  "mean-look": {
+    "id": "mean-look",
+    "name": "Mean Look",
+    "displayNameJa": "くろいまなざし",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "block": {
+    "id": "block",
+    "name": "Block",
+    "displayNameJa": "とおせんぼう",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sleep-talk": {
+    "id": "sleep-talk",
+    "name": "Sleep Talk",
+    "displayNameJa": "ねごと",
+    "type": "normal",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "steel-wing": {
+    "id": "steel-wing",
+    "name": "Steel Wing",
+    "displayNameJa": "はがねのつばさ",
+    "type": "steel",
+    "damageClass": "physical",
+    "metaCategory": "damage-raise",
+    "isCoverageMove": true,
+    "source": "pokeapi"
+  },
+  "spite": {
+    "id": "spite",
+    "name": "Spite",
+    "displayNameJa": "うらみ",
+    "type": "ghost",
+    "damageClass": "status",
+    "metaCategory": "unique",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "sandstorm": {
+    "id": "sandstorm",
+    "name": "Sandstorm",
+    "displayNameJa": "すなあらし",
+    "type": "rock",
+    "damageClass": "status",
+    "metaCategory": "whole-field-effect",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "poison-powder": {
+    "id": "poison-powder",
+    "name": "Poison Powder",
+    "displayNameJa": "どくのこな",
+    "type": "poison",
+    "damageClass": "status",
+    "metaCategory": "ailment",
+    "isCoverageMove": false,
+    "source": "pokeapi"
+  },
+  "wrap": {
+    "id": "wrap",
+    "name": "Wrap",
+    "displayNameJa": "まきつく",
+    "type": "normal",
+    "damageClass": "physical",
+    "metaCategory": "damage-ailment",
+    "isCoverageMove": true,
+    "source": "pokeapi"
   }
 }
