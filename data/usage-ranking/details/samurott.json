@@ -10,7 +10,7 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Samurott.png",
   "ranks": {
-    "Singles": 225,
+    "Singles": 241,
     "Doubles": 262
   },
   "usagePercentages": {
@@ -83,47 +83,113 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 225,
+      "rank": 241,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "227"
+          "percentage": "93.2%",
+          "percentageValue": 93.2,
+          "moveId": "58"
         },
         {
           "rank": 2,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "90.9%",
+          "percentageValue": 90.9,
           "moveId": "410"
         },
         {
           "rank": 3,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "56"
+          "percentage": "68.2%",
+          "percentageValue": 68.2,
+          "moveId": "227"
         },
         {
           "rank": 4,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "58"
+          "percentage": "54.5%",
+          "percentageValue": 54.5,
+          "moveId": "56"
+        },
+        {
+          "rank": 5,
+          "percentage": "43.2%",
+          "percentageValue": 43.2,
+          "moveId": "57"
+        },
+        {
+          "rank": 6,
+          "percentage": "29.5%",
+          "percentageValue": 29.5,
+          "moveId": "447"
+        },
+        {
+          "rank": 7,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "moveId": "14"
+        },
+        {
+          "rank": 8,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "moveId": "269"
+        },
+        {
+          "rank": 9,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "moveId": "400"
+        },
+        {
+          "rank": 10,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "moveId": "533"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "75.0%",
+          "percentageValue": 75,
           "nameJa": "オボンのみ"
+        },
+        {
+          "rank": 2,
+          "percentage": "9.1%",
+          "percentageValue": 9.1,
+          "nameJa": "いのちのたま"
+        },
+        {
+          "rank": 3,
+          "percentage": "6.8%",
+          "percentageValue": 6.8,
+          "nameJa": "たつじんのおび"
+        },
+        {
+          "rank": 4,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "nameJa": "たべのこし"
+        },
+        {
+          "rank": 5,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "nameJa": "しんぴのしずく"
+        },
+        {
+          "rank": 6,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "nameJa": "ゴツゴツメット"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "56.8%",
+          "percentageValue": 56.8,
           "hp": 31,
           "attack": 0,
           "defense": 2,
@@ -131,30 +197,126 @@
           "specialDefense": 0,
           "speed": 0,
           "raw": "HP 31 / Atk 0 / Def 2 / SpA 32 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 2,
+          "percentage": "27.3%",
+          "percentageValue": 27.3,
+          "hp": 32,
+          "attack": 0,
+          "defense": 2,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 2 / SpA 32 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 3,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "hp": 5,
+          "attack": 0,
+          "defense": 4,
+          "specialAttack": 32,
+          "specialDefense": 1,
+          "speed": 24,
+          "raw": "HP 5 / Atk 0 / Def 4 / SpA 32 / SpD 1 / Spe 24"
+        },
+        {
+          "rank": 4,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "hp": 31,
+          "attack": 0,
+          "defense": 32,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 3,
+          "raw": "HP 31 / Atk 0 / Def 32 / SpA 0 / SpD 0 / Spe 3"
+        },
+        {
+          "rank": 5,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "hp": 2,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 32,
+          "raw": "HP 2 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 32"
+        },
+        {
+          "rank": 6,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "hp": 31,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 3,
+          "raw": "HP 31 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 3"
+        },
+        {
+          "rank": 7,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "hp": 32,
+          "attack": 0,
+          "defense": 31,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 3,
+          "raw": "HP 32 / Atk 0 / Def 31 / SpA 0 / SpD 0 / Spe 3"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "90.9%",
+          "percentageValue": 90.9,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
+          "statDown": "こうげき"
+        },
+        {
+          "rank": 2,
+          "percentage": "4.5%",
+          "percentageValue": 4.5,
+          "nameJa": "わんぱく",
+          "statUp": "ぼうぎょ",
+          "statDown": "とくこう"
+        },
+        {
+          "rank": 3,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "nameJa": "せっかち",
+          "statUp": "すばやさ",
+          "statDown": "ぼうぎょ"
+        },
+        {
+          "rank": 4,
+          "percentage": "2.3%",
+          "percentageValue": 2.3,
+          "nameJa": "ずぶとい",
+          "statUp": "ぼうぎょ",
           "statDown": "こうげき"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "93.2%",
+          "percentageValue": 93.2,
           "nameJa": "シェルアーマー",
           "descriptionJa": "相手の攻撃が急所に当たらない。"
         },
         {
-          "rank": 1,
-          "percentage": null,
-          "percentageValue": null,
+          "rank": 2,
+          "percentage": "6.8%",
+          "percentageValue": 6.8,
           "nameJa": "げきりゅう",
           "descriptionJa": "ＨＰが最大ＨＰの１／３以下になると みずタイプの技の威力が１．５倍になる。"
         }
@@ -176,6 +338,18 @@
           "rank": 2,
           "percentage": null,
           "percentageValue": null,
+          "pokemonId": "hydreigon",
+          "displayNameJa": "サザンドラ",
+          "types": [
+            "dark",
+            "dragon"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hydreigon.png"
+        },
+        {
+          "rank": 3,
+          "percentage": null,
+          "percentageValue": null,
           "pokemonId": "excadrill",
           "displayNameJa": "ドリュウズ",
           "types": [
@@ -185,7 +359,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Excadrill.png"
         },
         {
-          "rank": 3,
+          "rank": 4,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "reuniclus",
@@ -196,7 +370,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Reuniclus.png"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "emolga",
@@ -208,16 +382,62 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Emolga.png"
         },
         {
-          "rank": 5,
+          "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "hydreigon",
-          "displayNameJa": "サザンドラ",
+          "pokemonId": "garchomp",
+          "displayNameJa": "ガブリアス",
+          "types": [
+            "dragon",
+            "ground"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garchomp.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "cinderace",
+          "displayNameJa": "エースバーン",
+          "types": [
+            "fire"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Cinderace.png"
+        },
+        {
+          "rank": 8,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "lucario",
+          "displayNameJa": "ルカリオ",
+          "types": [
+            "fighting",
+            "steel"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lucario.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "rillaboom",
+          "displayNameJa": "ゴリランダー",
+          "types": [
+            "grass"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rillaboom.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "kingambit",
+          "displayNameJa": "ドドゲザン",
           "types": [
             "dark",
-            "dragon"
+            "steel"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hydreigon.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Kingambit.png"
         }
       ]
     },

@@ -10,8 +10,8 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Passimian.png",
   "ranks": {
-    "Singles": 249,
-    "Doubles": 218
+    "Singles": 258,
+    "Doubles": 221
   },
   "usagePercentages": {
     "Singles": null,
@@ -87,47 +87,65 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 249,
+      "rank": 258,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
           "percentage": "100.0%",
           "percentageValue": 100,
-          "moveId": "282"
+          "moveId": "370"
         },
         {
           "rank": 2,
           "percentage": "100.0%",
           "percentageValue": 100,
-          "moveId": "369"
+          "moveId": "89"
         },
         {
           "rank": 3,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "370"
+          "percentage": "66.7%",
+          "percentageValue": 66.7,
+          "moveId": "282"
         },
         {
           "rank": 4,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "89"
+          "percentage": "66.7%",
+          "percentageValue": 66.7,
+          "moveId": "369"
+        },
+        {
+          "rank": 5,
+          "percentage": "33.3%",
+          "percentageValue": 33.3,
+          "moveId": "441"
+        },
+        {
+          "rank": 6,
+          "percentage": "33.3%",
+          "percentageValue": 33.3,
+          "moveId": "98"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "66.7%",
+          "percentageValue": 66.7,
           "nameJa": "こだわりスカーフ"
+        },
+        {
+          "rank": 2,
+          "percentage": "33.3%",
+          "percentageValue": 33.3,
+          "nameJa": "いのちのたま"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "66.7%",
+          "percentageValue": 66.7,
           "hp": 2,
           "attack": 32,
           "defense": 0,
@@ -135,6 +153,18 @@
           "specialDefense": 0,
           "speed": 32,
           "raw": "HP 2 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 32"
+        },
+        {
+          "rank": 2,
+          "percentage": "33.3%",
+          "percentageValue": 33.3,
+          "hp": 0,
+          "attack": 32,
+          "defense": 2,
+          "specialAttack": 0,
+          "specialDefense": 0,
+          "speed": 32,
+          "raw": "HP 0 / Atk 32 / Def 2 / SpA 0 / SpD 0 / Spe 32"
         }
       ],
       "natures": [
@@ -150,15 +180,15 @@
       "abilities": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "66.7%",
+          "percentageValue": 66.7,
           "nameJa": "まけんき",
           "descriptionJa": "相手に能力を下げられると 攻撃が２段階上がる。"
         },
         {
-          "rank": 1,
-          "percentage": null,
-          "percentageValue": null,
+          "rank": 2,
+          "percentage": "33.3%",
+          "percentageValue": 33.3,
           "nameJa": "レシーバー",
           "descriptionJa": "倒された味方の特性と同じ特性になる。"
         }
@@ -166,6 +196,18 @@
       "teammates": [
         {
           "rank": 1,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "archaludon",
+          "displayNameJa": "ブリジュラス",
+          "types": [
+            "steel",
+            "dragon"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Archaludon.png"
+        },
+        {
+          "rank": 2,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "dragalge",
@@ -177,7 +219,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Dragalge.png"
         },
         {
-          "rank": 2,
+          "rank": 3,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "primarina",
@@ -189,7 +231,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Primarina.png"
         },
         {
-          "rank": 3,
+          "rank": 4,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "corviknight",
@@ -201,7 +243,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Corviknight.png"
         },
         {
-          "rank": 4,
+          "rank": 5,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "grimmsnarl",
@@ -213,21 +255,57 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Grimmsnarl.png"
         },
         {
-          "rank": 5,
+          "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "archaludon",
-          "displayNameJa": "ブリジュラス",
+          "pokemonId": "charizard",
+          "displayNameJa": "リザードン",
           "types": [
-            "steel",
-            "dragon"
+            "fire",
+            "flying"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Archaludon.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "alolan-ninetales",
+          "displayNameJa": "アローラキュウコン",
+          "types": [
+            "ice",
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Ninetales.png"
+        },
+        {
+          "rank": 8,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "staraptor",
+          "displayNameJa": "ムクホーク",
+          "types": [
+            "normal",
+            "flying"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Staraptor.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "mimikyu",
+          "displayNameJa": "ミミッキュ",
+          "types": [
+            "ghost",
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png"
         }
       ]
     },
     "Doubles": {
-      "rank": 218,
+      "rank": 221,
       "usagePercentage": null,
       "moves": [
         {

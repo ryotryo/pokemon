@@ -11,8 +11,8 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Galarian%20Slowbro.png",
   "ranks": {
-    "Singles": 109,
-    "Doubles": 122
+    "Singles": 103,
+    "Doubles": 132
   },
   "usagePercentages": {
     "Singles": null,
@@ -114,95 +114,125 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 109,
+      "rank": 103,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
-          "percentage": "91.7%",
-          "percentageValue": 91.7,
+          "percentage": "93.3%",
+          "percentageValue": 93.3,
           "moveId": "58"
         },
         {
           "rank": 2,
-          "percentage": "84.1%",
-          "percentageValue": 84.1,
-          "moveId": "94"
-        },
-        {
-          "rank": 3,
-          "percentage": "75.0%",
-          "percentageValue": 75,
+          "percentage": "85.1%",
+          "percentageValue": 85.1,
           "moveId": "801"
         },
         {
+          "rank": 3,
+          "percentage": "70.9%",
+          "percentageValue": 70.9,
+          "moveId": "94"
+        },
+        {
           "rank": 4,
-          "percentage": "51.6%",
-          "percentageValue": 51.6,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "53"
         },
         {
           "rank": 5,
-          "percentage": "33.9%",
-          "percentageValue": 33.9,
+          "percentage": "28.9%",
+          "percentageValue": 28.9,
           "moveId": "126"
         },
         {
           "rank": 6,
-          "percentage": "18.5%",
-          "percentageValue": 18.5,
+          "percentage": "19.7%",
+          "percentageValue": 19.7,
           "moveId": "408"
         },
         {
           "rank": 7,
-          "percentage": "11.3%",
-          "percentageValue": 11.3,
+          "percentage": "8.0%",
+          "percentageValue": 8,
           "moveId": "417"
         },
         {
           "rank": 8,
-          "percentage": "10.2%",
-          "percentageValue": 10.2,
+          "percentage": "7.2%",
+          "percentageValue": 7.2,
           "moveId": "473"
         },
         {
           "rank": 9,
-          "percentage": "6.2%",
-          "percentageValue": 6.2,
-          "moveId": "247"
+          "percentage": "4.8%",
+          "percentageValue": 4.8,
+          "moveId": "797"
         },
         {
           "rank": 10,
-          "percentage": "6.2%",
-          "percentageValue": 6.2,
-          "moveId": "482"
+          "percentage": "4.1%",
+          "percentageValue": 4.1,
+          "moveId": "188"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "82.8%",
-          "percentageValue": 82.8,
+          "percentage": "91.8%",
+          "percentageValue": 91.8,
           "nameJa": "せんせいのツメ"
         },
         {
           "rank": 2,
-          "percentage": "16.9%",
-          "percentageValue": 16.9,
+          "percentage": "7.0%",
+          "percentageValue": 7,
           "nameJa": "ふうせん"
         },
         {
           "rank": 3,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
+          "percentage": "0.5%",
+          "percentageValue": 0.5,
+          "nameJa": "オボンのみ"
+        },
+        {
+          "rank": 4,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
+          "nameJa": "たべのこし"
+        },
+        {
+          "rank": 5,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
+          "nameJa": "たつじんのおび"
+        },
+        {
+          "rank": 6,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
+          "nameJa": "いのちのたま"
+        },
+        {
+          "rank": 7,
+          "percentage": "0.1%",
+          "percentageValue": 0.1,
+          "nameJa": "シュカのみ"
+        },
+        {
+          "rank": 8,
+          "percentage": "0.1%",
+          "percentageValue": 0.1,
           "nameJa": "ひかりのこな"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "36.6%",
-          "percentageValue": 36.6,
+          "percentage": "32.2%",
+          "percentageValue": 32.2,
           "hp": 32,
           "attack": 0,
           "defense": 2,
@@ -213,8 +243,8 @@
         },
         {
           "rank": 2,
-          "percentage": "19.4%",
-          "percentageValue": 19.4,
+          "percentage": "20.0%",
+          "percentageValue": 20,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -225,20 +255,8 @@
         },
         {
           "rank": 3,
-          "percentage": "10.2%",
-          "percentageValue": 10.2,
-          "hp": 17,
-          "attack": 0,
-          "defense": 17,
-          "specialAttack": 32,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 17 / Atk 0 / Def 17 / SpA 32 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 4,
-          "percentage": "9.4%",
-          "percentageValue": 9.4,
+          "percentage": "6.5%",
+          "percentageValue": 6.5,
           "hp": 2,
           "attack": 0,
           "defense": 32,
@@ -248,21 +266,21 @@
           "raw": "HP 2 / Atk 0 / Def 32 / SpA 32 / SpD 0 / Spe 0"
         },
         {
-          "rank": 5,
-          "percentage": "4.0%",
-          "percentageValue": 4,
-          "hp": 31,
+          "rank": 4,
+          "percentage": "5.3%",
+          "percentageValue": 5.3,
+          "hp": 32,
           "attack": 0,
-          "defense": 3,
+          "defense": 1,
           "specialAttack": 32,
-          "specialDefense": 0,
+          "specialDefense": 1,
           "speed": 0,
-          "raw": "HP 31 / Atk 0 / Def 3 / SpA 32 / SpD 0 / Spe 0"
+          "raw": "HP 32 / Atk 0 / Def 1 / SpA 32 / SpD 1 / Spe 0"
         },
         {
-          "rank": 6,
-          "percentage": "3.5%",
-          "percentageValue": 3.5,
+          "rank": 5,
+          "percentage": "3.6%",
+          "percentageValue": 3.6,
           "hp": 31,
           "attack": 0,
           "defense": 2,
@@ -272,45 +290,9 @@
           "raw": "HP 31 / Atk 0 / Def 2 / SpA 32 / SpD 1 / Spe 0"
         },
         {
-          "rank": 7,
+          "rank": 6,
           "percentage": "3.5%",
           "percentageValue": 3.5,
-          "hp": 32,
-          "attack": 0,
-          "defense": 0,
-          "specialAttack": 32,
-          "specialDefense": 0,
-          "speed": 2,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 2"
-        },
-        {
-          "rank": 8,
-          "percentage": "3.2%",
-          "percentageValue": 3.2,
-          "hp": 32,
-          "attack": 0,
-          "defense": 32,
-          "specialAttack": 2,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 32 / SpA 2 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 9,
-          "percentage": "2.4%",
-          "percentageValue": 2.4,
-          "hp": 31,
-          "attack": 0,
-          "defense": 5,
-          "specialAttack": 30,
-          "specialDefense": 0,
-          "speed": 0,
-          "raw": "HP 31 / Atk 0 / Def 5 / SpA 30 / SpD 0 / Spe 0"
-        },
-        {
-          "rank": 10,
-          "percentage": "2.4%",
-          "percentageValue": 2.4,
           "hp": 32,
           "attack": 0,
           "defense": 7,
@@ -318,41 +300,120 @@
           "specialDefense": 0,
           "speed": 0,
           "raw": "HP 32 / Atk 0 / Def 7 / SpA 27 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 7,
+          "percentage": "3.2%",
+          "percentageValue": 3.2,
+          "hp": 17,
+          "attack": 0,
+          "defense": 17,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 17 / Atk 0 / Def 17 / SpA 32 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 8,
+          "percentage": "3.2%",
+          "percentageValue": 3.2,
+          "hp": 31,
+          "attack": 0,
+          "defense": 3,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 0,
+          "raw": "HP 31 / Atk 0 / Def 3 / SpA 32 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 9,
+          "percentage": "3.0%",
+          "percentageValue": 3,
+          "hp": 23,
+          "attack": 0,
+          "defense": 1,
+          "specialAttack": 32,
+          "specialDefense": 10,
+          "speed": 0,
+          "raw": "HP 23 / Atk 0 / Def 1 / SpA 32 / SpD 10 / Spe 0"
+        },
+        {
+          "rank": 10,
+          "percentage": "2.1%",
+          "percentageValue": 2.1,
+          "hp": 31,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 3,
+          "speed": 0,
+          "raw": "HP 31 / Atk 0 / Def 0 / SpA 32 / SpD 3 / Spe 0"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "41.9%",
-          "percentageValue": 41.9,
+          "percentage": "64.3%",
+          "percentageValue": 64.3,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "29.3%",
-          "percentageValue": 29.3,
+          "percentage": "19.1%",
+          "percentageValue": 19.1,
+          "nameJa": "れいせい",
+          "statUp": "とくこう",
+          "statDown": "すばやさ"
+        },
+        {
+          "rank": 3,
+          "percentage": "12.9%",
+          "percentageValue": 12.9,
           "nameJa": "のんき",
           "statUp": "ぼうぎょ",
           "statDown": "すばやさ"
         },
         {
-          "rank": 3,
-          "percentage": "28.8%",
-          "percentageValue": 28.8,
-          "nameJa": "れいせい",
-          "statUp": "とくこう",
+          "rank": 4,
+          "percentage": "2.6%",
+          "percentageValue": 2.6,
+          "nameJa": "ずぶとい",
+          "statUp": "ぼうぎょ",
+          "statDown": "こうげき"
+        },
+        {
+          "rank": 5,
+          "percentage": "1.0%",
+          "percentageValue": 1,
+          "nameJa": "なまいき",
+          "statUp": "とくぼう",
           "statDown": "すばやさ"
+        },
+        {
+          "rank": 6,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
+          "nameJa": "おだやか",
+          "statUp": "とくぼう",
+          "statDown": "こうげき"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "99.2%",
+          "percentageValue": 99.2,
           "nameJa": "クイックドロウ",
           "descriptionJa": "３０％の確率で 同じ優先度の技の中で最初に行動する。"
+        },
+        {
+          "rank": 2,
+          "percentage": "0.8%",
+          "percentageValue": 0.8,
+          "nameJa": "さいせいりょく",
+          "descriptionJa": "手持ちに戻ると 最大ＨＰの１／３回復する。"
         },
         {
           "rank": 2,
@@ -360,13 +421,6 @@
           "percentageValue": null,
           "nameJa": "マイペース",
           "descriptionJa": "こんらん状態にならず いかくも効かない。"
-        },
-        {
-          "rank": 3,
-          "percentage": null,
-          "percentageValue": null,
-          "nameJa": "さいせいりょく",
-          "descriptionJa": "手持ちに戻ると 最大ＨＰの１／３回復する。"
         }
       ],
       "teammates": [
@@ -386,64 +440,28 @@
           "rank": 2,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "gengar",
-          "displayNameJa": "ゲンガー",
+          "pokemonId": "mimikyu",
+          "displayNameJa": "ミミッキュ",
           "types": [
             "ghost",
-            "poison"
+            "fairy"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gengar.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png"
         },
         {
           "rank": 3,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "sneasler",
-          "displayNameJa": "オオニューラ",
+          "pokemonId": "golisopod",
+          "displayNameJa": "グソクムシャ",
           "types": [
-            "fighting",
-            "poison"
+            "bug",
+            "water"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sneasler.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Golisopod.png"
         },
         {
           "rank": 4,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "glimmora",
-          "displayNameJa": "キラフロル",
-          "types": [
-            "rock",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glimmora.png"
-        },
-        {
-          "rank": 5,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "overqwil",
-          "displayNameJa": "ハリーマン",
-          "types": [
-            "dark",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Overqwil.png"
-        },
-        {
-          "rank": 6,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "toxtricity-low-key-form",
-          "displayNameJa": "ストリンダー",
-          "types": [
-            "electric",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Toxtricity%20Low%20Key%20Form.png"
-        },
-        {
-          "rank": 7,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "basculegion-female",
@@ -455,31 +473,43 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Basculegion%20Female.png"
         },
         {
+          "rank": 5,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "lucario",
+          "displayNameJa": "ルカリオ",
+          "types": [
+            "fighting",
+            "steel"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Lucario.png"
+        },
+        {
+          "rank": 6,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "gengar",
+          "displayNameJa": "ゲンガー",
+          "types": [
+            "ghost",
+            "poison"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gengar.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "sneasler",
+          "displayNameJa": "オオニューラ",
+          "types": [
+            "fighting",
+            "poison"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sneasler.png"
+        },
+        {
           "rank": 8,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "archaludon",
-          "displayNameJa": "ブリジュラス",
-          "types": [
-            "steel",
-            "dragon"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Archaludon.png"
-        },
-        {
-          "rank": 9,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "gyarados",
-          "displayNameJa": "ギャラドス",
-          "types": [
-            "water",
-            "flying"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gyarados.png"
-        },
-        {
-          "rank": 10,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "alolan-raichu",
@@ -489,99 +519,128 @@
             "psychic"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Raichu.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "meowscarada",
+          "displayNameJa": "マスカーニャ",
+          "types": [
+            "grass",
+            "dark"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Meowscarada.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "rillaboom",
+          "displayNameJa": "ゴリランダー",
+          "types": [
+            "grass"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Rillaboom.png"
         }
       ]
     },
     "Doubles": {
-      "rank": 122,
+      "rank": 132,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "99.6%",
+          "percentageValue": 99.6,
           "moveId": "801"
         },
         {
           "rank": 2,
-          "percentage": "70.8%",
-          "percentageValue": 70.8,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "797"
         },
         {
           "rank": 3,
-          "percentage": "64.0%",
-          "percentageValue": 64,
+          "percentage": "57.4%",
+          "percentageValue": 57.4,
           "moveId": "58"
         },
         {
           "rank": 4,
-          "percentage": "60.7%",
-          "percentageValue": 60.7,
+          "percentage": "41.7%",
+          "percentageValue": 41.7,
           "moveId": "182"
         },
         {
           "rank": 5,
-          "percentage": "24.7%",
-          "percentageValue": 24.7,
-          "moveId": "408"
+          "percentage": "28.3%",
+          "percentageValue": 28.3,
+          "moveId": "433"
         },
         {
           "rank": 6,
-          "percentage": "22.5%",
-          "percentageValue": 22.5,
-          "moveId": "347"
-        },
-        {
-          "rank": 7,
-          "percentage": "19.1%",
-          "percentageValue": 19.1,
-          "moveId": "473"
-        },
-        {
-          "rank": 8,
-          "percentage": "13.5%",
-          "percentageValue": 13.5,
+          "percentage": "23.5%",
+          "percentageValue": 23.5,
           "moveId": "411"
         },
         {
-          "rank": 9,
-          "percentage": "13.5%",
-          "percentageValue": 13.5,
+          "rank": 7,
+          "percentage": "20.4%",
+          "percentageValue": 20.4,
+          "moveId": "347"
+        },
+        {
+          "rank": 8,
+          "percentage": "15.7%",
+          "percentageValue": 15.7,
           "moveId": "53"
         },
         {
+          "rank": 9,
+          "percentage": "13.0%",
+          "percentageValue": 13,
+          "moveId": "408"
+        },
+        {
           "rank": 10,
-          "percentage": "9.0%",
-          "percentageValue": 9,
-          "moveId": "433"
+          "percentage": "11.7%",
+          "percentageValue": 11.7,
+          "moveId": "473"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "97.8%",
-          "percentageValue": 97.8,
+          "percentage": "84.3%",
+          "percentageValue": 84.3,
           "nameJa": "せんせいのツメ"
         },
         {
           "rank": 2,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
-          "nameJa": "ナモのみ"
+          "percentage": "10.4%",
+          "percentageValue": 10.4,
+          "nameJa": "いのちのたま"
         },
         {
           "rank": 3,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
-          "nameJa": "いのちのたま"
+          "percentage": "4.3%",
+          "percentageValue": 4.3,
+          "nameJa": "オボンのみ"
+        },
+        {
+          "rank": 4,
+          "percentage": "0.9%",
+          "percentageValue": 0.9,
+          "nameJa": "ナモのみ"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "73.0%",
-          "percentageValue": 73,
+          "percentage": "66.1%",
+          "percentageValue": 66.1,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -592,44 +651,20 @@
         },
         {
           "rank": 2,
-          "percentage": "12.4%",
-          "percentageValue": 12.4,
-          "hp": 32,
+          "percentage": "6.5%",
+          "percentageValue": 6.5,
+          "hp": 2,
           "attack": 0,
-          "defense": 0,
-          "specialAttack": 20,
-          "specialDefense": 14,
-          "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 20 / SpD 14 / Spe 0"
-        },
-        {
-          "rank": 3,
-          "percentage": "11.2%",
-          "percentageValue": 11.2,
-          "hp": 26,
-          "attack": 0,
-          "defense": 0,
-          "specialAttack": 30,
-          "specialDefense": 10,
-          "speed": 0,
-          "raw": "HP 26 / Atk 0 / Def 0 / SpA 30 / SpD 10 / Spe 0"
-        },
-        {
-          "rank": 4,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
-          "hp": 18,
-          "attack": 0,
-          "defense": 0,
+          "defense": 16,
           "specialAttack": 32,
           "specialDefense": 16,
           "speed": 0,
-          "raw": "HP 18 / Atk 0 / Def 0 / SpA 32 / SpD 16 / Spe 0"
+          "raw": "HP 2 / Atk 0 / Def 16 / SpA 32 / SpD 16 / Spe 0"
         },
         {
-          "rank": 5,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
+          "rank": 3,
+          "percentage": "6.5%",
+          "percentageValue": 6.5,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -639,9 +674,45 @@
           "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 0"
         },
         {
+          "rank": 4,
+          "percentage": "4.8%",
+          "percentageValue": 4.8,
+          "hp": 32,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 20,
+          "specialDefense": 14,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 20 / SpD 14 / Spe 0"
+        },
+        {
+          "rank": 5,
+          "percentage": "4.3%",
+          "percentageValue": 4.3,
+          "hp": 22,
+          "attack": 0,
+          "defense": 4,
+          "specialAttack": 20,
+          "specialDefense": 20,
+          "speed": 0,
+          "raw": "HP 22 / Atk 0 / Def 4 / SpA 20 / SpD 20 / Spe 0"
+        },
+        {
           "rank": 6,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
+          "percentage": "4.3%",
+          "percentageValue": 4.3,
+          "hp": 26,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 30,
+          "specialDefense": 10,
+          "speed": 0,
+          "raw": "HP 26 / Atk 0 / Def 0 / SpA 30 / SpD 10 / Spe 0"
+        },
+        {
+          "rank": 7,
+          "percentage": "3.5%",
+          "percentageValue": 3.5,
           "hp": 32,
           "attack": 0,
           "defense": 2,
@@ -649,41 +720,92 @@
           "specialDefense": 0,
           "speed": 0,
           "raw": "HP 32 / Atk 0 / Def 2 / SpA 32 / SpD 0 / Spe 0"
+        },
+        {
+          "rank": 8,
+          "percentage": "1.7%",
+          "percentageValue": 1.7,
+          "hp": 32,
+          "attack": 32,
+          "defense": 0,
+          "specialAttack": 0,
+          "specialDefense": 2,
+          "speed": 0,
+          "raw": "HP 32 / Atk 32 / Def 0 / SpA 0 / SpD 2 / Spe 0"
+        },
+        {
+          "rank": 9,
+          "percentage": "0.9%",
+          "percentageValue": 0.9,
+          "hp": 18,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 16,
+          "speed": 0,
+          "raw": "HP 18 / Atk 0 / Def 0 / SpA 32 / SpD 16 / Spe 0"
+        },
+        {
+          "rank": 10,
+          "percentage": "0.9%",
+          "percentageValue": 0.9,
+          "hp": 32,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 31,
+          "specialDefense": 3,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 31 / SpD 3 / Spe 0"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "78.7%",
-          "percentageValue": 78.7,
+          "percentage": "74.8%",
+          "percentageValue": 74.8,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
         },
         {
           "rank": 2,
-          "percentage": "19.1%",
-          "percentageValue": 19.1,
+          "percentage": "16.1%",
+          "percentageValue": 16.1,
           "nameJa": "なまいき",
           "statUp": "とくぼう",
           "statDown": "すばやさ"
         },
         {
           "rank": 3,
-          "percentage": "2.2%",
-          "percentageValue": 2.2,
+          "percentage": "7.4%",
+          "percentageValue": 7.4,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
+        },
+        {
+          "rank": 4,
+          "percentage": "1.7%",
+          "percentageValue": 1.7,
+          "nameJa": "ゆうかん",
+          "statUp": "こうげき",
+          "statDown": "すばやさ"
         }
       ],
       "abilities": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "99.1%",
+          "percentageValue": 99.1,
           "nameJa": "クイックドロウ",
           "descriptionJa": "３０％の確率で 同じ優先度の技の中で最初に行動する。"
+        },
+        {
+          "rank": 2,
+          "percentage": "0.9%",
+          "percentageValue": 0.9,
+          "nameJa": "さいせいりょく",
+          "descriptionJa": "手持ちに戻ると 最大ＨＰの１／３回復する。"
         },
         {
           "rank": 2,
@@ -691,18 +813,23 @@
           "percentageValue": null,
           "nameJa": "マイペース",
           "descriptionJa": "こんらん状態にならず いかくも効かない。"
-        },
-        {
-          "rank": 3,
-          "percentage": null,
-          "percentageValue": null,
-          "nameJa": "さいせいりょく",
-          "descriptionJa": "手持ちに戻ると 最大ＨＰの１／３回復する。"
         }
       ],
       "teammates": [
         {
           "rank": 1,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "indeedee-female",
+          "displayNameJa": "イエッサン（メスのすがた）",
+          "types": [
+            "psychic",
+            "normal"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Indeedee%20Female.png"
+        },
+        {
+          "rank": 2,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "tyranitar",
@@ -714,42 +841,7 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Tyranitar.png"
         },
         {
-          "rank": 2,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "indeedee-female",
-          "displayNameJa": "イエッサン（メスのすがた）",
-          "types": [
-            "psychic",
-            "normal"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Indeedee%20Female.png"
-        },
-        {
           "rank": 3,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "absol",
-          "displayNameJa": "アブソル",
-          "types": [
-            "dark"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Absol.png"
-        },
-        {
-          "rank": 4,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "hisuian-decidueye",
-          "displayNameJa": "ヒスイジュナイパー",
-          "types": [
-            "grass",
-            "fighting"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Decidueye.png"
-        },
-        {
-          "rank": 5,
           "percentage": null,
           "percentageValue": null,
           "pokemonId": "primarina",
@@ -761,16 +853,39 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Primarina.png"
         },
         {
+          "rank": 4,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "absol",
+          "displayNameJa": "アブソル",
+          "types": [
+            "dark"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Absol.png"
+        },
+        {
+          "rank": 5,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "scovillain",
+          "displayNameJa": "スコヴィラン",
+          "types": [
+            "grass",
+            "fire"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Scovillain.png"
+        },
+        {
           "rank": 6,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "garchomp",
-          "displayNameJa": "ガブリアス",
+          "pokemonId": "hisuian-decidueye",
+          "displayNameJa": "ヒスイジュナイパー",
           "types": [
-            "dragon",
-            "ground"
+            "grass",
+            "fighting"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garchomp.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Hisuian%20Decidueye.png"
         },
         {
           "rank": 7,
@@ -788,36 +903,37 @@
           "rank": 8,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "gardevoir",
-          "displayNameJa": "サーナイト",
+          "pokemonId": "sneasler",
+          "displayNameJa": "オオニューラ",
           "types": [
-            "psychic",
-            "fairy"
+            "fighting",
+            "poison"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gardevoir.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sneasler.png"
         },
         {
           "rank": 9,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "sableye",
-          "displayNameJa": "ヤミラミ",
+          "pokemonId": "charizard",
+          "displayNameJa": "リザードン",
           "types": [
-            "dark",
-            "ghost"
+            "fire",
+            "flying"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sableye.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png"
         },
         {
           "rank": 10,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "milotic",
-          "displayNameJa": "ミロカロス",
+          "pokemonId": "wigglytuff",
+          "displayNameJa": "プクリン",
           "types": [
-            "water"
+            "normal",
+            "fairy"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Milotic.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Wigglytuff.png"
         }
       ]
     }
