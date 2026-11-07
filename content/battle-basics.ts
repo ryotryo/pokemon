@@ -89,11 +89,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "how-to-win", title: "ポケモン対戦ってどうやって勝つの？", description: "対戦の目的と、勝つまでの大まかな流れをゼロから説明します。", categoryId: "getting-started", beginnerCourseOrder: 1, icon: "target",
     sections: [
       { heading: "相手のポケモンをすべて倒せば勝ち", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["博士、ポケモン対戦はどうなったら勝ちなんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ポケモン対戦では、技で相手のHPを減らし、戦えるポケモンをすべて倒すことが基本の勝利条件だよ。HPが0になったポケモンは、その試合では戦えなくなるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["最後に自分のポケモンが少しでも残っていればいいんですね？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["自分のポケモンが1匹でも残り、相手に戦えるポケモンがいなくなれば勝ちだよ。まずはこのゴールだけ覚えれば、対戦画面の見え方が変わるよ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["博士、ポケモン対戦はどうなったら勝ちなんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["基本は、相手の戦えるポケモンをすべて倒したら勝ちだよ。技でHPを減らし、HPが0になったポケモンは、その試合では戦えなくなるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["最後に自分のポケモンが1匹でも残っていればいいんですね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そう。自分に戦えるポケモンが1匹でもいて、相手にはいなくなったら勝ちだよ。目の前の1匹だけでなく、相手のチーム全体を倒すのがゴールなんだ。"]}
+      ] },
       { heading: "毎ターン、行動を選ぶ", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["毎ターン、ぼくは何を選べばいいんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["自分の番では、技を使うか、控えのポケモンへ交代するかを選ぶんだ。両方のプレイヤーが選び終えると、技の優先度や素早さなどに従って行動するよ。"]},
@@ -112,11 +112,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "team-selection", title: "6匹のポケモンと選出", description: "手持ち6匹から、その試合で戦うポケモンを選ぶ流れを説明します。", categoryId: "strategy", beginnerCourseOrder: 2, icon: "team-selection",
     sections: [
       { heading: "まず6匹でチームを作る", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["6匹でチームを作ったら、毎試合6匹とも出すんですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["対戦へ持ち込むチームは6匹だよ。ただし、試合で6匹すべてを必ず使うとは限らないよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["試合に出すポケモンは、いつ決めるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["対戦前にお互いの6匹を確認し、その試合へ出すポケモンを選ぶんだ。これを「選出」と呼ぶよ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["6匹でチームを作ったら、毎試合6匹とも出すんですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["毎試合6匹とも出すとは限らないよ。6匹で作ったチームから、その試合で戦うポケモンを選ぶんだ。これを「選出」と呼ぶよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["試合に出すポケモンは、いつ決めるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["対戦が始まる前に、お互いの6匹を確認して決めるよ。相手のチームを見て、戦いやすそうな組み合わせを選ぼう。"]}
+      ] },
       { heading: "対戦形式で出す数が変わる", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["シングルとダブルでは、選ぶ数も違うんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["基本的なランクバトルでは、シングルバトルは6匹から3匹、ダブルバトルは6匹から4匹を選ぶんだ。シングルは場に1匹ずつ、ダブルは場に2匹ずつ出して戦うよ。"]},
@@ -135,11 +135,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "type-matchups", title: "タイプ相性ってどう考えればいい？", description: "弱点、等倍、いまひとつ、無効と複合タイプの見方を説明します。", categoryId: "damage", beginnerCourseOrder: 3, icon: "type-matchup",
     sections: [
       { heading: "技のタイプと相手のタイプを比べる", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["「こうかばつぐん」とか「いまひとつ」って、何を比べているんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["攻撃技にはタイプがあり、相手のタイプとの組み合わせでダメージが変わるよ。効果抜群なら通常より大きく、いまひとつなら小さくなるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["相性が普通のときや、技が効かないときもありますよね？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["相性がない組み合わせは等倍だよ。無効の相手には、その技ではダメージを与えられないんだ。"]}
-    ], facts: [{ label: "弱点", value: "2倍" }, { label: "等倍", value: "1倍" }, { label: "いまひとつ", value: "1/2倍" }, { label: "無効", value: "0倍" }] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["「こうかばつぐん」とか「いまひとつ」って、何を比べているんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["攻撃技のタイプと、受ける相手のタイプを比べているよ。効果抜群ならダメージが大きくなり、いまひとつなら小さくなるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["普通に効くときや、まったく効かないときもありますよね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["うん。普通に効く相性が「等倍」で1倍。「無効」の相手には0倍で、その技のダメージを与えられないよ。下の表で、2倍・1倍・1/2倍・0倍の違いを見てみよう。"]}
+      ], facts: [{ label: "弱点", value: "2倍" }, { label: "等倍", value: "1倍" }, { label: "いまひとつ", value: "1/2倍" }, { label: "無効", value: "0倍" }] },
       { heading: "複合タイプでは両方を組み合わせる", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["相手にタイプが2つあったら、どちらを見ればいいんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["相手が2つのタイプを持つときは、両方の相性を掛け合わせるよ。たとえば、ほのお・ひこうタイプにいわ技を使うと、どちらにも効果抜群なので2倍×2倍で4倍になるよ。"]},
@@ -147,11 +147,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["片方に効果抜群でも、もう片方にいまひとつなら2倍×1/2倍で等倍だよ。見た目だけで決めず、2つのタイプを確認するのが大切だよ。"]}
     ] },
       { heading: "相性は交代を考える合図", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["弱点を突かれそうなときは、どうしたらいいですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["弱点を突かれそうなときは、その技を受けやすい味方へ交代できるよ。逆に、相手の弱点を突けるなら攻める好機だよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["タイプさえ有利なら、そのまま攻撃して大丈夫？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["ただし、相手が別タイプの技を覚えていることもあるよ。タイプ相性は大切な出発点だけれど、それだけで必ず勝てるわけではないんだ。"]}
-    ], takeaway: "技のタイプと相手の1つまたは2つのタイプを比べ、最終的な倍率を考えます。" },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["弱点を突かれそうなときは、どうしたらいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["その技を受けやすい味方へ交代する方法があるよ。逆に、こちらが相手の弱点を突けるなら、攻めるチャンスになるね。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["タイプさえ有利なら、そのまま攻撃して大丈夫？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["タイプが有利でも、安全とは限らないよ。相手が別タイプの技を覚えているかもしれないからね。タイプ相性は判断の出発点で、それだけで必ず勝てるわけではないんだ。"]}
+      ], takeaway: "技のタイプと相手の1つまたは2つのタイプを比べ、最終的な倍率を考えます。" },
     ], relatedArticleSlugs: ["same-type-attack-bonus", "matchups", "switching"], relatedTools: ["type-chart", "party-check", "damage-chart"],
   },
   {
@@ -315,17 +315,17 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "move-categories", title: "物理技・特殊技・変化技ってなに？", description: "3種類の技と、ダメージに使う能力値の違いを説明します。", categoryId: "getting-started", beginnerCourseOrder: 5, icon: "physical-special",
     sections: [
       { heading: "攻撃技には物理と特殊がある", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["物理技と特殊技って、何が違うんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["相手へダメージを与える技は、大きく物理技と特殊技に分かれるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["どの能力を使ってダメージを決めるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["物理技は使う側の「攻撃」と受ける側の「防御」、特殊技は使う側の「特攻」と受ける側の「特防」を主に使ってダメージを決めるんだ。"]}
-    ], facts: [{ label: "物理技", value: "攻撃 ↔ 防御" }, { label: "特殊技", value: "特攻 ↔ 特防" }, { label: "変化技", value: "補助や妨害" }] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["物理技と特殊技って、何が違うんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["ダメージを決めるときに使う能力が違うんだ。物理技は、使う側の「攻撃」と受ける側の「防御」。特殊技は、使う側の「特攻」と受ける側の「特防」を主に使うよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃が高くても、特殊技のダメージが大きくなるとは限らないんですね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。特殊技では主に特攻を見るから、攻撃の高さがそのまま強みになるわけではないよ。まずは、その技がどちらの分類か確認しよう。"]}
+      ], facts: [{ label: "物理技", value: "攻撃 ↔ 防御" }, { label: "特殊技", value: "特攻 ↔ 特防" }, { label: "変化技", value: "補助や妨害" }] },
       { heading: "タイプだけでは決まらない", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["ほのお技なら全部特殊技、という覚え方でいいですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["同じほのおタイプでも、物理技と特殊技があるんだ。技のタイプを見ただけでは物理か特殊かは分からないんだ。技に表示される分類の印や説明を確認するよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["自分のポケモンには、どちらを覚えさせればいいんだろう？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["攻撃が高いポケモンには物理技、特攻が高いポケモンには特殊技が合いやすいけれど、覚える技や役割によって例外もあるよ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ほのお技なら全部特殊技、という覚え方でいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["それは違うよ。同じほのおタイプにも、物理技と特殊技があるんだ。タイプだけで判断せず、技に表示される分類の印や説明を見よう。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["自分のポケモンには、どちらを覚えさせればいいんだろう？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["まずは攻撃が高いなら物理技、特攻が高いなら特殊技が合いやすいね。ただし、覚えられる技や担当したい役割によって、別の選び方をすることもあるよ。"]}
+      ] },
       { heading: "変化技も対戦を動かす", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["じゃあ、変化技は何をする技なんですか？"]},
       {"speaker":"professor","expression":"thinking","paragraphs":["変化技は、基本的に直接ダメージを与えるための技ではないんだ。能力を上げる、相手を状態異常にする、HPを回復するなど、さまざまな効果があるんだ。"]},
@@ -338,17 +338,17 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "stats", title: "HP・攻撃・防御・特攻・特防・素早さってなに？", description: "ポケモンの6つの能力値と、H・A・B・C・D・Sという略称を説明します。", categoryId: "getting-started", beginnerCourseOrder: 6, icon: "stats",
     sections: [
       { heading: "6つの数字が得意・不得意を表す", dialogue: [
-      {"speaker":"trainer","expression":"confused","paragraphs":["能力値が6つもあって、どこを見ればいいか迷います。"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ポケモンには6つの能力値があるんだ。数字が高いほど、その分野が得意なんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["全部が高いポケモンばかりじゃないんですね？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["全部が高いとは限らず、攻撃が高い、守りが得意、素早いなど、ポケモンごとに個性があるんだ。"]}
-    ], bullets: ["HP：攻撃に耐えられる量", "攻撃：物理技で与えるダメージに関わる", "防御：物理技を受ける力", "特攻：特殊技で与えるダメージに関わる", "特防：特殊技を受ける力", "素早さ：原則として行動する順番に関わる"] },
+        {"speaker":"trainer","expression":"confused","paragraphs":["能力値が6つもあって、どこを見ればいいか迷います。"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["まずは、HP・攻撃・防御・特攻・特防・素早さの6つがあると覚えよう。数字が高いほど、その分野が得意なんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["全部が高いポケモンばかりじゃないんですね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["うん。攻撃が得意、守りが得意、素早いなど、ポケモンごとに個性があるよ。全部を同じように見るより、そのポケモンの得意なところを探してみよう。"]}
+      ], bullets: ["HP：攻撃に耐えられる量", "攻撃：物理技で与えるダメージに関わる", "防御：物理技を受ける力", "特攻：特殊技で与えるダメージに関わる", "特防：特殊技を受ける力", "素早さ：原則として行動する順番に関わる"] },
       { heading: "攻めと守りは組になっている", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃と防御、特攻と特防は、組になっているんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["物理技を使うなら攻撃が高いほど有利で、受ける側は防御が高いほど耐えやすくなるよ。特殊技では特攻と特防の組み合わせだよ。HPは物理・特殊のどちらを受けるときにも使うよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["防御だけ高ければ、どんな攻撃も何度でも受けられる？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["そのため、防御だけ高くてもHPが低ければ何度も受けるのは難しく、攻撃が高くても使う技が特殊技なら、その高さを生かせないことがあるんだ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃と防御、特攻と特防は、組になっているんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["そう。物理技では攻撃と防御、特殊技では特攻と特防を主に使うよ。HPは、物理技を受けるときにも特殊技を受けるときにも関わるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["防御だけ高ければ、どんな攻撃も何度でも受けられる？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["そうとは限らないよ。防御が高くてもHPが低ければ、何度も受けるのは難しいんだ。攻める側も同じで、攻撃が高くても特殊技ばかり使うと、その高さを生かしにくいよ。"]}
+      ] },
       { heading: "H・A・B・C・D・Sという略し方", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["対戦記事の「H」とか「S」って何ですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["6つの能力を1文字で表す略称だよ。HPはH、攻撃はA、防御はB、特攻はC、特防はD、素早さはSと書くんだ。"]},
@@ -367,17 +367,17 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["先に相手を倒せれば、そのターンは相手の攻撃を受けずにすむことがあるんだ。だから素早さはとても重要なんだ。"]}
     ] },
       { heading: "先制技などの例外がある", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["素早さが高ければ、どの技でも先に使えますよね？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["技には「優先度」があり、優先度が高い技は素早さに関係なく先に出やすくなるよ。でんこうせっかなどが先制技だよ。反対に、後から動く性質の技もあるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["同じ優先度で、素早さも同じだったら？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["同じ優先度で素早さも同じ、いわゆる「同速」の場合は、どちらが先に動くか毎回確定しないんだ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["素早さが高ければ、どの技でも先に使えますよね？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["必ず先とは限らないよ。素早さより先に、技の「優先度」を比べるんだ。でんこうせっかのような先制技は先に出やすく、逆に後から動きやすい技もあるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["同じ優先度で、素早さも同じだったら？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["その場合は「同速」といって、どちらが先かはランダムに決まるよ。一度先に動けても、次も先だとは決めつけられないんだ。"]}
+      ] },
       { heading: "対戦中に順番は変わる", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["最初のターンで先に動けたら、次も先に動けますか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["能力ランク、まひ、特性、持ち物、トリックルームなどによって行動順が変わることがあるんだ。最初に見た素早さだけで、試合中ずっと先に動けるとは限らないよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["まずは、何を覚えておけばいいでしょう？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["まずは「原則は素早い方が先、先制技には注意」と覚えれば十分だよ。詳しい数値を比べたいときは、すばやさランキングを使えるよ。"]}
-    ], takeaway: "先に動けば攻撃を受ける前に倒せることがあります。ただし技の優先度が先に比べられます。" },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["最初のターンで先に動けたら、次も先に動けますか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["次も先とは限らないよ。能力ランク、まひ、特性、持ち物、トリックルームなどで、対戦中に行動順が変わることがあるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["いろいろあるんですね。最初は、何に気をつければいいですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["まずは「同じ優先度なら素早い方が先。ただし先制技には注意」と覚えよう。細かい素早さの数値を比べたくなったら、すばやさランキングも使えるよ。"]}
+      ], takeaway: "先に動けば攻撃を受ける前に倒せることがあります。ただし技の優先度が先に比べられます。" },
     ], relatedArticleSlugs: ["stats", "status-conditions", "stat-stages"], relatedTools: ["speed-ranking"],
   },
   {
@@ -396,22 +396,22 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["相手のポケモンが場に出たときに特性名が表示されたら、その後の行動を考える大切な手がかりだよ。"]}
     ] },
       { heading: "全部を暗記しなくていい", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["特性を全部覚えるのは大変そうです……。"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["初めて見る特性は、その場で効果を確認しながら覚えれば十分だよ。まずは、自分の6匹の特性がいつ働き、何を変えるかを知っておこうね。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["自分のポケモンの特性から覚えてみます！"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["ポケモン解説では、そのポケモンらしい特性と戦い方を一緒に確認できるよ。"]}
-    ], takeaway: "特性は自動で働くことが多い特別な効果。タイプ相性や行動順を変える場合もあります。" },
+        {"speaker":"trainer","expression":"confused","paragraphs":["特性を全部覚えるのは大変そうです……。"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["最初から全部覚えなくても大丈夫。初めて見るものは、その場で効果を確認していこう。まずは自分の6匹の特性が、いつ働いて何を変えるのかを知るところからで十分だよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["自分のポケモンの特性から覚えてみます！"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["うん。そのポケモンの戦い方と一緒に覚えると、効果を思い出しやすいね。ポケモン解説でも、特性と戦い方を一緒に確認できるよ。"]}
+      ], takeaway: "特性は自動で働くことが多い特別な効果。タイプ相性や行動順を変える場合もあります。" },
     ], relatedArticleSlugs: ["held-items", "matchups", "roles"], relatedTools: ["pokemon-intro"],
   },
   {
     slug: "held-items", title: "持ち物ってなに？", description: "ポケモンに持たせる道具が、対戦中にどう働くかを説明します。", categoryId: "getting-started", beginnerCourseOrder: 9, icon: "item",
     sections: [
       { heading: "1匹につき1つ持たせる", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["ポケモンに持たせる道具って、どんなものがあるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ポケモンには、対戦中に効果を発揮する持ち物を1つ持たせられるよ。HPが減ると回復するきのみ、技を強くする道具、素早さを上げる道具などがあるんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["使いたいときに、自分で道具を選ぶんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["持ち物は技とは別に働き、条件を満たすと自動で使われるものや、持っている間ずっと効果が続くものがあるんだ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ポケモンに持たせる道具って、どんなものがあるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["HPが減ると回復するきのみ、技を強くする道具、素早さを上げる道具などがあるよ。1匹につき1つ持たせられるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["使いたいときに、自分で道具を選ぶんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["技のように毎ターン選んで使うものではないよ。条件を満たすと自動で使われるものや、持っている間ずっと効果が続くものがあるんだ。"]}
+      ] },
       { heading: "強い代わりに制限もある", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["能力が大きく上がる持ち物なら、迷わず持たせていい？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["大きく能力を高める代わりに同じ技しか選べなくなるなど、強みと欠点がセットの持ち物もあるよ。効果の一部だけでなく、制限まで読むことが大切だよ。"]},
@@ -430,23 +430,23 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     slug: "status-conditions", title: "状態異常ってなに？", description: "やけど、まひ、どく、ねむり、こおりで何が困るのかを整理します。", categoryId: "status", beginnerCourseOrder: 10, icon: "status",
     sections: [
       { heading: "しばらく残る不利な状態", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常になったら、交代すれば治りますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["状態異常は、技や特性などによってポケモンに付く不利な状態だよ。交代しても残るものが多く、治す効果を使うか、対戦中の条件を満たすまで影響が続くよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["やけどとまひが、同時に付くこともあるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["同じポケモンが、やけどとまひのような主要な状態異常に同時になることは基本的にないんだ。"]}
-    ] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常になったら、交代すれば治りますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["交代しても残るものが多いよ。状態異常は技や特性などで付く不利な状態で、治す効果を使ったり、回復する条件を満たしたりするまで影響が続くんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["やけどとまひが、同時に付くこともあるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["基本的に、やけどとまひのような主要な状態異常が同時に付くことはないよ。ただし、こんらんは別の仕組みなので、一緒にかかる場合があるんだ。"]}
+      ] },
       { heading: "まずは何が困るかを知る", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常って、どれもHPが減るだけですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["状態異常ごとに、HP・火力・素早さ・行動への影響が異なるんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["確率や回復のしかたも、今遊んでいる作品で確認するんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["特に確率や回復までの回数は、Pokémon Championsのルールで確認することが大切だよ。"]}
-    ], bullets: ["やけど：毎ターンHPが減り、物理技のダメージも下がる", "まひ：素早さが1/2になり、12.5%で技を使えない", "どく：毎ターンHPが減る", "もうどく：経過するほど毎ターンのダメージが増える", "ねむり：1回目は技を使えず、2回目は1/3で起き、3回目は必ず起きる", "こおり：多くの技を使えず、技を使う時に25%で回復し、3回目は必ず回復する"] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常って、どれもHPが減るだけですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["HPが減るものだけではないよ。たとえば、やけどはHPと物理技のダメージ、まひは素早さと行動に影響するんだ。状態ごとに、困ることが違うよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["確率や回復のしかたも、全部同じではないんですね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そうだね。しかも作品によってルールが違うことがあるから、Pokémon Championsの確率や回復までの回数で確認しよう。まずは下の表で、それぞれの影響を比べてみよう。"]}
+      ], bullets: ["やけど：毎ターンHPが減り、物理技のダメージも下がる", "まひ：素早さが1/2になり、12.5%で技を使えない", "どく：毎ターンHPが減る", "もうどく：経過するほど毎ターンのダメージが増える", "ねむり：1回目は技を使えず、2回目は1/3で起き、3回目は必ず起きる", "こおり：多くの技を使えず、技を使う時に25%で回復し、3回目は必ず回復する"] },
       { heading: "相手を止めるだけではない", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常にする技は、相手の邪魔をするために使うんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["状態異常は、相手を倒すための時間を作ったり、回復を使わせたりできるよ。逆に、自分の大切な攻撃役がやけどになれば、予定していたダメージを出せなくなるかもしれないね。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["狙えばどんな相手にも状態異常が入るのかな？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["タイプや特性によって、特定の状態異常にならない場合もあるよ。表示された状態と相手の特性を確認しよう。"]}
-    ], takeaway: "状態異常は交代しても残りやすく、HP・火力・素早さ・行動を邪魔します。" },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["状態異常にする技は、相手の邪魔をするために使うんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["うん。相手を倒すための時間を作ったり、回復を使わせたりする狙いがあるよ。逆に自分の大切な物理攻撃役がやけどになると、予定したダメージを出せなくなるかもしれないね。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["狙えばどんな相手にも状態異常が入るのかな？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["効かない相手もいるよ。タイプや特性によって、特定の状態異常にならない場合があるんだ。表示された状態と、相手のタイプ・特性を確認しよう。"]}
+      ], takeaway: "状態異常は交代しても残りやすく、HP・火力・素早さ・行動を邪魔します。" },
     ], relatedArticleSlugs: ["speed-and-turn-order", "switching", "abilities"], relatedTools: ["pokemon-intro"],
   },
   {
@@ -465,11 +465,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["たとえば攻撃が+2になれば、物理技のダメージを大きく伸ばせるよ。素早さが+1なら、それまで抜けなかった相手より先に動けることがあるんだ。"]}
     ], facts: [{ label: "0", value: "1倍" }, { label: "+1", value: "3/2倍" }, { label: "+2", value: "2倍" }, { label: "-1", value: "2/3倍" }, { label: "-2", value: "1/2倍" }] },
       { heading: "交代すると基本的に元へ戻る", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["能力を上げた後に交代しても、そのまま残りますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["能力ランクは、そのポケモンが控えへ戻ると基本的に0へ戻るんだ。相手が何段階も能力を上げたときは、交代させる技や効果で強化を消せる場合があるんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["せっかく上げたなら、交代するか迷いそうです。"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["自分から交代すれば上げた能力も失うため、強化した後にどれだけ攻められるかが大切だよ。"]}
-    ], takeaway: "+1は少しではなく1.5倍。能力を上げた後の攻撃と、交代によるリセットを意識します。" },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["能力を上げた後に交代しても、そのまま残りますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["基本的には残らないよ。控えへ戻ると能力ランクは0に戻るんだ。相手の強化も、交代させる技や効果で消せる場合があるよ。"]},
+        {"speaker":"trainer","expression":"confused","paragraphs":["せっかく上げた能力も失うなら、交代するか迷いそうです。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そうだね。上げた能力を生かして攻めたいけれど、倒されそうなら温存も考えたい。強化した後にどれだけ攻められるかと、交代してでも残したいかを見比べよう。"]}
+      ], takeaway: "+1は少しではなく1.5倍。能力を上げた後の攻撃と、交代によるリセットを意識します。" },
     ], relatedArticleSlugs: ["move-categories", "speed-and-turn-order", "switching"], relatedTools: ["speed-ranking", "pokemon-intro"],
   },
   {
@@ -488,11 +488,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。弱点の技を受けやすい味方に代わったり、後で必要なポケモンを温存したりできるよ。下の例も見てみよう。"]}
     ], bullets: ["不利なタイプの相手から離れる", "攻撃を受けやすい味方へ代わる", "相手へ有利なポケモンを場に出す", "能力低下など、交代で消える効果をリセットする", "残しておきたいポケモンのHPを守る"] },
       { heading: "交代にも代償がある", dialogue: [
-      {"speaker":"trainer","expression":"confused","paragraphs":["それなら、困ったら毎回交代すれば安心ですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["交代したターンは、通常そのポケモンが攻撃できないんだ。相手に交代を読まれると、交代先へ強い技を使われることもあるよ。場に出たときにダメージを受ける仕掛けがある場合も注意が必要なんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["最初は、どんなときに交代してみればいいですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["最初は「このまま倒されそうなら、受けられる味方へ代わる」だけで十分だよ。交代を繰り返して有利な場面を作る考え方は、後のサイクルという戦い方につながるよ。"]}
-    ], takeaway: "交代は大切なポケモンを守り、有利な相手へ向き合わせるために使います。" },
+        {"speaker":"trainer","expression":"confused","paragraphs":["それなら、困ったら毎回交代すれば安心ですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["交代にも負担があるから、毎回安全とは限らないよ。通常、交代したターンはそのポケモンで攻撃できないし、相手が交代先に強い技を使うこともあるんだ。場に出たときのダメージにも注意しよう。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["最初は、どんなときに交代してみればいいですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["まずは「このまま倒されそうなら、攻撃を受けられる味方へ代わる」と考えてみよう。交代で有利な場面を作り続ける考え方は、後で学ぶサイクルにもつながるよ。"]}
+      ], takeaway: "交代は大切なポケモンを守り、有利な相手へ向き合わせるために使います。" },
     ], relatedArticleSlugs: ["type-matchups", "matchups", "roles"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
@@ -505,11 +505,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["同じポケモンでも技や持ち物で役割が変わることがあるけれど、まずは何が得意なポケモンかを見ると理解しやすくなるよ。"]}
     ] },
       { heading: "よくある役割", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["役割には、どんな種類があるんですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["役割の名前には厳密に1つだけの定義があるとは限らないよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["まずは代表的な仕事のイメージを覚えたいです。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["初心者は次のイメージから始めてみよう。"]}
-    ], bullets: ["アタッカー：高い火力で相手を倒す", "受け：高い耐久や回復で攻撃を受け止める", "サポート：状態異常や場の効果で味方を助ける", "エース：準備を整え、終盤に相手を倒し切る中心役", "クッション：いったん攻撃を受け、安全に次の味方へつなぐ"] },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["役割には、どんな種類があるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["たとえば、攻撃を担当するアタッカー、相手の攻撃を引き受ける受け役、味方を助けるサポート役などがあるよ。下の一覧でも、代表的な仕事を見てみよう。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["どのポケモンも、役割は1つだけなんですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["1つだけとは限らないよ。技や持ち物で仕事が変わることもあるし、呼び方も厳密に1つに決まっているわけではないんだ。まずは、チームで何を担当しているかを考えよう。"]}
+      ], bullets: ["アタッカー：高い火力で相手を倒す", "受け：高い耐久や回復で攻撃を受け止める", "サポート：状態異常や場の効果で味方を助ける", "エース：準備を整え、終盤に相手を倒し切る中心役", "クッション：いったん攻撃を受け、安全に次の味方へつなぐ"] },
       { heading: "役割を組み合わせる", dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["強い攻撃役を6匹そろえたら、強いチームになりますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["全員が攻撃役だと、苦手な相手が出たときに安全な交代先がいないかもしれないね。全員が守る役だと、相手を倒し切れないことがあるんだ。"]},
@@ -534,11 +534,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["素早さ、残りHP、使える技や特性も見よう。タイプが有利でも、先に倒されそうなら動きやすいとは言えないね。"]}
     ], bullets: ["どちらが先に動くか", "攻撃を何回耐えられるか", "弱点を突ける技を実際に覚えているか", "特性で技を無効にしないか", "状態異常や能力変化が残っていないか"] },
       { heading: "次のターンまで考える", dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["今の相手に有利なら、安心して攻撃できますね？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["今の相手に有利でも、相手が交代してくると攻撃が通らないことがあるんだ。不利な相手から交代して、自分が有利な組み合わせを作るのも対戦の基本だよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["最初は、何を見て判断すればいいですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["最初は、タイプ相性、素早さ、残りHPの3つを見るだけでも判断しやすくなるよ。経験とともに技や特性も加えていこう。"]}
-    ], takeaway: "有利不利はタイプ、速さ、耐久、技、特性を合わせて判断します。" },
+        {"speaker":"trainer","expression":"thinking","paragraphs":["今の相手に有利なら、安心して攻撃できますね？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["相手が交代してくるかもしれないので、安心しきるのは早いよ。交代先には攻撃が通りにくい場合もあるんだ。逆にこちらも、交代で有利な組み合わせを作れるね。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["最初は、何を見て判断すればいいですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["まずは、タイプ相性、素早さ、残りHPの3つを見よう。それに慣れてきたら、技や特性、相手が交代した場合も少しずつ考えていけばいいよ。"]}
+      ], takeaway: "有利不利はタイプ、速さ、耐久、技、特性を合わせて判断します。" },
     ], relatedArticleSlugs: ["type-matchups", "speed-and-turn-order", "switching"], relatedTools: ["party-check", "pokemon-intro"],
   },
   {
@@ -572,17 +572,17 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["攻撃が高くても威力の低い技なら小さくなり、防御が高い相手には同じ技でも通りにくくなるよ。"]}
     ]},
     {heading:"そこへ補正が重なる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["能力値と技の威力が分かれば、ダメージも決まりますよね？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["タイプ一致、弱点やいまひとつ、急所、天候、特性、持ち物などが順に影響するよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["ひとつの数字だけを見ても、分からないんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["1つの数字だけで最終ダメージは決まらないんだ。"]}
-    ],bullets:["使う技の威力と分類","攻撃側・防御側の能力","タイプ一致とタイプ相性","特性・持ち物・天候など","最後に幅を作る乱数"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["能力値と技の威力が分かれば、ダメージも決まりますよね？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["まだほかにも影響するものがあるよ。タイプ一致、弱点やいまひとつ、急所、天候、特性、持ち物などの補正が重なるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["それなら、何かひとつの数字だけで強さを比べるのは難しいんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。最終ダメージは1つの数字だけでは決まらないから、技や能力値に加えて、相性やそのときの条件も一緒に見るんだ。"]}
+      ],bullets:["使う技の威力と分類","攻撃側・防御側の能力","タイプ一致とタイプ相性","特性・持ち物・天候など","最後に幅を作る乱数"]},
     {heading:"同じ技でも毎回少し違う",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["同じ条件なら、毎回同じダメージになるんですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["ダメージには乱数による幅があるため、同じ条件でも毎回まったく同じとは限らないよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["確実に倒せるか調べるには、どちらの数字を見ればいい？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["確実に倒せるかは、最大値だけでなく最小値も見るんだ。"]}
-    ],takeaway:"威力だけでなく、能力値・タイプ・特性など複数の要素で決まります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["同じ条件なら、毎回同じダメージになるんですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["同じとは限らないよ。乱数によって、最小ダメージから最大ダメージまでの幅があるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["確実に倒せるか調べるには、どちらの数字を見ればいい？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["最小ダメージを見るんだ。大きい方の数字なら倒せても、小さい方では残るかもしれないからね。最大値だけでなく、最小値でも相手のHPに届くか確認しよう。"]}
+      ],takeaway:"威力だけでなく、能力値・タイプ・特性など複数の要素で決まります。"}
   ],["move-categories","same-type-attack-bonus","damage-randomness"],["damage-chart"]),
   extraArticle("type-effectiveness-damage","弱点・いまひとつ・無効でダメージはどう変わる？","タイプ相性の倍率を、実際のダメージへ結び付けて説明します。","damage",[
     {heading:"等倍を基準に考える",dialogue: [
@@ -598,11 +598,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"thinking","paragraphs":["じめん技をひこうタイプへ使う場合などだよ。ただし特性や別の効果で相性が変化する場合があるんだ。"]}
     ]},
     {heading:"表示と交代判断につながる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["効果抜群が出たら、相手を倒せますよね？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["効果抜群でも相手の耐久が高ければ倒し切れず、等倍でも高火力なら大きく減るよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["倍率以外の数字も、一緒に見るんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["倍率は重要だけれど、残りHPや能力値も合わせて考えるんだ。"]}
-    ],takeaway:"弱点2倍、半減1/2倍、無効0倍。倍率は最終ダメージを大きく変えます。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["効果抜群が出たら、相手を倒せますよね？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["効果抜群でも、倒せるとは限らないよ。相手の耐久が高ければ残ることがあるし、逆に等倍でも高火力の攻撃なら大きく減るんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["それなら、倍率以外には何を見ればいいですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["相手の残りHPや、お互いの能力値も一緒に見よう。倍率は大切だけれど、それだけで倒せるかを決めつけないのがコツだよ。"]}
+      ],takeaway:"弱点2倍、半減1/2倍、無効0倍。倍率は最終ダメージを大きく変えます。"}
   ],["type-matchups","four-times-weakness","damage-basics"],["party-check","damage-chart"]),
   extraArticle("four-times-weakness","4倍弱点・4分の1ってなに？","複合タイプでタイプ相性が重なったときの倍率を説明します。","damage",[
     {heading:"2つの相性を掛け合わせる",dialogue: [
@@ -618,11 +618,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["一方、片方が弱点でももう片方が半減なら、2×1/2で等倍になるよ。"]}
     ]},
     {heading:"選出と交代へ大きく影響する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["4倍弱点があると、どんなことに気をつければいいですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["4倍弱点は大きなダメージになりやすいため、相手がそのタイプの技を使えるか確認するよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["逆に、4分の1にできる相手なら安心して出せますか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["1/4なら受けやすい候補だけれど、別タイプの技には注意が必要なんだ。"]}
-    ],takeaway:"複合タイプは足し算ではなく掛け算。2つの相性を両方確認します。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["4倍弱点があると、どんなことに気をつければいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["相手が、その弱点を突く技を使えるか確認しよう。4倍弱点を突かれると大きなダメージになりやすいので、選出や交代でも特に意識したいね。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["逆に、4分の1にできる相手なら安心して出せますか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["1/4に抑えられるその技は受けやすいけれど、必ず安全とは限らないよ。相手が別タイプの技も使えるかもしれないから、ほかの攻撃も考えて出そう。"]}
+      ],takeaway:"複合タイプは足し算ではなく掛け算。2つの相性を両方確認します。"}
   ],["type-matchups","type-effectiveness-damage","switching"],["party-check"]),
   extraArticle("critical-hits","急所に当たるとどうなる？","急所の倍率と、能力変化を一部無視する性質を説明します。","damage",[
     {heading:"通常より1.5倍のダメージ",dialogue: [
@@ -632,11 +632,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"thinking","paragraphs":["毎回起きるものではないけれど、急所に当たりやすい技や、必ず急所に当たる技もあるよ。"]}
     ]},
     {heading:"不利な能力変化を一部無視する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["防御を上げたのに、急所ですごく減ったのはなぜですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["急所では、攻撃側の下がった攻撃・特攻や、防御側の上がった防御・特防など、急所を弱くする一部の能力ランクを無視して計算するよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["急所なら、どんな守りの効果も全部無視できる？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["すべての効果を無視するわけではないんだ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["防御を上げたのに、急所ですごく減ったのはなぜですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["急所では、防御側の上がった防御・特防や、攻撃側の下がった攻撃・特攻など、急所を弱くする一部の能力ランクを無視して計算するんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["急所なら、どんな守りの効果も全部無視できる？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["全部ではないよ。急所には、今説明したような一部の能力ランクを無視する性質があるけれど、あらゆる効果が消えるわけではないんだ。"]}
+      ]},
     {heading:"安全だと思った場面が変わる",dialogue: [
       {"speaker":"trainer","expression":"inspired","paragraphs":["耐えられると思っていたのに、急所で倒されることもあるんですね。"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["防御を上げて耐える予定でも、急所なら想定より大きく減ることがあるんだ。"]},
@@ -646,17 +646,17 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
   ],["damage-basics","stat-stages","damage-randomness"],["damage-chart"]),
   extraArticle("damage-randomness","ダメージの「乱数」ってなに？","同じ攻撃でもダメージに幅がある理由を説明します。","damage",[
     {heading:"ダメージは85〜100%の範囲で揺れる",dialogue: [
-      {"speaker":"trainer","expression":"surprised","paragraphs":["同じ技なのに、さっきとダメージが違いました！"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ほかの条件が同じでも、最後に85%から100%の範囲の乱数補正がかかるよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["同じ相手でも、少しずつ数字が変わるんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["そのため、同じ技を同じ相手へ使っても少し違う数字になるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["同じ技なのに、さっきとダメージが違いました！"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["同じ条件でも起こることだよ。ダメージには、85%から100%の範囲の乱数補正がかかるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["だから、いつも同じ数字になるとは思わない方がいいんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。同じ技を同じ相手に使っても、少し違うダメージになるんだ。「このくらいから、このくらいまで」という幅で見るといいよ。"]}
+      ]},
     {heading:"最大だけでは倒せると言えない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["HP100の相手に90〜106ダメージなら、倒せますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ダメージ幅が90〜106なら、HP100の相手を倒せる回と倒せない回があるんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["必ず倒せると言えるのは、どんなときですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["これが乱数で倒せる状態だよ。最小でも100以上なら必ず倒せるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["HP100の相手に90〜106ダメージなら、倒せますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["90〜106の幅だから、倒せる回と倒せない回があるよ。100以上のダメージが出れば倒せるけれど、90ならHPが残るね。こういう状態が「乱数で倒せる」状態なんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["必ず倒せると言えるのは、どんなときですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["最小ダメージでも相手の残りHP以上になるときだよ。この例なら、最小でも100以上あれば、低いダメージを引いても倒せるんだ。"]}
+      ]},
     {heading:"幅で判断する",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["最大ダメージが出ると信じて攻撃すればいいのかな？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["実戦では、最高ダメージを期待するより、低いダメージでも足りるかを考えると安全だよ。"]},
@@ -678,11 +678,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["相手の残りHPが100で、ダメージ幅が90〜110なら、100以上を引いたときだけ1回で倒せるよ。このように最小値は届かず最大値は届く範囲が乱1だよ。"]}
     ]},
     {heading:"行動を決める材料",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["確1か乱1かが分かると、何が変わるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["確1なら攻撃を選びやすく、乱1なら倒せなかった場合の反撃も考えるんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["倒し切れない場合の反撃も考えるんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["ダメージ早見表の範囲を見るときも、最小値が相手のHPへ届くか確認しよう。"]}
-    ],takeaway:"確1は必ず1回、確2は必ず2回、乱1は1回で倒せるかが乱数次第です。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["確1か乱1かが分かると、何が変わるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["攻撃を選んだ後の見通しが変わるよ。確1なら倒せると判断しやすいけれど、乱1なら相手が残って反撃してくる場合も考える必要があるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ダメージ早見表では、どこを見ればいいですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["まずは最小ダメージが相手の残りHPに届くかを見よう。最大値だけで倒せると決めつけず、倒し切れなかった場合も考えて行動を選ぶんだ。"]}
+      ],takeaway:"確1は必ず1回、確2は必ず2回、乱1は1回で倒せるかが乱数次第です。"}
   ],["damage-randomness","damage-basics","win-condition"],["damage-chart"]),
   extraArticle("move-power","技の威力が高ければ強い技なの？","威力だけでは測れない技の使いやすさを説明します。","damage",[
     {heading:"威力はダメージの大切な土台",dialogue: [
@@ -712,11 +712,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["この状態を「同速」と呼ぶよ。"]}
     ]},
     {heading:"一度先でも次も先とは限らない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["さっき先に動けたので、次のターンも先ですよね？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["同速の判定は固定の上下関係ではないんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["一度の順番で決めつけたら危ないんですね。"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["前のターンに先に動いたポケモンが、次のターンも必ず先とは限らないよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["さっき先に動けたので、次のターンも先ですよね？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["同速なら、次も先とは限らないよ。前のターンの順番が、そのまま固定されるわけではないんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["一度先に動けただけでは、どちらが速いか分からないんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そうだね。同速でも先に動くことはあるから、前の1回だけで「ずっと先に動ける」と判断しないようにしよう。"]}
+      ]},
     {heading:"勝敗を運だけにしない工夫",dialogue: [
       {"speaker":"trainer","expression":"confused","paragraphs":["同速勝負に負けたら終わり……という場面が怖いです。"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["同速に勝たないと負ける場面を減らすには、先制技を残す、攻撃を耐えられる味方へ交代するなど別の道を用意するよ。"]},
@@ -726,11 +726,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
   ],["speed-and-turn-order","move-priority","switching"],["speed-ranking"]),
   extraArticle("move-priority","技の「優先度」ってなに？","素早さより先に比べられる、技の行動順を説明します。","speed",[
     {heading:"まず優先度、次に素早さ",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["すごく速い相手より先に動けたのは、どうしてですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["行動順は、最初に技の優先度を比べるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["優先度が同じだったら、次に何を比べるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["優先度が高い技が先に動き、同じ優先度の中で素早さを比べるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["すごく速い相手より先に動けたのは、どうしてですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["相手より優先度の高い技を使ったのかもしれないね。行動順は、最初に技の優先度を比べ、優先度が高い技から動くんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["優先度が同じだったら、次に何を比べるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["同じ優先度の中で素早さを比べるよ。「まず優先度、次に素早さ」という順番で考えよう。"]}
+      ]},
     {heading:"先制技と後から動く技",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["優先度が高い技には、どんなものがありますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["でんこうせっかのような先制技は通常の攻撃技より優先度が高く、素早さが低くても先に動けるよ。"]},
@@ -746,11 +746,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
   ],["speed-and-turn-order","priority-moves","speed-ties"],["speed-ranking","move-search"]),
   extraArticle("priority-moves","先制技ってなに？","素早さに関係なく先に動きやすい攻撃技の使い方を説明します。","speed",[
     {heading:"通常技より高い優先度を持つ",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["先制技は、素早さが遅いポケモンでも使えるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["先制技は、通常の技より高い優先度を持つんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["相手より遅くても、先に動けることがあるんですね！"]},
-      {"speaker":"professor","expression":"inspired","paragraphs":["相手の方が速くても、優先度で上回れば先に行動できるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["先制技は、素早さが遅いポケモンでも使えるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["使えるよ。先制技は通常の技より優先度が高いので、相手より遅くても、技の優先度で上回れば先に行動できるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["素早さそのものが上がったわけではないんですね？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そう。先に動ける理由は、素早さの上昇ではなく技の優先度だよ。使う技が変われば行動順も変わるので、そこを分けて考えよう。"]}
+      ]},
     {heading:"弱った相手を倒すのが得意",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["先制技って、威力が低そうなのに何が強いんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["先制技は威力が低めでも、残りHPの少ない相手を反撃前に倒せるのが強みだよ。"]},
@@ -758,19 +758,19 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["速い相手への最後の一押しにもなるよ。"]}
     ]},
     {heading:"必ず最初とは限らない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["先制技を選んだら、必ず一番最初に動けますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["相手も先制技を使えば優先度と素早さを比べるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["使うのを止められる場合もあるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["特性や場の効果で先制技を防がれる場合もあるため、「必ず先」とは覚えないようにしよう。"]}
-    ],takeaway:"先制技は優先度が高い技。速い相手を倒す手段になりますが、必ず先ではありません。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["先制技を選んだら、必ず一番最初に動けますか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["必ずではないよ。相手も先制技を使うなら、まず技の優先度を比べ、同じ優先度なら素早さを比べるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["先制技そのものを防がれる場合もあるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["あるよ。特性や場の効果で先制技を防がれる場合もあるんだ。だから「どんなときも必ず先に攻撃できる技」とは覚えないようにしよう。"]}
+      ],takeaway:"先制技は優先度が高い技。速い相手を倒す手段になりますが、必ず先ではありません。"}
   ],["move-priority","speed-and-turn-order","move-power"],["move-search"]),
   extraArticle("speed-changes","素早さが上がる・下がるとどうなる？","能力ランクによる素早さ変化と行動順への影響を説明します。","speed",[
     {heading:"実際の素早さに倍率がかかる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["素早さが1段階上がると、どれくらい速くなるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["素早さが1段階上がると1.5倍、2段階で2倍になるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["すばやさランキングの種族値そのものが変わる？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["1段階下がると2/3倍、2段階で1/2倍だよ。種族値そのものが変わるのではなく、対戦中の実数値へ補正がかかるよ。"]}
-    ],facts:[{label:"+1",value:"1.5倍"},{label:"+2",value:"2倍"},{label:"-1",value:"2/3倍"},{label:"-2",value:"1/2倍"}]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["素早さが1段階上がると、どれくらい速くなるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["1段階上がると1.5倍、2段階で2倍だよ。下がる場合は、1段階で2/3倍、2段階で1/2倍になるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["すばやさランキングの種族値そのものが変わる？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["種族値は変わらないよ。倍率がかかるのは、対戦中の素早さの実数値なんだ。ポケモンのもともとの特徴と、試合中の変化を分けて見よう。"]}
+      ],facts:[{label:"+1",value:"1.5倍"},{label:"+2",value:"2倍"},{label:"-1",value:"2/3倍"},{label:"-2",value:"1/2倍"}]},
     {heading:"先後関係が途中で変わる",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["最初は相手より遅かったけど、途中で追い越せますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["最初は相手より遅くても、素早さを上げれば次のターンから先に動けることがあるんだ。"]},
@@ -792,11 +792,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["遅いポケモンが活躍しやすくなる効果だよ。"]}
     ]},
     {heading:"優先度まで逆にはならない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["行動順が逆なら、先制技も最後になるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["先制技などの優先度は通常どおり先に比べるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["トリックルームを使うターンや、同速のときはどうなりますか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["トリックルーム自体は優先度がとても低いため、使うターンは相手の攻撃を受けてから発動することが多いんだ。同速なら先攻はランダムだよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["行動順が逆なら、先制技も最後になるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["先制技の優先度まで逆にはならないよ。トリックルーム中も、優先度は通常どおり先に比べるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["トリックルームを使うターンや、同速のときはどうなりますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["トリックルーム自体は優先度がとても低いので、使うターンは相手の攻撃を受けてから発動することが多いよ。同じ優先度で素早さも同じなら、先攻はランダムだよ。"]}
+      ]},
     {heading:"使える時間は短い",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["一度トリックルームにしたら、ずっと有利に戦えますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["効果は発動したターンを含めて5ターンだよ。"]},
@@ -819,7 +819,7 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
     ]},
     {heading:"物理アタッカーには特に重い",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["やけどは、どんな相手に使うと効果的ですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["HPを削るだけでなく攻撃力まで落とすため、物理アタッカーを止める手段になるよ。"]},
+      {"speaker":"professor","expression":"neutral","paragraphs":["HPを削るだけでなく、物理技のダメージも減らせるから、物理アタッカーを止める手段になるよ。"]},
       {"speaker":"trainer","expression":"thinking","paragraphs":["ほのおタイプも、やけどになるのかな？"]},
       {"speaker":"professor","expression":"happy","paragraphs":["ほのおタイプは基本的にやけど状態にならないよ。"]}
     ],takeaway:"やけどは毎ターン1/16ダメージ＋物理技が基本半減。物理アタッカーに深刻です。"}
@@ -858,11 +858,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["交代すると増加の段階はリセットされるけれど、もうどく状態自体は残るよ。"]}
     ]},
     {heading:"居座る相手への圧力",dialogue: [
-      {"speaker":"trainer","expression":"inspired","paragraphs":["回復しながら戦う相手には、もうどくがよさそうですね。"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["回復しながら長く場にいる相手ほど、もうどくの増加が重くなるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["どくにならないタイプもいるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["どく・はがねタイプは基本的にどく状態にならないよ。"]}
-    ],takeaway:"どくは毎ターン1/8。もうどくは1/16ずつ段階的に増え、交代で増加段階が戻ります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["回復しながら戦う相手には、もうどくがよさそうですね。"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["そうだね。場に長く居続けるほどダメージが増えるので、回復しながら粘る相手にも負担をかけやすいんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["どくにならないタイプもいるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["いるよ。どく・はがねタイプは基本的にどく状態にならないんだ。状態異常を狙うときも、まず相手のタイプを確認しよう。"]}
+      ],takeaway:"どくは毎ターン1/8。もうどくは1/16ずつ段階的に増え、交代で増加段階が戻ります。"}
   ],["status-conditions","switching"],["pokemon-intro"]),
   extraArticle("sleep","ねむりになるとどうなる？","眠っている間の行動制限と、起きるまでの考え方を説明します。","status",[
     {heading:"多くの技を使えなくなる",dialogue: [
@@ -878,11 +878,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["技の「ねむる」で眠った場合は、通常のランダムな回復とは異なり、3回目まで回復しないんだ。"]}
     ]},
     {heading:"交代しても眠りは残る",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["控えに戻したら、目を覚ましますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["控えへ戻しても、ねむり状態は治らないんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["場に残すか、別の味方で戦うかを考えるんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["眠ったポケモンを残すか、別の味方で戦うかを考えるんだ。特性や場の効果で眠りを防げる場合もあるよ。"]}
-    ],takeaway:"通常のねむりは1回目に行動不可、2回目は1/3で起床、3回目は必ず起床します。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["控えに戻したら、目を覚ましますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["交代しただけでは、ねむり状態は治らないよ。控えへ戻しても、眠った状態は残るんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["眠ったまま場に残すか、ほかの味方に任せるかを考えるんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["うん。起きるまで相手の攻撃を受けられるか、交代先なら受けられるかを見て決めよう。特性や場の効果で、そもそも眠りを防げる場合もあるよ。"]}
+      ],takeaway:"通常のねむりは1回目に行動不可、2回目は1/3で起床、3回目は必ず起床します。"}
   ],["status-conditions","switching","abilities"],["pokemon-intro"]),
   extraArticle("setup-moves","「積み技」ってなに？","能力を上げ、次の攻撃を強くする準備技を説明します。","status",[
     {heading:"能力を上げる変化技",dialogue: [
@@ -892,25 +892,25 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["つるぎのまいやりゅうのまいなどが代表例だよ。"]}
     ]},
     {heading:"1ターン使って後を強くする",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃せずに能力を上げている間、倒されませんか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["積み技を使ったターンは直接攻撃しないことが多い代わりに、その後の攻撃や耐久を強くできるよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["相手の攻撃が痛くない場面を選ぶんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["相手が大きなダメージを与えにくい隙に使うのが基本だよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃せずに能力を上げている間、倒されませんか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["倒される危険はあるよ。だから積み技は、相手が大きなダメージを与えにくい隙に使うのが基本なんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["安全な隙を見つけて使うと、どんないいことがありますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのターンに直接攻撃しない代わりに、その後の攻撃や耐久を強くできるよ。準備に使う1ターンを、その後の戦いやすさにつなげるんだ。"]}
+      ]},
     {heading:"交代すると基本的に失う",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["能力を上げてから交代して、後で戻ってきてもいいですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["上げた能力ランクは交代すると基本的に元へ戻るんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["準備を生かせる場面で使うのが大事なんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["積んでもすぐ交代させられたり、倒されたりすると準備が無駄になるため、使う場面が重要なんだ。"]}
-    ],takeaway:"積み技は1ターンを準備に使い、その後の突破力や耐久を高めます。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["能力を上げてから交代して、後で戻ってきてもいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["交代自体はできるけれど、上げた能力ランクは基本的に元へ戻ってしまうよ。戻ってきても、同じ強化を持ち越せるわけではないんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["それなら、積み技を使うタイミングが大事ですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そう。積んだ直後に交代させられたり、倒されたりすると準備を生かせないよ。能力を上げた後に攻められるか、耐えられるかも考えて使おう。"]}
+      ],takeaway:"積み技は1ターンを準備に使い、その後の突破力や耐久を高めます。"}
   ],["stat-stages","roles","win-condition"],["pokemon-roles","pokemon-intro"]),
   extraArticle("weather","天候ってなに？","場全体へ影響する晴れ・雨・砂嵐・雪の共通ルールを説明します。","field",[
     {heading:"場全体に影響する効果",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["対戦中に雨や雪が出ました。どんな効果なんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["天候は、技や特性で変化する場全体の状態だよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["晴れ・雨・砂嵐・雪で、変わることも違うんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["晴れ・雨・砂嵐・雪があり、技の威力、命中、能力、特性などへ天候ごとの影響を与えるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["対戦中に雨や雪が出ました。どんな効果なんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["晴れ・雨・砂嵐・雪という、場全体に影響する状態だよ。技や特性によって天候が変わるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["天候が変わると、何が変化するんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["技の威力や命中、能力、特性の働きなどが変わるよ。どれが変わるかは天候によって違うので、これからそれぞれ見ていこう。"]}
+      ]},
     {heading:"通常は5ターン続く",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["天候は、いつまで続くんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["技や特性で発生した天候は基本的に5ターン続くよ。対応する持ち物を持つポケモンが発生させると8ターンになる場合があるんだ。"]},
@@ -938,19 +938,19 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["反対に、かみなりやぼうふうは命中しにくくなるよ。技ごとの説明も確認しよう。"]}
     ]},
     {heading:"特性で速さや回復も変わる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["晴れのチームは、ほのおタイプだけで作るんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ようりょくそのように晴れで素早さが上がる特性や、晴れで効果が変わる回復技があるんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["どのポケモンが晴れを利用できるか、見るんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["炎技だけでなく、どのポケモンが天候を利用するかが大切だよ。"]}
-    ],takeaway:"晴れは炎技1.5倍・水技半減。技や特性にも個別の変化があります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["晴れのチームは、ほのおタイプだけで作るんですか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["ほのおタイプだけとは限らないよ。ようりょくそのように晴れで素早さが上がる特性や、晴れで効果が変わる回復技もあるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ほのお技が強くなること以外にも、利用できる効果があるんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。どのポケモンが晴れを利用できるかを見て組み合わせよう。炎技だけで決めず、特性や使う技も一緒に確認するんだ。"]}
+      ],takeaway:"晴れは炎技1.5倍・水技半減。技や特性にも個別の変化があります。"}
   ],["weather","rain","speed-changes"],["pokemon-intro","move-search"]),
   extraArticle("rain","雨になると何が起こる？","雨で変わる水・炎技、命中、特性を説明します。","field",[
     {heading:"水は1.5倍、炎は半分",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["雨が降ると、みず技とほのお技はどうなりますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["雨中は、みずタイプの技のダメージが1.5倍、ほのおタイプの技は1/2になるよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["みず技で攻めるチームには、追い風になりそう！"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["水技を主力にするポケモンが攻めやすくなるよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["雨が降ると、みず技とほのお技はどうなりますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["雨中は、みずタイプの技のダメージが1.5倍、ほのおタイプの技は1/2になるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["みず技を主力にするポケモンは、攻めやすくなりそう！"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そうだね。雨の間にみず技で攻めると、その強化を利用できるよ。ただ、天候が変われば補正も変わるので、場の表示を確認しよう。"]}
+      ]},
     {heading:"かみなり・ぼうふうが必中になる",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["外れやすい「かみなり」も、雨なら当てやすいんですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["雨中は、かみなりとぼうふうが通常の命中判定をせず必中になるよ。"]},
@@ -978,11 +978,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["特殊技を受けやすくなり、天候ダメージも受けないため砂嵐と相性がよいタイプだよ。"]}
     ]},
     {heading:"削りと特性を利用する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["砂嵐の少しずつのダメージは、どう使えばいいですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["毎ターンの小さなダメージで相手を倒せる範囲へ入れたり、すなかきなど砂嵐で働く特性を使ったりするよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["砂嵐で働く特性や、効果時間も確認したいです。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["すなかきなどの特性も確認してみよう。砂嵐は通常5ターン続くよ。"]}
-    ],takeaway:"砂嵐は対象外タイプ以外へ毎ターン1/16。岩タイプの特防を1.5倍にします。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["砂嵐の少しずつのダメージは、どう使えばいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["相手のHPを少しずつ削って、こちらの攻撃で倒せる範囲に入れる使い方があるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["砂嵐を利用する特性や、効果時間も確認したいです。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["すなかきなど、砂嵐で働く特性もあるよ。通常は5ターン続くので、その間に相手を削ったり、特性を利用して攻めたりするんだ。"]}
+      ],takeaway:"砂嵐は対象外タイプ以外へ毎ターン1/16。岩タイプの特防を1.5倍にします。"}
   ],["weather","snow","hp-odd-even"],["pokemon-intro"]),
   extraArticle("snow","雪になると何が起こる？","氷タイプの防御上昇と、雪を条件にする技・特性を説明します。","field",[
     {heading:"氷タイプの防御が1.5倍",dialogue: [
@@ -992,11 +992,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["物理技を受けやすくなるため、普段とは耐え方が変わるよ。"]}
     ]},
     {heading:"雪そのものに毎ターンダメージはない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["雪でも、砂嵐みたいに毎ターンHPが減りますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["過去作品の「あられ」と違い、現在の雪はターン終了時にポケモンへ一律のダメージを与えないんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["昔の「あられ」と同じつもりで考えない方がいいんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["砂嵐との大きな違いだよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["雪でも、砂嵐みたいに毎ターンHPが減りますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["雪そのものでは、毎ターンのダメージは発生しないよ。そこが砂嵐との大きな違いなんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["昔の「あられ」と同じつもりで考えない方がいいんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["うん。過去作品の「あられ」と、今の「雪」は分けて覚えよう。現在の雪は、ターン終了時にポケモンへ一律のダメージを与える天候ではないんだ。"]}
+      ]},
     {heading:"技と特性の条件になる",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["雪を使うチームでは、ほかに何を利用できますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["オーロラベールは雪のときに使え、味方が受けるダメージを減らすんだ。"]},
@@ -1018,19 +1018,19 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["特定タイプの技を強める、状態異常を防ぐ、先制技を防ぐ、回復するなど、それぞれ役割が違うんだ。"]}
     ]},
     {heading:"通常は5ターンで上書きできる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["フィールドも、別のものに変えられるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["フィールドは通常5ターン続き、別のフィールドが始まると上書きされるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["雨とフィールドを、同時に出すこともできますか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["天候とは別の仕組みなので、天候とフィールドは同時に存在できるよ。"]}
-    ],takeaway:"フィールドは主に地面にいるポケモンへ作用し、4種類で効果が異なります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["フィールドも、別のものに変えられるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["変えられるよ。別のフィールドを発生させると上書きされるんだ。何もしなければ、通常は5ターン続くよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["雨とフィールドを、同時に出すこともできますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["同時に出せるよ。天候とフィールドは別の仕組みなので、たとえば雨だからフィールドが消える、というわけではないんだ。"]}
+      ],takeaway:"フィールドは主に地面にいるポケモンへ作用し、4種類で効果が異なります。"}
   ],["weather","move-priority","status-conditions"],["pokemon-intro"]),
   extraArticle("stealth-rock","ステルスロックってなに？","交代で出てきた相手へ、岩相性に応じたダメージを与える技を説明します。","field",[
     {heading:"相手の場に岩を設置する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["ステルスロックを使ったのに、相手のHPが減りませんでした。"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["ステルスロックを使うと、相手の場に効果が残るよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["いつダメージを与える技なんですか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["その後、相手がポケモンを場へ出すたびに最大HPを基準としたダメージを受けるよ。使った瞬間の相手へ直接ダメージを与える技ではないんだ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ステルスロックを使ったのに、相手のHPが減りませんでした。"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["使った瞬間に、目の前の相手を直接攻撃する技ではないからだよ。相手の場に効果を残す技なんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["では、いつダメージを与えるんですか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["その後、相手がポケモンを場へ出すたびにダメージを与えるよ。ダメージは、出てきたポケモンの最大HPを基準に決まるんだ。"]}
+      ]},
     {heading:"岩タイプとの相性で量が変わる",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["ステルスロックのダメージは、どのポケモンも同じですか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["基準は最大HPの1/8で、いわ技へのタイプ相性を掛けるよ。"]},
@@ -1038,25 +1038,25 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["いわ弱点なら1/4、4倍弱点なら1/2、いわ半減なら1/16だよ。4分の1に抑えるタイプなら1/32になるよ。"]}
     ],facts:[{label:"岩等倍",value:"1/8"},{label:"岩弱点",value:"1/4"},{label:"岩4倍弱点",value:"1/2"},{label:"岩半減",value:"1/16"}]},
     {heading:"交代のたびに効く",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["どうして、対戦でステルスロックがよく使われるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["何度も交代するチームほど合計ダメージが増えるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["ほかの技や道具にも、影響があるんですか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["きあいのタスキを潰したり、少し足りない攻撃を届かせたりする一方、除去する技やダメージを受けない道具もあるよ。"]}
-    ],takeaway:"ステルスロックは最大HPの1/8×いわ相性。交代するたびに効きます。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["どうして、対戦でステルスロックがよく使われるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["相手が交代するたびにHPを削れるからだよ。何度も交代する相手ほど、合計ダメージが大きくなるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["その少しのダメージで、ほかの技や道具にも影響が出ますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["出るよ。きあいのタスキの満タン条件を崩したり、あと少し足りなかった攻撃で倒せるようにしたりできるんだ。一方で、設置した効果を除去する技や、ダメージを受けない道具もあるよ。"]}
+      ],takeaway:"ステルスロックは最大HPの1/8×いわ相性。交代するたびに効きます。"}
   ],["type-matchups","switching","cycle","hp-odd-even"],["party-check"]),
   extraArticle("hp-odd-even","HPは奇数と偶数、何が違う？","割合ダメージの端数が、残りHPへどう影響するかを例で説明します。","numbers",[
     {heading:"基本は、端数を残せるHPが扱いやすい",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["「HPは奇数がいい」って聞いたんですが、どうしてですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["最大HPの1/2、1/4、1/8、1/16などを使う多くの効果では、端数が切り捨てられるんだ。たとえばHP200と201は、1/4がどちらも50、1/8がどちらも25だよ。消費やダメージが同じなら、最初から1多いHP201には最後に1が残るよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["奇数にさえすれば、いつでも得になりますか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["このため対戦では「HPは奇数が基本」と言われるんだ。ただし、本当に見るべきなのは奇数・偶数だけではなく、4・8・16など効果の分母で割った余りだよ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["「HPは奇数がいい」って聞いたんですが、どうしてですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["最大HPの1/2、1/4、1/8、1/16などを使う多くの効果では、端数を切り捨てるからだよ。HP200と201なら、1/4はどちらも50、1/8はどちらも25。消費やダメージが同じなら、HP201には最後に1残る場合があるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["奇数にさえすれば、いつでも得になりますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["いつでも得になるわけではないよ。「HPは奇数が基本」と言われるのは、こうした端数の利点があるためなんだ。本当は奇数・偶数だけでなく、4・8・16など、狙う効果の分母で割った余りを見る必要があるよ。"]}
+      ]},
     {heading:"みがわりを4回使える",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["HPが1違うだけで、みがわりの回数も変わるんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["みがわりは最大HPの1/4を切り捨てた量を消費し、現在HPが消費量より多いときだけ使えるよ。HP200では1回50を使うため、3回後は50。4回目は使えないんだ。HP201なら4回使って1残るよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["それなら、HP202だと使える回数が減りますか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["同じ考え方で、最大HPが4の倍数でなければ端数が残るよ。たとえばHP202も消費は50なので4回使えるよ。つまり、ここでは「奇数」より正確には「4の倍数を避ける」ことが重要なんだ。"]}
-    ],facts:[{label:"HP200",value:"3回まで・残り50"},{label:"HP201",value:"4回後・残り1"}]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["HPが1違うだけで、みがわりの回数も変わるんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["変わることがあるよ。みがわりは最大HPの1/4を切り捨てた量を消費し、現在HPが消費量より多いときだけ使えるんだ。HP200では1回50を使い、3回後は50なので4回目は使えない。HP201なら4回使って1残せるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["それなら、HP202だと使える回数が減りますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["減らないよ。HP202も消費は50なので、満タンから4回使えるんだ。この例で大事なのは「奇数にする」ことより、「4の倍数を避ける」こと。最大HPが4の倍数でなければ、端数が残るんだよ。"]}
+      ],facts:[{label:"HP200",value:"3回まで・残り50"},{label:"HP201",value:"4回後・残り1"}]},
     {heading:"ステルスロックや定数ダメージを1回多く耐えることがある",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["ステルスロックやどくでも、HPが1残ると違いが出ますか？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["いわ等倍のステルスロックと通常のどくは最大HPの1/8だよ。HP200も201も1回25ダメージだけれど、200は8回で0、201は8回受けても1残り、9回目で倒れるよ。ステルスロックなら、そのぶん場へ出られる回数が1回増える例だよ。"]},
@@ -1072,11 +1072,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["HP201では1/2を切り捨てた100を減らして101残るよ。これは半分より多いため、満タンからはらだいこを使っただけではオボンのみが発動しないんだ。こうした「ちょうど半分以下へ入りたい」場面では、偶数HPに明確な利点があるんだ。"]}
     ],facts:[{label:"HP200",value:"200→100・発動"},{label:"HP201",value:"201→101・未発動"}]},
     {heading:"自分でHPを削り、狙った回数で退場する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["自分からHPを使うときも、奇数にして残せばいいですよね？"]},
-      {"speaker":"professor","expression":"inspired","paragraphs":["ゴーストタイプが使うのろいは、自分の最大HPの1/2を減らして相手をのろい状態にするよ。HP200なら100ずつ減るため、回復がなければ2回目で自分も倒れるよ。相手へ効果を残しながら退場し、控えを安全に出したいときは、この偶数HPが目的に合う場合があるんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["のろいを使うなら、HP201でも同じ動きができますか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["HP201では消費が100になり、2回使っても1残るよ。長く場に残りたいなら利点だけれど、2回目で退場したい計画とはずれるんだ。はらだいこやのろい以外でも、最大HPの半分を使う効果と発動条件を組み合わせるときは同じ確認が必要なんだ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["自分からHPを使うときも、奇数にして残せばいいですよね？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["残りたいのか、狙った回数で退場したいのかで変わるよ。たとえばゴーストタイプが使うのろいは、相手をのろい状態にするために、自分の最大HPの1/2を使うんだ。HP200なら100ずつ減るので、回復がなければ2回目で自分も倒れる。相手への効果を残して退場し、控えを安全に出す狙いに合う場合があるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["のろいを使うなら、HP201でも同じ動きができますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["HP201だと消費は100なので、2回使っても1残るよ。長く残りたいなら利点だけれど、2回目で退場する予定なら合わないね。はらだいこなど、最大HPの半分を使うほかの効果でも、発動条件と合わせて確かめよう。"]}
+      ]},
     {heading:"奇数か偶数かではなく、狙う効果から決める",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["結局、HPは奇数と偶数のどちらにすればいいんだろう？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["みがわりで端数を残すなら4の倍数を避ける、1/8ダメージを意識するなら8の倍数との関係を見る、たべのこしの回復量を増やすなら16で割った値を見る、というように目的から逆算するよ。"]},
@@ -1098,11 +1098,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"thinking","paragraphs":["状態異常など一部の効果も防げるけれど、すべてを防げるわけではないんだ。"]}
     ]},
     {heading:"HP端数が回数に関わる",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["HP200だと、みがわりを4回使えないんですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["最大HP200で満タンから4回使うとHPを使い切るため、4回目は使えないんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["HP201なら、4回目も使えますか？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["最大HP201なら50を3回使った後も51残り、4回目を使って1残せるよ。"]}
-    ],facts:[{label:"HP200",value:"3回後50"},{label:"HP201",value:"4回後1"}],takeaway:"消費は最大HPの1/4切り捨て。現在HPが消費量より多いときだけ使えます。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["HP200だと、みがわりを4回使えないんですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["HP200では満タンからでも、4回目は使えないよ。消費は1回50なので、3回使うと残りHPも50。現在HPが消費量より多くないと使えないから、そこで止まるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["HP201なら、4回目も使えますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["HP201なら使えるよ。消費は同じ50で、3回使った後もHPが51残る。消費量より1多いので4回目を使えて、最後に1残せるんだ。"]}
+      ],facts:[{label:"HP200",value:"3回後50"},{label:"HP201",value:"4回後1"}],takeaway:"消費は最大HPの1/4切り捨て。現在HPが消費量より多いときだけ使えます。"}
   ],["hp-odd-even","leftovers-recovery","status-conditions"],["move-search"]),
   extraArticle("leftovers-recovery","たべのこしはどれくらい回復する？","毎ターンの1/16回復と、端数・長期戦への影響を説明します。","numbers",[
     {heading:"ターン終了時に最大HPの1/16",dialogue: [
@@ -1118,11 +1118,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["攻撃を受けながら交代を繰り返すポケモンや、守る技で時間を作るポケモンと相性があるんだ。"]}
     ]},
     {heading:"端数だけで決めない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["回復量が増えるようにHPを決めれば、いちばん強い？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["最大HPを16の倍数に近づけると回復量が変わる場合があるけれど、HPそのものや防御・特防との配分も重要なんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["回復1だけを追いかけなくてもいいんですね。"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["回復1を増やすことが常に最優先ではないんだ。"]}
-    ],takeaway:"たべのこしは毎ターン最大HPの1/16切り捨て。長期戦で差が積み重なります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["回復量が増えるようにHPを決めれば、いちばん強い？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["回復量だけで強さが決まるわけではないよ。最大HPを16の倍数に近づけると回復量が変わる場合はあるけれど、HPそのものや防御・特防への配分も大切なんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["回復1を増やすために、ほかの能力を下げすぎない方がいいんですね。"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["そうだね。回復1を増やすことが、いつでも最優先とは限らないよ。そのポケモンで何を耐えたいのかと合わせて考えよう。"]}
+      ],takeaway:"たべのこしは毎ターン最大HPの1/16切り捨て。長期戦で差が積み重なります。"}
   ],["hp-odd-even","substitute-hp","held-items"],["usage-ranking"]),
   extraArticle("cycle","サイクルってなに？","交代で有利な対面を作り、少しずつ相手を削る流れを説明します。","strategy",[
     {heading:"不利なら受けられる味方へ引く",dialogue: [
@@ -1138,11 +1138,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["相手も交代すれば、その交代先へダメージを与え、少しずつチーム全体を削るんだ。"]}
     ]},
     {heading:"交代の負担を管理する",dialogue: [
-      {"speaker":"trainer","expression":"inspired","paragraphs":["交代できる味方がいれば、何度でも受けられそう！"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["交代先のHP、状態異常、ステルスロックなどの場の効果を無視すると、受け続けられないんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["最後に誰で倒すかまで、考えておくんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["誰で何を受け、最後に誰で倒すかを考えるんだ。"]}
-    ],takeaway:"サイクルは受けられる味方へ交代し、有利対面と削りを積み重ねる戦い方です。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["交代できる味方がいれば、何度でも受けられそう！"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["何度でも受けられるとは限らないよ。交代先のHPが減ったり、状態異常になったり、ステルスロックなどで削られたりすると、同じ攻撃を受けられなくなるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["受けられる回数を考えながら戦うんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そう。誰でどの攻撃を受けるのかと、最後に誰で相手を倒すのかを考えよう。受け役のHPも、勝ち筋を作るために使う大切な資源なんだ。"]}
+      ],takeaway:"サイクルは受けられる味方へ交代し、有利対面と削りを積み重ねる戦い方です。"}
   ],["switching","matchups","stealth-rock"],["pokemon-roles","pokemon-intro"]),
   extraArticle("setup-fodder","「起点にする・起点にされる」ってどういう意味？","相手が大きな圧力をかけにくい隙を、準備へ使う考え方を説明します。","terms",[
     {heading:"相手の隙を準備へ変える",dialogue: [
@@ -1152,11 +1152,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["準備された側から見れば「起点にされる」状態だよ。"]}
     ]},
     {heading:"弱いポケモンという意味ではない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["起点にされるのは、弱いポケモンだからですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["攻撃技が効きにくい、選んだ技が固定されている、交代を読まれたなど、その場の組み合わせで起点になることがあるんだ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["その場の組み合わせによっても、変わるんですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["ポケモン自体の強弱だけでは決まらないんだ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["起点にされるのは、弱いポケモンだからですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["ポケモン自体が弱いという意味ではないよ。攻撃技が効きにくい、選んだ技が固定されている、交代を読まれたなど、その場の組み合わせで隙ができるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["同じポケモンでも、相手や状況によって起点になるんですね。"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["そのとおり。強いポケモンでも、その場で相手の準備を止めにくければ起点になることがあるよ。名前だけでなく、今できる行動を見て判断しよう。"]}
+      ]},
     {heading:"自由な1ターンを渡さない",dialogue: [
       {"speaker":"trainer","expression":"thinking","paragraphs":["攻撃してもあまり減らないけど、そのまま続けていい？"]},
       {"speaker":"professor","expression":"neutral","paragraphs":["倒せない相手の前で同じ行動を続けると、相手に能力を上げられるかもしれないね。"]},
@@ -1178,11 +1178,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["そうだね。今の相手1匹だけではなく、相手の残り全体を見て判断しよう。"]}
     ]},
     {heading:"一貫を作ってから押す",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["今は一貫していない技も、後で使いやすくできますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["技を止める相手を先に削るか倒すと、残った相手へ同じ技を選びやすくなるよ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["相手のタイプ以外にも、確認することはありますか？"]},
-      {"speaker":"professor","expression":"inspired","paragraphs":["これが終盤の勝ち筋につながるよ。相手の特性による無効も忘れず確認するよ。"]}
-    ],takeaway:"一貫とは、相手の残り全体がその技を安全に止めにくい状態です。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["今は一貫していない技も、後で使いやすくできますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["できるよ。その技を止める相手を先に削るか倒せば、残った相手へ同じ技を選びやすくなるんだ。終盤の勝ち筋を作る方法の1つだね。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["相手のタイプ以外にも、確認することはありますか？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["特性も確認しよう。タイプ相性では通る技でも、特性で無効にされる場合があるからね。残りの相手に、安全に止められないかを見るんだ。"]}
+      ],takeaway:"一貫とは、相手の残り全体がその技を安全に止めにくい状態です。"}
   ],["type-matchups","win-condition","cycle"],["party-check","pokemon-intro"]),
   extraArticle("freeze","こおり状態になるとどうなる？","多くの技を使えない状態と、Pokémon Championsで回復する確率・回数を説明します。","status",[
     {heading:"多くの技を使えなくなる",dialogue: [
@@ -1198,17 +1198,19 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"happy","paragraphs":["2回とも解けなかった場合でも、3回目に技を使おうとしたときは必ず解けるよ。従来作のように長い間ずっと解けないことはないんだ。"]}
     ],facts:[{label:"1回目",value:"25%で回復"},{label:"2回目",value:"25%で回復"},{label:"3回目",value:"必ず回復"}]},
     {heading:"交代では治らず、回数も進まない",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["控えに戻して待てば、こおりも解けていきますか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["控えへ交代しても、こおり状態は残るよ。"]},
-      {"speaker":"trainer","expression":"inspired","paragraphs":["場に残すかどうかも、考えどころですね。"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["技を使おうとするまで回復判定は行われないため、交代しているだけでは3回目の確定回復へ近づかないよ。場に残して回復判定を進めるか、いったん控えへ戻して安全を確保するかを考えるんだ。"]}
-    ]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["控えに戻して待てば、こおりも解けていきますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["控えで待つだけでは解けないよ。交代してもこおり状態は残り、技を使おうとしないと回復判定も進まないんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["3回目の確定回復まで進めるには、場に出して技を使おうとする必要があるんですね？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["そうだよ。3回目の回復に向けて判定を進めるには、場に出して技を使おうとする必要があるんだ。ただ、動けない間に攻撃される危険もあるね。場に残すか、いったん控えへ戻して安全を確保するかを考えよう。"]}
+      ]},
     {heading:"一部の炎技などですぐ解けることがある",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["凍っていても使える技があるって、本当ですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["一部の炎タイプの技など、こおり状態でも使えて、使うと自分のこおりを解く技があるんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["ほのお技なら、全部同じようにこおりが解けますか？"]},
-      {"speaker":"professor","expression":"thinking","paragraphs":["また、相手の炎タイプの攻撃を受けたときなどに解ける場合もあるよ。すべての炎技が同じ扱いではないため、技の説明を確認しよう。"]}
-    ],takeaway:"Championsのこおりは1・2回目に各25%で回復し、解けなくても3回目の行動時には必ず回復します。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["凍っていても使える技があるって、本当ですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["本当だよ。一部の技には、こおり状態でも使えて、自分のこおりを解く効果があるんだ。そういう技なら、通常の回復判定を待たずに動ける場合があるよ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["ほのお技なら、全部同じようにこおりが解けますか？"]},
+        {"speaker":"professor","expression":"thinking","paragraphs":["全部ではないよ。自分が使ってこおりを解く技は一部だけなので、ほのおタイプというだけで判断せず、技の説明を確認しよう。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["相手からほのお技を受けて、こおりが解けることもありますか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["あるよ。相手の炎タイプの攻撃を受けたときなどに、自分のこおりが解ける場合もあるんだ。これは、自分が技を使って解く効果とは別の仕組みだよ。どちらの話かを分けて考えよう。"]}
+      ],takeaway:"Championsのこおりは1・2回目に各25%で回復し、解けなくても3回目の行動時には必ず回復します。"}
   ],["status-conditions","sleep","switching"],["move-search","pokemon-intro"]),
   extraArticle("confusion","こんらん状態になるとどうなる？","技を使えるか自分を攻撃するかの判定と、交代で治る性質を説明します。","status",[
     {heading:"状態異常とは別にかかる一時的な状態",dialogue: [
@@ -1230,11 +1232,11 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
       {"speaker":"professor","expression":"thinking","paragraphs":["主要な状態異常と違い、控えへ交代するとこんらんは治るよ。大切なポケモンの自傷を避けたいときは交代が確実だけれど、交代先が相手の攻撃を受ける点には注意するよ。"]}
     ]},
     {heading:"確率だけに任せず、必要なら交代する",dialogue: [
-      {"speaker":"trainer","expression":"thinking","paragraphs":["こんらんしたら、必ず交代した方がいいですか？"]},
-      {"speaker":"professor","expression":"neutral","paragraphs":["そのターンに動けなくても耐えられるなら、場に残って攻撃する選択があるんだ。"]},
-      {"speaker":"trainer","expression":"thinking","paragraphs":["自分へのダメージで倒れそうなときはどうしよう？"]},
-      {"speaker":"professor","expression":"happy","paragraphs":["一方、自傷ダメージで倒れそう、またはその技を失敗すると負け筋になる場面では、受けられる味方への交代が安全だよ。特性でこんらんを防ぐポケモンもいるよ。"]}
-    ],takeaway:"こんらん中は約1/3で自分を攻撃します。主要な状態異常とは重なりますが、交代すれば治ります。"}
+        {"speaker":"trainer","expression":"thinking","paragraphs":["こんらんしたら、必ず交代した方がいいですか？"]},
+        {"speaker":"professor","expression":"neutral","paragraphs":["必ず交代する必要はないよ。動けなくてもそのターンを耐えられるなら、場に残って攻撃する選択もあるんだ。"]},
+        {"speaker":"trainer","expression":"thinking","paragraphs":["自分へのダメージで倒れそうなときはどうしよう？"]},
+        {"speaker":"professor","expression":"happy","paragraphs":["その場合や、技を出せないと負けてしまう場面では、攻撃を受けられる味方への交代を考えよう。交代すればこんらんは治るからね。特性でこんらんを防ぐポケモンもいるよ。"]}
+      ],takeaway:"こんらん中は約1/3で自分を攻撃します。主要な状態異常とは重なりますが、交代すれば治ります。"}
   ],["status-conditions","switching","abilities"],["pokemon-intro"]),
 ];
 
