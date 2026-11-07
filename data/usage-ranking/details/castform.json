@@ -10,8 +10,8 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Castform.png",
   "ranks": {
-    "Singles": 243,
-    "Doubles": 235
+    "Singles": 256,
+    "Doubles": 244
   },
   "usagePercentages": {
     "Singles": null,
@@ -58,7 +58,7 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 243,
+      "rank": 256,
       "usagePercentage": null,
       "moves": [
         {
@@ -352,59 +352,83 @@
       ]
     },
     "Doubles": {
-      "rank": 235,
+      "rank": 244,
       "usagePercentage": null,
       "moves": [
         {
           "rank": 1,
           "percentage": "100.0%",
           "percentageValue": 100,
-          "moveId": "182"
-        },
-        {
-          "rank": 2,
-          "percentage": "100.0%",
-          "percentageValue": 100,
           "moveId": "311"
         },
         {
+          "rank": 2,
+          "percentage": "63.2%",
+          "percentageValue": 63.2,
+          "moveId": "87"
+        },
+        {
           "rank": 3,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "76"
+          "percentage": "52.6%",
+          "percentageValue": 52.6,
+          "moveId": "542"
         },
         {
           "rank": 4,
-          "percentage": "100.0%",
-          "percentageValue": 100,
-          "moveId": "87"
+          "percentage": "47.4%",
+          "percentageValue": 47.4,
+          "moveId": "182"
+        },
+        {
+          "rank": 5,
+          "percentage": "47.4%",
+          "percentageValue": 47.4,
+          "moveId": "76"
+        },
+        {
+          "rank": 6,
+          "percentage": "36.8%",
+          "percentageValue": 36.8,
+          "moveId": "201"
+        },
+        {
+          "rank": 7,
+          "percentage": "36.8%",
+          "percentageValue": 36.8,
+          "moveId": "247"
+        },
+        {
+          "rank": 8,
+          "percentage": "15.8%",
+          "percentageValue": 15.8,
+          "moveId": "59"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "63.2%",
+          "percentageValue": 63.2,
           "nameJa": "いのちのたま"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "55.6%",
-          "percentageValue": 55.6,
-          "hp": 32,
+          "percentage": "36.8%",
+          "percentageValue": 36.8,
+          "hp": 0,
           "attack": 0,
-          "defense": 0,
+          "defense": 2,
           "specialAttack": 32,
-          "specialDefense": 2,
+          "specialDefense": 32,
           "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 2 / Spe 0"
+          "raw": "HP 0 / Atk 0 / Def 2 / SpA 32 / SpD 32 / Spe 0"
         },
         {
           "rank": 2,
-          "percentage": "44.4%",
-          "percentageValue": 44.4,
+          "percentage": "36.8%",
+          "percentageValue": 36.8,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -412,21 +436,41 @@
           "specialDefense": 0,
           "speed": 32,
           "raw": "HP 2 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 32"
+        },
+        {
+          "rank": 3,
+          "percentage": "26.3%",
+          "percentageValue": 26.3,
+          "hp": 32,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 2,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 2 / Spe 0"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "55.6%",
-          "percentageValue": 55.6,
+          "percentage": "42.1%",
+          "percentageValue": 42.1,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "44.4%",
-          "percentageValue": 44.4,
+          "percentage": "36.8%",
+          "percentageValue": 36.8,
+          "nameJa": "なまいき",
+          "statUp": "とくぼう",
+          "statDown": "すばやさ"
+        },
+        {
+          "rank": 3,
+          "percentage": "21.1%",
+          "percentageValue": 21.1,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
@@ -470,42 +514,6 @@
           "rank": 3,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "klefki",
-          "displayNameJa": "クレッフィ",
-          "types": [
-            "steel",
-            "fairy"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Klefki.png"
-        },
-        {
-          "rank": 4,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "corviknight",
-          "displayNameJa": "アーマーガア",
-          "types": [
-            "flying",
-            "steel"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Corviknight.png"
-        },
-        {
-          "rank": 5,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "glimmora",
-          "displayNameJa": "キラフロル",
-          "types": [
-            "rock",
-            "poison"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glimmora.png"
-        },
-        {
-          "rank": 6,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "charizard",
           "displayNameJa": "リザードン",
           "types": [
@@ -515,16 +523,51 @@
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png"
         },
         {
+          "rank": 4,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "qwilfish",
+          "displayNameJa": "ハリーセン",
+          "types": [
+            "water",
+            "poison"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Qwilfish.png"
+        },
+        {
+          "rank": 5,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "glalie",
+          "displayNameJa": "オニゴーリ",
+          "types": [
+            "ice"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Glalie.png"
+        },
+        {
+          "rank": 6,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "araquanid",
+          "displayNameJa": "オニシズクモ",
+          "types": [
+            "water",
+            "bug"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Araquanid.png"
+        },
+        {
           "rank": 7,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "grimmsnarl",
-          "displayNameJa": "オーロンゲ",
+          "pokemonId": "oranguru",
+          "displayNameJa": "ヤレユータン",
           "types": [
-            "dark",
-            "fairy"
+            "normal",
+            "psychic"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Grimmsnarl.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Oranguru.png"
         },
         {
           "rank": 8,
@@ -542,13 +585,25 @@
           "rank": 9,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "alolan-raichu",
-          "displayNameJa": "アローラライチュウ",
+          "pokemonId": "klefki",
+          "displayNameJa": "クレッフィ",
           "types": [
-            "electric",
-            "psychic"
+            "steel",
+            "fairy"
           ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Raichu.png"
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Klefki.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "corviknight",
+          "displayNameJa": "アーマーガア",
+          "types": [
+            "flying",
+            "steel"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Corviknight.png"
         }
       ]
     }
