@@ -25,7 +25,7 @@ export function BattleBasicsArticle({ article }: { article: BattleBasicsArticle 
     <div className="mt-7 space-y-8">
       {article.sections.map((section) => <section key={section.heading}>
         <h2 className="border-l-4 border-blue-600 pl-3 text-xl font-black">{section.heading}</h2>
-        {section.dialogue ? <BattleBasicsDialogue turns={section.dialogue} /> : <div className="mt-3 space-y-3">{section.paragraphs.map((paragraph) => <p key={paragraph} className="text-sm leading-7 text-slate-700">{paragraph}</p>)}</div>}
+        <BattleBasicsDialogue turns={section.dialogue} />
         {section.bullets ? <ul className="mt-3 space-y-2 rounded-2xl bg-white px-4 py-3">{section.bullets.map((item) => <li key={item} className="flex gap-2 text-sm leading-6 text-slate-700"><span className="font-black text-blue-600">・</span><span>{item}</span></li>)}</ul> : null}
         {section.facts ? <dl className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{section.facts.map((fact) => <div key={fact.label} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-center"><dt className="text-xs font-bold text-slate-500">{fact.label}</dt><dd className="mt-1 text-sm font-black text-slate-800">{fact.value}</dd></div>)}</dl> : null}
         {section.takeaway ? <div className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3"><p className="text-[10px] font-black text-blue-700">ここだけ覚えればOK</p><p className="mt-1 text-sm font-bold leading-6 text-blue-950">{section.takeaway}</p></div> : null}

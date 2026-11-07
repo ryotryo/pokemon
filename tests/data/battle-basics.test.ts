@@ -16,7 +16,22 @@ describe("battle basics", () => {
     expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(battleBasicsArticles.length);
     expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:47},(_,index)=>index+1));
     expect(battleBasicsArticles.every((article) => article.sections.length >= 3 && article.sections.length <= 6)).toBe(true);
-    expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0 || (section.dialogue?.length ?? 0) > 0))).toBe(true);
+    expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.dialogue.length > 0))).toBe(true);
+  });
+
+  it("teaches every section through named characters with readable dialogue", () => {
+    const speakers = new Set(["professor", "trainer"]);
+    const expressions = new Set(["neutral", "happy", "surprised", "thinking", "confused", "inspired"]);
+    for (const article of battleBasicsArticles) {
+      for (const section of article.sections) {
+        expect(new Set(section.dialogue.map((turn) => turn.speaker)), `${article.slug}: ${section.heading}`).toEqual(speakers);
+        for (const turn of section.dialogue) {
+          expect(expressions.has(turn.expression ?? "neutral")).toBe(true);
+          expect(turn.paragraphs.length).toBeGreaterThan(0);
+          expect(turn.paragraphs.every((paragraph) => paragraph.trim().length > 0)).toBe(true);
+        }
+      }
+    }
   });
 
   it("adds the second-wave articles to the numbered course", () => {
@@ -50,9 +65,9 @@ describe("battle basics", () => {
     const freeze = JSON.stringify(battleBasicsArticleBySlug.get("freeze"));
     const confusion = JSON.stringify(battleBasicsArticleBySlug.get("confusion"));
     expect(freeze).toContain("1回目と2回目は、それぞれ25%");
-    expect(freeze).toContain("3回目に技を使おうとしたときは必ず解けます");
+    expect(freeze).toContain("3回目に技を使おうとしたときは必ず解ける");
     expect(confusion).toContain("約1/3の確率で自分を攻撃");
-    expect(confusion).toContain("控えへ交代するとこんらんは治ります");
+    expect(confusion).toContain("控えへ交代するとこんらんは治る");
   });
 
   it("explains practical odd and even HP breakpoints", () => {
