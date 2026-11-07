@@ -16,7 +16,7 @@ describe("battle basics", () => {
     expect(new Set(battleBasicsArticles.map((article) => article.slug)).size).toBe(battleBasicsArticles.length);
     expect(beginnerCourseArticles.map((article) => article.beginnerCourseOrder)).toEqual(Array.from({length:47},(_,index)=>index+1));
     expect(battleBasicsArticles.every((article) => article.sections.length >= 3 && article.sections.length <= 6)).toBe(true);
-    expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0))).toBe(true);
+    expect(battleBasicsArticles.every((article) => article.sections.every((section) => section.paragraphs.length > 0 || (section.dialogue?.length ?? 0) > 0))).toBe(true);
   });
 
   it("adds the second-wave articles to the numbered course", () => {

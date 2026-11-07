@@ -14,6 +14,13 @@ export interface BattleBasicsSection {
   bullets?: string[];
   facts?: Array<{ label: string; value: string }>;
   takeaway?: string;
+  dialogue?: BattleBasicsDialogueTurn[];
+}
+
+export interface BattleBasicsDialogueTurn {
+  speaker: "professor" | "trainer";
+  expression?: "neutral" | "happy" | "surprised" | "thinking" | "confused" | "inspired";
+  paragraphs: string[];
 }
 
 export type BattleBasicsToolId = "party-check" | "speed-ranking" | "usage-ranking" | "damage-chart" | "move-search" | "pokemon-intro" | "pokemon-roles" | "type-chart";
@@ -106,9 +113,161 @@ export const battleBasicsArticles: BattleBasicsArticle[] = [
   {
     slug: "same-type-attack-bonus", title: "タイプ一致ってなに？", description: "ポケモンと技のタイプが同じときに得られる攻撃の強化を説明します。", categoryId: "damage", beginnerCourseOrder: 4, icon: "type-stab",
     sections: [
-      { heading: "自分と同じタイプの技は強くなる", paragraphs: ["ポケモン自身のタイプと、使う技のタイプが同じだと、その技のダメージは基本的に1.5倍になります。これを「タイプ一致」と呼びます。", "たとえば、ほのおタイプのリザードンがほのお技を使えばタイプ一致です。リザードンがノーマル技を使っても、タイプ一致にはなりません。"] },
-      { heading: "弱点とは別のしくみ", paragraphs: ["タイプ一致は「使う側のポケモンと技」を比べます。弱点は「技と受ける側のポケモン」を比べます。2つは別々に計算されます。", "タイプ一致のほのお技で、ほのおが弱点の相手を攻撃すれば、1.5倍と2倍の両方が重なります。タイプ一致でも相手にいまひとつなら、思ったほど減らないことがあります。"] },
-      { heading: "迷ったときの主力技", paragraphs: ["同じ威力なら、タイプ一致の技はダメージを出しやすいため、そのポケモンの主力になりやすいです。一方で、苦手な相手へ別タイプの技を使うこともあります。", "ポケモンのタイプ、技のタイプ、相手の弱点を順に見ると、どの技が強そうか判断しやすくなります。"], takeaway: "タイプ一致は使う側の強化、弱点は受ける側との相性です。" },
+      {
+        "heading": "自分と同じタイプの技は強くなる",
+        "paragraphs": [],
+        "dialogue": [
+          {
+            "speaker": "trainer",
+            "expression": "thinking",
+            "paragraphs": [
+              "博士！ 同じ「かえんほうしゃ」でも、使うポケモンによって強さが変わるんですか？"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "neutral",
+            "paragraphs": [
+              "変わるよ。ポケモンの能力も関係するけれど、まず覚えてほしいのが「タイプ一致」なんだ。",
+              "ポケモン自身のタイプと、使う技のタイプが同じなら、その技のダメージは基本的に1.5倍になるよ。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "inspired",
+            "paragraphs": [
+              "ほのおタイプのリザードンが、ほのお技を使うと強くなるってこと？"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "happy",
+            "paragraphs": [
+              "そのとおり！ リザードンの「かえんほうしゃ」はタイプ一致になるね。",
+              "リザードンはほのお・ひこうタイプだから、ひこう技もタイプ一致。2つのタイプのどちらでも大丈夫だよ。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "neutral",
+            "paragraphs": [
+              "じゃあ、ノーマル技を使ったときは？"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "neutral",
+            "paragraphs": [
+              "リザードン自身はノーマルタイプではないから、ノーマル技はタイプ一致にならないんだ。"
+            ]
+          }
+        ],
+        "takeaway": "ポケモンと技のタイプが同じなら、ダメージは基本的に1.5倍。"
+      },
+      {
+        "heading": "弱点とは別のしくみ",
+        "paragraphs": [],
+        "dialogue": [
+          {
+            "speaker": "trainer",
+            "expression": "confused",
+            "paragraphs": [
+              "タイプ一致って、相手の弱点を突くのと同じことですか？"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "neutral",
+            "paragraphs": [
+              "比べる組み合わせが違うんだ。タイプ一致は「使うポケモンと技」、弱点は「技と相手のポケモン」を比べるよ。",
+              "別々のしくみだから、両方が重なることもあるんだ。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "thinking",
+            "paragraphs": [
+              "リザードンが、ほのお技が2倍で効く相手へ「かえんほうしゃ」を使ったら……？"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "inspired",
+            "paragraphs": [
+              "タイプ一致の1.5倍と、弱点の2倍が重なるね。ほかの条件が同じなら、合わせて3倍の倍率になるよ。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "surprised",
+            "paragraphs": [
+              "1.5倍か2倍のどちらかじゃなくて、かけ算になるんですね！"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "happy",
+            "paragraphs": [
+              "そう！ 「自分と技の組み合わせ」と「技と相手の組み合わせ」を、分けて見るのがコツだよ。"
+            ]
+          }
+        ],
+        "facts": [
+          {
+            "label": "タイプ一致",
+            "value": "自分と技を見る"
+          },
+          {
+            "label": "弱点",
+            "value": "技と相手を見る"
+          }
+        ],
+        "takeaway": "タイプ一致で2倍の弱点を突くと、倍率は1.5 × 2＝3倍。"
+      },
+      {
+        "heading": "迷ったときの主力技",
+        "paragraphs": [],
+        "dialogue": [
+          {
+            "speaker": "trainer",
+            "expression": "happy",
+            "paragraphs": [
+              "それなら、いつもタイプ一致の技を選べばよさそう！"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "thinking",
+            "paragraphs": [
+              "主力にはしやすいね。ただ、相手に「いまひとつ」ならダメージが下がるよ。",
+              "たとえば、ほのお技が半減される相手なら、タイプ一致でも倍率は1.5 × 0.5＝0.75倍になるんだ。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "thinking",
+            "paragraphs": [
+              "自分と同じタイプだからって、いつでも一番強いわけじゃないんですね。"
+            ]
+          },
+          {
+            "speaker": "professor",
+            "expression": "neutral",
+            "paragraphs": [
+              "うん。技の威力や、攻撃・特攻などの能力によってもダメージは変わるよ。苦手な相手には、別タイプの技が役立つこともあるんだ。",
+              "まずは「自分のタイプ → 技のタイプ → 相手のタイプ」の順番で見てみよう。"
+            ]
+          },
+          {
+            "speaker": "trainer",
+            "expression": "inspired",
+            "paragraphs": [
+              "わかりました！ タイプ一致になるかと、相手に効きやすいかを分けて考えてみます！"
+            ]
+          }
+        ],
+        "takeaway": "タイプ一致は使う側の強化、弱点は受ける側との相性。両方を見て技を選ぼう。"
+      }
     ], relatedArticleSlugs: ["type-matchups", "move-categories", "stats"], relatedTools: ["damage-chart", "move-search"],
   },
   {
