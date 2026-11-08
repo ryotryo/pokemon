@@ -12,7 +12,7 @@
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gourgeist.png",
   "ranks": {
     "Singles": 261,
-    "Doubles": 250
+    "Doubles": 255
   },
   "usagePercentages": {
     "Singles": null,
@@ -88,42 +88,72 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "261"
         },
         {
           "rank": 2,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "271"
         },
         {
           "rank": 3,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "438"
         },
         {
           "rank": 4,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "moveId": "809"
+        },
+        {
+          "rank": 5,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "moveId": "194"
+        },
+        {
+          "rank": 6,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "moveId": "220"
+        },
+        {
+          "rank": 7,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "moveId": "425"
+        },
+        {
+          "rank": 8,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "moveId": "433"
         }
       ],
       "items": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "nameJa": "こだわりスカーフ"
+        },
+        {
+          "rank": 2,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "nameJa": "オッカのみ"
         }
       ],
       "spreads": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "hp": 4,
           "attack": 32,
           "defense": 0,
@@ -131,15 +161,35 @@
           "specialDefense": 0,
           "speed": 30,
           "raw": "HP 4 / Atk 32 / Def 0 / SpA 0 / SpD 0 / Spe 30"
+        },
+        {
+          "rank": 2,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "hp": 32,
+          "attack": 2,
+          "defense": 0,
+          "specialAttack": 0,
+          "specialDefense": 32,
+          "speed": 0,
+          "raw": "HP 32 / Atk 2 / Def 0 / SpA 0 / SpD 32 / Spe 0"
         }
       ],
       "natures": [
         {
           "rank": 1,
-          "percentage": "100.0%",
-          "percentageValue": 100,
+          "percentage": "60.0%",
+          "percentageValue": 60,
           "nameJa": "ようき",
           "statUp": "すばやさ",
+          "statDown": "とくこう"
+        },
+        {
+          "rank": 2,
+          "percentage": "40.0%",
+          "percentageValue": 40,
+          "nameJa": "しんちょう",
+          "statUp": "とくぼう",
           "statDown": "とくこう"
         }
       ],
@@ -225,11 +275,69 @@
             "poison"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Overqwil.png"
+        },
+        {
+          "rank": 6,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "alolan-raichu",
+          "displayNameJa": "アローラライチュウ",
+          "types": [
+            "electric",
+            "psychic"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Alolan%20Raichu.png"
+        },
+        {
+          "rank": 7,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "paldean-tauros-combat-breed",
+          "displayNameJa": "ケンタロス（パルデアのすがた・コンバット種）",
+          "types": [
+            "fighting"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Paldean%20Tauros%20Combat%20Breed.png"
+        },
+        {
+          "rank": 8,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "mawile",
+          "displayNameJa": "クチート",
+          "types": [
+            "steel",
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mawile.png"
+        },
+        {
+          "rank": 9,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "gliscor",
+          "displayNameJa": "グライオン",
+          "types": [
+            "ground",
+            "flying"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Gliscor.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "mabosstiff",
+          "displayNameJa": "マフィティフ",
+          "types": [
+            "dark"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mabosstiff.png"
         }
       ]
     },
     "Doubles": {
-      "rank": 250,
+      "rank": 255,
       "usagePercentage": null,
       "moves": [
         {
