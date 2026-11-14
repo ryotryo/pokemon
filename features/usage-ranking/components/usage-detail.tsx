@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { pushDataLayer, useToolView } from "@/lib/analytics";
 import { TYPE_NAMES_JA } from "@/lib/champions/display-names";
@@ -291,15 +291,15 @@ function LearnableMoves({ moves, topMoveIds, onSelectMove }: { moves: UsageMoveD
 }
 
 export function UsageDetail({ pokemon, introId }: { pokemon: UsagePokemonPageData; introId?: string }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const format = parseFormat(searchParams.get("format") ?? undefined);
   useToolView("usage-ranking", format);
   const changeFormat = (next: BattleFormat) => {
     if (next === format) return;
     pushDataLayer({ event: "battle_format_change", tool_name: "usage-ranking", battle_format: next });
-    router.replace(`${pathname}?format=${formatQuery(next)}`, { scroll: false });
+    const url = new URL(window.location.href);
+    url.searchParams.set("format", formatQuery(next));
+    window.history.replaceState(null, "", url);
   };
   const detail = pokemon.formats[format];
   const moves = useMemo(() => new Map(pokemon.learnableMoves.map((move) => [move.id, move])), [pokemon.learnableMoves]);
