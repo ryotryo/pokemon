@@ -66,32 +66,32 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "90.1%",
-          "percentageValue": 90.1,
+          "percentage": "90.2%",
+          "percentageValue": 90.2,
           "moveId": "487"
         },
         {
           "rank": 2,
-          "percentage": "81.8%",
-          "percentageValue": 81.8,
+          "percentage": "81.7%",
+          "percentageValue": 81.7,
           "moveId": "303"
         },
         {
           "rank": 3,
-          "percentage": "77.0%",
-          "percentageValue": 77,
+          "percentage": "77.3%",
+          "percentageValue": 77.3,
           "moveId": "570"
         },
         {
           "rank": 4,
-          "percentage": "70.1%",
-          "percentageValue": 70.1,
+          "percentage": "70.0%",
+          "percentageValue": 70,
           "moveId": "92"
         },
         {
           "rank": 5,
-          "percentage": "49.4%",
-          "percentageValue": 49.4,
+          "percentage": "49.1%",
+          "percentageValue": 49.1,
           "moveId": "521"
         },
         {
@@ -108,8 +108,8 @@
         },
         {
           "rank": 8,
-          "percentage": "4.3%",
-          "percentageValue": 4.3,
+          "percentage": "4.4%",
+          "percentageValue": 4.4,
           "moveId": "389"
         },
         {
@@ -128,14 +128,14 @@
       "items": [
         {
           "rank": 1,
-          "percentage": "49.8%",
-          "percentageValue": 49.8,
+          "percentage": "49.5%",
+          "percentageValue": 49.5,
           "nameJa": "たべのこし"
         },
         {
           "rank": 2,
-          "percentage": "22.6%",
-          "percentageValue": 22.6,
+          "percentage": "22.9%",
+          "percentageValue": 22.9,
           "nameJa": "オボンのみ"
         },
         {
@@ -158,8 +158,8 @@
         },
         {
           "rank": 6,
-          "percentage": "2.8%",
-          "percentageValue": 2.8,
+          "percentage": "2.7%",
+          "percentageValue": 2.7,
           "nameJa": "レッドカード"
         },
         {
@@ -202,8 +202,8 @@
         },
         {
           "rank": 2,
-          "percentage": "8.4%",
-          "percentageValue": 8.4,
+          "percentage": "8.3%",
+          "percentageValue": 8.3,
           "hp": 31,
           "attack": 0,
           "defense": 4,
@@ -226,8 +226,8 @@
         },
         {
           "rank": 4,
-          "percentage": "4.0%",
-          "percentageValue": 4,
+          "percentage": "4.1%",
+          "percentageValue": 4.1,
           "hp": 32,
           "attack": 0,
           "defense": 31,
@@ -238,6 +238,18 @@
         },
         {
           "rank": 5,
+          "percentage": "3.6%",
+          "percentageValue": 3.6,
+          "hp": 31,
+          "attack": 0,
+          "defense": 0,
+          "specialAttack": 0,
+          "specialDefense": 32,
+          "speed": 3,
+          "raw": "HP 31 / Atk 0 / Def 0 / SpA 0 / SpD 32 / Spe 3"
+        },
+        {
+          "rank": 6,
           "percentage": "3.5%",
           "percentageValue": 3.5,
           "hp": 31,
@@ -249,21 +261,9 @@
           "raw": "HP 31 / Atk 0 / Def 3 / SpA 0 / SpD 32 / Spe 0"
         },
         {
-          "rank": 6,
-          "percentage": "3.4%",
-          "percentageValue": 3.4,
-          "hp": 31,
-          "attack": 0,
-          "defense": 0,
-          "specialAttack": 0,
-          "specialDefense": 32,
-          "speed": 3,
-          "raw": "HP 31 / Atk 0 / Def 0 / SpA 0 / SpD 32 / Spe 3"
-        },
-        {
           "rank": 7,
-          "percentage": "3.0%",
-          "percentageValue": 3,
+          "percentage": "3.1%",
+          "percentageValue": 3.1,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -274,8 +274,8 @@
         },
         {
           "rank": 8,
-          "percentage": "2.8%",
-          "percentageValue": 2.8,
+          "percentage": "2.7%",
+          "percentageValue": 2.7,
           "hp": 31,
           "attack": 0,
           "defense": 9,
@@ -298,8 +298,8 @@
         },
         {
           "rank": 10,
-          "percentage": "1.8%",
-          "percentageValue": 1.8,
+          "percentage": "1.7%",
+          "percentageValue": 1.7,
           "hp": 31,
           "attack": 0,
           "defense": 32,
@@ -320,8 +320,8 @@
         },
         {
           "rank": 2,
-          "percentage": "24.4%",
-          "percentageValue": 24.4,
+          "percentage": "24.2%",
+          "percentageValue": 24.2,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
@@ -491,18 +491,6 @@
           "rank": 7,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "mimikyu",
-          "displayNameJa": "ミミッキュ",
-          "types": [
-            "ghost",
-            "fairy"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png"
-        },
-        {
-          "rank": 8,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "charizard",
           "displayNameJa": "リザードン",
           "types": [
@@ -510,6 +498,18 @@
             "flying"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Charizard.png"
+        },
+        {
+          "rank": 8,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "mimikyu",
+          "displayNameJa": "ミミッキュ",
+          "types": [
+            "ghost",
+            "fairy"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Mimikyu.png"
         },
         {
           "rank": 9,
@@ -542,62 +542,62 @@
       "moves": [
         {
           "rank": 1,
-          "percentage": "95.0%",
-          "percentageValue": 95,
+          "percentage": "94.9%",
+          "percentageValue": 94.9,
           "moveId": "570"
         },
         {
           "rank": 2,
-          "percentage": "76.3%",
-          "percentageValue": 76.3,
+          "percentage": "76.0%",
+          "percentageValue": 76,
           "moveId": "487"
         },
         {
           "rank": 3,
-          "percentage": "71.4%",
-          "percentageValue": 71.4,
+          "percentage": "70.4%",
+          "percentageValue": 70.4,
           "moveId": "182"
         },
         {
           "rank": 4,
-          "percentage": "36.4%",
-          "percentageValue": 36.4,
+          "percentage": "35.5%",
+          "percentageValue": 35.5,
           "moveId": "85"
         },
         {
           "rank": 5,
-          "percentage": "15.9%",
-          "percentageValue": 15.9,
-          "moveId": "330"
-        },
-        {
-          "rank": 6,
-          "percentage": "15.2%",
-          "percentageValue": 15.2,
+          "percentage": "16.3%",
+          "percentageValue": 16.3,
           "moveId": "92"
         },
         {
+          "rank": 6,
+          "percentage": "15.7%",
+          "percentageValue": 15.7,
+          "moveId": "330"
+        },
+        {
           "rank": 7,
-          "percentage": "13.6%",
-          "percentageValue": 13.6,
+          "percentage": "13.7%",
+          "percentageValue": 13.7,
           "moveId": "303"
         },
         {
           "rank": 8,
-          "percentage": "11.7%",
-          "percentageValue": 11.7,
+          "percentage": "11.5%",
+          "percentageValue": 11.5,
           "moveId": "521"
         },
         {
           "rank": 9,
-          "percentage": "11.5%",
-          "percentageValue": 11.5,
+          "percentage": "11.4%",
+          "percentageValue": 11.4,
           "moveId": "491"
         },
         {
           "rank": 10,
-          "percentage": "7.4%",
-          "percentageValue": 7.4,
+          "percentage": "7.1%",
+          "percentageValue": 7.1,
           "moveId": "311"
         }
       ],
@@ -610,20 +610,20 @@
         },
         {
           "rank": 2,
-          "percentage": "21.8%",
-          "percentageValue": 21.8,
+          "percentage": "22.3%",
+          "percentageValue": 22.3,
           "nameJa": "じしゃく"
         },
         {
           "rank": 3,
-          "percentage": "16.4%",
-          "percentageValue": 16.4,
+          "percentage": "16.1%",
+          "percentageValue": 16.1,
           "nameJa": "オボンのみ"
         },
         {
           "rank": 4,
-          "percentage": "4.0%",
-          "percentageValue": 4,
+          "percentage": "4.1%",
+          "percentageValue": 4.1,
           "nameJa": "メトロノーム"
         },
         {
@@ -634,14 +634,14 @@
         },
         {
           "rank": 6,
-          "percentage": "3.3%",
-          "percentageValue": 3.3,
+          "percentage": "3.4%",
+          "percentageValue": 3.4,
           "nameJa": "かいがらのすず"
         },
         {
           "rank": 7,
-          "percentage": "3.3%",
-          "percentageValue": 3.3,
+          "percentage": "3.4%",
+          "percentageValue": 3.4,
           "nameJa": "おおきなねっこ"
         },
         {
@@ -666,8 +666,8 @@
       "spreads": [
         {
           "rank": 1,
-          "percentage": "15.0%",
-          "percentageValue": 15,
+          "percentage": "14.9%",
+          "percentageValue": 14.9,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -678,8 +678,8 @@
         },
         {
           "rank": 2,
-          "percentage": "7.4%",
-          "percentageValue": 7.4,
+          "percentage": "7.1%",
+          "percentageValue": 7.1,
           "hp": 32,
           "attack": 0,
           "defense": 2,
@@ -690,8 +690,8 @@
         },
         {
           "rank": 3,
-          "percentage": "3.0%",
-          "percentageValue": 3,
+          "percentage": "3.1%",
+          "percentageValue": 3.1,
           "hp": 2,
           "attack": 0,
           "defense": 32,
@@ -702,32 +702,8 @@
         },
         {
           "rank": 4,
-          "percentage": "3.0%",
-          "percentageValue": 3,
-          "hp": 0,
-          "attack": 0,
-          "defense": 2,
-          "specialAttack": 32,
-          "specialDefense": 32,
-          "speed": 0,
-          "raw": "HP 0 / Atk 0 / Def 2 / SpA 32 / SpD 32 / Spe 0"
-        },
-        {
-          "rank": 5,
           "percentage": "2.9%",
           "percentageValue": 2.9,
-          "hp": 32,
-          "attack": 0,
-          "defense": 2,
-          "specialAttack": 0,
-          "specialDefense": 32,
-          "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 2 / SpA 0 / SpD 32 / Spe 0"
-        },
-        {
-          "rank": 6,
-          "percentage": "2.7%",
-          "percentageValue": 2.7,
           "hp": 32,
           "attack": 0,
           "defense": 19,
@@ -737,9 +713,33 @@
           "raw": "HP 32 / Atk 0 / Def 19 / SpA 0 / SpD 15 / Spe 0"
         },
         {
+          "rank": 5,
+          "percentage": "2.8%",
+          "percentageValue": 2.8,
+          "hp": 0,
+          "attack": 0,
+          "defense": 2,
+          "specialAttack": 32,
+          "specialDefense": 32,
+          "speed": 0,
+          "raw": "HP 0 / Atk 0 / Def 2 / SpA 32 / SpD 32 / Spe 0"
+        },
+        {
+          "rank": 6,
+          "percentage": "2.8%",
+          "percentageValue": 2.8,
+          "hp": 32,
+          "attack": 0,
+          "defense": 2,
+          "specialAttack": 0,
+          "specialDefense": 32,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 2 / SpA 0 / SpD 32 / Spe 0"
+        },
+        {
           "rank": 7,
-          "percentage": "2.5%",
-          "percentageValue": 2.5,
+          "percentage": "2.7%",
+          "percentageValue": 2.7,
           "hp": 2,
           "attack": 0,
           "defense": 0,
@@ -750,8 +750,8 @@
         },
         {
           "rank": 8,
-          "percentage": "2.3%",
-          "percentageValue": 2.3,
+          "percentage": "2.2%",
+          "percentageValue": 2.2,
           "hp": 32,
           "attack": 0,
           "defense": 32,
@@ -762,8 +762,8 @@
         },
         {
           "rank": 9,
-          "percentage": "1.9%",
-          "percentageValue": 1.9,
+          "percentage": "1.8%",
+          "percentageValue": 1.8,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -774,8 +774,8 @@
         },
         {
           "rank": 10,
-          "percentage": "1.6%",
-          "percentageValue": 1.6,
+          "percentage": "1.7%",
+          "percentageValue": 1.7,
           "hp": 32,
           "attack": 0,
           "defense": 17,
@@ -788,56 +788,56 @@
       "natures": [
         {
           "rank": 1,
-          "percentage": "34.2%",
-          "percentageValue": 34.2,
+          "percentage": "34.6%",
+          "percentageValue": 34.6,
           "nameJa": "ひかえめ",
           "statUp": "とくこう",
           "statDown": "こうげき"
         },
         {
           "rank": 2,
-          "percentage": "26.9%",
-          "percentageValue": 26.9,
+          "percentage": "26.3%",
+          "percentageValue": 26.3,
           "nameJa": "れいせい",
           "statUp": "とくこう",
           "statDown": "すばやさ"
         },
         {
           "rank": 3,
-          "percentage": "12.9%",
-          "percentageValue": 12.9,
+          "percentage": "13.1%",
+          "percentageValue": 13.1,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
         },
         {
           "rank": 4,
-          "percentage": "12.4%",
-          "percentageValue": 12.4,
+          "percentage": "12.5%",
+          "percentageValue": 12.5,
           "nameJa": "おだやか",
           "statUp": "とくぼう",
           "statDown": "こうげき"
         },
         {
           "rank": 5,
-          "percentage": "6.5%",
-          "percentageValue": 6.5,
+          "percentage": "6.6%",
+          "percentageValue": 6.6,
           "nameJa": "なまいき",
           "statUp": "とくぼう",
           "statDown": "すばやさ"
         },
         {
           "rank": 6,
-          "percentage": "4.6%",
-          "percentageValue": 4.6,
+          "percentage": "4.3%",
+          "percentageValue": 4.3,
           "nameJa": "のんき",
           "statUp": "ぼうぎょ",
           "statDown": "すばやさ"
         },
         {
           "rank": 7,
-          "percentage": "0.9%",
-          "percentageValue": 0.9,
+          "percentage": "1.1%",
+          "percentageValue": 1.1,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
@@ -860,8 +860,8 @@
         },
         {
           "rank": 10,
-          "percentage": "0.3%",
-          "percentageValue": 0.3,
+          "percentage": "0.2%",
+          "percentageValue": 0.2,
           "nameJa": "いじっぱり",
           "statUp": "こうげき",
           "statDown": "とくこう"
@@ -877,15 +877,15 @@
         },
         {
           "rank": 2,
-          "percentage": "1.1%",
-          "percentageValue": 1.1,
+          "percentage": "1.2%",
+          "percentageValue": 1.2,
           "nameJa": "せいでんき",
           "descriptionJa": "接触技を受けると ３０％の確率で 相手をまひ状態にする。"
         },
         {
           "rank": 3,
-          "percentage": "0.5%",
-          "percentageValue": 0.5,
+          "percentage": "0.4%",
+          "percentageValue": 0.4,
           "nameJa": "しめりけ",
           "descriptionJa": "全員 爆発の技が使用できず 爆発する特性も発動しない。"
         }
@@ -990,17 +990,6 @@
           "rank": 9,
           "percentage": null,
           "percentageValue": null,
-          "pokemonId": "sceptile",
-          "displayNameJa": "ジュカイン",
-          "types": [
-            "grass"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sceptile.png"
-        },
-        {
-          "rank": 10,
-          "percentage": null,
-          "percentageValue": null,
           "pokemonId": "pelipper",
           "displayNameJa": "ペリッパー",
           "types": [
@@ -1008,6 +997,17 @@
             "flying"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Pelipper.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
+          "pokemonId": "sceptile",
+          "displayNameJa": "ジュカイン",
+          "types": [
+            "grass"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Sceptile.png"
         }
       ]
     }
