@@ -11,7 +11,7 @@
   ],
   "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Archaludon.png",
   "ranks": {
-    "Singles": 5,
+    "Singles": 4,
     "Doubles": 11
   },
   "usagePercentages": {
@@ -72,7 +72,7 @@
   ],
   "formats": {
     "Singles": {
-      "rank": 5,
+      "rank": 4,
       "usagePercentage": null,
       "moves": [
         {
@@ -101,8 +101,8 @@
         },
         {
           "rank": 5,
-          "percentage": "20.3%",
-          "percentageValue": 20.3,
+          "percentage": "20.4%",
+          "percentageValue": 20.4,
           "moveId": "525"
         },
         {
@@ -113,8 +113,8 @@
         },
         {
           "rank": 7,
-          "percentage": "18.2%",
-          "percentageValue": 18.2,
+          "percentage": "18.3%",
+          "percentageValue": 18.3,
           "moveId": "905"
         },
         {
@@ -125,14 +125,14 @@
         },
         {
           "rank": 9,
-          "percentage": "17.6%",
-          "percentageValue": 17.6,
+          "percentage": "17.5%",
+          "percentageValue": 17.5,
           "moveId": "399"
         },
         {
           "rank": 10,
-          "percentage": "17.2%",
-          "percentageValue": 17.2,
+          "percentage": "17.1%",
+          "percentageValue": 17.1,
           "moveId": "796"
         }
       ],
@@ -145,8 +145,8 @@
         },
         {
           "rank": 2,
-          "percentage": "18.0%",
-          "percentageValue": 18,
+          "percentage": "18.1%",
+          "percentageValue": 18.1,
           "nameJa": "たべのこし"
         },
         {
@@ -169,8 +169,8 @@
         },
         {
           "rank": 6,
-          "percentage": "6.7%",
-          "percentageValue": 6.7,
+          "percentage": "6.6%",
+          "percentageValue": 6.6,
           "nameJa": "ふうせん"
         },
         {
@@ -289,11 +289,11 @@
           "percentageValue": 1.7,
           "hp": 32,
           "attack": 0,
-          "defense": 0,
-          "specialAttack": 32,
-          "specialDefense": 0,
-          "speed": 2,
-          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 2"
+          "defense": 32,
+          "specialAttack": 0,
+          "specialDefense": 2,
+          "speed": 0,
+          "raw": "HP 32 / Atk 0 / Def 32 / SpA 0 / SpD 2 / Spe 0"
         },
         {
           "rank": 9,
@@ -301,11 +301,11 @@
           "percentageValue": 1.7,
           "hp": 32,
           "attack": 0,
-          "defense": 32,
-          "specialAttack": 0,
-          "specialDefense": 2,
-          "speed": 0,
-          "raw": "HP 32 / Atk 0 / Def 32 / SpA 0 / SpD 2 / Spe 0"
+          "defense": 0,
+          "specialAttack": 32,
+          "specialDefense": 0,
+          "speed": 2,
+          "raw": "HP 32 / Atk 0 / Def 0 / SpA 32 / SpD 0 / Spe 2"
         },
         {
           "rank": 10,
@@ -331,16 +331,16 @@
         },
         {
           "rank": 2,
-          "percentage": "20.6%",
-          "percentageValue": 20.6,
+          "percentage": "20.7%",
+          "percentageValue": 20.7,
           "nameJa": "ずぶとい",
           "statUp": "ぼうぎょ",
           "statDown": "こうげき"
         },
         {
           "rank": 3,
-          "percentage": "15.5%",
-          "percentageValue": 15.5,
+          "percentage": "15.4%",
+          "percentageValue": 15.4,
           "nameJa": "おくびょう",
           "statUp": "すばやさ",
           "statDown": "こうげき"
@@ -565,8 +565,8 @@
         },
         {
           "rank": 3,
-          "percentage": "74.0%",
-          "percentageValue": 74,
+          "percentage": "73.8%",
+          "percentageValue": 73.8,
           "moveId": "406"
         },
         {
@@ -589,8 +589,8 @@
         },
         {
           "rank": 7,
-          "percentage": "17.7%",
-          "percentageValue": 17.7,
+          "percentage": "17.8%",
+          "percentageValue": 17.8,
           "moveId": "434"
         },
         {
@@ -737,8 +737,8 @@
         },
         {
           "rank": 6,
-          "percentage": "2.5%",
-          "percentageValue": 2.5,
+          "percentage": "2.6%",
+          "percentageValue": 2.6,
           "hp": 32,
           "attack": 0,
           "defense": 0,
@@ -888,8 +888,8 @@
         },
         {
           "rank": 2,
-          "percentage": "5.9%",
-          "percentageValue": 5.9,
+          "percentage": "5.8%",
+          "percentageValue": 5.8,
           "nameJa": "がんじょう",
           "descriptionJa": "ＨＰ満タンの時 一撃で ひんしになる技のダメージを受けると ＨＰを１残して耐える。 一撃必殺技も効かない。"
         },
@@ -1001,6 +1001,17 @@
           "rank": 9,
           "percentage": null,
           "percentageValue": null,
+          "pokemonId": "politoed",
+          "displayNameJa": "ニョロトノ",
+          "types": [
+            "water"
+          ],
+          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Politoed.png"
+        },
+        {
+          "rank": 10,
+          "percentage": null,
+          "percentageValue": null,
           "pokemonId": "garchomp",
           "displayNameJa": "ガブリアス",
           "types": [
@@ -1008,17 +1019,6 @@
             "ground"
           ],
           "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Garchomp.png"
-        },
-        {
-          "rank": 10,
-          "percentage": null,
-          "percentageValue": null,
-          "pokemonId": "politoed",
-          "displayNameJa": "ニョロトノ",
-          "types": [
-            "water"
-          ],
-          "sprite": "https://championsbattledata.com/pokemon_champions_assets/pokemon/Politoed.png"
         }
       ]
     }
